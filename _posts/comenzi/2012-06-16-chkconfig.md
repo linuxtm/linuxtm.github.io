@@ -1,0 +1,14 @@
+---
+title: chkconfig
+author: linuxtm
+layout: post
+permalink: /chkconfig/
+categories:
+  - Comenzi
+tags:
+  - comenzi linux
+  - comenzi linux de la a la z
+  - lista comenzi linux
+  - toate comenzile linux
+---
+Sorry, dar inca nu am descris aceasta comanda :(

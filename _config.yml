@@ -1,0 +1,14 @@
+# Site settings
+title: linuxtm.ro
+email: admin@linuxtm.ro
+description: comenzi linux, tutoriale linux
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "https://linuxtm.ro" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+
+
+
