@@ -20,6 +20,7 @@ tags:
 <pre>GRANT ALL PRIVILEGES ON `dbname`.* TO 'user'@'127.2.1.%';</pre>
 <pre>UPDATE mysql.user SET PASSWORD=PASSWORD('somepass') WHERE USER='user';</pre>
 <pre>SELECT user, host FROM mysql.user;</pre>
+<pre>DROP user 'user'@'host';</pre>
 <pre>SELECT * FROM `table` ORDER BY id DESC LIMIT 10;</pre>
 <pre>DELETE FROM mysql.user WHERE USER='user' AND HOST='localhost';</pre>
 <pre>mysqldump -u root -p dbname > dbname.sql</pre>
