@@ -153,7 +153,7 @@ tags:
     </td>
     
     <td>
-      verifica coada de mesaje
+      verifica mesajele din coada
     </td>
   </tr>
   
@@ -177,7 +177,7 @@ tags:
     </td>
     
     <td>
-      verifica coada de mesaje
+      verifica mesajele din coada
     </td>
   </tr>
   
