@@ -144,7 +144,7 @@ tags:
   </tr>
 </table>
 
-***Postfix</em>**</p> 
+***Postfix*** 
 
 <table width="547" border="0">
   <tr>
@@ -168,7 +168,7 @@ tags:
 </table>
 
 
-***Qmail</em>**</p> 
+***Qmail***
 
 <table width="547" border="0">
   <tr>
