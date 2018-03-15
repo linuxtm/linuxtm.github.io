@@ -166,3 +166,28 @@ tags:
     </td>
   </tr>
 </table>
+
+
+***Qmail</em>**</p> 
+
+<table width="547" border="0">
+  <tr>
+    <td>
+      <strong>/var/qmail/bin/qmail-qread</strong>
+    </td>
+    
+    <td>
+      verifica coada de mesaje
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>/var/qmail/bin/qmail-qstat</strong>
+    </td>
+    
+    <td>
+    numara mesajele din coada
+    </td>
+  </tr>
+</table>
