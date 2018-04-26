@@ -27,6 +27,9 @@ tags:
 <pre>mysqldump --routines --triggers --events -u root dbname > dbname.sql</pre>
 <pre>mysql -u root -p dbname < dbname.sql</pre>
 
+***Replication dump***
+<pre>mysqldump --master-data --single-transaction -A > alldbs.sql --routines --triggers --events</pre>
+
 ***Restore din backup***
 <pre>
 mysqldump dbname > dbname-today.sql
