@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>chmod</title>
+  <meta name="description" content="chmodSchimba permisiunile de acces, schimba modul.">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/chmod/">
+  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://localhost:4000/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">linuxtm.ro</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/tutoriale/">Tutoriale</a>
+          
+        
+          
+          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
+          
+        
+          
+          <a class="page-link" href="/webservers/">Webservers</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-linux/">Comenzi uzuale</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">chmod</h1>
+    <p class="post-meta">Jun 16, 2012 • linuxtm</p>
+  </header>
+
+  <article class="post-content">
+    <p>chmod<br />
+Schimba permisiunile de acces, schimba modul.</p>
+
+<p>Sintaxa<br />
+chmod [optiune]… Mode [,Mode]… fisier…</p>
+
+<p>chmod [optiune]… Numeric_Mode fisier…</p>
+
+<p>chmod [optiune]… –reference=RFile fisier…</p>
+
+<p>Optiuni<br />
+-f, –silent, –quiet suprima cele mai multe mesaje de eroare<br />
+-v, –verbose afiseaza un diagnostic pentru fiecare fisier procesat<br />
+-c, –changes la fel ca si verbose, dar reporteaza doar cand sunt efectuate schimbari<br />
+–reference=RFile foloseste modul RFile’s in loc de valorile MODE<br />
+-R, –recursive schimba fisiere si directoare recursiv<br />
+–help afiseaza manualul de ajutor<br />
+–version afiseaza informatii despre versiune<br />
+chmod schimba permisiunile pentru fiecare fisier dat potrivit mode, unde mode descrie permisiuniea ce urmeaza a fi modificata.<br />
+Mode poate fi specificat cu numere octale sau cu litere. Folosind litere este mai usor de inteles pentru majoritatea.</p>
+
+<p>Mod numeric:</p>
+
+<p>Intre 1 si 4 cifre octale:<br />
+Orice cifre omise sunt presupuse a fi zero.</p>
+
+<p>Prima cifra = selecteaza atribute pentru user ID (4) si pentru group ID (2) si salveaza imaginea text (1)s<br />
+A doua cifra = permisiuni pentru utilizatori ce detin fisiere: read (4), write (2), si execute (1)<br />
+A treia cifra = permisiuni pentru alti utilizatori in grupul de fisiere: read (4), write (2), si execute (1)<br />
+A patra cifra = permisiuni pentru utilizatori ce nu sint in grupul de fisiere: read (4), write (2), si execute (1)</p>
+
+<p>Valoarea octala (0-7) este calculata plusand valori pentru fiecare cifra.</p>
+
+<p>User (rwx) = 4+2+1 = 7<br />
+Group(rx) = 4+1 = 5<br />
+World (rx) = 4+1 = 5<br />
+chmode mode = 0755</p>
+
+<p>Exemple</p>
+
+<p>chmod 400 file – Poate fi citit de catre owner<br />
+chmod 040 file – Poate fi citit de catre grup<br />
+chmod 004 file – Poate fi citit de catre altii</p>
+
+<p>chmod 200 file – Poate fi scris de catre owner<br />
+chmod 020 file – Poate fi scris de catre grup<br />
+chmod 002 file – Poate fi scris de catre altii</p>
+
+<p>chmod 100 file – Poate fi executat de catre owner<br />
+chmod 010 file – Poate fi executat de catre grup<br />
+chmod 001 file – Poate fi executat de catre altii</p>
+
+<p>Pentru a le combina, trebuie alaturate numerele:</p>
+
+<p>chmod 444 file – Permite a fi citit de catre owner, grup si altii<br />
+chmod 777 file – Permite tuturor sa citeasca, scrie si sa execute fisierul</p>
+
+<p>Modul simbolic<br />
+Formatul unui mod simbolic este o combinatie de litere +-= rwxXstugoa<br />
+Pot fi date mai multe operatii simbolice separate prin virgula.<br />
+Sintaxa completa este [ugoa…][[+-=][rwxXstugo…]…][,…] dar este explicata mai jos.</p>
+
+<p>O combinatie de litere ugoa controleaza care useri sa acceseze fisierul ce va fi schimbat:</p>
+
+<p>u – utilizatorul ce detine fisierul<br />
+g – alti utilizatori din grupul de fisiere<br />
+o – alti utilizatori<br />
+a – toti utilizatorii</p>
+
+<p>Daca nu este specificat nici unul, efectul este ca si cum ar fi dat, dar partile setate in umask nu sunt afectate.</p>
+
+<p>Totu utilizatorii sunt user + group + others (utilizator + grup + altii)<br />
+Operandul ‘ + ‘, adauga permisiunea selectata permisiunilor deja existente fiecarui fisier; ‘ – ‘ le sterge iar ‘ = ‘ cauzeaza permisiunile sa fie setate la cele deja existente.</p>
+
+<p>Literele ‘rwxXstugo’ selecteaza permisiuni noi pentru fiecare din userii afectati:</p>
+
+<p>Litera – Permisiune<br />
+r – read (citeste)<br />
+w – write (scrie)<br />
+x – execute (executa sau acceseaza directoare)<br />
+s – seteaza un utilizator sau un grup la executare<br />
+t – salveaza textul programului pe dispozitivul de swap<br />
+u – permisiunile pe care le are userul si fisierul pentru care le are<br />
+g – la fel, pentru grup<br />
+o – la fel, pentru altii</p>
+
+<p>Exemple:<br />
+Interzicerea tuturor permisiunii de a executa:</p>
+
+<p>chmod a-x fisier</p>
+
+<p>Permite a fi citit de catre toti:<br />
+chmod a+r fisier</p>
+
+<p>Facem un fisier sa poata fi citit si scris de catre grup si altii:<br />
+chmod go+rw file</p>
+
+<p>Facem un script shell sa fie executabil de care user / owner:<br />
+$ chmod u+x scriptul_meu.sh</p>
+
+<p>Si asa mai departe, sper ca ati prins ideea.</p>
+
+<p>Nota<br />
+Cand chmod este aplicat directoarelor se permite:<br />
+read – afisarea fisierelor din director<br />
+write – adaugarea de fisiere noi in director<br />
+exectue – accesarea fisierelor din director</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+<div class="wrapper">
+        <div class="footer-col footer-col-1">
+        <h2 class="footer-heading">Linkuri utile</h2>
+                <li><a href="http://intodns.com">intodns.com</a></li>
+                <li><a href="http://linux-romania.com">linux-romania.ro</a></li>
+                <li><a href="http://archlinux.ro">archlinux.ro</a></li>
+        </div>
+<!--
+        <div class="footer-col footer-col-2">
+        <h2 class="footer-heading">Contact</h2>
+                <p>mail(at)linuxtm.ro</p>
+        </div>
+-->
+       <div class="footer-col footer-col-3">
+        <h2 class="footer-heading">Utilizare</h2>
+                <a href="https://linuxtm.ro/termeni/">Termeni si conditii</a>
+        </div>
+
+
+</div>
+</footer>
+
+
+  </body>
+
+</html>

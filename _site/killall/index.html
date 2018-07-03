@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>killall</title>
+  <meta name="description" content="Termina procese dupa nume.">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/killall/">
+  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://localhost:4000/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">linuxtm.ro</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/tutoriale/">Tutoriale</a>
+          
+        
+          
+          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
+          
+        
+          
+          <a class="page-link" href="/webservers/">Webservers</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-linux/">Comenzi uzuale</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">killall</h1>
+    <p class="post-meta">Jun 18, 2012 • linuxtm</p>
+  </header>
+
+  <article class="post-content">
+    <p>Termina procese dupa nume.</p>
+
+<p>Sintaxa<br />
+killall [<em>optiune(i)</em>] [–] <em>nume</em> …</p>
+
+<p>killall -l</p>
+
+<p>killall -V,–version</p>
+
+<p>Optiuni:</p>
+
+<p>-e<br />
+–exact<br />
+Cere o potrivire exacta pentru nume foarte lungi.<br />
+Daca numele unei comenzi este mail lunga de 15 caractere, numele intreg s-ar putea sa nu fie disponibil.<br />
+In acest caz, killall wa termina tot ce potriveste in cele 15 caractere. Cu optiunea -e , acest tip de intrari sunt omise.<br />
+killall afiseaza un mesah pentru fiecare intrare omisa daca optiunea -v este specificata in loce de -e</p>
+
+<p>-g<br />
+–process-group<br />
+Termina grupul de care apartine un proces.<br />
+Semnalul kill este trimis o singura data pe grup chiar daca sunt mai multe procese care apartin aceluiasi grup de procese.</p>
+
+<p>-I   Potriveste numele proceselor pentru a fi case insensitive.<br />
+–ignore-case</p>
+
+<p>-i   Cere confirmare inainte de a termina procesul<br />
+–interactive</p>
+
+<p>-l   Afiseaza toate numele semnalelor cunoscute.<br />
+–list</p>
+
+<p><em>name</em> Comanda / procesul ce trebuie terminat.</p>
+
+<p>-q   Sa nu va mirati daca nu este terminat nici un proces<br />
+–quiet</p>
+
+<p>-r  Interpreteaza un model de nume a proceselor ca si o expresie normala<br />
+–regexp</p>
+
+<p>-<em>s</em> <em>signal</em><br />
+–signal <em>semnal</em><br />
+Trimite <em>semnal </em>in loc de SIGTERM-ul implicit. Ex: -9 = SIGKILL</p>
+
+<p>-u <em>user</em><br />
+–user <em>utilizator</em></p>
+
+<p>Termina doar procesele pe care userul dat le detine. Numele comenzilor este optional.</p>
+
+<p>-v  Raporteaza daca semnalul a fost trimis cu succes.<br />
+–verbose</p>
+
+<p>-V  Afiseaza informatii despre versiunea curenta.<br />
+–version</p>
+
+<p>-w<br />
+–wait</p>
+
+<p>Asteapta ca toate procesele terminate sa “moara”. killall verifica o data pe secunda daca un proces terminat inca exista si nu intoarce nimic daca nu a ramas nici unul.</p>
+
+<p>Trebuie retinut ca, killall s-ar putea sa astepte la infinit daca semnalul a fost ignorat, daca nu a avut nici un efect sau daca procesul este zombie.</p>
+
+<p>-Z <em>pattern</em><br />
+–context <em>pattern</em></p>
+
+<p>killall trimite uns emnal tuturor proceselor ce ruleaza una din comenzile specificate. Daca nu este mentionat numele semnalului, este trimis SIGTERM.<br />
+Semnalele pot fi specificate fie dupa nume (ex: -HUP) fie dupa numar (ex: -1) fie dupa optiune -s.<br />
+Daca numele comenzi nu este o expresie regulata (optiune -r) si contine un slash (/), procesele care executa acel fisier vor fi selectate pentru terminare, indiferent de numele acestora.</p>
+
+<p>killall intoarte un rezultat null daca cel putin a fost terminat pentru fiecare comanda listata, daca nici o comanda nu a fost listata si cel putin un proces a fost potrivit, atunci -u si -Z sunt utilizate ca si criteriu de cautare. Altfel, killall va intoarce un rezultat diferit de zero.</p>
+
+<p>Un proces killall nu se termina nici odata pe el insusi (dar ar putea termina alte procese ale killall).</p>
+
+<p>Semnale comune kill</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+  <tr>
+    <th align="LEFT" valign="MIDDLE">
+      Nume semnal
+    </th>
+    
+    <th align="LEFT" valign="MIDDLE">
+      Valoare semnal
+    </th>
+    
+    <th align="LEFT" valign="MIDDLE">
+      Efect
+    </th>
+  </tr>
+  
+  <tr>
+    <td align="LEFT" valign="MIDDLE">
+      SIGHUP
+    </td>
+    
+    <td align="LEFT" valign="MIDDLE">
+      1
+    </td>
+    
+    <td align="LEFT" valign="MIDDLE">
+      Inchide
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="LEFT" valign="MIDDLE">
+      SIGINT
+    </td>
+    
+    <td align="LEFT" valign="MIDDLE">
+      2
+    </td>
+    
+    <td align="LEFT" valign="MIDDLE">
+      Intrerupt de tastatura
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="LEFT" valign="MIDDLE">
+      SIGKILL
+    </td>
+    
+    <td align="LEFT" valign="MIDDLE">
+      9
+    </td>
+    
+    <td align="LEFT" valign="MIDDLE">
+      Semnalul kill
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="LEFT" valign="MIDDLE">
+      SIGTERM
+    </td>
+    
+    <td align="LEFT" valign="MIDDLE">
+      15
+    </td>
+    
+    <td align="LEFT" valign="MIDDLE">
+      Semnal de terminare
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="LEFT" valign="MIDDLE">
+      SIGSTOP
+    </td>
+    
+    <td align="LEFT" valign="MIDDLE">
+      17,19,23
+    </td>
+    
+    <td align="LEFT" valign="MIDDLE">
+      Opreste procesul
+    </td>
+  </tr>
+</table>
+
+<p>Fisiere<br />
+/proc<br />
+locatia fisierelor de sistem proc</p>
+
+<p>Bug-uri cunoscute</p>
+
+<p>Daca rulam killall <em>nume</em> s-ar putea sa nu obtinem efectul dorit pe sisteme de operare non-Linux, in special cand aceasta este executata de un user cu permisiuni. De ex, Solaris va termina toate procesele active.<br />
+Terminarea dupa fisiere functioneaza doar cu executabilele care sunt tinute deschise in timpul executiei, de exemplu, executabilele impure nu pot fi terminate in acest mod.<br />
+killall -w nu va detecta daca un proces dispare si e inlocuit de un altul cu acelasi PID intre scanari<br />
+Daca procesele isi schimba numele, killall s-ar putea sa nu le potriveasca corect.</p>
+
+<p>Exemple</p>
+
+<p>Kill firefox:<br />
+$ killall -9 mozilla-bin</p>
+
+<p>Kill php:<br />
+killall -9 php</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+<div class="wrapper">
+        <div class="footer-col footer-col-1">
+        <h2 class="footer-heading">Linkuri utile</h2>
+                <li><a href="http://intodns.com">intodns.com</a></li>
+                <li><a href="http://linux-romania.com">linux-romania.ro</a></li>
+                <li><a href="http://archlinux.ro">archlinux.ro</a></li>
+        </div>
+<!--
+        <div class="footer-col footer-col-2">
+        <h2 class="footer-heading">Contact</h2>
+                <p>mail(at)linuxtm.ro</p>
+        </div>
+-->
+       <div class="footer-col footer-col-3">
+        <h2 class="footer-heading">Utilizare</h2>
+                <a href="https://linuxtm.ro/termeni/">Termeni si conditii</a>
+        </div>
+
+
+</div>
+</footer>
+
+
+  </body>
+
+</html>

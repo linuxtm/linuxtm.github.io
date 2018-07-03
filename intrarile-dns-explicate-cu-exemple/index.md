@@ -1,5 +1,5 @@
 ---
-title: DNS_Explicat
+title: DNS Explicat
 author: linuxtm
 layout: page
 tags:

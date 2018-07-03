@@ -1,0 +1,40 @@
+#BEGIN GZIP COMPRESSION
+<IFModule mod_deflate.c>
+<filesmatch "\.(js|css|html|jpg|png|php)$">
+SetOutputFilter DEFLATE
+</filesmatch>
+</IFModule>
+#END GZIP COMPRESSION
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|xml|gz)$">
+    Header append Vary: Accept-Encoding
+  </FilesMatch>
+</IfModule>
+
+# BEGIN EXPIRES
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 10 days"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType text/plain "access plus 1 day"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType application/x-icon "access plus 1 year"
+</IfModule>
+# END EXPIRES
+
+#No wordpress here, fuck off !
+redirect 301 /wp-login.php https://linuxtm.ro/getlost.html
+redirect 301 /wp-admin https://linuxtm.ro/getlost.html
+redirect 301 /wp-content https://linuxtm.ro/getlost.html
+redirect 301 /wp-includes https://linuxtm.ro/getlost.html
+
+#Also, no php here, fuck off !
+php_flag engine off
+<Files *.php>
+deny from all
+</Files>

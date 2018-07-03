@@ -18,7 +18,7 @@ body {
     font-size: $base-font-size;
     line-height: $base-line-height;
     color: $text-color;
-    background-color: $background-color;
+    background-color: #ebebeb;
     -webkit-text-size-adjust: 100%;
 }
 
@@ -88,15 +88,15 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-    color: $brand-color;
+    color: #0000f2;
     text-decoration: none;
 
     &:visited {
-        color: darken($brand-color, 15%);
+        color: #551A8B;
     }
 
     &:hover {
-        color: $text-color;
+        color: #0000f2;
         text-decoration: underline;
     }
 }
@@ -126,10 +126,11 @@ blockquote {
  */
 pre,
 code {
-    font-size: 14px;
-    border: 1px solid $grey-color-light;
+    font-size: 15px;
+    font-family: "Courier New", Courier, monospace;
+    border: 1px solid #aaa;
     border-radius: 3px;
-    background-color: #eef;
+    background-color: #dedede;
 }
 
 code {
@@ -140,7 +141,7 @@ pre {
     padding: 4px 10px;
     overflow-x: hidden;
     white-space: pre-wrap;
-    font-family: Helvetica;
+    font-family: "Courier New", Courier, monospace;
 
     > code {
         border: 0;

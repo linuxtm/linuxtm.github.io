@@ -1,5 +1,5 @@
 ---
-title: Comenzi_uzuale
+title: Comenzi uzuale
 author: linuxtm
 layout: page
 tags:

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ls</title>
+  <meta name="description" content="Afiseaza informatii despre fisiere">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/ls/">
+  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://localhost:4000/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">linuxtm.ro</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/tutoriale/">Tutoriale</a>
+          
+        
+          
+          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
+          
+        
+          
+          <a class="page-link" href="/webservers/">Webservers</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-linux/">Comenzi uzuale</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">ls</h1>
+    <p class="post-meta">Jun 18, 2012 • linuxtm</p>
+  </header>
+
+  <article class="post-content">
+    <p>Afiseaza informatii despre fisiere</p>
+
+<p>Sintaxa<br />
+ls [optiune]… [fisier]…</p>
+
+<p>Optiuni</p>
+
+<p>Listeaza intrarile in ordine alfabetica</p>
+
+<p>-a, –all Nu ascunde intrarile care incep cu .</p>
+
+<p>-A, –almost-all Nu afiseaza fisierele care inclut . si ..</p>
+
+<p>-b, –escape Afiseaza iesiri octale pentru caractere care nu sunt grafice</p>
+
+<p>-B, –ignore-backups Nu afiseaza intrarile implicite care se termina cu ~</p>
+
+<p>-c Sorteaza dupa data la care a fost modificat; cu -l: show ctime</p>
+
+<p>-C Afiseaza intrarile pe coloane.</p>
+
+<p>–color[=WHEN] Controleaza ce culori sa fie folosite pentru a distinge tipuri de fisiere.</p>
+
+<p>-d, –directory Afiseaza List directory entries instead of contents</p>
+
+<p>-f Nu sorteaza, activeaza -au, dezactiveaza -lst</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>-F, –classify Adauga intrarilor unul din indicatorii */=@</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>–full-time Afiseaza in detaliu data si ora</p>
+
+<p>-g (ignored)</p>
+
+<p>-G, –no-group Impiedica afiseara informatiilor de grup</p>
+
+<p>-h, –human-readable Afiseaza marimile in formate intelese omului(de ex: 1K 30M 2G)<br />
+-H, –si La fel, dar la puterea de utilizare de 1000, nu 1024</p>
+
+<p>-i, –inode Afiseaza numarul de index a fiecarui fisier</p>
+
+<p>-I, –ignore=PATTERN Nu afiseaza intrarile implicite care potrivesc PATTERN-ului (calea) shell-ului.</p>
+
+<p>-k, –kilobytes Like –block-size=1024</p>
+
+<p>-l Utilizeaza un format de listare lung</p>
+
+<p>-L, –dereference Afiseaza intrari directionate catre un link simbolic</p>
+
+<p>-m Umple pe latime listele intrarilor separate cu virgula ( , )</p>
+
+<p>-n, –numeric-uid-gid Listeaza UID-uri si GID-uri numerice in loc de numele acestora</p>
+
+<p>-o Afiseaza un format de listare lung, fara informatii de grup</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>-p, –file-type Adauga unul din indicatorii /=@</td>
+      <td>intrarilor</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>-q, –hide-control-chars Afiseaza in caractere non-grafice</p>
+
+<p>–show-control-chars Afiseaza caractere as-is (implicit) non-grafice</p>
+
+<p>-Q, –quote-name Incadreaza numele intrarilor in ghilimele duble</p>
+
+<p>-r, –reverse Afiseaza in ordine inversa fisierele sortate</p>
+
+<p>-R, –recursive Afiseaza recursiv subdirectoare</p>
+
+<p>-s, –size Afiseaza marimea fiecarui fisier</p>
+
+<p>-S Sorteaza dupa marimea fisierului</p>
+
+<p>-t Sorteaza dupa data modificarii</p>
+
+<p>-u Afiseaza dupa ultima accesare</p>
+
+<p>-U Nu sorteaza, afisieaza intrarile in ordinea directoarelor</p>
+
+<p>-v Sorteaza dupa versiune</p>
+
+<p>-w, –width=COLS Estimeaza latimea ecranului in detrimentul valorii actuale</p>
+
+<p>-x Afiseaza intrari sub forma de linii</p>
+
+<p>-X Sorteaa alfabetic dupa extensiile fisierelor</p>
+
+<p>-1 Afiseaza un fisier per linie</p>
+
+<p>–help Afiseaza manualul de ajutor si iese</p>
+
+<p>–version Afiseaza informatii despre versiune si iese</p>
+
+<p>Cele mai utilizate optiuni sunt -a (toate fisierele) si -l (in detaliu)</p>
+
+<p>Exemple</p>
+
+<p># afisarea directorului home<br />
+$ ls ~</p>
+
+<p># afisarea intr-o lista verticala:<br />
+$ ls -al</p>
+
+<p>total 109<br />
+drwxr-xr-x 18 root root 4096 Jun 8 21:12 ./<br />
+drwxr-xr-x 18 root root 4096 Jun 8 21:12 ../<br />
+drwxr-xr-x 2 root root 4096 Jun 8 21:14 bin/<br />
+drwxr-xr-x 3 root root 1024 Jun 8 20:32 boot/<br />
+drwxr-xr-x 6 root root 36864 Jun 12 10:26 dev/<br />
+drwxr-xr-x 34 root root 4096 Jun 12 10:25 etc/</p>
+<p>prima coloana e tipul fisierului<br />
+d = director<br />
+f = fisier</p>
+
+<p># Afiseaza directoarele din directorul curent:<br />
+$ ls -d */</p>
+
+<p># Afiseaza toate subdirectoarele<br />
+$ ls *</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+<div class="wrapper">
+        <div class="footer-col footer-col-1">
+        <h2 class="footer-heading">Linkuri utile</h2>
+                <li><a href="http://intodns.com">intodns.com</a></li>
+                <li><a href="http://linux-romania.com">linux-romania.ro</a></li>
+                <li><a href="http://archlinux.ro">archlinux.ro</a></li>
+        </div>
+<!--
+        <div class="footer-col footer-col-2">
+        <h2 class="footer-heading">Contact</h2>
+                <p>mail(at)linuxtm.ro</p>
+        </div>
+-->
+       <div class="footer-col footer-col-3">
+        <h2 class="footer-heading">Utilizare</h2>
+                <a href="https://linuxtm.ro/termeni/">Termeni si conditii</a>
+        </div>
+
+
+</div>
+</footer>
+
+
+  </body>
+
+</html>

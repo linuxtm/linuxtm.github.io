@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>cPanel: Alocare IP dedicat pe subdomeniu + Instalare SSL</title>
+  <meta name="description" content="Chiar daca interfata WHM nu permite alocarea unui IP dedicat subdomeniilor, se poate face. Motivul principal pentru care s-ar putea sa vreti sa alocati un IP...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/cpanel-alocare-ip-dedicat-pe-subdomeniu-instalare-ssl/">
+  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://localhost:4000/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">linuxtm.ro</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/tutoriale/">Tutoriale</a>
+          
+        
+          
+          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
+          
+        
+          
+          <a class="page-link" href="/webservers/">Webservers</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-linux/">Comenzi uzuale</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">cPanel: Alocare IP dedicat pe subdomeniu + Instalare SSL</h1>
+    <p class="post-meta">Oct 17, 2013 • linuxtm</p>
+  </header>
+
+  <article class="post-content">
+    <p>Chiar daca interfata WHM nu permite alocarea unui IP dedicat subdomeniilor, se poate face. Motivul principal pentru care s-ar putea sa vreti sa alocati un IP dedicat unui subdomeniu este instalarea unui certificat SSL.</p>
+
+<p>Pentru exemplul de fata vom folosi:</p>
+
+<p>Domeniu/Subdomeniu Adresa IP<br />
+exemplu.ro 192.168.0.1<br />
+sub.exemplu.ro 192.168.0.2</p>
+
+<p>Pentru a continua, este nevoie de access SSH.<br />
+Adaugarea se face usor prin ediatarea fisierului aferent subdomeniului respectiv.</p>
+
+<ol>
+  <li>Intram in directorul <strong>userdata</strong></li>
+</ol>
+
+<pre>cd /var/cpanel/userdata</pre>
+
+<ol>
+  <li>Localizam utilizatorul si navigam in directorul respectiv:</li>
+</ol>
+
+<pre>cd exemplu</pre>
+
+<ol>
+  <li>In interiorul directorului gasim urmatoarele fisiere:</li>
+</ol>
+
+<pre>exemplu.ro
+exemplu.ro.cache
+sub.exemplu.ro
+sub.exemplu.ro.cache
+etc, etc</pre>
+
+<ol>
+  <li>Folosind editorul preferat (vi, vim, nano), editam ce ne intereseaza, adica fisierul pentru subdomeniu, in cazul de fata sub.exemplu.ro</li>
+  <li>In dreptul campului “ip”, inlocuim cu ip-ul ce ne intereseaza, dupa care salvam fisierul.</li>
+</ol>
+
+<pre>ip: 192.168.0.2</pre>
+
+<ol>
+  <li>Dupa ce am salvat, facem rebuild la Apache, apoi restartam Apache-u:</li>
+</ol>
+
+<pre>/usr/local/cpanel/scripts/rebuildhttpdconf
+/usr/local/cpanel/scripts/restartsrv_apache
+</pre>
+
+<ol>
+  <li>Intram in WHM si editam zona DNS pentru domeniul exemplu.ro, si inlocuim ip-ul in toate campurile care contin subdomeniul , salvam.</li>
+  <li>Ne asiguram ca IP-ul va ramane dedicat subdomeniului respectiv urmand pasii de mai jos:</li>
+</ol>
+
+<p><em>Home » IP Functions » Show/Edit Reserved IPs</em><br />
+Bifam in dreptul IP-ului casuta si specificam cui a fost alocat, in cazul de fata: sub.exemplu.ro</p>
+
+<p>Instalare certificat SSL<br />
+Se urmeaza pasii normali: din WHM se acceseaza “Install an SSL Certificate on a Domain” unde se completeaza cu numele subdomeniului si adresa IP corecta.<br />
+Daca WHM nu gaseste automat certificatul (crt) acesta se cere de la clienti.</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+<div class="wrapper">
+        <div class="footer-col footer-col-1">
+        <h2 class="footer-heading">Linkuri utile</h2>
+                <li><a href="http://intodns.com">intodns.com</a></li>
+                <li><a href="http://linux-romania.com">linux-romania.ro</a></li>
+                <li><a href="http://archlinux.ro">archlinux.ro</a></li>
+        </div>
+<!--
+        <div class="footer-col footer-col-2">
+        <h2 class="footer-heading">Contact</h2>
+                <p>mail(at)linuxtm.ro</p>
+        </div>
+-->
+       <div class="footer-col footer-col-3">
+        <h2 class="footer-heading">Utilizare</h2>
+                <a href="https://linuxtm.ro/termeni/">Termeni si conditii</a>
+        </div>
+
+
+</div>
+</footer>
+
+
+  </body>
+
+</html>

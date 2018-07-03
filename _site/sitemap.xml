@@ -1,0 +1,1308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://localhost:4000/configurare-server-nfs-centos7/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/verificare-memorie-proces-apache/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/administrare-cluster-galera/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/googlecloud-configurare-lifecycle-bucket/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/instalare-java8-centos7/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/configurare-environment-ssh/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/drupal-nginx-sites-not-writable/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/replicare-mysql-master-slave/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/problema-autentificare-webmail-cpanel/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/script-pentru-scanare-php-uri-infectate/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/termeni/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/adauga-automat-vhost-uri-cu-ssl/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/configurare-atribute-fisiere-chattr/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/dezactivare-sunete-chromechromium-kde/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/problema-autentificare-phpmyadmin-pagina-alba/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/gaseste-name-serverele-pentru-unul-sau-mai-multe-domenii/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/eroare-conectare-ssh-could-not-load-host-key-etcsshssh_host_rsa_key/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/inlocuire-string-din-phpmyadmin/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/error-from-sql-query-42000-cant-find-any-matching-row-in-the-user-table/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/stergere-din-loguri-a-cronpid-pam_unixcronsession/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/activare-tuntap-in-openvz/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/cpanel-alocare-ip-dedicat-pe-subdomeniu-instalare-ssl/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/rezolvare-problema-chei-ssh_host_rsa-si-dsa/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/porturi-importante-in-linux/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/rsyslog-foloseste-tot-procesorul/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/administrare-clienti-de-mail/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/cum-stergem-un-numar-mare-de-mail-uri-din-queue-exim/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/cum-aflam-ce-versiune-de-linux-avem/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/cum-arhivam-un-director-in-linux/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/ssh-nu-porneste/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/php-nu-se-conecteaza-la-mysql/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/cum-setam-un-serviciu-sa-porneasca-la-boot-debian-centos-redhat/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/dezactivare-temporara-bash_history/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/verificare-bash_history/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/yes/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/xdg-open/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/xargs/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/write/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/whoami/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/who/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/while/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/which/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/whereis/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/wc/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/watch/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/wait/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/vmstat/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/vi/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/uuencode/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/uudecode/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/users/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/usermod/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/userdel/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/useradd/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/until/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/unshar/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/unset/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/units/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/uniq/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/unexpand/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/uname/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/unalias/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/umask/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/ulimit/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/type/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/tty/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/tsort/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/true/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/traceroute/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/tr/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/touch/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/top/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/times/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/time/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/test/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/tee/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/tar/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/tail/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/sync/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/symlink/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/suspend/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/sum/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/sudo/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/su/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/ssh/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/split/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/source/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/sort/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/slocate/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/sleep/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/shutdown/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/shopt/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/shift/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/set/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/seq/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/select/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/sed/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/sdiff/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/screen/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/scp/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/rsync/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/rmdir/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/rm/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/rev/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/return/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/rename/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/readonly/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/read/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/rcp/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/ram/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/quotactl/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/quotacheck/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/quota/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/pwd/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/pushd/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/ps/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/printf/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/pr/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/popd/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/pkill/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/ping/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/paste/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/passwd/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/open/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/op/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/nslookup/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/notify-send/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/nohup/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/nl/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/nice/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/mv/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/mtr/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/mtools/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/mount/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/more/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/mmv/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/mknod/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/mkfifo/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/mkdir/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/mark2/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/mark1/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/man/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/make/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/lsof/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/ls/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/lprm/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/lpr/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/lpc/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/look/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/logout/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/logname/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/locate/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/local/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/ln/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/let/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/less/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/killall/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/kill/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/join/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/jobs/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/install/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/import/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/ifup/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/ifdown/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/ifconfig/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/if/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/id/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/iconv/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/hostname/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/history/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/head/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/hash/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/gzip/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/groups/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/groupmod/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/groupdel/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/groupadd/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/grep/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/getopts/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/gawk/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/fuser/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/function/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/fsck/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/for/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/fold/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/fmt/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/find/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/fgrep/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/fg/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/fdisk/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/fdformat/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/false/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/expr/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/export/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/expand/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/exit/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/exec/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/eval/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/env/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/enable/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/eject/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/egrep/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/echo/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/du/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/dot/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/dmesg/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/dirs/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/dirname/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/dircolors/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/dir/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/dig/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/diff3/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/diff/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/df/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/declare/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/ddrescue/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/dd/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/dc/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/date/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/cut/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/csplit/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/crontab/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/cron/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/cp/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/continue/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/command/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/comm/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/cmp/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/cksum/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/chroot/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/chown/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/chmod/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/chkconfig/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/chgrp/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/cfdisk/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/cd/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/cat/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/case/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/cal/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/bzip2/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/builtin/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/break/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/bg/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/bc/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/awk/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/aspell/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/aptitude/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/apt-get/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/alias/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/.htaccess</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/tutoriale/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/intrarile-dns-explicate-cu-exemple/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/webservers/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/cele-mai-folosite-comenzi-linux/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/cele-mai-folosite-comenzi-mysql/</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/css/main.css</loc>
+    <lastmod>2018-07-03T18:18:34+03:00</lastmod>
+  </url>
+  
+  
+  
+  
+</urlset>

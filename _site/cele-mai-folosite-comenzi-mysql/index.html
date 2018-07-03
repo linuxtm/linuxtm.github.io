@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>MySQL</title>
+  <meta name="description" content="comenzi linux, tutoriale linux">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/cele-mai-folosite-comenzi-mysql/">
+  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://localhost:4000/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">linuxtm.ro</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/tutoriale/">Tutoriale</a>
+          
+        
+          
+          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
+          
+        
+          
+          <a class="page-link" href="/webservers/">Webservers</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-linux/">Comenzi uzuale</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">MySQL</h1>
+  </header>
+
+  <article class="post-content">
+    <p><strong><em>Comenzi uzuale MySQL</em></strong></p>
+
+<pre>CREATE DATABASE dbname;</pre>
+<pre>GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost';</pre>
+<pre>CREATE USER 'user'@'localhost' IDENTIFIED BY 'somepass'; </pre>
+<pre>GRANT ALL PRIVILEGES ON dbname.* TO 'user'@'localhost';</pre>
+<pre>GRANT ALL PRIVILEGES ON `dbname`.* TO 'user'@'127.2.1.%';</pre>
+<pre>UPDATE mysql.user SET PASSWORD=PASSWORD('somepass') WHERE USER='user';</pre>
+<pre>SELECT user, host FROM mysql.user;</pre>
+<pre>SELECT * FROM `table` ORDER BY id DESC LIMIT 10;</pre>
+<pre>DELETE FROM mysql.user WHERE USER='user' AND HOST='localhost';</pre>
+<pre>mysqldump -u root -p dbname &gt; dbname.sql</pre>
+<pre>mysqldump --routines --triggers --events -u root dbname &gt; dbname.sql</pre>
+<pre>mysql -u root -p dbname &lt; dbname.sql</pre>
+
+<p><strong><em>Restore din backup</em></strong></p>
+<pre>
+mysqldump dbname &gt; dbname-today.sql
+mysql
+drop database dbname;
+create database dbname;
+exit
+cd /backup/path
+mysql dbname &lt; dbname.create 
+mysql dbname &lt; dbname.sql
+</pre>
+
+<p><strong><em>Recuperare parola root</em></strong></p>
+<pre>
+sudo /etc/init.d/mysql stop
+sudo mysqld_safe --skip-grant-tables &amp;
+mysql -u root
+use mysql;
+update user set password=PASSWORD("parolanoua") where User='root';
+flush privileges;
+quit
+mysqladmin -uroot -p shutdown
+sudo /etc/init.d/mysql start
+</pre>
+
+<p><strong><em>Kill toate procesele unui user</em></strong></p>
+<pre>select concat('KILL ',id,';') from information_schema.processlist where user='username';</pre>
+<p>Sau:</p>
+<pre>
+select concat('KILL ',id,';') from information_schema.processlist where user='username' into outfile '/tmp/a.txt';
+source /tmp/a.txt;
+</pre>
+
+<p>Acelasi lucru se poate face pentru un DB specific:</p>
+<pre>
+select concat('KILL ',id,';') from information_schema.processlist where db='dbname' into outfile '/tmp/a.txt';
+source /tmp/a.txt;
+</pre>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+<div class="wrapper">
+        <div class="footer-col footer-col-1">
+        <h2 class="footer-heading">Linkuri utile</h2>
+                <li><a href="http://intodns.com">intodns.com</a></li>
+                <li><a href="http://linux-romania.com">linux-romania.ro</a></li>
+                <li><a href="http://archlinux.ro">archlinux.ro</a></li>
+        </div>
+<!--
+        <div class="footer-col footer-col-2">
+        <h2 class="footer-heading">Contact</h2>
+                <p>mail(at)linuxtm.ro</p>
+        </div>
+-->
+       <div class="footer-col footer-col-3">
+        <h2 class="footer-heading">Utilizare</h2>
+                <a href="https://linuxtm.ro/termeni/">Termeni si conditii</a>
+        </div>
+
+
+</div>
+</footer>
+
+
+  </body>
+
+</html>

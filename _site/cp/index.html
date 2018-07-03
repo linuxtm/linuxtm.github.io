@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>cp</title>
+  <meta name="description" content="Copiaza unul sau mai multe fisiere intr-o alta locatie.Copiaza SURSA in DESTINATIE, sau mai multe SURSE in DIRECTOARE.">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/cp/">
+  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://localhost:4000/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">linuxtm.ro</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/tutoriale/">Tutoriale</a>
+          
+        
+          
+          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
+          
+        
+          
+          <a class="page-link" href="/webservers/">Webservers</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-linux/">Comenzi uzuale</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">cp</h1>
+    <p class="post-meta">Jun 18, 2012 • linuxtm</p>
+  </header>
+
+  <article class="post-content">
+    <p>Copiaza unul sau mai multe fisiere intr-o alta locatie.<br />
+Copiaza SURSA in DESTINATIE, sau mai multe SURSE in DIRECTOARE.</p>
+
+<p>Sintaxa<br />
+cp [optiuni]… Sursa Destinatie<br />
+cp [optiuni]… Sursa… Director</p>
+
+<p>Optiuni</p>
+
+<p>-a, –archive la fel cu -dpR</p>
+
+<p>-b, –backup face un backuo inainte sa elimine</p>
+
+<p>-d, –no-dereference pastreaza link-uri</p>
+
+<p>-f, –force elimina destinatiile existente, nu intreaba niciodata</p>
+
+<p>-i, –interactive intreaba inainte de a suprascrie</p>
+
+<p>-l, –link creeaza link-uri (legaturi) intre fisiere in loc sa le copieze</p>
+
+<p>-p, –preserve daca e posibil, pastreaza atributele fisierelor</p>
+
+<p>-P, –parents adauga sursei o cale care un un director</p>
+
+<p>-r copiaza recursiv, non-directoarele ca si fisiere</p>
+
+<p>–sparse=WHEN controleaza crearea fisierelor rare</p>
+
+<p>-R, –recursive copiaza directoare recursiv</p>
+
+<p>-s, –symbolic-link creeaza link-uri simbolice in loc sa copieze</p>
+
+<p>-S, –suffix=SUFFIX suprascrie sufixul normal de backup</p>
+
+<p>-u, –update copiaza doar cand fisierul sursa este mai nou decat fisierul destinatie sau cand acesta lipseste</p>
+
+<p>-v, –verbose explica ce s-a efectuat</p>
+
+<p>-V, –version-control=WORD suprascrie controlul normal a versiunii</p>
+
+<p>-x, –one-file-system ramane in acest sistem de fisiere<br />
+–help afiseaza manualul de ajutor<br />
+–version afiseaza versiunea.</p>
+
+<p>In cazuri speciale, ‘cp’ face un backup al sursei cand e fortat si optiuni de backup sunt date si atat sursa cat si destinatia sunt aceleasi.</p>
+
+<p>Exemple:</p>
+
+<p>Copiem fisierdemo in fisierdemo.bak :</p>
+
+<p>$ cp fisierdemo fisierdemo.bak<br />
+sau<br />
+$ cp fisierdemo{,.bak}</p>
+
+<p>Copiem fisierdemo.txt in fisierdemo.bak :</p>
+
+<p>$ file=”fisierdemo.txt”<br />
+$ cp $file ${file%.*}.bak</p>
+
+<p>Copiem de pe floppy in directorul Home:</p>
+
+<p>$ cp -f /mnt/floppy/* ~</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+<div class="wrapper">
+        <div class="footer-col footer-col-1">
+        <h2 class="footer-heading">Linkuri utile</h2>
+                <li><a href="http://intodns.com">intodns.com</a></li>
+                <li><a href="http://linux-romania.com">linux-romania.ro</a></li>
+                <li><a href="http://archlinux.ro">archlinux.ro</a></li>
+        </div>
+<!--
+        <div class="footer-col footer-col-2">
+        <h2 class="footer-heading">Contact</h2>
+                <p>mail(at)linuxtm.ro</p>
+        </div>
+-->
+       <div class="footer-col footer-col-3">
+        <h2 class="footer-heading">Utilizare</h2>
+                <a href="https://linuxtm.ro/termeni/">Termeni si conditii</a>
+        </div>
+
+
+</div>
+</footer>
+
+
+  </body>
+
+</html>

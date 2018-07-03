@@ -144,7 +144,7 @@ tags:
   </tr>
 </table>
 
-***Postfix*** 
+***Postfix</em>**</p> 
 
 <table width="547" border="0">
   <tr>
@@ -153,7 +153,7 @@ tags:
     </td>
     
     <td>
-      verifica mesajele din coada
+      verifica coada de mesaje
     </td>
   </tr>
   
@@ -163,31 +163,6 @@ tags:
     </td>
     
     <td>
-    </td>
-  </tr>
-</table>
-
-
-***Qmail***
-
-<table width="547" border="0">
-  <tr>
-    <td>
-      <strong>/var/qmail/bin/qmail-qread</strong>
-    </td>
-    
-    <td>
-      verifica mesajele din coada
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>/var/qmail/bin/qmail-qstat</strong>
-    </td>
-    
-    <td>
-    numara mesajele din coada
     </td>
   </tr>
 </table>
