@@ -11,7 +11,7 @@ tags:
   - administrare mysql
 ---
 
-***Comenzi uzuale MySQL*** 
+**Comenzi uzuale MySQL**
 
 <pre>CREATE DATABASE dbname;</pre>
 <pre>GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost';</pre>
@@ -26,7 +26,7 @@ tags:
 <pre>mysqldump --routines --triggers --events -u root dbname > dbname.sql</pre>
 <pre>mysql -u root -p dbname < dbname.sql</pre>
 
-***Restore din backup***
+**Restore din backup**
 <pre>
 mysqldump dbname > dbname-today.sql
 mysql
@@ -38,7 +38,7 @@ mysql dbname &lt; dbname.create
 mysql dbname &lt; dbname.sql
 </pre>
 
-***Recuperare parola root***
+**Recuperare parola root**
 <pre>
 sudo /etc/init.d/mysql stop
 sudo mysqld_safe --skip-grant-tables &
@@ -51,7 +51,7 @@ mysqladmin -uroot -p shutdown
 sudo /etc/init.d/mysql start
 </pre>
 
-***Kill toate procesele unui user***
+**Kill toate procesele unui user**
 <pre>select concat('KILL ',id,';') from information_schema.processlist where user='username';</pre>
 Sau:
 <pre>
