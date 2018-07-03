@@ -9,7 +9,7 @@ tags:
 - administrare linux
 - comenzi uzuale linux
 ---
-Pentru informatii suplimentare referitor la utilizarea comenzilor cititi descrierea acestora sau folositi <em>man comanda</em> in terminal pentru a afisa manualul de ajutor pentru comanda specificata.
+Pentru informatii suplimentare referitor la utilizarea comenzilor cititi descrierea acestora sau folositi <pre>man comanda</pre> in terminal pentru a afisa manualul de ajutor pentru comanda specificata.
 Mai jos aveti cateva din comenzile folosite cel mai frecvent.
 <br>
 <br>
