@@ -13,7 +13,7 @@ Pentru informatii suplimentare referitor la utilizarea comenzilor cititi descrie
 Mai jos aveti cateva din comenzile folosite cel mai frecvent.
 <br>
 <br>
-<strong><em>Administrare pachete</em></strong>
+<strong>Administrare pachete</strong>
 <br>
  
 <table width="100%" border="0">
@@ -309,7 +309,7 @@ Afla dependintele unui pachet (Centos/RHEL)
 </table>
 
  <br>
-<strong><em>Administrare procese si servicii</em></strong>
+<strong>Administrare procese si servicii</strong>
 <br>
  
 <table width="100%" border="0">
@@ -440,7 +440,7 @@ termina sarcina curenta
 <strong>Nota: </strong>pentru start/stop/restart serviciu se poate utiliza si: <em>/etc/init.d/serviciu optiune</em> (exceptie Centos7/RHEL7).
 <br>
 <br>
-<strong><em>Administrare fisiere si navigare</em></strong>
+<strong>Administrare fisiere si navigare</strong>
 <br>
  
 <table width="100%" border="0">
