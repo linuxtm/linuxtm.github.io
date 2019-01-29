@@ -40,18 +40,20 @@ mysql dbname &lt; dbname.sql
 
 **Recuperare parola root**
 <pre>
-#for older systems
+#For older systems (CentOS 6, Ubuntu 14 or older)
 /etc/init.d/mysql stop 
-#for newer systems
+
+#For newer systems (CentOS 7, Ubuntu 16 or newer)
 systemctl stop mysql / mariadb / mysqld
 
 sudo mysqld_safe --skip-grant-tables &
 mysql -u root
 use mysql;
 
-#for mysql 5.6 or older
+#MySQL 5.6 or older
 update user set password=PASSWORD("parolanoua") where User='root';
-#for mysql 5.7 or newer
+
+#MySQL 5.7 or newer
 update mysql.user set authentication_string=PASSWORD('parolanoua') where user='root';
 
 flush privileges;
