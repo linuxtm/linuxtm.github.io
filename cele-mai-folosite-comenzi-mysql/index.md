@@ -23,7 +23,7 @@ tags:
 <pre>SELECT * FROM `table` ORDER BY id DESC LIMIT 10;</pre>
 <pre>DELETE FROM mysql.user WHERE USER='user' AND HOST='localhost';</pre>
 <pre>mysqldump -u root -p dbname > dbname.sql</pre>
-<pre>mysqldump --routines --triggers --events -u root dbname > dbname.sql #locks the db</pre>
+<pre>mysqldump --routines --triggers --events -u root dbname > dbname.sql #blocheaza scrierile in db temporar</pre>
 <pre>mysql -u root -p dbname < dbname.sql</pre>
 
 **Restore din backup**
