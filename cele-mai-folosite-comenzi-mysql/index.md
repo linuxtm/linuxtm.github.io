@@ -40,20 +40,20 @@ mysql dbname &lt; dbname.sql
 
 **Recuperare parola root**
 <pre>
-#For older systems (CentOS 6, Ubuntu 14 or older)
+#Pentru sisteme de operare mai vechi (CentOS 6, Ubuntu 14 sau mai vechi)
 /etc/init.d/mysql stop 
 
-#For newer systems (CentOS 7, Ubuntu 16 or newer)
+#Pentru sisteme de operare mai noi (CentOS 7, Ubuntu 16 sau mai noi)
 systemctl stop mysql / mariadb / mysqld
 
 sudo mysqld_safe --skip-grant-tables &
 mysql -u root
 use mysql;
 
-#MySQL 5.6 or older
+#MySQL 5.6 sau mai vechi
 update user set password=PASSWORD("parolanoua") where User='root';
 
-#MySQL 5.7 or newer
+#MySQL 5.7 sau mai nou
 update mysql.user set authentication_string=PASSWORD('parolanoua') where user='root';
 
 flush privileges;
