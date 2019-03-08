@@ -26,6 +26,11 @@ tags:
 <pre>mysqldump --routines --triggers --events -u root dbname > dbname.sql #blocheaza scrierile in db temporar</pre>
 <pre>mysql -u root -p dbname < dbname.sql</pre>
 
+**Restore o singura baza de date din dump facut cu --all-databases**
+<pre>
+mysql -u root --force --one-database dbname < all_dbdump.sql
+</pre>
+
 **Restore din backup**
 <pre>
 mysqldump dbname > dbname-today.sql
