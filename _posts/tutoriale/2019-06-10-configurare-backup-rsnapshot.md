@@ -89,7 +89,7 @@ backup  /etc/           etc/
 #backup local baza de date
 backup_script   /usr/bin/mysqldump --single-transaction -A --routines --triggers -u root -p'parola'| gzip > database-`date +%y%m%d`.sql.gz     mysql/
 #exemplu backup db remote
-backup_script   /usr/bin/ssh root@192.168.197.115 -p 22 "rm -f /backups/mysql-*.sql.gz;/usr/bin/mysqldump -A --routines --triggers --events -u root | gzip > /backups/mysql-`date +%y%m%d`.sql.
+#backup_script   /usr/bin/ssh user@IP -p 22 "rm -f /backups/mysql-*.sql.gz;/usr/bin/mysqldump -A --routines --triggers --events -u root | gzip > /backups/mysql-`date +%y%m%d`.sql.
 </pre>
 
 **3. Testare email + config rsnapshot**
