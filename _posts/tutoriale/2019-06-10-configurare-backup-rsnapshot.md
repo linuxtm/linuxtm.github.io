@@ -27,7 +27,8 @@ wget -O /usr/local/bin/rsnapreport.pl https://raw.githubusercontent.com/rsnapsho
 </pre>
 
 **2. Configurare rsnapshot.conf**
-Nota: folositi tab-uri in loc de spatii in configul rsnapshot, altfel nu va functiona. 
+
+<em>Nota: folositi tab-uri in loc de spatii in configul rsnapshot, altfel nu va functiona.</em>
 
 Pentru a primi pe mail statisticile de la rsnapshot, trebuie decomentate urmatoarele comenzi in <em>/etc/rsnapshot.conf</em>
 <ul>
