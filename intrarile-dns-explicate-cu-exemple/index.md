@@ -213,4 +213,4 @@ Fiecare server de mail ar trebui sa aiba si un SPF record configurat. Atunci can
 <pre>amx.mail.net. TXT "v=spf1 a -all"
 mx.mail.net. TXT "v=spf1 a -all"
 </pre>
-Daca vreti sa verificati zone DNS, va recomand sa folositi:<a title="https://intodns.com" href="https://intodns.com/" target="_blank"> intodns.com</a>
+Daca vreti sa verificati zone DNS, va recomand sa folositi:<a title="https://intodns.com" href="https://intodns.com" target="_blank"> https://intodns.com</a>
