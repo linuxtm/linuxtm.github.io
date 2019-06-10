@@ -22,9 +22,8 @@ tags:
 **1. Instalare dependinte**
 <pre>
 yum install -y rsnapshot mailx postfix wget
-wget https://raw.githubusercontent.com/rsnapshot/rsnapshot/master/utils/rsnapreport.pl && chmod +x /usr/local/bin/rsnapreport.pl
-systemctl start postfix
-systemctl enable postfix
+systemctl start postfix && systemctl enable postfix
+wget -O /usr/local/bin/rsnapreport.pl https://raw.githubusercontent.com/rsnapshot/rsnapshot/master/utils/rsnapreport.pl && chmod +x /usr/local/bin/rsnapreport.pl
 </pre>
 
 **2. Configurare rsnapshot.conf**
@@ -100,6 +99,7 @@ rsnapshot -t daily
 </pre>
 
 **4. Configurare cron**
+
 Cronurile de mai jos vor face backup zilnic (ora 00:40), saptamanal (ora 02:10), si lunar (ora 04:10 , in prima zi a lunii)
 <pre>
 40 0 * * * root /usr/bin/rsnapshot daily 2>&1 | /usr/local/bin/rsnapreport.pl | mail -E -r from@linuxtm.ro -s "Daily Backup" to@linuxtm.ro
