@@ -28,9 +28,8 @@ wget -O /usr/local/bin/rsnapreport.pl https://raw.githubusercontent.com/rsnapsho
 
 **2. Configurare rsnapshot.conf**
 Nota: folositi tab-uri in loc de spatii in configul rsnapshot, altfel nu va functiona. 
-Config-ul se poate testa utilizand <strong>-t<strong> + argument ( de exemplu: rsnapshot -t daily )
 
-Pentru a primi pe mail statisticile de la rsnapshot, trebuie decomentate urmatoarele comenzi in /etc/rsnapshot.conf
+Pentru a primi pe mail statisticile de la rsnapshot, trebuie decomentate urmatoarele comenzi in <em>/etc/rsnapshot.conf</em>
 <ul>
 <li>cmd_cp</li>
 <li>cmd_rm</li>
