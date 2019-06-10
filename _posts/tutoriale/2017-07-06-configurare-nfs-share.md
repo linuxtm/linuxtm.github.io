@@ -36,13 +36,13 @@ mkdir /nfsshare
 
 Pornim serviciile si le configuram sa porneasca la boot:
 <pre>
-systemctl enable rpcbind
-systemctl enable nfs-server
-systemctl enable nfs-lock
-systemctl enable nfs-idmap
-systemctl start rpcbind
-systemctl start nfs-server
-systemctl start nfs-lock
+systemctl enable rpcbind \
+systemctl enable nfs-server \
+systemctl enable nfs-lock \
+systemctl enable nfs-idmap \
+systemctl start rpcbind \
+systemctl start nfs-server \
+systemctl start nfs-lock \
 systemctl start nfs-idmap
 </pre>
 
@@ -75,13 +75,13 @@ mkdir /nfsshare
 
 Pornim serviciile si le configuram sa porneasca la boot:
 <pre>
-systemctl enable rpcbind
-systemctl enable nfs-server
-systemctl enable nfs-lock
-systemctl enable nfs-idmap
-systemctl start rpcbind
-systemctl start nfs-server
-systemctl start nfs-lock
+systemctl enable rpcbind \
+systemctl enable nfs-server \
+systemctl enable nfs-lock \
+systemctl enable nfs-idmap \
+systemctl start rpcbind \
+systemctl start nfs-server \
+systemctl start nfs-lock \
 systemctl start nfs-idmap
 </pre>
 
