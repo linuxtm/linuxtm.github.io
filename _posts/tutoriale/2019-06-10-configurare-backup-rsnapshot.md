@@ -93,8 +93,9 @@ backup_script   /usr/bin/ssh root@192.168.197.115 -p 22 "rm -f /backups/mysql-*.
 </pre>
 
 **3. Testare email + config rsnapshot**
+
 <pre>
-echo "test" | mail -r "from@linuxtm.ro" -s "Daily Backup" to@linuxtm.ro
+echo "test" | mail -E -r "from@linuxtm.ro" -s "Daily Backup" to@linuxtm.ro
 rsnapshot -t daily
 </pre>
 
