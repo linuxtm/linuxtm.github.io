@@ -9,11 +9,11 @@ tags:
 - administrare linux
 - comenzi uzuale linux
 ---
-Pentru informatii suplimentare referitor la utilizarea comenzilor cititi descrierea acestora sau folositi <strong>man comanda</strong> in terminal pentru a afisa manualul de ajutor pentru comanda specificata.
+Pentru informatii suplimentare referitor la utilizarea comenzilor cititi descrierea acestora sau folositi <em>man comanda</em> in terminal pentru a afisa manualul de ajutor pentru comanda specificata.
 Mai jos aveti cateva din comenzile folosite cel mai frecvent.
 <br>
 <br>
-<strong>Administrare pachete</strong>
+<strong><em>Administrare pachete</em></strong>
 <br>
  
 <table width="100%" border="0">
@@ -309,7 +309,7 @@ Afla dependintele unui pachet (Centos/RHEL)
 </table>
 
  <br>
-<strong>Administrare procese si servicii</strong>
+<strong><em>Administrare procese si servicii</em></strong>
 <br>
  
 <table width="100%" border="0">
@@ -440,7 +440,7 @@ termina sarcina curenta
 <strong>Nota: </strong>pentru start/stop/restart serviciu se poate utiliza si: <em>/etc/init.d/serviciu optiune</em> (exceptie Centos7/RHEL7).
 <br>
 <br>
-<strong>Administrare fisiere si navigare</strong>
+<strong><em>Administrare fisiere si navigare</em></strong>
 <br>
  
 <table width="100%" border="0">

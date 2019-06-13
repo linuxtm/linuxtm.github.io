@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Porturi importante in Linux</title>
+  <meta name="description" content="Porturile enumerate mai jos sunt porturi bine cunoscute in serverele Linux folosite de diverse aplicatii si servicii.">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="https://linuxtm.ro/porturi-importante-in-linux/">
+  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="https://linuxtm.ro/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">linuxtm.ro</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-linux/">Comenzi uzuale</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
+          
+        
+          
+          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
+          
+        
+          
+          <a class="page-link" href="/scripturi/">Scripturi</a>
+          
+        
+          
+          <a class="page-link" href="/tutoriale/">Tutoriale</a>
+          
+        
+          
+          <a class="page-link" href="/webservers/">Webservers</a>
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Porturi importante in Linux</h1>
+    <p class="post-meta">Oct 7, 2013 • linuxtm</p>
+  </header>
+
+  <article class="post-content">
+    <p>Porturile enumerate mai jos sunt porturi bine cunoscute in serverele Linux folosite de diverse aplicatii si servicii.</p>
+
+<p>Port 21 –&gt; TCP –&gt; FTP (File Transfer Protocol)<br />
+Port 22 –&gt; TCP/UDP –&gt; SSH (ssh,scp copy or sftp)<br />
+Port 23 –&gt; TCP/UDP –&gt; Telnet<br />
+Port 25 –&gt; TCP/UDP –&gt; SMTP (for sending outgoing emails)<br />
+Port 43 –&gt; TCP –&gt; WHOIS function<br />
+Port 53 –&gt; TCP/UDP –&gt; DNS Server (DNS lookup uses UDP and Zone transfers use TCP)<br />
+Port 70 –&gt; TCP –&gt; Gopher Protocol<br />
+Port 79 –&gt; TCP –&gt; Finger protocol<br />
+Port 110 –&gt; TCP –&gt; POP3 (for receiving email)</p>
+
+<p>Port 113 -&gt; ident tcp outbound</p>
+
+<p>Port 115 –&gt; Secure File transfer protocol<br />
+Port 119 –&gt; TCP –&gt; NNTP (Network News Transfer Protocol)<br />
+Port 143 –&gt; TCP/UDP –&gt; IMAP4 Protocol (for email service)<br />
+Port 194 –&gt; TCP –&gt; IRC<br />
+Port 389 –&gt; TCP/UDP –&gt; LDAP (light weight directory access)<br />
+Port 443 –&gt; TCP –&gt; Secure HTTP over SSL (https)<br />
+Port 465 –&gt; TCP –&gt; Secure SMTP (email) using SSL</p>
+
+<p>Port 783 -&gt; TCP -&gt; SpamAssassin spamd daemon</p>
+
+<p>Port 990 –&gt; TCP/UDP –&gt; Secure FTP using SSL<br />
+Port 993 –&gt; TCP –&gt; Secure IMAP protocol over SSL (for emails)</p>
+
+<p>Port 4664 -&gt; Google desktop search port</p>
+
+<p>Port 1433 –&gt; TCP/UDP –&gt; Microsoft SQL server port<br />
+Port 2082 –&gt; TCP –&gt; CPanel default port<br />
+Port 2083 –&gt; TCP –&gt; CPanel over SSL<br />
+Port 2086 –&gt; TCP –&gt; CPanel Webhost Manager (default)<br />
+Port 2087 –&gt; TCP –&gt; CPanel Webhost Manager (with https)</p>
+
+<p>Port 2089 -&gt; TCP -&gt; Cpanel license tcp outbound<br />
+Port 2095 –&gt; TCP –&gt; CPanel Webmail<br />
+Port 2096 –&gt; TCP –&gt; Cpanel secure webmail over SSL<br />
+Port 2222 –&gt; TCP –&gt; DirectAdmin Server Control Panel<br />
+Port 3306 –&gt; TCP/UDP –&gt; MySQL Database Server<br />
+Port 4643 –&gt; TCP –&gt; Virtuosso Power Panel<br />
+Port 5432 –&gt; TCP –&gt; PostgreSQL Database Server</p>
+
+<p>Port 5224 -&gt; plesk-license-update (outgoing connection only)<br />
+Port 8443 -&gt; plesk-https<br />
+Port 6666 -&gt; chat tcp inbound<br />
+Port 8080 –&gt; TCP –&gt; HTTP port (alternative one for port 80)<br />
+Port 8087 –&gt; TCP –&gt; Plesk Control Panel Port (default)<br />
+Port 8443 –&gt; TCP –&gt; Plesk Server Control Panel over SSL</p>
+
+<p>Port 8880 -&gt; Plesk-http</p>
+
+<p>Port 9080 -&gt; Tomcat<br />
+Port 9999 –&gt; TCP –&gt; Urchin Web Analytics<br />
+Port 10000 –&gt; TCP –&gt; Webmin Server Control Panel<br />
+Port 19638 –&gt; TCP –&gt; Ensim Server Control Panel</p>
+
+<p>Port 39270 -&gt; Limewire</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+<div class="wrapper">
+        <div class="footer-col footer-col-1">
+        <h2 class="footer-heading">Linkuri utile</h2>
+                <li><a href="http://intodns.com">https://intodns.com</a></li>
+        </div>
+<!--
+        <div class="footer-col footer-col-2">
+        <h2 class="footer-heading">Contact</h2>
+                <p>mail(at)linuxtm.ro</p>
+        </div>
+-->
+       <div class="footer-col footer-col-3">
+        <h2 class="footer-heading">Utilizare</h2>
+                <a href="https://linuxtm.ro/termeni/">Termeni si conditii</a>
+        </div>
+
+
+</div>
+</footer>
+
+
+  </body>
+
+</html>

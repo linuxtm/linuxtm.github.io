@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Script pentru scanare php-uri infectate</title>
+  <meta name="description" content="In ultima perioada platforma WordPress este atacata si exploatata din ce in ce mai mult prin intermediul vulnerabilitatilor diverselor theme/plugin-uri iar d...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="https://linuxtm.ro/script-pentru-scanare-php-uri-infectate/">
+  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="https://linuxtm.ro/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">linuxtm.ro</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-linux/">Comenzi uzuale</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
+          
+        
+          
+          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
+          
+        
+          
+          <a class="page-link" href="/scripturi/">Scripturi</a>
+          
+        
+          
+          <a class="page-link" href="/tutoriale/">Tutoriale</a>
+          
+        
+          
+          <a class="page-link" href="/webservers/">Webservers</a>
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Script pentru scanare php-uri infectate</h1>
+    <p class="post-meta">Feb 27, 2015 • linuxtm</p>
+  </header>
+
+  <article class="post-content">
+    <p>In ultima perioada platforma WordPress este atacata si exploatata din ce in ce mai mult prin intermediul vulnerabilitatilor diverselor theme/plugin-uri iar de cele mai multe ori exploatarea consta in compromiterea fisierelor .php care sunt folosite pentru a trimite mesaje de tip spam.</p>
+
+<p>Pentru a curata fisierele .php infectate, puteti folosi scriptul de mai jos.
+Faceti un fisier numit <em>findbot.pl</em> in care introduceti (copy-paste) scriptul de mai jos.</p>
+
+<p>Exemplu de scanare: <strong>./findbot.pl -c /home/*/public_html &gt; log.txt</strong></p>
+
+<pre>
+#!/usr/bin/perl
+# The above line may need to be changed to point at your version of Perl
+#
+#	This script attempts to find malicious files/scripts on your machine.
+#	It specifically looks for spambots that we're aware of, as well
+#	as "suspicious" constructs in various scripting languages.
+#
+#	To use it, you should put this in a file on your computer called
+#	"findbot.pl" and make it executable by "chmod 755 findbot.pl".
+#
+#	By default, findbot.pl scans the directories /tmp, /usr/tmp, /home and
+#	/var/www.  This script isn't fast.  So if you know where to look you can
+#	speed things up by giving just the directories that you suspect has the
+#	malware.
+#
+#	You can often find out what user is infected by using:
+#		lsof -i | grep smtp
+#	and looking for processes that are NOT your mail server.
+#
+#	If you're successful finding the user, you need to look everywhere the user
+#	has write permissions - and you can run findbot.pl faster, by something like:
+#
+#	findbot.pl /tmp /usr/tmp /home/<user> &lt;user's web directory&gt;
+#
+#	There are two types of "detections" - "suspicious files" are files that contain
+#	things that -may- be malicious.
+#	"malware" is definitely malicious software.
+#
+#	This script needs the following command line utilities.  It will not run
+#	if it can't find them, you will have to install them yourself:
+#		- "md5sum" (Linux) or "md5" (FreeBSD etc) this appears to be standard
+#			core utilities.
+#		- "strings" - on Linux this is in the "binutils" package
+#		- "file" - on Linux this is in the "file" package.
+#
+# Usage:
+#	findbot.pl [-c] [directories...]
+#
+#	If a list of directories is supplied, it's used, otherwise,
+#	/tmp, /usr/tmp, /home and /var/www are use by default.
+#
+#	The -c option is a shortcut to make finding cryptophp faster and
+#	easier, but this may not work in all situations
+#
+# Very simple web malware detection module.
+# Version 0.02 2013/01/02 Ray
+# .01 -&gt; .02:
+#	- more strings of bad software
+#	- search for encoded perl scripts
+# .02 -&gt; .03: 2013/01/10 Ray
+#	- speed up
+#	- MD5 stuff
+# .03 -&gt; .04: 2013/01/13 Ray
+#	- improved docs
+# .04 -&gt; .05: 2013/01/20 Ray
+#	- more patterns
+#	- MAXLINES way too small
+# .05 -&gt; .06: 2014/10/31 Havriliuc Andrei, Hostvision srl, Romania
+#	- many more patterns/heuristics from hoster's experience
+#	- Thanks for the contribution!
+# .06 -&gt; 07: 2014/11/22 Ray
+#	- Speed up specifically for current version of cryptophp
+
+my $access = '(\.htaccess)';
+my $accesspat = '(RewriteRule)';
+
+## Extensions scanned
+
+my $scripts = '\.(php|pl|cgi|bak|sh|txt|jpeg|jpg|png|gif|bmp|css)$';
+
+## Patterns
+my $scriptpat = '(social\.png|r57|c99|web shell|passthru|shell_exec|base64_decode|edoced_46esab|PHPShell|EHLO|MAIL FROM|RCPT TO|fsockopen|\$random_num\.qmail|getmxrr|\$_POST\[\'emaillist\'\]|if\(isset\(\$_POST\[\'action\'\]|BAMZ|shell_style|malsite|cgishell|Defaced|defaced|Defacer|defacer|hackmode|ini_restore|ini_get\("open_basedir"\)|runkit_function|rename_function|override_function|mail.add_x_header|\@ini_get\(\'disable_functions\'\)|open_basedir|openbasedir|\@ini_get\("safe_mode"|JIKO|fpassthru|passthru|hacker|Hacker|gmail.ru|fsockopen\(\$mx|\'mxs\.mail\.ru\'|yandex.ru|UYAP-CASTOL|KEROX|BIANG|FucKFilterCheckUnicodeEncoding|FucKFilterCheckURLEncoding|FucKFilterScanPOST|FucKFilterEngine|fake mailer|Fake mailer|Mass Mailer|MasS Mailer|ALMO5EAM|3QRAB|Own3d|eval\(\@\$_GET|TrYaG|Turbo Force|eval \( gzinflate|eval \(gzinflate|cgi shell|cgitelnet|\$_FILES\[file\]|\@copy\(\$_FILES|root\@|eval\(\(base64_decode|define\(\'SA_ROOT\'|cxjcxj|PCT4BA6ODSE|if\(isset\(\$s22\)|yb dekcah|dekcah|\@md5\(\$_POST|iskorpitx|\$__C|back connect|ccteam.ru|"passthru"|"shell_exec"|CHMOD_SHELL|EXIT_KERNEL_TO_NULL|original exploit|prepare_the_exploit|RUN_ROOTSHELL|ROOTSHELL|\@popen\(\$sendmail|\'HELO localhost\'|TELNET|Telnet|BACK-CONNECT|BACKDOOR|BACK-CONNECT BACKDOOR|AnonGhost|CGI-Telnet|webr00t|Ruby Back Connect|Connect Shell|require \'socket\'|HACKED|\@posix_getgrgid\(\@filegroup|\@posix_getpwuid\(\@fileowner|\&amp;\#222\;\&amp;\#199\;\&amp;\#198\;\&amp;\#227\;\&amp;\#229\;|open_basedir|disable_functions|brasrer64r_rdrecordre|hacked|Hacked|\$sF\[4\]\.\$sF\[5\]\.\$sF\[9\]\.\$sF\[10\]\.|\$sF\="PCT4BA6ODSE_"|\$s21\=strtolower|6ODSE_"\;|Windows-1251|\@eval\(\$_POST\[|h4cker|Kur-SaD|\'Fil\'\.\'esM\'\.\'an\'|echo PHP_OS\.|\$testa != ""|\@PHP_OS|\$_POST\[\'veio\'\]|file_put_contents\(\'1\.txt\'|\$GLOBALS\["\%x61|\\\40\\\x65\\\166\\\x61\\\154\\\x28\\\163\\\x74\\\162\\\x5f\\\162\\\x65\\\160\\\x6c\\\141\\\x63\\\145|md5decrypter\.com|rednoize\.com|hashcracking\.info|milw0rm\.com|hashcrack\.com|function_exists\(\'shell_exec\'\)|Sh3ll Upl04d3r|Sh3ll Uploader|S F N S A W|\$\{\$\{"GLOBALS"\}|\$i59\="Euc\&lt;v\#|\$contenttype \= \$_POST\[|eval\(base64|killall|1\.sh|\/usr\/bin\/uname -a|FilesMan|unserialize\(base64_decode|eval \( base64|eval \(base64|eval\(unescape|eval\(@gzinflate|gzinflate\(base64|str_rot13\(\@base64|str_rot13\(base64|gzinflate\(\@str_rot13|\/\.\*\/e|gzuncompress\(base64|substr\(\$c, \$a, \$b|\\\x47LOB|\\\x47LO\\\x42|\\\x47L\\\x4f\\\x42|\\\x47\\\x4c\\\x4f\\\x42|eval\("\?\&gt;"\.base64_decode|\|imsU\||\!msiU|host\=base64|exif \= exif_|"\?Q\?|decrypt\(base64|Shell by|die\(PHP_OS|shell_exec\(base64_decode|\$_F\=|edoced_46esab|\$_D\=strrev|\]\)\)\;\}\}eval|\\\x65\\\x76\\\x61\\\x6c\\\x28|"e"\."va"\."l|\$so64 \=|sqlr00t|qx\{pwd\}|OOO0000O0|OOO000O00|OOO000000|\/\\\r\\\n\\\r\\\n|\$baseurl \= base64_decode|\$remoteurl\,\'wp-login\.php\'|\'http\:\/\/\'\.\$_SERVER\[\'SERVER_NAME\'\]|kkmvbziu|\$opt\("\/292\/e"|\$file\=\@\$_COOKIE\[\'|phpinfo\(\)\;die|return base64_decode\(|\@imap_open\(|\@imap_list\(|\$Q0QQQ\=0|\$GLOBALS\[\'I111\'\]|base64_decode\(\$GLOBALS|eval\(x\(|\@array\(\(string\)stripslashes|function rx\(\)| IRC |BOT IRC|\$bot_password|this bot|Web Shell|Web shell|getenv\(\'SERVER_SOFTWARE\'\)|file_exists\(\'\/tmp\/mb_send_mail\'\)|unlink\(\'\/tmp\/|imap_open\(\'\/etc\/|ini_set\(\'allow_url|\'_de\'\.\'code\'|\'base\'\.\(32\*2\))';
+
+my @defaultdirs = ('/tmp', '/usr/tmp', '/home', '/var/www');
+
+my $MAXLINES = 40000;
+
+my($strings, $md5sum, $file, %badhash);
+
+&inithelpers;
+&badhashes;
+
+#my $executable = '^(sshd|cache|exim|sh|bash)$';
+
+if ($ARGV[0] =~ /^-c/) {
+    $patterns = '(social\.png)';
+    $scripts = '\.(php)$';
+    shift(@ARGV);
+}
+
+if ($ARGV[0] =~ /^-/) {
+    my $l = join(',', @defaultdirs);
+    print STDERR &lt;&lt;EOF;
+usage: $0 [-c] [directories to scan...]
+
+    If no directories specified, script uses:
+$l
+    If -c specified, searches just for one set of cryptphp
+    markers.  May miss newer versions
+
+EOF
+    exit 0;
+}
+
+  
+
+if (!scalar(@ARGV)) {
+    push(@ARGV, @defaultdirs);
+}
+
+for my $dir (@ARGV) {
+    &amp;recursion($dir);
+}
+
+sub recursion {
+    my ($dir) = @_;
+    my (@list);
+    if (!opendir(I, "$dir")) {
+	return if $! =~ /no such file/i;
+	print STDERR "$dir: Can't open: $!, skipping\n";
+	return;
+    }
+    @list = readdir(I);
+    closedir(I);
+    for my $mfile (@list) {
+	next if $mfile =~ /^\.\.?$/;	# skip . and ..
+	my $cf = $currentfile = "$dir/$mfile";
+
+	$cf =~ s/'/'"'"'/g;	# hide single-quotes in filename
+	$cf = "'$cf'";		# bury in single-quotes
+
+	if (-d $currentfile &amp;&amp; ! -l $currentfile) {
+	    &amp;recursion($currentfile);	# don't scan symlinks
+	    next;
+	} 
+	next if ! -f $currentfile;
+	if ($mfile =~ /$scripts/) {
+	    &amp;scanfile($currentfile, $scriptpat);
+	} elsif ($mfile =~ /$access/) {
+	    &amp;scanfile($currentfile, $accesspat);
+	}
+
+	# up to here it's fast.
+
+	next if -s $currentfile &gt; 1000000 || -s $currentfile &lt; 2000;
+
+#print STDERR "$currentfile\n";
+
+	my $type = `$file $cf`;
+
+	if ($type =~ /(ELF|\d\d-bit).*executable/ || $currentfile =~ /\.(exe|scr|com)$/) {
+#print STDERR "cf: $cf\n";
+	    my $checksum = `$md5sum $cf`;
+	    chomp($checksum);
+	    $checksum =~ s/\s.*//;
+	    if ($badhash{$checksum}) {
+		print STDERR "$currentfile: Malware detected!\n";
+		next;
+	    }
+
+	    my $strings = `$strings $cf`;
+	    if ($strings =~ /\/usr\/bin\/perl/sm) {
+		print STDERR "$currentfile: possible binary-encoded-perl\n";
+		next;
+	    }
+	}
+    }
+}
+
+sub scanfile {
+    my ($currentfile, $patterns) = @_;
+#print $currentfile, "\n";
+    open(I, "&lt;$currentfile") || next;
+    my $linecount = 1;
+    while(<i>) {
+	chomp;
+	if ($_ =~ /$patterns/) {
+	    my $pat = $1;
+	    my $string = $_;
+
+
+## Wasn't printing the result correctly, so we gave up on this code.
+#	    if ($string =~ /^(.*)$pat(.*)$/) {
+#		$string = substr($1, length($1)-10, 10) .
+#				      $pat .
+#				      substr($2, 0, 10);
+#	    }
+	    #$string =~ s/^.*(.{,10}$pat.{,10}).*$/... $1 .../;
+	    print "$currentfile: Suspicious($pat):\n $string\n\n";
+	    last;
+	}
+	last if $linecount++ &gt; $MAXLINES;
+    }
+    close(I);
+}
+
+sub inithelpers {
+    if (-x '/usr/bin/md5sum') {
+	$md5sum = '/usr/bin/md5sum';
+    } elsif (-x '/sbin/md5') {
+	$md5sum = '/sbin/md5 -q';
+    }
+    for my $x (('/bin', '/usr/bin')) {
+	if (-x "$x/strings") {
+	    $strings = "$x/strings";
+	}
+	if (-x "$x/file") {
+	    $file = "$x/file";
+	}
+    }
+    die "Can't find 'md5' checksumming tool - normally in Linux coretools package" if !$md5sum;
+    die "Can't find 'strings' tool - normally in Linux bintools package" if !$strings;
+    die "Can't find 'file' tool - normally in Linux 'file' package" if !$file;
+}
+
+sub badhashes {
+    map { $badhash{$_} = 1; } ((
+    	'f7536bb412d6c4573fd6fd819e1b07bb',
+	'0fdb34f48166dae57ff410d723efd3f7',
+	'396d1fb94d79b732f6ab2fa6c5f3ed39',
+	'fd3c01133946d59ace4fdb49dde93268', #Directmailer .exe Windows binary
+	));
+}
+
+&lt;/pre&gt;
+</i></user></pre>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+<div class="wrapper">
+        <div class="footer-col footer-col-1">
+        <h2 class="footer-heading">Linkuri utile</h2>
+                <li><a href="http://intodns.com">https://intodns.com</a></li>
+        </div>
+<!--
+        <div class="footer-col footer-col-2">
+        <h2 class="footer-heading">Contact</h2>
+                <p>mail(at)linuxtm.ro</p>
+        </div>
+-->
+       <div class="footer-col footer-col-3">
+        <h2 class="footer-heading">Utilizare</h2>
+                <a href="https://linuxtm.ro/termeni/">Termeni si conditii</a>
+        </div>
+
+
+</div>
+</footer>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Configurare replicare MySQL Master-Slave</title>
+  <meta name="description" content="Avem doua servere diferite si vrem sa configuram replicarea MySQL de tip Master-Slave.Pentru acest exemplu vom folosi:Server 1: 127.0.0.1 - il vom folosi ca ...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="https://linuxtm.ro/replicare-mysql-master-slave/">
+  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="https://linuxtm.ro/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">linuxtm.ro</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-linux/">Comenzi uzuale</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
+          
+        
+          
+          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
+          
+        
+          
+          <a class="page-link" href="/scripturi/">Scripturi</a>
+          
+        
+          
+          <a class="page-link" href="/tutoriale/">Tutoriale</a>
+          
+        
+          
+          <a class="page-link" href="/webservers/">Webservers</a>
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Configurare replicare MySQL Master-Slave</h1>
+    <p class="post-meta">Jul 13, 2015 • linuxtm</p>
+  </header>
+
+  <article class="post-content">
+    <p>Avem doua servere diferite si vrem sa configuram replicarea MySQL de tip Master-Slave.<br />
+Pentru acest exemplu vom folosi:<br />
+Server 1: 127.0.0.1 - il vom folosi ca si Master (serverul principal)<br />
+Server 2: 127.0.0.2 - Slave (serverul secundar)</p>
+
+<p>Inainte de a continua, asigurati-va ca aveti instalat mysql si mysql-server:<br />
+CentOS/RHEL: <em>yum install -y mysql mysql-client</em><br />
+Debian/Ubuntu: <em>sudo apt-get install -y mysql mysql-client</em></p>
+
+<p><strong>CONFIGURARE MASTER</strong><br />
+Incepem cu adaugarea urmatoarelor linii in <em>/etc/my.cnf</em> <br />
+<strong>Important: Aveti grija ca liniile introduse in config sa fie sub [mysql] sau [mysqld], si nu sub [mysql_safe]</strong></p>
+<pre>
+#Replication
+log-bin = /var/lib/mysql/mysql-bin
+server-id = 1
+sync-binlog = 1
+binlog-format = mixed
+relay-log = mysqld-relay-bin
+</pre>
+
+<p>In prima faza creem baza de date si importam din backup daca e cazul:</p>
+<pre>CREATE DATABASE linuxtmdb; </pre>
+
+<p>Daca e cazul, importam baza de date ruland:</p>
+<pre>mysql -u root linuxtmdb &lt; linuxtmdb.sql</pre>
+
+<p>Facem utilizatorul pe care il vom utiliza la replicare si actualizam:</p>
+<pre>GRANT REPLICATION SLAVE ON *.* TO 'replication'@'127.0.0.2' IDENTIFIED BY 'parola';</pre>
+<pre>FLUSH PRIVILEGES;</pre>
+
+<p>Selectam baza de date si o blocam:</p>
+<pre>USE linuxtmdb;</pre>
+<pre>FLUSH TABLES WITH READ LOCK;</pre>
+
+<p>Verificam statusul master-ului (ne va folosi mai incolo):</p>
+<pre>SHOW MASTER STATUS;</pre>
+
+<p>Facem dump la baza de date (aveti grija sa iesiti din mysql (exit sau Ctrl+C) si apoi rulati comanda de mai jos):</p>
+<pre>mysqldump -u root --opt linuxtmdb &gt; iulianwp.sql</pre>
+
+<p>Intram inapoi in MySQL si deblocam baza de date:</p>
+<pre>USE linuxtmdb;</pre>
+<pre>UNLOCK TABLES;</pre>
+<p>Acum configurarea master-ului este completa. In continuare ne mutam pe celalalt server si configuram slave-ul.</p>
+
+<p><strong>CONFIGURARE SLAVE</strong></p>
+
+<p>Verificam in <em>/etc/my.cnf</em> sa avem optiunea <strong>server-id = 2</strong> (diferita de 0 care e default sau 1 care e masterul).<br />
+In prima faza facem baza de date:</p>
+<pre>CREATE DATABASE linuxtmdb;</pre>
+
+<p>Iesim din MySQL si importam baza de date (la care am facut dump pe serverul principal):</p>
+<pre>mysql -u root linuxtmdb &lt; linuxtmdb.sql</pre>
+
+<p>Acum trebuie sa definim master-ul, astfel incat MySQL sa stie unde sa se conecteze pentru a face replicarea. Aici ne este de folos informatia afisata de <em>SHOW MASTER STATUS;</em> de mai devreme - inlocuim valorile de la <em>MASTER_LOG_FILE</em> si <em>MASTER_LOG_POS</em> cu cele afisate.</p>
+
+<pre>CHANGE MASTER TO MASTER_HOST='IP',MASTER_USER='replication', MASTER_PASSWORD='pass', MASTER_LOG_FILE='mysql-bin.000003', MASTER_LOG_POS= 289399;</pre>
+
+<p>Pornim slave-ul si verificam daca totul este in regula:</p>
+<pre>start slave;</pre>
+<pre>show slave status \G;</pre>
+
+<p>Daca totul a decurs normal, nu veti vedea nici o eroare si acum orice modificari in baza de date pe serverul principal (Master) vor fi imediat vizibile si pe Slave.</p>
+
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+<div class="wrapper">
+        <div class="footer-col footer-col-1">
+        <h2 class="footer-heading">Linkuri utile</h2>
+                <li><a href="http://intodns.com">https://intodns.com</a></li>
+        </div>
+<!--
+        <div class="footer-col footer-col-2">
+        <h2 class="footer-heading">Contact</h2>
+                <p>mail(at)linuxtm.ro</p>
+        </div>
+-->
+       <div class="footer-col footer-col-3">
+        <h2 class="footer-heading">Utilizare</h2>
+                <a href="https://linuxtm.ro/termeni/">Termeni si conditii</a>
+        </div>
+
+
+</div>
+</footer>
+
+
+  </body>
+
+</html>

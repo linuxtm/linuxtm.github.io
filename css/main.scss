@@ -6,12 +6,10 @@
 // Table style
 table {
     border-collapse: collapse;
-    font-family: "Courier New", Courier, monospace;
 }
 
 table, th, td {
-    border: 1px solid #707070;
-    background: #dedede;
+    border: 1px solid #c6c6c6;
 }
 tr:nth-child(even) {background-color: #f2f2f2}
 
@@ -23,7 +21,7 @@ th, td {
 
 // Our variables
 $base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
+$base-font-size:   15px;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
