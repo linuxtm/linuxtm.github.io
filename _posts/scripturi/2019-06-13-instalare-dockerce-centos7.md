@@ -30,4 +30,4 @@ curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compo
 chmod +x /usr/local/bin/docker-compose
 </pre>
 
-Instructiunile oficiale: https://docs.docker.com/install/linux/docker-ce/centos/
+Instructiunile oficiale: <a href="https://docs.docker.com/install/linux/docker-ce/centos/">https://docs.docker.com/install/linux/docker-ce/centos/</a>
