@@ -1,8 +1,8 @@
 ---
-title: Instalare docker-ce Centos7
+title: Instalare Docker-CE pe Centos 7
 author: linuxtm
 layout: post
-permalink: /instalare-dockerce-centos7/
+permalink: /instalare-docker-ce-centos7/
 categories:
   - Scripturi
 tags:
