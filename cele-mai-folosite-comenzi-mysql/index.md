@@ -11,7 +11,7 @@ tags:
   - administrare mysql
 ---
 
-***Comenzi uzuale MySQL*** 
+**Comenzi uzuale MySQL**
 
 <pre>CREATE DATABASE dbname;</pre>
 <pre>GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost';</pre>
@@ -23,10 +23,15 @@ tags:
 <pre>SELECT * FROM `table` ORDER BY id DESC LIMIT 10;</pre>
 <pre>DELETE FROM mysql.user WHERE USER='user' AND HOST='localhost';</pre>
 <pre>mysqldump -u root -p dbname > dbname.sql</pre>
-<pre>mysqldump --routines --triggers --events -u root dbname > dbname.sql</pre>
+<pre>mysqldump --routines --triggers --events -u root dbname > dbname.sql #blocheaza scrierile in db temporar</pre>
 <pre>mysql -u root -p dbname < dbname.sql</pre>
 
-***Restore din backup***
+**Restore o singura baza de date din dump facut cu --all-databases**
+<pre>
+mysql -u root --force --one-database dbname < all_dbdump.sql
+</pre>
+
+**Restore din backup**
 <pre>
 mysqldump dbname > dbname-today.sql
 mysql
@@ -38,20 +43,31 @@ mysql dbname &lt; dbname.create
 mysql dbname &lt; dbname.sql
 </pre>
 
-***Recuperare parola root***
+**Recuperare parola root**
 <pre>
-sudo /etc/init.d/mysql stop
+#Pentru sisteme de operare mai vechi (CentOS 6, Ubuntu 14 sau mai vechi)
+/etc/init.d/mysql stop 
+
+#Pentru sisteme de operare mai noi (CentOS 7, Ubuntu 16 sau mai noi)
+systemctl stop mysql / mariadb / mysqld
+
 sudo mysqld_safe --skip-grant-tables &
 mysql -u root
 use mysql;
+
+#MySQL 5.6 sau mai vechi
 update user set password=PASSWORD("parolanoua") where User='root';
+
+#MySQL 5.7 sau mai nou
+update mysql.user set authentication_string=PASSWORD('parolanoua') where user='root';
+
 flush privileges;
 quit
 mysqladmin -uroot -p shutdown
 sudo /etc/init.d/mysql start
 </pre>
 
-***Kill toate procesele unui user***
+**Kill toate procesele unui user**
 <pre>select concat('KILL ',id,';') from information_schema.processlist where user='username';</pre>
 Sau:
 <pre>
