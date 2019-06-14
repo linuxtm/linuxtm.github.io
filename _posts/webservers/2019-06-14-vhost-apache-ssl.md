@@ -14,7 +14,7 @@ tags:
   - exemplu vhost nginx
   - nginx vhost exemplu
   - nginx ssl
-  - exeple virtual host
+  - exemple virtual host
   - tutoriale linux
 ---
 
