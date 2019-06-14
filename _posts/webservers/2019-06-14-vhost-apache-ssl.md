@@ -2,7 +2,9 @@
 title: Webservers
 author: linuxtm
 permalink: /vhost-apache-ssl/
-layout: page
+layout: post
+categories:
+  - Webservers
 tags:
   - comenzi linux
   - apache vhost ssl 
