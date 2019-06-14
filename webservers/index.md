@@ -2,6 +2,7 @@
 title: Webservers
 author: linuxtm
 layout: page
+slug: webservers
 tags:
   - comenzi linux
   - apache vhost ssl 
@@ -17,7 +18,7 @@ tags:
 <div class="home">
   <h1 class="page-heading">Posts</h1>
   <ul class="post-list">
-    {% for post in site.categories.Webserverscripturi %}
+    {% for post in site.categories.Webservers %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
