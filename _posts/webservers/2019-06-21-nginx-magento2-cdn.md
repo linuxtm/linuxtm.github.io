@@ -22,7 +22,7 @@ tags:
 ---
 
 
-***Site-ul principal***
+**Vhost domeniu principal**
 <pre>
 upstream fastcgi_backend {
     server   127.0.0.1:9000;
@@ -263,7 +263,7 @@ server {
 }
 </pre>
 
-***Fisierele media***
+**Vhost fisiere media**
 <pre>
 #Serve media files
 server {
@@ -386,7 +386,7 @@ server {
 }
 </pre>
 
-***Fisiere statice (css, js)***
+**Vhost fisiere statice (css, js)**
 <pre>
 #Serve JS and CSS
 server {
