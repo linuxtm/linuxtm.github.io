@@ -34,36 +34,69 @@ mysql -u root --force --one-database dbname < all_dbdump.sql
 **Restore din backup**
 <pre>
 mysqldump dbname > dbname-today.sql
+</pre>
+<pre>
 mysql
+</pre>
+<pre>
 drop database dbname;
+</pre>
+<pre>
 create database dbname;
+</pre>
+<pre>
 exit
+</pre>
+<pre>
 cd /backup/path
-mysql dbname &lt; dbname.create 
+</pre>
+<pre>
+mysql dbname &lt; dbname.create
+</pre>
+<pre>
 mysql dbname &lt; dbname.sql
 </pre>
 
 **Recuperare parola root**
-<pre>
+
 #Pentru sisteme de operare mai vechi (CentOS 6, Ubuntu 14 sau mai vechi)
+<pre>
 /etc/init.d/mysql stop 
-
+</pre>
 #Pentru sisteme de operare mai noi (CentOS 7, Ubuntu 16 sau mai noi)
+<pre>
 systemctl stop mysql / mariadb / mysqld
-
+</pre>
+<pre>
 sudo mysqld_safe --skip-grant-tables &
+</pre>
+<pre>
 mysql -u root
+</pre>
+<pre>
 use mysql;
+</pre>
 
-#MySQL 5.6 sau mai vechi
+MySQL 5.6 sau mai vechi:
+<pre>
 update user set password=PASSWORD("parolanoua") where User='root';
+</pre>
 
-#MySQL 5.7 sau mai nou
+MySQL 5.7 sau mai nou:
+<pre>
 update mysql.user set authentication_string=PASSWORD('parolanoua') where user='root';
+</pre>
 
+<pre>
 flush privileges;
+</pre>
+<pre>
 quit
+</pre>
+<pre>
 mysqladmin -uroot -p shutdown
+</pre>
+<pre>
 sudo /etc/init.d/mysql start
 </pre>
 
