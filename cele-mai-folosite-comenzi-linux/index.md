@@ -163,6 +163,14 @@ scrie intr-un fisier toate pachetele instalate (Debian/Ubuntu)
  </tr>
  <tr>
  <td>
+ <strong>yum update --exclude=kernel*</strong>
+ </td>
+ <td>
+ actualizeaza toate pachetele cu exceptia pachetelor care tin de Kernel (Centos/RHEL)
+ </td>
+ </tr>
+ <tr>
+ <td>
  <strong>yum list <em>pachet</em></strong>
  </td>
  <td>
