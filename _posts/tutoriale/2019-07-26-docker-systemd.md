@@ -1,5 +1,5 @@
 ---
-title: Docker ca si serviciu de system (systemd)
+title: Docker ca si serviciu de sistem (systemd)
 author: linuxtm
 layout: post
 permalink: /docker-systemd/
@@ -14,11 +14,14 @@ tags:
   - serviciu de sistem
   - centos7 systemd docker
   - run command inside docker container as systemd service
+  - execute docker command inside docker systemd
 ---
 
 Exemplu de fisier systemd pentru un container docker, in care executam niste comenzi dupa ce a pornit containerul de docker.
 
 Foarte important este <b>sleep 1</b> , fara adaugarea unei intarzieri comenzile <em>docker exec</em> nu vor functiona deoarece <em>ExecStartPost</em> se va executa inainte sa fie ready containerul de docker.
+
+Inca un aspect important este modul in care executam <em>docker exec</em>. In mod normal adaugam "-it" la docker exec (interactiv + alocare de tty), insa aici nu este cazul. Alocarea de tty nu este posibila si nici interactivitatea, motiv pentru care executam simplu: <b>docker exec</b>
 
 <pre>
 [Unit]
