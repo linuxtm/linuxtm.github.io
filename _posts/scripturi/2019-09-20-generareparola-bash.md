@@ -16,6 +16,8 @@ tags:
   - bash script parola generata
 ---
 
+Scriptul de mai jos genereaza parole care contin garantat: 1 caracter special, o litera mica, o litera mare.
+
 <pre>
 #!/bin/bash
 # Generate password that has guaranteed 1 lowecase, 1 uppercase, 1 special character, minimum 13 characters
