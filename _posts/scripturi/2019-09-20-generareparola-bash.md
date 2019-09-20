@@ -16,7 +16,7 @@ tags:
   - bash script parola generata
 ---
 
-Scriptul de mai jos genereaza parole care contin garantat: 1 caracter special, o litera mica, o litera mare.
+Scriptul de mai jos genereaza parole care contin garantat: un caracter special, o litera mica, o litera mare.
 
 <pre>
 #!/bin/bash
