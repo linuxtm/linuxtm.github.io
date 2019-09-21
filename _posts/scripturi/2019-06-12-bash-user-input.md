@@ -16,8 +16,8 @@ tags:
 
 <pre>
 #!/bin/bash
-
 #Require user input (select 1 or 2 on keyboard)
+
 echo "Continue ?"
 select yn in "Yes" "No"; do
     case $yn in
