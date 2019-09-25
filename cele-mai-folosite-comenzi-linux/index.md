@@ -630,6 +630,15 @@ creaza un director (ex: <em>mkdir documente</em> )
 </tr>
 <tr>
 <td>
+<strong>mkdir -p {test/1,test/2}</strong>
+</td>
+<td>
+creaza folderul <em>test</em> si in interiorul lui folderul <em>1</em> si <em>2</em>
+</td>
+</tr>
+
+<tr>
+<td>
 <strong>pwd</strong>
 </td>
 <td>
