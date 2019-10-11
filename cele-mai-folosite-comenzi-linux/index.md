@@ -867,5 +867,21 @@ afiseaza configuratia interfetei de retea (afiseaza si IP-urile alocate)
 afiseaza tot traficul si rezolva hostname-urile (afiseaza IP-urile)
 </td>
 </tr>
+<tr>
+<td>
+<strong>ip -4 a</strong>
+</td>
+<td>
+afiseaza configuratia interfetei de retea (afiseaza doar IPv4)
+</td>
+</tr>
+<tr>
+<td>
+<strong>ip -o a</strong>
+</td>
+<td>
+afiseaza configuratia interfetei de retea pe o singura linie (afiseaza si IP-urile alocate)
+</td>
+</tr>
 </table>
  
