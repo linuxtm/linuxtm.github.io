@@ -869,6 +869,14 @@ afiseaza tot traficul si rezolva hostname-urile (afiseaza IP-urile)
 </tr>
 <tr>
 <td>
+<strong>ip -c a</strong>
+</td>
+<td>
+afiseaza color configuratia interfetei de retea (afiseaza IP-urile)
+</td>
+</tr>
+<tr>
+<td>
 <strong>ip -4 a</strong>
 </td>
 <td>
