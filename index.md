@@ -1,6 +1,6 @@
 ---
 author: linuxtm
-layout: default
+layout: page
 tags:
   - tutoriale linux
   - tutoriale administrare linux
