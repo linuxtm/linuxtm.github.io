@@ -18,6 +18,8 @@ tags:
   - tutoriale linux
 ---
 
+Mailcatcher functional in spatele unui proxy de Nginx utilizand codul de mai jos.
+
 <pre>
     location /mailcatcher {
         satisfy any;
