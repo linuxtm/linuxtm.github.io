@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://192.168.100.144:4000/generare-parola-puternica-bash/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/instalare-php7-magento2-centos7/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/docker-systemd/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/vhost-nginx-magento2-cdn/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/vhost-nginx-phpfpm/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/vhost-nginx-magento/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/vhost-apache/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/vhost-apache-ssl/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/nginx-proxy-mailcatcher/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/instalare-docker-ce-centos7/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/bash-user-input/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/configurare-backup-rsnapshot/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/configurare-server-nfs-centos7/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/verificare-memorie-proces-apache/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/administrare-cluster-galera/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/googlecloud-configurare-lifecycle-bucket/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/instalare-java8-centos7/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/configurare-environment-ssh/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/drupal-nginx-sites-not-writable/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/replicare-mysql-master-slave/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/problema-autentificare-webmail-cpanel/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/script-pentru-scanare-php-uri-infectate/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/adauga-automat-vhost-uri-cu-ssl/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/configurare-atribute-fisiere-chattr/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/dezactivare-sunete-chromechromium-kde/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/problema-autentificare-phpmyadmin-pagina-alba/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/gaseste-name-serverele-pentru-unul-sau-mai-multe-domenii/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/eroare-conectare-ssh-could-not-load-host-key-etcsshssh_host_rsa_key/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/inlocuire-string-din-phpmyadmin/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/error-from-sql-query-42000-cant-find-any-matching-row-in-the-user-table/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/stergere-din-loguri-a-cronpid-pam_unixcronsession/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/activare-tuntap-in-openvz/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/cpanel-alocare-ip-dedicat-pe-subdomeniu-instalare-ssl/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/rezolvare-problema-chei-ssh_host_rsa-si-dsa/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/porturi-importante-in-linux/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/rsyslog-foloseste-tot-procesorul/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/administrare-clienti-de-mail/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/cum-stergem-un-numar-mare-de-mail-uri-din-queue-exim/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/cum-aflam-ce-versiune-de-linux-avem/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/cum-arhivam-un-director-in-linux/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/ssh-nu-porneste/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/php-nu-se-conecteaza-la-mysql/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/cum-setam-un-serviciu-sa-porneasca-la-boot-debian-centos-redhat/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/dezactivare-temporara-bash_history/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/verificare-bash_history/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.168.100.144:4000/termeni/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://192.168.100.144:4000/cele-mai-folosite-comenzi-mysql/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://192.168.100.144:4000/intrarile-dns-explicate-cu-exemple/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://192.168.100.144:4000/scripturi/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://192.168.100.144:4000/tutoriale/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://192.168.100.144:4000/webservers/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://192.168.100.144:4000/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://192.168.100.144:4000/css/main.css</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://192.168.100.144:4000/old_index</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://192.168.100.144:4000/uzuale/</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://192.168.100.144:4000/css/main.css.map</loc>
+    <lastmod>2019-10-19T15:21:39+00:00</lastmod>
+  </url>
+  
+  
+</urlset>

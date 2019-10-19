@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Docker ca si serviciu de sistem (systemd)</title>
+  <meta name="description" content="Exemplu de fisier systemd pentru un container docker, in care executam niste comenzi dupa ce a pornit containerul de docker.">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://192.168.100.144:4000/docker-systemd/">
+  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://192.168.100.144:4000/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">linuxtm.ro</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
+          
+        
+          
+          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
+          
+        
+          
+          <a class="page-link" href="/scripturi/">Scripturi</a>
+          
+        
+          
+          <a class="page-link" href="/tutoriale/">Tutoriale</a>
+          
+        
+          
+          <a class="page-link" href="/webservers/">Webservers</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Docker ca si serviciu de sistem (systemd)</h1>
+    <p class="post-meta">Jul 26, 2019 • linuxtm</p>
+  </header>
+
+  <article class="post-content">
+    <p>Exemplu de fisier systemd pentru un container docker, in care executam niste comenzi dupa ce a pornit containerul de docker.</p>
+
+<p>Foarte important este <b>sleep 1</b> , fara adaugarea unei intarzieri comenzile <em>docker exec</em> nu vor functiona deoarece <em>ExecStartPost</em> se va executa inainte sa fie ready containerul de docker.</p>
+
+<p>Inca un aspect important este modul in care executam <em>docker exec</em>. In mod normal adaugam “-it” la docker exec (interactiv + alocare de tty), insa aici nu este cazul. Alocarea de tty nu este posibila si nici interactivitatea, motiv pentru care executam simplu: <b>docker exec</b></p>
+
+<pre>
+[Unit]
+Description=Php-Fpm 7.2 Docker Container
+Requires=docker.service
+After=docker.service
+ 
+[Service]
+Restart=always
+ExecStart=/usr/bin/bash -c \
+        '/usr/bin/docker run -h="domain.com" \
+        -u="www-data" -p 9000:9000 \
+        -w "/var/www/domain.com/html" \
+        -v /var/www:/var/www \
+        -v /etc/phpconfig/php72/php.ini:/usr/local/etc/php/php.ini \
+        --name domain.com \
+        --log-driver=none --memory="2g" \
+        php:7.2.13 &gt;&gt; /var/log/domain.com-phpfpm.log 2&gt;&amp;1'
+ 
+ExecStartPost=/bin/bash -c '/usr/bin/sleep 1 &amp;&amp; /usr/bin/docker exec -u root domain.com usermod -u 1000 www-data &amp;&amp; \
+        /usr/bin/docker exec -u root domain.com usermod -G 100 www-data &amp;&amp; \
+        /usr/bin/docker exec domain.com rm -rf /var/www/domain.com/html/var/composer_home &amp;&amp; ln -snf /var/www/.composer /var/www/domain.com/html/var/composer_home'
+ 
+ExecStopPost=/usr/bin/docker rm -f domain.com
+ 
+[Install]
+WantedBy=default.target
+</pre>
+
+<p><strong>Pont pentru fisier systemd:</strong></p>
+
+<p>Daca folositi ca si prefix “-“ pentru binar, un exit code care in mod normal este considerat ca fiind eroare (non-zero), va fi tratat ca si succes.</p>
+
+<p>Acest lucru este util pentru debug, in scenariul de fata containerul va ramane pornit chiar daca la ExecStartPost avem definita a comanda care a intors un raspuns diferit de zero.</p>
+
+<p>De exemplu:</p>
+<pre>
+ExecStartPost=-/usr/bin/sleep 1
+</pre>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+<div class="wrapper">
+        <div class="footer-col footer-col-1">
+        <h2 class="footer-heading">Linkuri utile</h2>
+                <li><a href="http://intodns.com">https://intodns.com</a></li>
+        </div>
+<!--
+        <div class="footer-col footer-col-2">
+        <h2 class="footer-heading">Contact</h2>
+                <p>mail(at)linuxtm.ro</p>
+        </div>
+-->
+       <div class="footer-col footer-col-3">
+        <h2 class="footer-heading">Utilizare</h2>
+                <a href="https://linuxtm.ro/termeni/">Termeni si conditii</a>
+        </div>
+
+
+</div>
+</footer>
+
+
+  </body>
+
+</html>
