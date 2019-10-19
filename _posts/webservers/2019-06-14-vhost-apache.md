@@ -18,6 +18,8 @@ tags:
   - tutoriale linux
 ---
 
+Exemplu virtualhost Apache cu elemente de redirect https, proxypass, https pentru wordpress cu loadbalancer si multe altele.
+
 <pre>
 <VirtualHost *:80>
     DocumentRoot "/var/www/html"
