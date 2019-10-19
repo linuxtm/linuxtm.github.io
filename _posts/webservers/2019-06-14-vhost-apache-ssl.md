@@ -18,6 +18,8 @@ tags:
   - tutoriale linux
 ---
 
+Exemplu elementar de virtualhost Apache cu SSL
+
 <pre>
 <VirtualHost *:443>
     DocumentRoot "/var/www/html/domain/"
