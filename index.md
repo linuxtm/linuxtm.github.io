@@ -1,11 +1,5 @@
 ---
-author: linuxtm
-layout: page
-tags:
-  - tutoriale linux
-  - tutoriale administrare linux
-  - tutoriale ubuntu
-  - comenzi linux
+layout: default
 ---
 <div class="home">
   <h1 class="page-heading">Posts</h1>
