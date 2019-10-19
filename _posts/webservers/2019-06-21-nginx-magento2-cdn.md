@@ -21,6 +21,8 @@ tags:
   - tutoriale linux
 ---
 
+Mai jos avem cele trei config-uri de nginx necesare pentru configurarea Magento 2 cu CDN.
+In acest exemplu folosim 2 subdomenii separate pentru media si resursele statice.
 
 **Vhost domeniu principal**
 <pre>
