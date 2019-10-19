@@ -13,15 +13,17 @@ dl, dd, ol, ul, figure {
 /**
  * Basic styling
  */
-html, body {
+ body {
     font-family: $base-font-family;
     font-size: $base-font-size;
     line-height: $base-line-height;
     color: $text-color;
     background-color: $background-color;
     -webkit-text-size-adjust: 100%;
-    overflow-x: hidden;
-    position: relative;
+    /**
+     * overflow-x: hidden;
+     * position: relative;
+    */
 }
 
 
