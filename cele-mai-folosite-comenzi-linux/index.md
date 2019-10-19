@@ -1,5 +1,7 @@
 ---
-layout: default
+title: Comenzi uzuale
+author: linuxtm
+layout: page
 tags:
 - comenzi linux
 - comenzi ubuntu
@@ -8,6 +10,7 @@ tags:
 - comenzi uzuale linux
 ---
 Pentru informatii suplimentare referitor la utilizarea comenzilor cititi descrierea acestora sau folositi <em>man comanda</em> in terminal pentru a afisa manualul de ajutor pentru comanda specificata.
+
 <br>
 <br>
 <strong><em>Administrare pachete</em></strong>
