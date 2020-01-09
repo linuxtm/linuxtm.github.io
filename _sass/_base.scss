@@ -30,12 +30,12 @@ dl, dd, ol, ul, figure {
  * Set `margin-bottom` to maintain vertical rhythm
  */
 h1, h2, h3, h4, h5, h6,
-p, ol, dl, figure,
+ol, dl, figure,
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
 }
 
-blockquote, pre, ul, 
+blockquote, p, pre, ul, 
 %vertical-rhythm {
     margin-bottom: 6px;
 }
