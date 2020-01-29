@@ -362,6 +362,14 @@ la fel ca si <em>killall</em>, termina procese dupa numele acestora (se poate fo
 </tr>
 <tr>
 <td>
+<strong>pkill -f<em>nume</em></strong>
+</td>
+<td>
+termina procese dupa un cuvant cheie continut in numele acestora (ex: pkill -f cron)
+</td>
+</tr>
+<tr>
+<td>
 <strong>service <em>nume</em> start/stop</strong>
 </td>
 <td>
