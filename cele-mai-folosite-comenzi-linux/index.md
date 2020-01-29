@@ -365,7 +365,7 @@ la fel ca si <em>killall</em>, termina procese dupa numele acestora (se poate fo
 <strong>pkill -f <em>nume</em></strong>
 </td>
 <td>
-termina procese dupa un cuvant cheie continut in numele acestora (ex: pkill -f cron)
+ termina procese dupa un cuvant cheie continut in numele acestora (ex: <em>pkill -f cron</em>)
 </td>
 </tr>
 <tr>
