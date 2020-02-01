@@ -1,5 +1,5 @@
 ---
-title: Instalare Docker-CE pe Ubuntu 18 (Dekstop)
+title: Instalare Docker-CE pe Ubuntu 18 (Desktop)
 author: linuxtm
 layout: post
 permalink: /instalare-docker-ce-ubuntu18-desktop/
