@@ -18,6 +18,13 @@ tags:
 Scriptul de mai jos instaleaza PHP 7.1, 7.2 sau 7.3 din IUS repository cu toate extensiile de php necesare pentru Magento2.
 Functioneaza doar pe CentOS 7.
 
+One-Liner pentru usurinta:
+<pre>
+wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installPhp7-Magento2.sh && chmod +x installPhp7-Magento2.sh && ./installPhp7-Magento2.sh
+</pre>
+
+
+Sau copy-paste:
 <pre>
 #!/bin/bash
 set -e
