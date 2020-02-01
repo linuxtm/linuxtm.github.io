@@ -1,4 +1,5 @@
 #!/bin/bash
+#More at https://linuxtm.ro
 set -e
 
 yum install -y yum-utils device-mapper-persistent-data lvm2
