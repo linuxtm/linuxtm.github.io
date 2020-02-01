@@ -14,6 +14,12 @@ tags:
   - script centos7
 ---
 
+One-Liner pentru usurinta:
+<pre>
+wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installDockerCentos7.sh && chmod +x installDockerCentos7.sh && ./installDockerCentos7.sh
+<pre>
+
+
 <pre>
 #!/bin/bash
 set -e
