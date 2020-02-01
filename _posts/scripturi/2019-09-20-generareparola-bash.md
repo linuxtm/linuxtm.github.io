@@ -20,6 +20,7 @@ Scriptul de mai jos genereaza parole care contin garantat: un caracter special, 
 
 <pre>
 #!/bin/bash
+#More at https://linuxtm.ro
 # Generate password that has guaranteed 1 lowecase, 1 uppercase, 1 special character, minimum 13 characters
 
 function generatePass {
