@@ -27,6 +27,7 @@ wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scriptur
 Sau copy-paste:
 <pre>
 #!/bin/bash
+#More at https://linuxtm.ro
 set -e
 
 no=$(tput sgr0)
