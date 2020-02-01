@@ -23,6 +23,7 @@ wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scriptur
 Sau copy-paste:
 <pre>
 #!/bin/bash
+#More at https://linuxtm.ro
 set -e
 
 yum install -y yum-utils device-mapper-persistent-data lvm2
