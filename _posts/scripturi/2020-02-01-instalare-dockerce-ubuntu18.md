@@ -20,6 +20,7 @@ One-Liner pentru usurinta:
 wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installDockerUbuntu18.sh && chmod +x installDockerUbuntu18.sh && ./installDockerUbuntu18.sh
 </pre>
 
+Sau copy-paste:
 <pre>
 #!/bin/bash
 set -e
