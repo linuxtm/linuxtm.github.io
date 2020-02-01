@@ -20,6 +20,7 @@ tags:
 
 <pre>
 #!/bin/bash
+#More at https://linuxtm.ro
 ROOT=$(df / | grep / | awk '{ print $5}' | sed 's/%//g')
 DATADISK=$(df /var/www | grep / | awk '{ print $5}' | sed 's/%//g')
 THRESHOLD=85
