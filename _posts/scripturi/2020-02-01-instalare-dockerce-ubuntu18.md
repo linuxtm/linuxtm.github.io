@@ -17,9 +17,7 @@ tags:
 
 One-Liner pentru usurinta:
 <pre>
-wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installDockerUbuntu18.sh &&\
-chmod +x installDockerUbuntu18.sh && \
-./installDockerUbuntu18.sh
+wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installDockerUbuntu18.sh && chmod +x installDockerUbuntu18.sh && ./installDockerUbuntu18.sh
 </pre>
 
 <pre>
