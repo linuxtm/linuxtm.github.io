@@ -15,6 +15,13 @@ tags:
   - script instalare docker ubuntu 18
 ---
 
+One-Liner pentru usurinta:
+<pre>
+wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installDockerUbuntu18.sh &&\
+chmod +x installDockerUbuntu18.sh && \
+./installDockerUbuntu18.sh
+</pre>
+
 <pre>
 #!/bin/bash
 set -e
@@ -41,3 +48,5 @@ sudo chmod +x /usr/local/bin/docker-compose
 echo "Done."
 echo -e "${red}In order for docker to work as a non-root user, please logout or restart your computer!${no}"
 </pre>
+
+Instructiunile oficiale: https://docs.docker.com/v17.09/engine/installation/linux/docker-ce/ubuntu/
