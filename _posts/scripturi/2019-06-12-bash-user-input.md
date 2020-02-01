@@ -16,6 +16,7 @@ tags:
 
 <pre>
 #!/bin/bash
+#More at https://linuxtm.ro
 #Require user input (select 1 or 2 on keyboard)
 
 echo "Continue ?"
