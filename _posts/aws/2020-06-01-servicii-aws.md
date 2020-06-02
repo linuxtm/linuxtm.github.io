@@ -17,14 +17,10 @@ tags:
   - tutoriale aws cloud
 ---
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th><strong>Compute</strong></th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Compute</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>EC2</td>
       <td>Virtual Private Servers</td>
@@ -57,17 +53,12 @@ tags:
       <td>EC2 Image Builder</td>
       <td>Create EC2 (ami?) images automatically</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th><strong>Storage</strong></th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Storage</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>S3</td>
       <td>File storage. Not directly used for mounting, but you can directly download files from HTTP.</td>
@@ -92,17 +83,12 @@ tags:
       <td>AWS Backup</td>
       <td>Automatically create backups of different AWS service (EC2, rds etc)</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Database</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Database</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>RDS</td>
       <td>Managed mysql, postgres databases etc.</td>
@@ -135,17 +121,12 @@ tags:
       <td>Amazon Keyspaces</td>
       <td>Managed Apache Cassandra clone</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Migration &amp; Transfer</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Migration & Transfer</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>AS Migration Hub</td>
       <td>Migrate things from your DC to AWS</td>
@@ -174,17 +155,12 @@ tags:
       <td>DataSync</td>
       <td>Sync data between your datacenter and AWS</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Networking &amp; Content Delivery</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Networking & Content Delivery</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>VPC</td>
       <td>Create your own virtual private network within AWS.</td>
@@ -217,17 +193,12 @@ tags:
       <td>Global Accelerator</td>
       <td>Run your app on edge locations so they are closer to your customers (CDN for apps).</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Developer Tools</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Developer Tools</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>CodeStar</td>
       <td>Quickly develop applications by using template code and codecommit, codebuild etc</td>
@@ -256,32 +227,22 @@ tags:
       <td>X-Ray</td>
       <td>Allows tracing in your applications, supports Python, NodeJs, Go etc.</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Robotics</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Robotics</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>AWS RoboMaker</td>
       <td>Cloud solution for robotic developers to simulate, test and securely deploy robotic applications</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Customer Enablement</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Customer Enablement</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>AWS IQ</td>
       <td>Job board: Hire AWS experts for whatever you need.</td>
@@ -294,62 +255,43 @@ tags:
       <td>Managed Services</td>
       <td>Let AWS handle your AWS services for you.</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Blockchain</th>
-      <th> </th>
-    </tr>
-  </thead>
+<br>
+<strong><em>Blockchain</em></strong>
+<br>
+<table width="100%" border="0">
   <tbody>
     <tr>
       <td>Amazon Managed Blockchain</td>
       <td>Block chains</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Satellite</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Satellite</em></strong>
+<br>
+<table width="100%" border="0">  <thead>
     <tr>
       <td>Ground Station</td>
       <td>Timeshare radios and large antennas pointed at space</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Quantum Technologies</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Quantum Technologies</em></strong>
+<br>
+<table width="100%" border="0">  <thead>
     <tr>
       <td>Amazon Braket</td>
       <td>Some quantum thing. It’s in preview so I have no idea what it is.</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Management &amp; Governance</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Management & Governance</em></strong>
+<br>
+<table width="100%" border="0">  <thead>
     <tr>
       <td>AWS Organizations</td>
       <td>Configure (sub)organisations and accounts</td>
@@ -422,17 +364,12 @@ tags:
       <td>AWS Compute Optimizer</td>
       <td>Finds your resources and advices on how to save costs</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Media Services</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Media Services</em></strong>
+<br>
+<table width="100%" border="0">  <thead>
     <tr>
       <td>Elastic Transcoder</td>
       <td>Encode files from S3 into different other formats and store back at S3</td>
@@ -469,17 +406,12 @@ tags:
       <td>Elemental Appliances &amp; Software</td>
       <td>create videos on-premise. Basically a mix of all of the above services. Seems expensive. Probably is.</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Machine Learning</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Machine Learning</em></strong>
+<br>
+<table width="100%" border="0">  <thead>
     <tr>
       <td>Amazon SageMaker</td>
       <td>Machine learning tools</td>
@@ -552,7 +484,6 @@ tags:
       <td>AWS DeepComposer</td>
       <td>Computer generated music. It’s as horrible as it sounds.</td>
     </tr>
-  </tbody>
 </table>
 
 <table class="aws_tables">
