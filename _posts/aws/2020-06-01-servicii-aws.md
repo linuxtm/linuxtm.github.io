@@ -261,7 +261,6 @@ tags:
 <strong><em>Blockchain</em></strong>
 <br>
 <table width="100%" border="0">
-  <tbody>
     <tr>
       <td>Amazon Managed Blockchain</td>
       <td>Block chains</td>
