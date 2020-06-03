@@ -258,25 +258,6 @@ tags:
 </table>
 
 <br>
-<strong><em>Customer Enablement</em></strong>
-<br>
-<table width="100%" border="0">
-    <tr>
-      <td>AWS IQ</td>
-      <td>Job board: Hire AWS experts for whatever you need.</td>
-    </tr>
-    <tr>
-      <td>Support</td>
-      <td>AWS support center</td>
-    </tr>
-    <tr>
-      <td>Managed Services</td>
-      <td>Let AWS handle your AWS services for you.</td>
-    </tr>
-</table>
-
-
-<br>
 <strong><em>Management & Governance</em></strong>
 <br>
 <table width="100%" border="0">
@@ -621,16 +602,6 @@ tags:
 </table>
 
 <br>
-<strong><em>AR & VR</em></strong>
-<br>
-<table width="100%" border="0">
-    <tr>
-      <td>Amazon Sumerian</td>
-      <td>?</td>
-    </tr>
-</table>
-
-<br>
 <strong><em>Application Integration</em></strong>
 <br>
 <table width="100%" border="0">
@@ -806,6 +777,16 @@ tags:
 </table>
 
 <br>
+<strong><em>AR & VR</em></strong>
+<br>
+<table width="100%" border="0">
+    <tr>
+      <td>Amazon Sumerian</td>
+      <td>Create and run browser-based 3D, AR and VR applications.</td>
+    </tr>
+</table>
+
+<br>
 <strong><em>Satellite</em></strong>
 <br>
 <table width="100%" border="0">
@@ -822,5 +803,23 @@ tags:
     <tr>
       <td>Amazon Braket</td>
       <td>Some quantum thing. It’s in preview so I have no idea what it is.</td>
+    </tr>
+</table>
+
+<br>
+<strong><em>Customer Enablement</em></strong>
+<br>
+<table width="100%" border="0">
+    <tr>
+      <td>AWS IQ</td>
+      <td>Job board: Hire AWS experts for whatever you need.</td>
+    </tr>
+    <tr>
+      <td>Support</td>
+      <td>AWS support center</td>
+    </tr>
+    <tr>
+      <td>Managed Services</td>
+      <td>Let AWS handle your AWS services for you.</td>
     </tr>
 </table>
