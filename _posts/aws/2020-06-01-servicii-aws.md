@@ -240,6 +240,24 @@ tags:
 </table>
 
 <br>
+<strong><em>Containers</em></strong>
+<br>
+<table width="100%" border="0">
+    <tr>
+      <td>Elastic Container Registry</td>
+      <td>Store docker images like on DockerHub</td>
+    </tr>
+    <tr>
+      <td>Elastic Container Service</td>
+      <td>Run containers, either on your own EC2 machines, or on managed machines called Fargate.</td>
+    </tr>
+    <tr>
+      <td>Elastic Kubernetes Service</td>
+      <td>Kubernetes as a service</td>
+    </tr>
+</table>
+
+<br>
 <strong><em>Customer Enablement</em></strong>
 <br>
 <table width="100%" border="0">
@@ -257,40 +275,11 @@ tags:
     </tr>
 </table>
 
-<br>
-<strong><em>Blockchain</em></strong>
-<br>
-<table width="100%" border="0">
-    <tr>
-      <td>Amazon Managed Blockchain</td>
-      <td>Block chains</td>
-    </tr>
-</table>
-
-<br>
-<strong><em>Satellite</em></strong>
-<br>
-<table width="100%" border="0">  <thead>
-    <tr>
-      <td>Ground Station</td>
-      <td>Timeshare radios and large antennas pointed at space</td>
-    </tr>
-</table>
-
-<br>
-<strong><em>Quantum Technologies</em></strong>
-<br>
-<table width="100%" border="0">  <thead>
-    <tr>
-      <td>Amazon Braket</td>
-      <td>Some quantum thing. It’s in preview so I have no idea what it is.</td>
-    </tr>
-</table>
 
 <br>
 <strong><em>Management & Governance</em></strong>
 <br>
-<table width="100%" border="0">  <thead>
+<table width="100%" border="0">
     <tr>
       <td>AWS Organizations</td>
       <td>Configure (sub)organisations and accounts</td>
@@ -368,7 +357,7 @@ tags:
 <br>
 <strong><em>Media Services</em></strong>
 <br>
-<table width="100%" border="0">  <thead>
+<table width="100%" border="0">
     <tr>
       <td>Elastic Transcoder</td>
       <td>Encode files from S3 into different other formats and store back at S3</td>
@@ -410,7 +399,7 @@ tags:
 <br>
 <strong><em>Machine Learning</em></strong>
 <br>
-<table width="100%" border="0">  <thead>
+<table width="100%" border="0">
     <tr>
       <td>Amazon SageMaker</td>
       <td>Machine learning tools</td>
@@ -485,14 +474,10 @@ tags:
     </tr>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Analytics</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Analytics</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>Athena</td>
       <td>Query data stored in S3 buckets.</td>
@@ -537,17 +522,12 @@ tags:
       <td>MSK</td>
       <td>Kafka as a service</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Security, Identity, &amp; Compliance</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Security, Identity, &amp; Compliance</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>IAM</td>
       <td>AWS’s permission system that can control users and AWS services.</td>
@@ -616,17 +596,12 @@ tags:
       <td>Detective</td>
       <td>Log  security issues found (from security hub etc)</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Mobile</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Mobile</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>AWS Amplify</td>
       <td>Let AWS automatically generate frontend &amp; backend apps and deploy them automatically.</td>
@@ -643,32 +618,22 @@ tags:
       <td>Device Farm</td>
       <td>AWS BrowserStack. Automatically test apps on many different mobile devices and browsers.</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>AR &amp; VR</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>AR & VR</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>Amazon Sumerian</td>
-      <td>No idea. The dashboard crashes in my browsers</td>
+      <td>?</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Application Integration</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Application Integration</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>Step Functions</td>
       <td>State machines written in amazon’s own language</td>
@@ -697,17 +662,12 @@ tags:
       <td>SWF</td>
       <td>Create workflows.</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>AWS Cost Management</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>AWS Cost Management</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>AWS Cost Explorer</td>
       <td>Gives an overview and projection of your budgets</td>
@@ -720,17 +680,12 @@ tags:
       <td>AWS Marketplace Subscriptions</td>
       <td>Find (and buy) AMI’s with software installed</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Customer Engagement</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Customer Engagement</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>Amazon Connect</td>
       <td>AWS call center platform</td>
@@ -743,17 +698,12 @@ tags:
       <td>Simple Email Service</td>
       <td>Send out emails. Email provider.</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Business Applications</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Business Applications</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>Alexa for Business</td>
       <td>Connect Alexa to your business needs.</td>
@@ -766,17 +716,11 @@ tags:
       <td>WorkMail</td>
       <td>AWS version of Gmail / Calendar.</td>
     </tr>
-  </tbody>
 </table>
-
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>End User Computing</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>End User Computing</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>WorkSpaces</td>
       <td>Virtual desktops from Windows or Linux.</td>
@@ -793,17 +737,12 @@ tags:
       <td>WorkLink</td>
       <td>Connect mobile users to your intranet.</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Internet Of Things</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Internet of Things</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>IoT Core</td>
       <td>Manage fleets of IOT devices through MQTT broker</td>
@@ -844,43 +783,44 @@ tags:
       <td>IoT Things Graph</td>
       <td>Cloudformation-like designer for graphing how devices should communicate with other AWS services</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
-    <tr>
-      <th>Game Development</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+<br>
+<strong><em>Game Development</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
       <td>Amazon GameLift</td>
       <td>Deploy game servers with low latency on AWS</td>
     </tr>
-  </tbody>
 </table>
 
-<table class="aws_tables">
-  <thead>
+<br>
+<strong><em>Blockchain</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
-      <th>Containers</th>
-      <th> </th>
+      <td>Amazon Managed Blockchain</td>
+      <td>Block chains</td>
     </tr>
-  </thead>
-  <tbody>
+</table>
+
+<br>
+<strong><em>Satellite</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
-      <td>Elastic Container Registry</td>
-      <td>Store docker images like on DockerHub</td>
+      <td>Ground Station</td>
+      <td>Timeshare radios and large antennas pointed at space</td>
     </tr>
+</table>
+
+<br>
+<strong><em>Quantum Technologies</em></strong>
+<br>
+<table width="100%" border="0">
     <tr>
-      <td>Elastic Container Service</td>
-      <td>Run containers, either on your own EC2 machines, or on managed machines called Fargate.</td>
+      <td>Amazon Braket</td>
+      <td>Some quantum thing. It’s in preview so I have no idea what it is.</td>
     </tr>
-    <tr>
-      <td>Elastic Kubernetes Service</td>
-      <td>Kubernetes as a service</td>
-    </tr>
-  </tbody>
 </table>
