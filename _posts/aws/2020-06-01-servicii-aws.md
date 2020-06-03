@@ -229,15 +229,7 @@ tags:
     </tr>
 </table>
 
-<br>
-<strong><em>Robotics</em></strong>
-<br>
-<table width="100%" border="0">
-    <tr>
-      <td>AWS RoboMaker</td>
-      <td>Cloud solution for robotic developers to simulate, test and securely deploy robotic applications</td>
-    </tr>
-</table>
+
 
 <br>
 <strong><em>Containers</em></strong>
@@ -580,24 +572,20 @@ tags:
 </table>
 
 <br>
-<strong><em>Mobile</em></strong>
+<strong><em>AWS Cost Management</em></strong>
 <br>
 <table width="100%" border="0">
     <tr>
-      <td>AWS Amplify</td>
-      <td>Let AWS automatically generate frontend &amp; backend apps and deploy them automatically.</td>
+      <td>AWS Cost Explorer</td>
+      <td>Gives an overview and projection of your budgets</td>
     </tr>
     <tr>
-      <td>Mobile Hub</td>
-      <td>Part of AWS Amplify now.</td>
+      <td>AWS Budgets</td>
+      <td>Create budgets for your AWS components</td>
     </tr>
     <tr>
-      <td>AWS AppSync</td>
-      <td>Create API backends that you can connect to. Can be created through AWS Amplify as well.</td>
-    </tr>
-    <tr>
-      <td>Device Farm</td>
-      <td>AWS BrowserStack. Automatically test apps on many different mobile devices and browsers.</td>
+      <td>AWS Marketplace Subscriptions</td>
+      <td>Find (and buy) AMI’s with software installed</td>
     </tr>
 </table>
 
@@ -636,20 +624,24 @@ tags:
 </table>
 
 <br>
-<strong><em>AWS Cost Management</em></strong>
+<strong><em>Mobile</em></strong>
 <br>
 <table width="100%" border="0">
     <tr>
-      <td>AWS Cost Explorer</td>
-      <td>Gives an overview and projection of your budgets</td>
+      <td>AWS Amplify</td>
+      <td>Let AWS automatically generate frontend &amp; backend apps and deploy them automatically.</td>
     </tr>
     <tr>
-      <td>AWS Budgets</td>
-      <td>Create budgets for your AWS components</td>
+      <td>Mobile Hub</td>
+      <td>Part of AWS Amplify now.</td>
     </tr>
     <tr>
-      <td>AWS Marketplace Subscriptions</td>
-      <td>Find (and buy) AMI’s with software installed</td>
+      <td>AWS AppSync</td>
+      <td>Create API backends that you can connect to. Can be created through AWS Amplify as well.</td>
+    </tr>
+    <tr>
+      <td>Device Farm</td>
+      <td>AWS BrowserStack. Automatically test apps on many different mobile devices and browsers.</td>
     </tr>
 </table>
 
@@ -803,6 +795,16 @@ tags:
     <tr>
       <td>Amazon Braket</td>
       <td>Some quantum thing. It’s in preview so I have no idea what it is.</td>
+    </tr>
+</table>
+
+<br>
+<strong><em>Robotics</em></strong>
+<br>
+<table width="100%" border="0">
+    <tr>
+      <td>AWS RoboMaker</td>
+      <td>Cloud solution for robotic developers to simulate, test and securely deploy robotic applications</td>
     </tr>
 </table>
 
