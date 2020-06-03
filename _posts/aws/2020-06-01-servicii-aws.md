@@ -764,7 +764,7 @@ tags:
 <table width="100%" border="0">
     <tr>
       <td>Amazon Managed Blockchain</td>
-      <td>Block chains</td>
+      <td>Create and manage scalable blockchain networks</td>
     </tr>
 </table>
 
