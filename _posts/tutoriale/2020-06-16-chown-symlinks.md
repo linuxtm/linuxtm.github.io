@@ -23,9 +23,11 @@ In manualul chown, gasim urmatoarea optiune:
 
 <em> -L   traverse every symbolic link to a directory encountered</em>
 
+
 Astfel, daca dorim ca ownershipul fisieirelor sa fie schimbat si in interiorul directoarelor de tip symlink folosim:
 
 <pre>chown -RL /my/dir/</pre>
+
 
 Bonus, avem optiunea "-h"
 
