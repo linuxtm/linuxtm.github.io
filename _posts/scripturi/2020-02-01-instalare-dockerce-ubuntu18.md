@@ -49,4 +49,4 @@ echo "Done."
 echo -e "${red}In order for docker to work as a non-root user, please logout or restart your computer!${no}"
 </pre>
 
-Instructiunile oficiale: <a href="https://docs.docker.com/v17.09/engine/installation/linux/docker-ce/ubuntu/">https://docs.docker.com/v17.09/engine/installation/linux/docker-ce/ubuntu/</a>
+Instructiunile oficiale: <a href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/</a>
