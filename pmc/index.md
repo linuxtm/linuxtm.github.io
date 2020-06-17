@@ -1,3 +1,15 @@
+---
+title: Comenzi uzuale
+author: linuxtm
+layout: page
+tags:
+- comenzi linux
+- comenzi ubuntu
+- cele mai folosite comenzi linux
+- administrare linux
+- comenzi uzuale linux
+---
+
 <!doctype html>
 <html lang="en">
 <head>
