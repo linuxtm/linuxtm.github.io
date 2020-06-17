@@ -15,5 +15,4 @@ tags:
   - memorie proces php
 ---
 
-Daca te grabesti si nu te intereseaza cum se calculeaza, poti sa folosesti calculatorul de aici: https://linuxtm.ro/pmc/
-
+Daca te grabesti si nu te intereseaza cum se calculeaza, poti sa folosesti calculatorul de aici: <a href="https://linuxtm.ro/pmc/">https://linuxtm.ro/pmc/</a>
