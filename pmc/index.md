@@ -1,11 +1,12 @@
 ---
-title: Comenzi uzuale
+title: PMC
 author: linuxtm
 layout: page
 tags:
 - comenzi linux
 - comenzi ubuntu
 - cele mai folosite comenzi linux
+- calculator memorie procese php-fpm
 - administrare linux
 - comenzi uzuale linux
 ---
