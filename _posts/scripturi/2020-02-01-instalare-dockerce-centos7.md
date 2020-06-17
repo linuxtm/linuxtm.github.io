@@ -38,4 +38,4 @@ curl -L "https://github.com/docker/compose/releases/download/1.26.0/docker-compo
 chmod +x /usr/local/bin/docker-compose
 </pre>
 
-Instructiunile oficiale: <a href="https://docs.docker.com/install/linux/docker-ce/centos/">https://docs.docker.com/install/linux/docker-ce/centos/</a>
+Instructiunile oficiale: <a href="https://docs.docker.com/engine/install/centos/">https://docs.docker.com/engine/install/centos/</a>
