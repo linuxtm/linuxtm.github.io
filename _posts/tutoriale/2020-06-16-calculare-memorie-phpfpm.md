@@ -16,3 +16,17 @@ tags:
 ---
 
 Daca te grabesti si nu te intereseaza cum se calculeaza, poti sa folosesti calculatorul de aici: <a href="https://linuxtm.ro/pmc/">https://linuxtm.ro/pmc/</a>
+
+Formula dupa care calculam este urmatoarea:
+
+<pre>[Total RAM Disponibil] - [RAM Rezervat] - [10% buffer] = [RAM disponibil pentru PHP]</pre>
+
+Rezultatul:
+<pre>[RAM disponibil pentru PHP] / [Dimensiunea Medie a unui Proces] = [max_children]</pre>
+
+<pre>
+pm.max_children = [max_children]
+pm.start_servers = [25% din max_children]
+pm.min_spare_servers = [25% din max_children]
+pm.max_spare_servers = [75% din max_children]
+</pre>
