@@ -2,7 +2,7 @@
 title: Verificare certificat SSL + cheie privata din CLI
 author: linuxtm
 layout: post
-permalink: /chown-symlinks/
+permalink: /vericare-cheie-certificat-ssl/
 categories:
   - Tutoriale
 tags:
