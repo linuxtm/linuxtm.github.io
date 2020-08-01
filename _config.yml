@@ -5,6 +5,8 @@ description: comenzi linux, tutoriale linux
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://linuxtm.ro" # the base hostname & protocol for your site
 
+theme: jekyll-theme-cayman
+
 # Build settings
 markdown: kramdown
 permalink: pretty
