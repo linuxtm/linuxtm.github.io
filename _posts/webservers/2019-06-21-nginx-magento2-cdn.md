@@ -401,39 +401,38 @@ server {
 server {
     listen      443 ssl http2;
     server_name static.domain.com;
+    root /var/www/html/pub;
+    
+    access_log  /var/log/nginx/static-access.log;
+    error_log   /var/log/nginx/static-error.log;
+    
     ssl_certificate /etc/letsencrypt/live/static.domain.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/static.domain.com/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
-
-    root /var/www/html/pub;
-
     client_max_body_size 10M;
     merge_slashes off;
     autoindex off;
     charset off;
-
-    # remove signature of static files used to overcome browser cache
+    
     location ~ ^/static/version {
-    # Preflighted requests
-    if ($request_method = OPTIONS ) {
-      add_header "Access-Control-Allow-Origin"  *;
-      add_header "Access-Control-Allow-Methods" "GET, POST, OPTIONS, HEAD";
-      add_header "Access-Control-Allow-Headers" "Authorization, Origin, X-Requested-With, Content-Type, Accept";
-      return 200;
-    }
-        add_header Cache-Control "public";
-        add_header Access-Control-Allow-Origin "*";
-        add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
+        # Preflighted requests - KEEP THIS ABOVE THE REWRITE RULE
+        if ($request_method = OPTIONS ) {
+          add_header "Access-Control-Allow-Origin"  "https://main-domain.com";
+          add_header "Access-Control-Allow-Methods" "GET, POST, OPTIONS, HEAD";
+          add_header "Access-Control-Allow-Headers" "Authorization, Origin, X-Requested-With, Content-Type, Accept";
+          return 200;
+        }
         expires +1y;
-      rewrite ^/static/(version\d*/)?(.*)$ /static/$2 last;
+        #remove signature of static files used to overcome browser cache
+        rewrite ^/static/(version\d*/)?(.*)$ /static/$2 last;
     }
 
     # Match MIME types
     location ~* \.(htm|html|css|js|txt|swf|asf|asx|wax|wmv|wmx|avi|bmp|class|divx|doc|docx|eot|gz|gzip|ico|png|gif|jpg|jpeg|jpe|mdb|mov|qt|mpg|mpe|mpp|odb|odc|odf|odg|odp|ods|odt|ogv|json|webm|htc|woff|woff2|ttf|pdf|svg)$ {
         add_header Cache-Control 'public';
-        add_header Access-Control-Allow-Origin '*';
+        add_header Access-Control-Allow-Origin 'https://main-domain.com';
         add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
         expires +1y;
         }
