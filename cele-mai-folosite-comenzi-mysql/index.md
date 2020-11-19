@@ -24,6 +24,7 @@ tags:
 <pre>DELETE FROM mysql.user WHERE USER='user' AND HOST='localhost';</pre>
 <pre>mysqldump -u root -p dbname > dbname.sql</pre>
 <pre>mysqldump --routines --triggers --events -u root dbname > dbname.sql #blocheaza scrierile in db temporar</pre>
+<pre>mysqldump -u root -p --no-data dbname > dbname.sql #dump doar la schema</pre>
 <pre>mysql -u root -p dbname < dbname.sql</pre>
 
 **Restore o singura baza de date din dump facut cu --all-databases**
