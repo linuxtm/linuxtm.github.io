@@ -27,6 +27,9 @@ tags:
 **MySQLdump**
 <pre>mysqldump -u root -p dbname > dbname.sql</pre>
 
+Dump + compresie
+<pre>mysqldump -u root -p dbname > dbname.sql |gzip > dbname.sql.gz</pre>
+
 <pre>mysqldump --single-transaction -u root dbname > dbname.sql #pentru baze de date mai mari</pre>
 
 <pre>mysqldump --routines --triggers --events -u root dbname > dbname.sql #blocheaza scrierile in db temporar</pre>
