@@ -26,6 +26,9 @@ tags:
 
 **MySQLdump**
 <pre>mysqldump -u root -p dbname > dbname.sql</pre>
+
+<pre>mysqldump --single-transaction -u root dbname > dbname.sql #pentru baze de date mai mari</pre>
+
 <pre>mysqldump --routines --triggers --events -u root dbname > dbname.sql #blocheaza scrierile in db temporar</pre>
 
 Dump doar la schema:
