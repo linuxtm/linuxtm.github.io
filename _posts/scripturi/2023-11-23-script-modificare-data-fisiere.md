@@ -22,7 +22,6 @@ Scriptul se foloseste de exiftool ca sa extraga CreateDate din metadatele pozelo
 #Gets the CreateDate from EXIF data and sets the date as modified for the files inside a folder
 #example usage
 # ./set-modified-date.py folder/
-#More at https://linuxtm.ro
 
 import os
 import subprocess
@@ -75,40 +74,3 @@ if __name__ == "__main__":
     folder_path = sys.argv[1]
     main(folder_path)
 </pre>
-
-
-Scriptul de mai jos schimba data fisierelor dintr-un folder.
-
-
-<pre>
-#!/bin/bash
-
-# usage example
-# ./set-time.sh folder/  "2023-03-06 14:30:00"
-#More at https://linuxtm.ro
-  
-# Check if at least two arguments are provided
-if [ "$#" -lt 2 ]; then
-    echo "Usage: $0 <folder> <date>"
-    exit 1
-fi
-
-folder="$1"
-specified_date="$2"
-
-# Check if the folder exists
-if [ -d "$folder" ]; then
-    # Loop through each file in the folder
-    for file in "$folder"/*; do
-        # Check if the item is a file (not a directory)
-        if [ -f "$file" ]; then
-            # Set the creation and modification times of the file
-            touch -d "$specified_date" "$file"
-            echo "File $file created on disk with date $specified_date"
-        fi
-    done
-else
-    echo "Error: Folder not found - $folder"
-fi
-</pre>
-
