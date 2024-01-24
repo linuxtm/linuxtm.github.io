@@ -18,6 +18,7 @@ th, td {
     text-align: left;
 }
 
+
 // Our variables
 $base-font-family: Helvetica, Arial, sans-serif;
 $base-font-size:   15px;
@@ -35,10 +36,10 @@ $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
 // Width of the content area
-$content-width:    700px;
+$content-width:    800px;
 
 $on-palm:          600px;
-$on-laptop:        700px;
+$on-laptop:        800px;
 
 
 

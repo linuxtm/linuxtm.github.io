@@ -13,15 +13,13 @@ dl, dd, ol, ul, figure {
 /**
  * Basic styling
  */
- body {
+body {
     font-family: $base-font-family;
     font-size: $base-font-size;
     line-height: $base-line-height;
     color: $text-color;
     background-color: $background-color;
     -webkit-text-size-adjust: 100%;
-    overflow-x: hidden;
-    position: relative;
 }
 
 
@@ -30,16 +28,13 @@ dl, dd, ol, ul, figure {
  * Set `margin-bottom` to maintain vertical rhythm
  */
 h1, h2, h3, h4, h5, h6,
-blockquote, pre, ul, 
-ol, dl, figure,
+p, blockquote, pre,
+ul, ol, dl, figure,
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
 }
 
-p,
-%vertical-rhythm {
-    margin-bottom: 6px;
-}
+
 
 /**
  * Images
@@ -132,9 +127,9 @@ blockquote {
 pre,
 code {
     font-size: 14px;
-    border: 1px solid #bfbfbf;
+    border: 1px solid $grey-color-light;
     border-radius: 3px;
-    background-color: #f1f1f1;
+    background-color: #eef;
 }
 
 code {
@@ -153,6 +148,8 @@ pre {
         padding-left: 0;
     }
 }
+
+
 
 /**
  * Wrapper
