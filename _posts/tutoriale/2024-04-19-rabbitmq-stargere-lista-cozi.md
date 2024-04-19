@@ -28,7 +28,8 @@ coada2
 
 In esenta fiecare coada trebuie sa fie pe o linie noua in fisierul txt.
 
-Alternativ putem folosi comenzile de mai in Rabbit pentru a sterge cate o coada sau pentru a exporta lista de cozi intr-un fisier txt.
+
+Alternativ putem folosi comenzile de mai jos pentru a sterge cate o coada sau pentru a exporta lista de cozi intr-un fisier txt.
 
 <pre>rabbitmqctl delete_queue queue1</pre>
 
