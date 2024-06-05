@@ -13,18 +13,19 @@ tags:
   - delete rabbitmq queues list
 ---
 
-Presupunem ca avem o lista de cozi rabbit pe care vrem sa le stergem. Daca avem multe, stergerea manuala nu este o optiune.
+Presupunem ca avem o lista de cozi in rabbit pe care vrem sa le stergem. 
+
+Daca avem multe, stergerea manuala nu este o optiune.
+
 In acest sens, lista de cozi o punem intr-un fisier text, si iteram prin fiecare linie cu ajutorul unui for.
 
 <pre>for i in `cat cozi.txt`; do curl -k -i -XDELETE https://admin:pass@rabbitmq.mysite.com/api/queues/$i; done</pre>
 
 Exemplu fisier cozi.txt:
 
-<em>
-coada1
+<em>coada1
 
-coada2
-</em>
+coada2</em>
 
 In esenta fiecare coada trebuie sa fie pe o linie noua in fisierul txt.
 
