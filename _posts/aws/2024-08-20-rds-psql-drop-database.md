@@ -1,5 +1,5 @@
 ---
-title: AWS RDS drop psql
+title: AWS RDS drop PostgreSQL
 author: linuxtm
 layout: post
 permalink: /aws-rds-psql-drop-database/
