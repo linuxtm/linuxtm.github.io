@@ -9,4 +9,4 @@ url: "https://linuxtm.ro" # the base hostname & protocol for your site
 markdown: kramdown
 permalink: pretty
 #theme: jekyll-theme-hacker
-remote_theme: jekyll-theme-cayman
+remote_theme: pages-themes/cayman@v0.2.0
