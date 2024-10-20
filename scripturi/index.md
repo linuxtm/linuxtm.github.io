@@ -21,6 +21,7 @@ tags:
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
+	<p class="post-excerpt">{{ post.content | strip_html | truncatewords: 20 }}</p>
       </li>
     {% endfor %}
   </ul>
