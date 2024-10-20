@@ -90,12 +90,14 @@
 </code></pre></div></div>
 
 <p>Instalare client mysql</p>
-<pre>sudo yum install -y https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm &amp;&amp; sudo yum install -y mysql-community-client</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>yum <span class="nb">install</span> <span class="nt">-y</span> https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>yum <span class="nb">install</span> <span class="nt">-y</span> mysql-community-client
+</code></pre></div></div>
 
 <p>Redis-CLI</p>
-<pre>sudo yum install -y gcc
-wget http://download.redis.io/redis-stable.tar.gz &amp;&amp; tar xvzf redis-stable.tar.gz &amp;&amp; cd redis-stable &amp;&amp; make
-sudo cp src/redis-cli /usr/bin/</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>yum <span class="nb">install</span> <span class="nt">-y</span> gcc
+wget http://download.redis.io/redis-stable.tar.gz <span class="o">&amp;&amp;</span> <span class="nb">tar </span>xvzf redis-stable.tar.gz <span class="o">&amp;&amp;</span> <span class="nb">cd </span>redis-stable <span class="o">&amp;&amp;</span> make
+<span class="nb">sudo cp </span>src/redis-cli /usr/bin/
+</code></pre></div></div>
 
   </article>
 

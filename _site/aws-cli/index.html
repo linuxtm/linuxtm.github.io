@@ -89,60 +89,70 @@
 
 <p>Exemplul de config de mai jos ( ~/.aws/config ) contine 3 profile diferite (qa, stage si prod), utilizand un cont (admin@linuxtm.ro) cu acces de a schimba rolul de IAM (allow-admin) si 2 factor authentication activ pentru contul respectiv.</p>
 
-<pre>
-[default]
-region = eu-central-1
-output = text
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>default]
+region <span class="o">=</span> eu-central-1
+output <span class="o">=</span> text
 
-[profile qa]
-role_arn = arn:aws:iam::888888999990:role/allow-admin
-mfa_serial = arn:aws:iam::111111222222:mfa/admin@linuxtm.ro
-source_profile = default
+<span class="o">[</span>profile qa]
+role_arn <span class="o">=</span> arn:aws:iam::888888999990:role/allow-admin
+mfa_serial <span class="o">=</span> arn:aws:iam::111111222222:mfa/admin@linuxtm.ro
+source_profile <span class="o">=</span> default
 
-[profile stage]
-role_arn = arn:aws:iam::888888999991:role/allow-admin
-mfa_serial = arn:aws:iam::111111222222:mfa/admin@linuxtm.ro
-source_profile = default
+<span class="o">[</span>profile stage]
+role_arn <span class="o">=</span> arn:aws:iam::888888999991:role/allow-admin
+mfa_serial <span class="o">=</span> arn:aws:iam::111111222222:mfa/admin@linuxtm.ro
+source_profile <span class="o">=</span> default
 
-[profile prod]
-role_arn = arn:aws:iam::888888999992:role/allow-admin
-mfa_serial = arn:aws:iam::111111222222:mfa/admin@linuxtm.ro
-source_profile = default
-</pre>
+<span class="o">[</span>profile prod]
+role_arn <span class="o">=</span> arn:aws:iam::888888999992:role/allow-admin
+mfa_serial <span class="o">=</span> arn:aws:iam::111111222222:mfa/admin@linuxtm.ro
+source_profile <span class="o">=</span> default
+</code></pre></div></div>
 
 <p><strong>ECR get-login folosind un profil</strong></p>
-<pre>aws --profile qa ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 444444455555.dkr.ecr.eu-central-1.amazonaws.com</pre>
-<pre>aws --profile stage ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 444444455555.dkr.ecr.eu-central-1.amazonaws.com</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws <span class="nt">--profile</span> qa ecr get-login-password <span class="nt">--region</span> eu-central-1 | docker login <span class="nt">--username</span> AWS <span class="nt">--password-stdin</span> 444444455555.dkr.ecr.eu-central-1.amazonaws.com
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws <span class="nt">--profile</span> stage ecr get-login-password <span class="nt">--region</span> eu-central-1 | docker login <span class="nt">--username</span> AWS <span class="nt">--password-stdin</span> 444444455555.dkr.ecr.eu-central-1.amazonaws.com
+</code></pre></div></div>
 
 <p><strong>S3</strong></p>
 
 <p>Copiere fisier local intr-un bucket</p>
-<pre>aws s3 cp test.txt s3://mybucket/test2.txt</pre>
-
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws s3 <span class="nb">cp </span>test.txt s3://mybucket/test2.txt
+</code></pre></div></div>
 <p>Copiere fisier local intr-un bucket cu o data de expirare</p>
-<pre>aws s3 cp test.txt s3://mybucket/test2.txt --expires 2014-10-01T20:30:00Z</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws s3 <span class="nb">cp </span>test.txt s3://mybucket/test2.txt <span class="nt">--expires</span> 2014-10-01T20:30:00Z
+</code></pre></div></div>
 
 <p>Copiere fisier din S3 pe local in directorul curent</p>
-<pre>aws s3 cp s3://mybucket/test.txt .</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws s3 <span class="nb">cp </span>s3://mybucket/test.txt <span class="nb">.</span>
+</code></pre></div></div>
 
 <p>Copiere recursiva de fisiere de pe local in S3</p>
-<pre>aws s3 cp myDir s3://mybucket/ --recursive --exclude "*.jpg"</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws s3 <span class="nb">cp </span>myDir s3://mybucket/ <span class="nt">--recursive</span> <span class="nt">--exclude</span> <span class="s2">"*.jpg"</span>
+</code></pre></div></div>
 
 <p>Copiere fisier din S3 in S3</p>
-<pre>aws s3 cp s3://mybucket/test.txt s3://mybucket/test2.txt</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws s3 <span class="nb">cp </span>s3://mybucket/test.txt s3://mybucket/test2.txt
+</code></pre></div></div>
 
 <p><strong>Diverse</strong></p>
 
 <p>Obtinere detalii conectare Elasticache (Redis) - cluster id, apoi endpoint si port:</p>
-<pre>aws elasticache describe-cache-clusters --output text --query 'CacheClusters[].CacheClusterId')</pre>
-<pre>aws elasticache describe-cache-clusters --cache-cluster-id clusterul-tau-aici --show-cache-node-info --output text --query 'CacheClusters[].CacheNodes[].Endpoint[].Address')</pre>
-<pre>aws elasticache describe-cache-clusters --cache-cluster-id clusterul-tau-aici --show-cache-node-info --output text --query 'CacheClusters[].CacheNodes[].Endpoint[].Port')</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws elasticache describe-cache-clusters <span class="nt">--output</span> text <span class="nt">--query</span> <span class="s1">'CacheClusters[].CacheClusterId'</span><span class="o">)</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws elasticache describe-cache-clusters <span class="nt">--cache-cluster-id</span> clusterul-tau-aici <span class="nt">--show-cache-node-info</span> <span class="nt">--output</span> text <span class="nt">--query</span> <span class="s1">'CacheClusters[].CacheNodes[].Endpoint[].Address'</span><span class="o">)</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws elasticache describe-cache-clusters <span class="nt">--cache-cluster-id</span> clusterul-tau-aici <span class="nt">--show-cache-node-info</span> <span class="nt">--output</span> text <span class="nt">--query</span> <span class="s1">'CacheClusters[].CacheNodes[].Endpoint[].Port'</span><span class="o">)</span>
+</code></pre></div></div>
 
 <p>Obtinere cheie SSH din Secrets Manager</p>
-<pre>aws secretsmanager get-secret-value --region eu-west-1 --secret-id NUME_CHEIE --output=text --query 'SecretString' | sed 's/"//g' | cut -d ':' -f 2 | tr -d '{}' | awk '{$1=$1};1'</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws secretsmanager get-secret-value <span class="nt">--region</span> eu-west-1 <span class="nt">--secret-id</span> NUME_CHEIE <span class="nt">--output</span><span class="o">=</span>text <span class="nt">--query</span> <span class="s1">'SecretString'</span> | <span class="nb">sed</span> <span class="s1">'s/"//g'</span> | <span class="nb">cut</span> <span class="nt">-d</span> <span class="s1">':'</span> <span class="nt">-f</span> 2 | <span class="nb">tr</span> <span class="nt">-d</span> <span class="s1">'{}'</span> | <span class="nb">awk</span> <span class="s1">'{$1=$1};1'</span>
+</code></pre></div></div>
 
 <p>Stergere DEFINER pentru import in RDS</p>
-<pre>sed -i 's/DEFINER=[^*]*\*/\*/g' mydatabase.sql</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/DEFINER=[^*]*\*/\*/g'</span> mydatabase.sql
+</code></pre></div></div>
 
   </article>
 

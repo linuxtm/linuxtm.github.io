@@ -89,12 +89,11 @@
 
 <p><em>Nota: Este necesar sa aveti utilitarul jq instalat, folosit pentru parsarea outpt-ului json.</em></p>
 
-<pre>
-#!/bin/bash
-zonename=$1
-hostedzoneid=$(aws route53 list-hosted-zones --output json | jq -r ".HostedZones[] | select(.Name == \"$zonename.\") | .Id" | cut -d'/' -f3)
-aws route53 list-resource-record-sets --hosted-zone-id $hostedzoneid --output json | jq -jr '.ResourceRecordSets[] | "\(.Name) \t\(.TTL) \t\(.Type) \t\(.ResourceRecords[]?.Value)\n"'
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nv">zonename</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">hostedzoneid</span><span class="o">=</span><span class="si">$(</span>aws route53 list-hosted-zones <span class="nt">--output</span> json | jq <span class="nt">-r</span> <span class="s2">".HostedZones[] | select(.Name == </span><span class="se">\"</span><span class="nv">$zonename</span><span class="s2">.</span><span class="se">\"</span><span class="s2">) | .Id"</span> | <span class="nb">cut</span> <span class="nt">-d</span><span class="s1">'/'</span> <span class="nt">-f3</span><span class="si">)</span>
+aws route53 list-resource-record-sets <span class="nt">--hosted-zone-id</span> <span class="nv">$hostedzoneid</span> <span class="nt">--output</span> json | jq <span class="nt">-jr</span> <span class="s1">'.ResourceRecordSets[] | "\(.Name) \t\(.TTL) \t\(.Type) \t\(.ResourceRecords[]?.Value)\n"'</span>
+</code></pre></div></div>
 
   </article>
 
