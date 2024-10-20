@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Virtualhost Nginx + php-fpm</title>
-  <meta name="description" content="## A virtual host using mix of IP-, name-, and port-based configuration#">
+  <meta name="description" content="Exemplu de virtual host Nginx cu php-fpm, ssl, compresie gzip si forward IP real in caz ca suntem in spatele unui proxy.De asemenea, configul contine si un e...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://192.168.100.144:4000/vhost-nginx-phpfpm/">
-  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://192.168.100.144:4000/feed.xml" />
+  <link rel="canonical" href="http://192.168.100.11:4000/vhost-nginx-phpfpm/">
+  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://192.168.100.11:4000/feed.xml" />
 </head>
 
 
@@ -34,19 +34,7 @@
       <div class="trigger">
         
           
-          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
-          
-        
-          
-          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
-          
-        
-          
           <a class="page-link" href="/scripturi/">Scripturi</a>
-          
-        
-          
-          <a class="page-link" href="/tutoriale/">Tutoriale</a>
           
         
           
@@ -54,7 +42,23 @@
           
         
           
+          <a class="page-link" href="/aws/">AWS</a>
+          
         
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-linux/">Comenzi uzuale</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
+          
+        
+          
+          <a class="page-link" href="/tutoriale/">Tutoriale</a>
+          
+        
+          
+          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
           
         
           
@@ -81,7 +85,10 @@
   </header>
 
   <article class="post-content">
-    <pre>
+    <p>Exemplu de virtual host Nginx cu php-fpm, ssl, compresie gzip si forward IP real in caz ca suntem in spatele unui proxy.
+De asemenea, configul contine si un exemplu de basic auth.</p>
+
+<pre>
 #
 # A virtual host using mix of IP-, name-, and port-based configuration
 #

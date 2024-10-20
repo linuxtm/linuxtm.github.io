@@ -93,11 +93,11 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-    color: $brand-color;
+    color: #003eea;
     text-decoration: none;
 
     &:visited {
-        color: darken($brand-color, 15%);
+        color: #7600db;
     }
 
     &:hover {
@@ -131,10 +131,9 @@ blockquote {
  */
 pre,
 code {
-    font-size: 14px;
+    font-size: 13px;
     border: 1px solid #bfbfbf;
     border-radius: 3px;
-    background-color: #f1f1f1;
 }
 
 code {
@@ -145,7 +144,7 @@ pre {
     padding: 4px 10px;
     overflow-x: hidden;
     white-space: pre-wrap;
-    font-family: Helvetica;
+    font-family: monospace;
 
     > code {
         border: 0;

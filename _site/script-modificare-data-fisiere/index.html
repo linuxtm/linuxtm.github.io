@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Script pentru modificarea datei fisierelor pe disk</title>
+  <meta name="description" content="Scriptul se foloseste de exiftool ca sa extraga CreateDate din metadatele pozelor si seteaza acea data ca fiind ModifiedDate pe disk.">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://192.168.100.11:4000/script-modificare-data-fisiere/">
+  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://192.168.100.11:4000/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">linuxtm.ro</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/scripturi/">Scripturi</a>
+          
+        
+          
+          <a class="page-link" href="/webservers/">Webservers</a>
+          
+        
+          
+          <a class="page-link" href="/aws/">AWS</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-linux/">Comenzi uzuale</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
+          
+        
+          
+          <a class="page-link" href="/tutoriale/">Tutoriale</a>
+          
+        
+          
+          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Script pentru modificarea datei fisierelor pe disk</h1>
+    <p class="post-meta">Nov 23, 2023 • linuxtm</p>
+  </header>
+
+  <article class="post-content">
+    <p>Scriptul se foloseste de exiftool ca sa extraga CreateDate din metadatele pozelor si seteaza acea data ca fiind ModifiedDate pe disk.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+#Gets the CreateDate from EXIF data and sets the date as modified for the files inside a folder
+#example usage
+# ./set-modified-date.py folder/
+</span>
+<span class="kn">import</span> <span class="n">os</span>
+<span class="kn">import</span> <span class="n">subprocess</span>
+<span class="kn">from</span> <span class="n">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">def</span> <span class="nf">get_creation_date</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+    <span class="c1"># Use exiftool to get creation date
+</span>    <span class="n">command</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">exiftool</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">-CreateDate</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">-d</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">%Y:%m:%d %H:%M:%S</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">-s3</span><span class="sh">'</span><span class="p">,</span> <span class="n">file_path</span><span class="p">]</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="p">.</span><span class="nc">Popen</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="p">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="p">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">output</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">process</span><span class="p">.</span><span class="nf">communicate</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">process</span><span class="p">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">creation_date_str</span> <span class="o">=</span> <span class="n">output</span><span class="p">.</span><span class="nf">strip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">creation_date_str</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">creation_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="nf">strptime</span><span class="p">(</span><span class="n">creation_date_str</span><span class="p">,</span> <span class="sh">'</span><span class="s">%Y:%m:%d %H:%M:%S</span><span class="sh">'</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">creation_date</span><span class="p">.</span><span class="nf">timestamp</span><span class="p">()</span>
+            <span class="k">except</span> <span class="nb">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Error converting creation date for </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Creation date not found for </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Error extracting creation date for </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="bp">None</span>
+
+<span class="k">def</span> <span class="nf">set_modified_date</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">modified_time</span><span class="p">):</span>
+    <span class="c1"># Set the modification time of the file
+</span>    <span class="n">os</span><span class="p">.</span><span class="nf">utime</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="p">(</span><span class="n">modified_time</span><span class="p">,</span> <span class="n">modified_time</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">folder_path</span><span class="p">):</span>
+    <span class="c1"># Iterate through all files in the specified folder
+</span>    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="p">.</span><span class="nf">listdir</span><span class="p">(</span><span class="n">folder_path</span><span class="p">):</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+        <span class="c1"># Get creation date of the file using exiftool
+</span>        <span class="n">creation_date</span> <span class="o">=</span> <span class="nf">get_creation_date</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">creation_date</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="c1"># Set the creation date as the modified date
+</span>            <span class="nf">set_modified_date</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">creation_date</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="n">sys</span>
+
+    <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Usage: python script.py /path/to/your/folder</span><span class="sh">"</span><span class="p">)</span>
+        <span class="n">sys</span><span class="p">.</span><span class="nf">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">folder_path</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="nf">main</span><span class="p">(</span><span class="n">folder_path</span><span class="p">)</span>
+</code></pre></div></div>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+<div class="wrapper">
+        <div class="footer-col footer-col-1">
+        <h2 class="footer-heading">Linkuri utile</h2>
+                <li><a href="http://intodns.com">https://intodns.com</a></li>
+        </div>
+<!--
+        <div class="footer-col footer-col-2">
+        <h2 class="footer-heading">Contact</h2>
+                <p>mail(at)linuxtm.ro</p>
+        </div>
+-->
+       <div class="footer-col footer-col-3">
+        <h2 class="footer-heading">Utilizare</h2>
+                <a href="https://linuxtm.ro/termeni/">Termeni si conditii</a>
+        </div>
+
+
+</div>
+</footer>
+
+
+  </body>
+
+</html>

@@ -9,8 +9,8 @@
   <meta name="description" content="comenzi linux, tutoriale linux">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://192.168.100.144:4000/cele-mai-folosite-comenzi-mysql/">
-  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://192.168.100.144:4000/feed.xml" />
+  <link rel="canonical" href="http://192.168.100.11:4000/cele-mai-folosite-comenzi-mysql/">
+  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://192.168.100.11:4000/feed.xml" />
 </head>
 
 
@@ -34,19 +34,7 @@
       <div class="trigger">
         
           
-          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
-          
-        
-          
-          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
-          
-        
-          
           <a class="page-link" href="/scripturi/">Scripturi</a>
-          
-        
-          
-          <a class="page-link" href="/tutoriale/">Tutoriale</a>
           
         
           
@@ -54,7 +42,23 @@
           
         
           
+          <a class="page-link" href="/aws/">AWS</a>
+          
         
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-linux/">Comenzi uzuale</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
+          
+        
+          
+          <a class="page-link" href="/tutoriale/">Tutoriale</a>
+          
+        
+          
+          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
           
         
           
@@ -91,9 +95,26 @@
 <pre>SELECT user, host FROM mysql.user;</pre>
 <pre>SELECT * FROM `table` ORDER BY id DESC LIMIT 10;</pre>
 <pre>DELETE FROM mysql.user WHERE USER='user' AND HOST='localhost';</pre>
+
+<p><strong>MySQLdump</strong></p>
 <pre>mysqldump -u root -p dbname &gt; dbname.sql</pre>
-<pre>mysqldump --routines --triggers --events -u root dbname &gt; dbname.sql #blocheaza scrierile in db temporar</pre>
-<pre>mysql -u root -p dbname &lt; dbname.sql</pre>
+
+<pre>mysqldump --single-transaction -u root dbname &gt; dbname.sql #recomandat pentru baze de date mari</pre>
+
+<pre>mysqldump --routines --triggers --events -u root dbname &gt; dbname.sql #blocheaza temporar scrierile in db</pre>
+
+<p>Dump + compresie:</p>
+<pre>mysqldump -u root -p dbname &gt; dbname.sql |gzip &gt; dbname.sql.gz</pre>
+
+<p>Dump doar la schema:</p>
+<pre>mysqldump -u root -p --no-data dbname &gt; dbname.sql</pre>
+
+<p>Dump doar anumite tabele:</p>
+<pre>mysqldump -u root -p dbname TABLE1 TABLE2 TABLE3 ... &gt; dbname.sql</pre>
+
+<p>Dump fara anumite tabele:</p>
+<pre>mysqldump -u root -p dbname --ignore-table=DATABASE.TABLE --ignore-table=DATABASE.TABLE2 ... &gt; dbname.sql</pre>
+<pre>mysqldump -uroot -p dbname --ignore-table=dbname.users &gt; dbname.sql  #dump fara tabela cu useri</pre>
 
 <p><strong>Restore o singura baza de date din dump facut cu –all-databases</strong></p>
 <pre>

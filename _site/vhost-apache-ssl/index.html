@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Virtualhost Apache SSL</title>
-  <meta name="description" content="&lt;VirtualHost *:443&gt;    DocumentRoot "/var/www/html/domain/"    ServerName domain.com    ServerAlias domain.com    LogLevel error    ErrorLog logs/domai...">
+  <meta name="description" content="Exemplu elementar de virtualhost Apache cu SSL">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://192.168.100.144:4000/vhost-apache-ssl/">
-  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://192.168.100.144:4000/feed.xml" />
+  <link rel="canonical" href="http://192.168.100.11:4000/vhost-apache-ssl/">
+  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://192.168.100.11:4000/feed.xml" />
 </head>
 
 
@@ -34,19 +34,7 @@
       <div class="trigger">
         
           
-          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
-          
-        
-          
-          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
-          
-        
-          
           <a class="page-link" href="/scripturi/">Scripturi</a>
-          
-        
-          
-          <a class="page-link" href="/tutoriale/">Tutoriale</a>
           
         
           
@@ -54,7 +42,23 @@
           
         
           
+          <a class="page-link" href="/aws/">AWS</a>
+          
         
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-linux/">Comenzi uzuale</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
+          
+        
+          
+          <a class="page-link" href="/tutoriale/">Tutoriale</a>
+          
+        
+          
+          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
           
         
           
@@ -81,7 +85,9 @@
   </header>
 
   <article class="post-content">
-    <pre>
+    <p>Exemplu elementar de virtualhost Apache cu SSL</p>
+
+<pre>
 &lt;VirtualHost *:443&gt;
     DocumentRoot "/var/www/html/domain/"
     ServerName domain.com

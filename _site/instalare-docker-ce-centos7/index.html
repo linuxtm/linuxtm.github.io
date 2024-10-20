@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Instalare Docker-CE pe Centos 7</title>
-  <meta name="description" content="#!/bin/bashset -e">
+  <meta name="description" content="One-Liner pentru usurinta:wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installDockerCentos7.sh &amp;&amp; chmod +x insta...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://192.168.100.144:4000/instalare-docker-ce-centos7/">
-  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://192.168.100.144:4000/feed.xml" />
+  <link rel="canonical" href="http://192.168.100.11:4000/instalare-docker-ce-centos7/">
+  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://192.168.100.11:4000/feed.xml" />
 </head>
 
 
@@ -34,19 +34,7 @@
       <div class="trigger">
         
           
-          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
-          
-        
-          
-          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
-          
-        
-          
           <a class="page-link" href="/scripturi/">Scripturi</a>
-          
-        
-          
-          <a class="page-link" href="/tutoriale/">Tutoriale</a>
           
         
           
@@ -54,7 +42,23 @@
           
         
           
+          <a class="page-link" href="/aws/">AWS</a>
+          
         
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-linux/">Comenzi uzuale</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
+          
+        
+          
+          <a class="page-link" href="/tutoriale/">Tutoriale</a>
+          
+        
+          
+          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
           
         
           
@@ -77,12 +81,19 @@
 
   <header class="post-header">
     <h1 class="post-title">Instalare Docker-CE pe Centos 7</h1>
-    <p class="post-meta">Jun 13, 2019 • linuxtm</p>
+    <p class="post-meta">Feb 1, 2020 • linuxtm</p>
   </header>
 
   <article class="post-content">
-    <pre>
+    <p>One-Liner pentru usurinta:</p>
+<pre>
+wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installDockerCentos7.sh &amp;&amp; chmod +x installDockerCentos7.sh &amp;&amp; ./installDockerCentos7.sh
+</pre>
+
+<p>Sau copy-paste:</p>
+<pre>
 #!/bin/bash
+#More at https://linuxtm.ro
 set -e
 
 yum install -y yum-utils device-mapper-persistent-data lvm2
@@ -93,11 +104,11 @@ systemctl start docker
 systemctl enable docker
 
 #Install docker-compose
-curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 </pre>
 
-<p>Instructiunile oficiale: <a href="https://docs.docker.com/install/linux/docker-ce/centos/">https://docs.docker.com/install/linux/docker-ce/centos/</a></p>
+<p>Instructiunile oficiale: <a href="https://docs.docker.com/engine/install/centos/">https://docs.docker.com/engine/install/centos/</a></p>
 
   </article>
 

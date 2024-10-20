@@ -9,8 +9,8 @@
   <meta name="description" content="Scriptul de mai jos instaleaza PHP 7.1, 7.2 sau 7.3 din IUS repository cu toate extensiile de php necesare pentru Magento2.Functioneaza doar pe CentOS 7.">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://192.168.100.144:4000/instalare-php7-magento2-centos7/">
-  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://192.168.100.144:4000/feed.xml" />
+  <link rel="canonical" href="http://192.168.100.11:4000/instalare-php7-magento2-centos7/">
+  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://192.168.100.11:4000/feed.xml" />
 </head>
 
 
@@ -34,19 +34,7 @@
       <div class="trigger">
         
           
-          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
-          
-        
-          
-          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
-          
-        
-          
           <a class="page-link" href="/scripturi/">Scripturi</a>
-          
-        
-          
-          <a class="page-link" href="/tutoriale/">Tutoriale</a>
           
         
           
@@ -54,7 +42,23 @@
           
         
           
+          <a class="page-link" href="/aws/">AWS</a>
+          
         
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-linux/">Comenzi uzuale</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
+          
+        
+          
+          <a class="page-link" href="/tutoriale/">Tutoriale</a>
+          
+        
+          
+          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
           
         
           
@@ -84,8 +88,15 @@
     <p>Scriptul de mai jos instaleaza PHP 7.1, 7.2 sau 7.3 din IUS repository cu toate extensiile de php necesare pentru Magento2.
 Functioneaza doar pe CentOS 7.</p>
 
+<p>One-Liner pentru usurinta:</p>
+<pre>
+wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installPhp7-Magento2.sh &amp;&amp; chmod +x installPhp7-Magento2.sh &amp;&amp; ./installPhp7-Magento2.sh
+</pre>
+
+<p>Sau copy-paste:</p>
 <pre>
 #!/bin/bash
+#More at https://linuxtm.ro
 set -e
 
 no=$(tput sgr0)

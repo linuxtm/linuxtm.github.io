@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Virtualhost Nginx Magento2 cu CDN</title>
-  <meta name="description" content="Vhost domeniu principalupstream fastcgi_backend {    server   127.0.0.1:9000;}">
+  <meta name="description" content="Mai jos avem cele trei config-uri de nginx necesare pentru configurarea Magento 2 cu CDN.In acest exemplu folosim 2 subdomenii separate pentru media si resur...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://192.168.100.144:4000/vhost-nginx-magento2-cdn/">
-  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://192.168.100.144:4000/feed.xml" />
+  <link rel="canonical" href="http://192.168.100.11:4000/vhost-nginx-magento2-cdn/">
+  <link rel="alternate" type="application/rss+xml" title="linuxtm.ro" href="http://192.168.100.11:4000/feed.xml" />
 </head>
 
 
@@ -34,19 +34,7 @@
       <div class="trigger">
         
           
-          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
-          
-        
-          
-          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
-          
-        
-          
           <a class="page-link" href="/scripturi/">Scripturi</a>
-          
-        
-          
-          <a class="page-link" href="/tutoriale/">Tutoriale</a>
           
         
           
@@ -54,7 +42,23 @@
           
         
           
+          <a class="page-link" href="/aws/">AWS</a>
+          
         
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-linux/">Comenzi uzuale</a>
+          
+        
+          
+          <a class="page-link" href="/cele-mai-folosite-comenzi-mysql/">MySQL</a>
+          
+        
+          
+          <a class="page-link" href="/tutoriale/">Tutoriale</a>
+          
+        
+          
+          <a class="page-link" href="/intrarile-dns-explicate-cu-exemple/">DNS Explicat</a>
           
         
           
@@ -81,7 +85,10 @@
   </header>
 
   <article class="post-content">
-    <p><strong>Vhost domeniu principal</strong></p>
+    <p>Mai jos avem cele trei config-uri de nginx necesare pentru configurarea Magento 2 cu CDN.
+In acest exemplu folosim 2 subdomenii separate pentru media si resursele statice.</p>
+
+<p><strong>Vhost domeniu principal</strong></p>
 <pre>
 upstream fastcgi_backend {
     server   127.0.0.1:9000;
@@ -458,39 +465,38 @@ server {
 server {
     listen      443 ssl http2;
     server_name static.domain.com;
+    root /var/www/html/pub;
+    
+    access_log  /var/log/nginx/static-access.log;
+    error_log   /var/log/nginx/static-error.log;
+    
     ssl_certificate /etc/letsencrypt/live/static.domain.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/static.domain.com/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
-
-    root /var/www/html/pub;
-
     client_max_body_size 10M;
     merge_slashes off;
     autoindex off;
     charset off;
-
-    # remove signature of static files used to overcome browser cache
+    
     location ~ ^/static/version {
-    # Preflighted requests
-    if ($request_method = OPTIONS ) {
-      add_header "Access-Control-Allow-Origin"  *;
-      add_header "Access-Control-Allow-Methods" "GET, POST, OPTIONS, HEAD";
-      add_header "Access-Control-Allow-Headers" "Authorization, Origin, X-Requested-With, Content-Type, Accept";
-      return 200;
-    }
-        add_header Cache-Control "public";
-        add_header Access-Control-Allow-Origin "*";
-        add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
+        # Preflighted requests - KEEP THIS ABOVE THE REWRITE RULE
+        if ($request_method = OPTIONS ) {
+          add_header "Access-Control-Allow-Origin"  "https://main-domain.com";
+          add_header "Access-Control-Allow-Methods" "GET, POST, OPTIONS, HEAD";
+          add_header "Access-Control-Allow-Headers" "Authorization, Origin, X-Requested-With, Content-Type, Accept";
+          return 200;
+        }
         expires +1y;
-      rewrite ^/static/(version\d*/)?(.*)$ /static/$2 last;
+        #remove signature of static files used to overcome browser cache
+        rewrite ^/static/(version\d*/)?(.*)$ /static/$2 last;
     }
 
     # Match MIME types
     location ~* \.(htm|html|css|js|txt|swf|asf|asx|wax|wmv|wmx|avi|bmp|class|divx|doc|docx|eot|gz|gzip|ico|png|gif|jpg|jpeg|jpe|mdb|mov|qt|mpg|mpe|mpp|odb|odc|odf|odg|odp|ods|odt|ogv|json|webm|htc|woff|woff2|ttf|pdf|svg)$ {
         add_header Cache-Control 'public';
-        add_header Access-Control-Allow-Origin '*';
+        add_header Access-Control-Allow-Origin 'https://main-domain.com';
         add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
         expires +1y;
         }

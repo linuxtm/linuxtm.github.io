@@ -17,7 +17,7 @@ tags:
 
 Scriptul se foloseste de exiftool ca sa extraga CreateDate din metadatele pozelor si seteaza acea data ca fiind ModifiedDate pe disk.
 
-<pre>
+```python
 #!/usr/bin/env python3
 #Gets the CreateDate from EXIF data and sets the date as modified for the files inside a folder
 #example usage
@@ -73,4 +73,4 @@ if __name__ == "__main__":
 
     folder_path = sys.argv[1]
     main(folder_path)
-</pre>
+```
