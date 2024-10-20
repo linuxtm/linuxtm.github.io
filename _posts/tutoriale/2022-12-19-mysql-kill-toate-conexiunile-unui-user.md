@@ -23,7 +23,11 @@ Dupa acest pas, importam lista si se vor executa comenzile din lista (<em>KILL P
 
 ```sql
 SELECT CONCAT('KILL ',id,';') FROM information_schema.processlist WHERE user='my-user' INTO OUTFILE '/var/lib/mysql-files/process_list.txt';
+```
+```bash
 source /var/lib/mysql-files/process_list.txt
+```
+```bash
 exit
 ```
 
