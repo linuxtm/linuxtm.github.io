@@ -19,13 +19,13 @@ Scriptul de mai jos instaleaza PHP 7.1, 7.2 sau 7.3 din IUS repository cu toate 
 Functioneaza doar pe CentOS 7.
 
 One-Liner pentru usurinta:
-<pre>
+```bash
 wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installPhp7-Magento2.sh && chmod +x installPhp7-Magento2.sh && ./installPhp7-Magento2.sh
-</pre>
+```
 
 
 Sau copy-paste:
-<pre>
+```bash
 #!/bin/bash
 #More at https://linuxtm.ro
 set -e
@@ -108,4 +108,4 @@ else
   php -v
   exit 1
 fi
-</pre>
+```

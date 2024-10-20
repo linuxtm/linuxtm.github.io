@@ -22,7 +22,7 @@ tags:
 Exemplu de virtual host Nginx cu php-fpm, ssl, compresie gzip si forward IP real in caz ca suntem in spatele unui proxy.
 De asemenea, configul contine si un exemplu de basic auth.
 
-<pre>
+```nginx
 #
 # A virtual host using mix of IP-, name-, and port-based configuration
 #
@@ -116,4 +116,4 @@ http {
 #   }
 
 }
-</pre>
+```

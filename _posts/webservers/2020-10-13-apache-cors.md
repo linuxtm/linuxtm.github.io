@@ -19,11 +19,11 @@ tags:
 ---
 
 Configurarea CORS de mai jos permite accesul de la 2 domenii + subdomeniile "www." ale acestora (www.linuxtm.ro, linuxtm.ro, www.example.com si example.com) pe fisierul /dir/file.php
-<pre>
+```apache
 <Location "/dir/file.php">
    Allow from all
    AllowOverride none
    SetEnvIf Origin "http(s)?://(www\.)?(linuxtm.ro|example.com)$" AccessControlAllowOrigin=$0
    Header set Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
 </Location>
-</pre>
+```

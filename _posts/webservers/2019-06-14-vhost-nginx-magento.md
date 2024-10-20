@@ -21,7 +21,7 @@ tags:
 
 Exemplu de virtualhost Nginx pentru Magento 2. Configul de mai jos este similar cu cel dat ca si exemplu pe pagina de documentatie a Magento, deci este o varianta simplificata.
 
-<pre>
+```nginx
 server {
     listen 80;
     server_name DOMAIN.com;
@@ -101,4 +101,4 @@ server {
     }
  
 }
-</pre>
+```

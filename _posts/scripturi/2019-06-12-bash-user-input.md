@@ -14,7 +14,7 @@ tags:
   - bash cere user input
 ---
 
-<pre>
+```bash
 #!/bin/bash
 #More at https://linuxtm.ro
 #Require user input (select 1 or 2 on keyboard)
@@ -32,4 +32,4 @@ break;;
         No ) exit;;
     esac
 done
-</pre>
+```

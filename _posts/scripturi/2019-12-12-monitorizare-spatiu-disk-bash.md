@@ -18,7 +18,7 @@ tags:
   - script monitorizare spatiu disk
 ---
 
-<pre>
+```bash
 #!/bin/bash
 #More at https://linuxtm.ro
 ROOT=$(df / | grep / | awk '{ print $5}' | sed 's/%//g')
@@ -39,4 +39,4 @@ Your datadisk partition remaining free space is critically low. Used: $DATADISK%
 EOF
 fi
 
-</pre>
+```

@@ -16,12 +16,12 @@ tags:
 ---
 
 One-Liner pentru usurinta:
-<pre>
+```bash
 wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installDockerUbuntu18.sh && chmod +x installDockerUbuntu18.sh && ./installDockerUbuntu18.sh
-</pre>
+```
 
 Sau copy-paste:
-<pre>
+```bash
 #!/bin/bash
 #More at https://linuxtm.ro
 set -e
@@ -47,6 +47,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 echo "Done."
 echo -e "${red}In order for docker to work as a non-root user, please logout or restart your computer!${no}"
-</pre>
+```
 
 Instructiunile oficiale: <a href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/</a>

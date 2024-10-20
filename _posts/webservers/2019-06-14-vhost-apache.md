@@ -20,7 +20,7 @@ tags:
 
 Exemplu virtualhost Apache cu elemente de redirect https, proxypass, https pentru wordpress cu loadbalancer si multe altele.
 
-<pre>
+```apache
 <VirtualHost *:80>
     DocumentRoot "/var/www/html"
     ServerName domain.com
@@ -91,4 +91,4 @@ Exemplu virtualhost Apache cu elemente de redirect https, proxypass, https pentr
     &lt;/IfModule>
 &lt;/Directory>
 &lt;/VirtualHost>
-</pre>
+```

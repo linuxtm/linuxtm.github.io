@@ -25,7 +25,7 @@ Mai jos avem cele trei config-uri de nginx necesare pentru configurarea Magento 
 In acest exemplu folosim 2 subdomenii separate pentru media si resursele statice.
 
 **Vhost domeniu principal**
-<pre>
+```nginx
 upstream fastcgi_backend {
     server   127.0.0.1:9000;
 }
@@ -263,10 +263,10 @@ server {
         text/x-component;
 
 }
-</pre>
+```
 
 **Vhost fisiere media**
-<pre>
+```nginx
 #Serve media files
 server {
     listen         80;
@@ -386,10 +386,10 @@ server {
         include        fastcgi_params;
     }
 }
-</pre>
+```
 
 **Vhost fisiere statice (css, js)**
-<pre>
+```nginx
 #Serve JS and CSS
 server {
     listen         80;
@@ -458,4 +458,4 @@ server {
         text/javascript
         text/x-component;
 }
-</pre>
+```

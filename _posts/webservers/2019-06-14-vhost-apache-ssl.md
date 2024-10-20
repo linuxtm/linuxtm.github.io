@@ -20,7 +20,7 @@ tags:
 
 Exemplu elementar de virtualhost Apache cu SSL
 
-<pre>
+```apache
 <VirtualHost *:443>
     DocumentRoot "/var/www/html/domain/"
     ServerName domain.com
@@ -50,4 +50,4 @@ Exemplu elementar de virtualhost Apache cu SSL
     DirectoryIndex index.html index.php
 &lt;/Directory>
 &lt;/VirtualHost>
-</pre>
+```
