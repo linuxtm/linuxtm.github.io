@@ -23,33 +23,45 @@ tags:
 Sa zicem ca aveti de introdus niste parole in linia de comanda ca si argument la ceva. Nu e tocmai cea mai buna idee sa ramana salvate in ~/.bash_history dar nici nu dorim sa stergem fisierul.  
 In acest caz, dezactivam temporar (pentru sesiunea curenta) history-ul. Se poate face ruland comanda:
 
-<pre>unset HISTFILE</pre>
+```bash
+unset HISTFILE
+```
 
 In sesiunea curenta se poate accesa history-ul fara probleme dar nu va salva pe disk (nu va scrie in fisier). Alte sesiuni nu vor fi afectate, se vor comporta normal.
 
 Daca se doreste stergerea .bash_history, se poate face ruland:
 
-<pre>rm ~/.bash_history</pre>
+```bash
+rm ~/.bash_history
+```
 
 Nota: La urmatoarea sesiune fisierul va fi creat din nou (automat).
 
 Variante alternative:
 
-&#8211; se deconecteaza de la sesiune fara a salva:
+se deconecteaza de la sesiune fara a salva:
 
-<pre>unset HISTFILE && exit</pre>
+```bash
+unset HISTFILE && exit
+```
 
-&#8211; acelasi lucru, metoda diferita:
+acelasi lucru, metoda diferita:
 
-<pre>kill -9 $$</pre>
+```bash
+kill -9 $$
+```
 
-&#8211; la fel ca si mai sus, metoda diferita:
+la fel ca si mai sus, metoda diferita:
 
-<pre>HISTSIZE=0 && exit</pre>
+```bash
+HISTSIZE=0 && exit
+```
 
-&#8211; se deconecteaza si sterge tot history-ul:
+se deconecteaza si sterge tot history-ul:
 
-<pre>history -c && exit</pre>
+```bash
+history -c && exit
+```
 
 Daca vreti ca aceste comenzi sa fie permanente, pot fi adaugate in fisierul *~/.bash_logout* sau pot fi folosite cu aliasuri.  
 Pentru detalii suplimentare vezi comanda history [aici.][1]

@@ -19,7 +19,9 @@ tags:
 ---
 Pentru afisearea istoricului comenzilor se ruleaza:
 
-<pre>history</pre>
+```bash
+history
+```
 
 Output-ul fiind afisat sub forma:
 
@@ -31,15 +33,21 @@ Output-ul fiind afisat sub forma:
 
 O alta varianta (se poate rula din orice director) ar fi:
 
-<pre>cat /root/.bash_history</pre>
+```bash
+cat /root/.bash_history
+```
 
 Pentru afisarea mai multor comenzi se ruleaza:
 
-<pre>more /root/.bash_history</pre>
+```bash
+more /root/.bash_history
+```
 
 Pentru a gasi o comanda anume printre comenzilie rulate anterior, trebuie facut un pipe la history prin grep:
 
-<pre>history | grep -i primele litere din comanda</pre>
+```bash
+history | grep -i primele litere din comanda
+```
 
 Pentru detalii suplimentare vezi comanda history [aici.][1]
 
