@@ -31,10 +31,10 @@ Inchide conexiunile active:
 SELECT pg_terminate_backend(pg_stat_activity.pid)
 FROM pg_stat_activity
 WHERE pg_stat_activity.datname = 'my_database'
-  AND pid <> pg_backend_pid();</pre>
+  AND pid <> pg_backend_pid();
 ```
 
-Drop db
+Drop db:
 
 ```sql
 drop database my_database
