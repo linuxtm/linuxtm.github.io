@@ -17,18 +17,20 @@ tags:
 Pentru a seta un lifecycle la bucketurile din Google Cloud, avem nevoie de un fisier json.
 
 Mai jos avem un exemplu de fisier lifecycle-daily.json care sterge fisierele mai vechi de 7 zile
-<pre>
+```json
 {
 "lifecycle": {
 "rule":
-[
-{
-"action": {"type": "Delete"},
-"condition": {"age": 7}
+  [
+    {
+      "action": {"type": "Delete"},
+      "condition": {"age": 7}
+    }
+  ]
 }
-]
-}
-</pre>
+```
 
 Dupa ce am creat fisierul, rulam comanda:
-<pre>gsutil lifecycle set lifecycle-daily.json gs://bdaily</pre>
+```bash
+gsutil lifecycle set lifecycle-daily.json gs://bdaily
+```

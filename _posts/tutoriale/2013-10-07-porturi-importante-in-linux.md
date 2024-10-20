@@ -28,7 +28,7 @@ Port 110 –> TCP –> POP3 (for receiving email)
 
 Port 113 -> ident tcp outbound
 
-Port 115 &#8211;> Secure File transfer protocol  
+Port 115 -> Secure File transfer protocol  
 Port 119 –> TCP –> NNTP (Network News Transfer Protocol)  
 Port 143 –> TCP/UDP –> IMAP4 Protocol (for email service)  
 Port 194 –> TCP –> IRC  

@@ -13,19 +13,21 @@ tags:
   - tutoriale linux
 ---
 Se poate instala ruland comenzile de mai jos.
-<pre>
+```bash
 wget --no-cookies \
 --no-check-certificate \
 --header "Cookie: oraclelicense=accept-securebackup-cookie" \
 "http://download.oracle.com/otn-pub/java/jdk/8u73-b02/jdk-8u73-linux-x64.rpm" \
 -O jdk-8u73-linux-x64.rpm
-</pre>
+````
 Dupa ce downloadam rpm-ul, rulam:
-<pre>
+```bash
 rpm -Uvh jdk-8u73-linux-x64.rpm
-</pre>
+```
 Verificam versiunea de java:
-<pre>java -version</pre>
+```bash
+java -version
+```
 <em>
 <br>java version "1.8.0_73" 
 <br>Java(TM) SE Runtime Environment (build 1.8.0_73-b02) 

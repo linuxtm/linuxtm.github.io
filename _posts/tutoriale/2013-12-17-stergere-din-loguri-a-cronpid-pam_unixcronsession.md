@@ -20,15 +20,21 @@ Dec 17 08:12:01 backup CRON[17593]: pam_unix(cron:session): session opened for u
 
 Mergem in directorul **/etc/pam.d** si deschidem fisierul **common-session-noninteractive** cu editorul preferat, dupa care cautam linia urmatoare:
 
-<pre>session required pam_unix.so</pre>
+```bash
+session required pam_unix.so
+```
 
 Deasupra acestei linii, adaugam urmatoarele:
 
-<pre>session [success=1 default=ignore] pam_succeed_if.so service in cron quiet use_uid</pre>
+```bash
+session [success=1 default=ignore] pam_succeed_if.so service in cron quiet use_uid
+```
 
 Salvam fisierul si iesim, dupa care restartam crond:
 
-<pre>service cron restart</pre>
+```bash
+service cron restart
+```
 
 Explicatie:  
 Inainte de a va impacienta, trebuie sa stiti ca mesajele respective sunt normale. Acestea sunt generate de cron-ul care se autentifica in sistem si verifica fisierele de configurare sa vada daca s-a schimbat ceva. Devreme ce cron poate rula in fiecare minut, probabil veti vedea multe astfel de mesaje in log. Prima linie este generata de fiecare data cand cronul incepe (session open) iar a 2-a cand se inchide (session closed).

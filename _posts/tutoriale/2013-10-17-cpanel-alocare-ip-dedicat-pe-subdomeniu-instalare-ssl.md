@@ -28,11 +28,15 @@ Adaugarea se face usor prin ediatarea fisierului aferent subdomeniului respectiv
 
 1. Intram in directorul **userdata**
 
-<pre>cd /var/cpanel/userdata</pre>
+```bash
+cd /var/cpanel/userdata
+```
 
 2. Localizam utilizatorul si navigam in directorul respectiv:
 
-<pre>cd exemplu</pre>
+```bash
+cd exemplu
+```
 
 3. In interiorul directorului gasim urmatoarele fisiere:
 
@@ -49,9 +53,10 @@ etc, etc</pre>
 
 6. Dupa ce am salvat, facem rebuild la Apache, apoi restartam Apache-u:
 
-<pre>/usr/local/cpanel/scripts/rebuildhttpdconf
+```bash
+/usr/local/cpanel/scripts/rebuildhttpdconf
 /usr/local/cpanel/scripts/restartsrv_apache
-</pre>
+```
 
 7. Intram in WHM si editam zona DNS pentru domeniul exemplu.ro, si inlocuim ip-ul in toate campurile care contin subdomeniul , salvam.  
 8. Ne asiguram ca IP-ul va ramane dedicat subdomeniului respectiv urmand pasii de mai jos:

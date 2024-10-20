@@ -15,14 +15,22 @@ tags:
 ---
 In cazul in care vorbim de zeci, sute de mii de mail-uri (sau mai multe), metodele traditionale pentru curatarea mesajelor din queue tind sa nu functioneze tocmai bine. Fie ca vorbim de I/O mare, o durata de timp exagerat de mare pentru stergerea mesajelor sau afisarea inutila a progresului (afisearea fiecarui MessageID sters), este cel putin nepractic. Comenzile de mai jos rezolva aceasta problema:
 
-<pre>for dir in /var/spool/exim/input/*; do cd $dir; ls | xargs rm -f; done</pre>
+```bash
+for dir in /var/spool/exim/input/*; do cd $dir; ls | xargs rm -f; done
+```
 
 sau
 
-<pre>find /var/spool/exim/input -type f -exec rm -f {} +</pre>
+```bash
+find /var/spool/exim/input -type f -exec rm -f {} +
+```
 
 In cazul in care aveti mai putine mailuri, variantele traditionale sunt:
 
-<pre>exim -bp | awk '/^ *[0-9]+[mhd]/{print "exim -Mrm " $3}' | bash</pre>
+```bash
+exim -bp | awk '/^ *[0-9]+[mhd]/{print "exim -Mrm " $3}' | bash
+```
 
-<pre>exim -bp | exiqgrep -i | xargs exim -Mrm</pre>
+```bash
+exim -bp | exiqgrep -i | xargs exim -Mrm
+```

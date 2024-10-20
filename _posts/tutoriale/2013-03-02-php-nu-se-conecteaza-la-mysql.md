@@ -16,14 +16,20 @@ Solutia este instalarea acestui modul dupa cum urmeaza:
 
 Debian / Ubuntu
 
-<pre>apt-get install php5-mysql</pre>
+```bash
+apt-get install php5-mysql
+```
 
 Fedora / CentOS / RHEL 5
 
-<pre>yum install php-mysql</pre>
+```bash
+yum install php-mysql
+```
 
-Red Hat
+RHEL
 
-<pre>up2date php-mysql</pre>
+```bash
+up2date php-mysql
+```
 
 Nota: Dupa instalare, trebuie restartat webserverul: *service httpd restart*

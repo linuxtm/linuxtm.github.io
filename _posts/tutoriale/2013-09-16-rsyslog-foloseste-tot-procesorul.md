@@ -19,16 +19,18 @@ In cazul in care rsyslog foloseste mult procesor (100% sau mai mult) in OpenVZ, 
 
 */var/log/syslog* va arata ceva de genul:
 
-<pre>Sep 16 21:47:38 server kernel: Cannot read proc file system: 1 - Operation not permitted.
+*Sep 16 21:47:38 server kernel: Cannot read proc file system: 1 - Operation not permitted.
 Sep 16 21:48:08 server kernel: last message repeated 6125550 times
 Sep 16 21:49:08 server kernel: last message repeated 13230238 times
-Sep 16 21:50:08 server kernel: last message repeated 11995373 times
-</pre>
+Sep 16 21:50:08 server kernel: last message repeated 11995373 times*
 
 Pentru a rezolva problema trebuie comentata urmatoarea linie in /etc/rsyslogd.conf
 
-<pre>$ModLoad imklog   # provides kernel logging support (previously done by rklogd)</pre>
-
+```bash
+$ModLoad imklog   # provides kernel logging support (previously done by rklogd)
+```
 Comentata:
 
-<pre>#$ModLoad imklog   # provides kernel logging support (previously done by rklogd)</pre>
+```bash
+#$ModLoad imklog   # provides kernel logging support (previously done by rklogd)
+```

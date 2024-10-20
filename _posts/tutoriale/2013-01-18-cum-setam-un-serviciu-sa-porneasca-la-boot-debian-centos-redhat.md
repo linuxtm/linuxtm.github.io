@@ -21,29 +21,37 @@ tags:
 ---
 Pentru distributii bazate pe Debian, se ruleaza urmatoarea comanda ca si root:
 
-<pre>update-rc.d nume_serviciu defaults</pre>
+```bash 
+update-rc.d nume_serviciu defaults
+``` 
 
 Pentru CentOS si RedHat se ruleaza ca si root:
 
-<pre>chkconfig nume_serviciu on</pre>
+```bash
+chkconfig nume_serviciu on
+``` 
 
 Daca pe CentOS / RedHat primiti urmatoarea eroare de la Apache:
 
-<pre>Apache: service httpd does not support chkconfig</pre>
+<em>Apache: service httpd does not support chkconfig</em>
 
 Trebuie adaugat in /etc/init.d/httpd urmatoarele:
 
-<pre># Startup script for the Apache Web Server
+```bash 
+# Startup script for the Apache Web Server
 #
 # chkconfig: - 85 15
 # description: Apache is a World Wide Web server. It is used to serve
 # HTML files and CGI.
 # processname: httpd
 # pidfile: /usr/local/apache/logs/httpd.pid
-# config: /usr/local/apache/conf/httpd.conf</pre>
+# config: /usr/local/apache/conf/httpd.conf 
+``` 
 
 Pentru a preveni un serviciu sa porneasca la boot, pe distributii bazate pe Debian se ruleaza:
 
-<pre>update-rc.d nume_serviciu disable</pre>
+```bash
+update-rc.d nume_serviciu disable
+``` 
 
 Pentru celelalte distributii este evident (in loc de &#8220;on&#8221; punem &#8220;off&#8221;).

@@ -24,7 +24,7 @@ Foarte important este <b>sleep 1</b> , fara adaugarea unei intarzieri comenzile 
 
 Inca un aspect important este modul in care executam <em>docker exec</em>. In mod normal adaugam "-it" la docker exec (interactiv + alocare de tty), insa aici nu este cazul. Alocarea de tty nu este posibila si nici interactivitatea, motiv pentru care executam simplu: <b>docker exec</b>
 
-<pre>
+```bash
 [Unit]
 Description=Php-Fpm 7.2 Docker Container
 Requires=docker.service
@@ -50,7 +50,7 @@ ExecStopPost=/usr/bin/docker rm -f domain.com
  
 [Install]
 WantedBy=default.target
-</pre>
+```
 
 **Pont pentru fisier systemd:**
 
@@ -60,6 +60,6 @@ Acest lucru este util pentru debug, in scenariul de fata containerul va ramane p
 
 
 De exemplu:
-<pre>
+```bash
 ExecStartPost=-/usr/bin/sleep 1
-</pre>
+```

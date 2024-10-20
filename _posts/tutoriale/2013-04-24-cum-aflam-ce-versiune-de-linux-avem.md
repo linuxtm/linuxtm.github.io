@@ -16,22 +16,32 @@ tags:
 ---
 Pentru a afla ce versiune (distributie) de Linux folosim, rulam urmatoarea comanda:
 
-<pre>cat /etc/*release</pre>
+```bash
+cat /etc/*release
+```
 
 Comanda *lsb_release*  
 Aceasta comanda afiseaza anumite LSB-uri (Linux Standard Base) si informatii legate strict de distributia pe care o folosim. Se ruleaza urmatoarea comanda:
 
-<pre>lsb_release -a</pre>
+```bash
+lsb_release -a
+```
 
 Cum aflam ce versiune de kernel folosim ?  
 Rulam urmatoarea comanda:
 
-<pre>uname -a</pre>
+```bash
+uname -a
+```
 
 sau
 
-<pre>uname -mrs</pre>
+```bash
+uname -mrs
+```
 
 Pentru informatii legate de kernel si GCC (GNU Compiler Collection), rulam:
 
-<pre>cat /proc/version</pre>
+```bash 
+cat /proc/version
+```

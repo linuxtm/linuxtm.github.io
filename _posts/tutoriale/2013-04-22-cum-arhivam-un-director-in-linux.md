@@ -23,7 +23,9 @@ tags:
 Este destul de usor si folositor pentru a face backup unor fisiere, pentru a le trimite pe mail si asa mai departe.  
 Pentru a arhiva un director, trebuie sa folosim comanda *tar* cu sintaxa de mai jos:
 
-<pre>tar -zcvf nume-arhiva.tar.gz nume-director</pre>
+```bash
+tar -zcvf nume-arhiva.tar.gz nume-director
+``` 
 
 Unde:  
 -z: Compreseaza arhiva folosind gzip  
@@ -33,21 +35,29 @@ Unde:
 
 De exemplu, avem un director numit /home/linuxtm/documente si vrem sa il arhivam. Rulam comanda de mai jos:
 
-<pre>tar -zcvf documente.tar.gz /home/linuxtm/documente</pre>
+```bash
+tar -zcvf documente.tar.gz /home/linuxtm/documente
+``` 
 
 Comanda de mai sus va crea o arhiva numita *documente.tar.gz* in directorul curent. 
 
 De asemenea, putem crea o arhiva care sa includa in nume data de astazi:
-<pre> tar cfz backup-$(date +%Y-%m-%d).tar.gz test/ </pre>
+```bash
+tar cfz backup-$(date +%Y-%m-%d).tar.gz test/
+``` 
 Comanda de mai sus va arhiva directorul *test* intr-o arhiva numita numita *backup-* +data de azi (in cazul de fata: backup-2013-04-22.tar.gz)
 
 Daca vrem sa facem restore din arhiva (va dezarhiva in directorul curent), folosim urmatoarea comanda:
 
-<pre>tar -zxvf documente.tar.gz</pre>
+```bash
+tar -zxvf documente.tar.gz
+``` 
 
 Unde:  
 -x: Extrage fisierele
 
 Daca dorim sa dezarhivam intr-un alt director, de exemplu in /root rulam comanda:
 
-<pre>tar -zxvf documente.tar.gz -C /root</pre>
+```bash
+tar -zxvf documente.tar.gz -C /root
+``` 

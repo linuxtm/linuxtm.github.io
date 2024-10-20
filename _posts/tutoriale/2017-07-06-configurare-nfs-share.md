@@ -25,17 +25,17 @@ Clientii vor avea IP-urile: 192.168.1.1 si 192.168.1.2
 
 Incepem cu instalarea nfs-utils:
 
-<pre>
+```bash
 yum install nfs-utils
-</pre>
+```
 
 Facem un director pe care il vom exporta pe clienti:
-<pre>
+```bash
 mkdir /nfsshare
-</pre>
+```
 
 Pornim serviciile si le configuram sa porneasca la boot:
-<pre>
+```bash
 systemctl enable rpcbind \
 systemctl enable nfs-server \
 systemctl enable nfs-lock \
@@ -44,37 +44,37 @@ systemctl start rpcbind \
 systemctl start nfs-server \
 systemctl start nfs-lock \
 systemctl start nfs-idmap
-</pre>
+```
 
 In continuare expunem in retea folderul NFS. Cu editorul preferat, deschidem <em>/etc/exports</em> si adaugam dupa cum urmeaza:
 
-<pre>
+```bash
 /storage 192.168.1.1(rw,insecure,nohide,no_root_squash,sync) 192.168.1.2(rw,insecure,nohide,no_root_squash,sync)
-</pre>
+```
 
 Mai sus am expus serverul NFS catre cei 2 clienti (192.168.1.1 si 192.168.1.2). 
 Pentru ca share-ul sa functioneze, asigurati-va ca serverele sunt accesibile intre ele (ping).
 Daca doriti sa expuneti serverul de NFS in retea spre orice IP, se poate folosi: "*" 
 
 In continuare, pornim serviciul NFS:
-<pre>
+```bash
 systemctl restart nfs-server 
-</pre>
+```
 
 <strong>2. Instalarea pe client </strong>
 
 Instalam nfs-utils:
-<pre>
+```bash
 yum install nfs-utils
-</pre>
+```
 
 Creem directorul unde vom monta NFS-ul:
-<pre>
+```bash
 mkdir /nfsshare
-</pre>
+```
 
 Pornim serviciile si le configuram sa porneasca la boot:
-<pre>
+```bash
 systemctl enable rpcbind \
 systemctl enable nfs-server \
 systemctl enable nfs-lock \
@@ -83,16 +83,15 @@ systemctl start rpcbind \
 systemctl start nfs-server \
 systemctl start nfs-lock \
 systemctl start nfs-idmap
-</pre>
+```
 
 In continuare montam NFS-ul pe clienti:
-<pre>
+```bash
 mount -t nfs 192.168.1.0:/nfsshare /nfsshare
-</pre>
+```
 
 Acum ar trebui sa avem un server de NFS functional, montat pe clienti.
 Verificare o putem face ruland comanda: 
-<pre>
+```bash
 df -h
-</pre>
-
+```

@@ -15,11 +15,8 @@ tags:
 ---
 Daca data trecuta am prezentat un script care [adauga automat vhost-uri][1], de data asta va prezint scriptul care adauga automat vhosturi si genereaza certificat SSL self signed. Aceast script este util in cazul in care serverul tau nu are panou de control gen cPanel, DirectAdmin, Plesk, etc. Scriptul se executa in acelasi fel ca cel care adauga doar vhost-uri, adica prin executarea comenzii: . vhost-ssl.sh domeniu.tld sau . vhost-ssl.sh subdomeniu.domeniu.tld
 
-<pre>
-#!/bin/bash  
-#  
-\# This script is released under CC BY-SA copyright terms.  
-#
+```bash
+#!/bin/bash   
 
 vhost=$1  
 if [[ -z &#8220;$vhost&#8221; ]]; then  
@@ -116,4 +113,4 @@ echo &#8220;</html>&#8221; >> /var/www/$vhost/htdocs/index.html
 a2ensite $vhost  
 /etc/init.d/apache2 reload  
 echo &#8220;Your website $vhost is up and running&#8221;
-</pre>
+```

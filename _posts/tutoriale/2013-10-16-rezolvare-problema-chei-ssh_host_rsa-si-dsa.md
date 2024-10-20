@@ -15,17 +15,22 @@ tags:
 ---
 Daca din ceva motiv va lipsesc cheile **ssh\_host\_dsa_key** si **ssh\_host\_rsa_key** , mai jos aveti comenzile pe care trebuie sa le rulati pentru a reface cheile. Eroarea primita:
 
-<pre><em>root@root:/# /etc/init.d/ssh restart
-Could not load host key: /etc/ssh/ssh_host_rsa_key
-Could not load host key: /etc/ssh/ssh_host_dsa_key</em>
-</pre>
+```bash
+root@root:/# /etc/init.d/ssh restart
+```
+*Could not load host key: /etc/ssh/ssh_host_rsa_key
+Could not load host key: /etc/ssh/ssh_host_dsa_key*
 
 Generare cheie SSH\_HOST\_RSA_KEY , fara parola (dam enter la prompt)
 
-<pre>ssh-keygen -t rsa1 -f /etc/ssh/ssh_host_rsa_key</pre>
+```bash
+ssh-keygen -t rsa1 -f /etc/ssh/ssh_host_rsa_key
+```
 
 Generare cheie SSH\_HOST\_DSA_KEY
 
-<pre>ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key</pre>
+```bash
+ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
+```
 
 Restartam serverul ssh si acum ar trebui sa functioneze corect.

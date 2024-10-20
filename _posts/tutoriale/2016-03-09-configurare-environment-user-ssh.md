@@ -19,16 +19,19 @@ In cazul in care exista mai multe persoane care folosesc acelasi user, avem nevo
 Pentru a realiza acest lucru, trebuie sa activam environmentul ssh.
 
 Folosind editorul preferat, modificam <em>/etc/profile</em> si adaugam:
-<pre>
+```bash
+
 if [ "$SSH_USER" != "" ]; then logger -ip authpriv.notice -t sshd "Accepted publickey for $SSH_USER";fi
-</pre>
+```
 
 Dupa care, modificam (sau adaugam) optiunea de mai jos in <em>/etc/ssh/sshd_config</em> apoi restart la serviciul ssh:
-<pre>PermitUserEnvironment yes</pre>
+```bash
+PermitUserEnvironment yes
+```
 
 Cu aceste setari active, putem adauga cheile ssh in <em>/home/user/.ssh/authorized_keys</em> sub forma: 
-<pre>
+```bash
 environment="SSH_USER=popescu.ion" ssh-rsa AAAAfgds...
-</pre>
+````
 
 Astfel, in loguri vom vedea exact ce persoane au intrat pe server folosind userul comun.

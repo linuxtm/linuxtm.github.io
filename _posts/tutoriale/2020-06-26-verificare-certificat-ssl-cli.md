@@ -17,9 +17,15 @@ tags:
 
 Putem verifica daca avem cheia potrivita pentru certificatul nostru prin obtinerea SHA-ului si compararea acestuia (trebuie sa fie identic):
 
-<pre>openssl pkey -in cheie.txt -pubout -outform pem | sha256sum</pre>
-<pre>openssl x509 -in certificat.crt -pubkey -noout -outform pem | sha256sum</pre>
+```bash
+openssl pkey -in cheie.txt -pubout -outform pem | sha256sum
+```
+```bash
+openssl x509 -in certificat.crt -pubkey -noout -outform pem | sha256sum
+```
 
 Bonus, daca avem certificate pentru Apache insa avem nevoie de certificat pentru Nginx, putem concatena certificatul si bundle-ul astfel:
 
-<pre>cat certificat.crt certificat.ca-bundle >> certificatNginx.crt</pre>
+```bash
+cat certificat.crt certificat.ca-bundle >> certificatNginx.crt
+```

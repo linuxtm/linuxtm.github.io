@@ -16,7 +16,8 @@ In acest articol veti gasi un script care automatizeaza gasirea serverelor NS pe
 De retinut. In fisier trebuie trecut 1 domeniu per linie.  
 Utilizarea scriptului este urmatoarea . findNS.sh domeniu.tld sau . findNS lista.txt
 
-<pre>#!/bin/bash
+```bash
+#!/bin/bash
 #
 # This script will find the nameservers allocated to one or more domains.
 # Ca be used with one argument a domain name or a file containing domains.
@@ -53,8 +54,6 @@ done
 }
 
 checkNS
-echo "The generated file is $_file_"</pre>
+echo "The generated file is $_file_"
+```
 
-De asemenea scriptul poate fi descarcat de pe site-ul kode.wlan0.ru din linia de comanda executand:
-
-<pre>wget kode.wlan0.ru/x/findNS.sh</pre>

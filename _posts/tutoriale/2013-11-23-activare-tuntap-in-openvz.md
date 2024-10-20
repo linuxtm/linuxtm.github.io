@@ -15,39 +15,49 @@ tags:
 ---
 OpenVZ suporta VPN-uri intr-un container (VPS) prin intermediul TUN/TAP. In exemplul de fata, activam TUN/TAP pentru VPS-ul cu id-ul 101.
 
-101 &#8211; ID-ul VPS-ului. Inlocuiti 101 cu CTID-ul VPS-ului.
+101 - ID-ul VPS-ului. Inlocuiti 101 cu CTID-ul VPS-ului.
 
 Ne asiguram ca modulul tun este activ pe nod:
 
-<pre>[root@srv/]#  lsmod | grep tun</pre>
+```bash
+lsmod | grep tun
+```
 
 Daca nu este listat, il incarcam cu urmatoarea comanda:
 
-<pre>[root@srv/]# modprobe tun
-[root@srv/]# lsmod | grep tun
-tun               82432  6</pre>
+```bash
+modprobe tun
+```
+```bash
+lsmod | grep tun
+```
+*tun               82432  6*
 
 Rulam urmatoarele comenzi pe nod:
 
-<pre>[root@srv/]#  vzctl set 101 --devnodes net/tun:rw --save
-[root@srv/]#  vzctl set 101 --devices c:10:200:rw --save  
-[root@srv/]#  vzctl set 101 --capability net_admin:on --save
-[root@srv/]#  vzctl exec 101 mkdir -p /dev/net
-[root@srv/]#  vzctl exec 101 chmod 600 /dev/net/tun 
-</pre>
+```bash
+vzctl set 101 --devnodes net/tun:rw --save
+vzctl set 101 --devices c:10:200:rw --save  
+vzctl set 101 --capability net_admin:on --save
+vzctl exec 101 mkdir -p /dev/net
+vzctl exec 101 chmod 600 /dev/net/tun 
+```
 
 Verificam daca TUN/TAP este activ sau nu :
 
-<pre>[root@srv/]# vzctl enter 101</pre>
+```bash
+vzctl enter 101
+```
 
 In VPS rulam: 
 
-<pre>[root@vps/]# cat /dev/net/tun</pre>
-
-<pre>cat: /dev/net/tun: File descriptor in bad state</pre>
+```bash
+cat /dev/net/tun
+```
+*cat: /dev/net/tun: File descriptor in bad state*
 
 Daca primiti rezultatul de mai sus, inseamna ca TUN/TAP e activat pentru VPS.
 
-<pre>cat: /dev/net/tun: No such device</pre>
+*cat: /dev/net/tun: No such device*
 
 Daca primiti asta, TUN/TAP nu este activ pentru VPS,incercati sa-l activati din nou, eventual restartati VPS-ul.

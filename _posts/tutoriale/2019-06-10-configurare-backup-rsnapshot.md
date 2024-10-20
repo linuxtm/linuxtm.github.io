@@ -20,11 +20,11 @@ tags:
 ---
 
 **1. Instalare dependinte**
-<pre>
+```bash
 yum install -y rsnapshot mailx postfix wget
 systemctl start postfix && systemctl enable postfix
 wget -O /usr/local/bin/rsnapreport.pl https://raw.githubusercontent.com/rsnapshot/rsnapshot/master/utils/rsnapreport.pl && chmod +x /usr/local/bin/rsnapreport.pl
-</pre>
+```
 
 **2. Configurare rsnapshot.conf**
 
@@ -41,7 +41,7 @@ Pentru a primi pe mail statisticile de la rsnapshot, trebuie decomentate urmatoa
 </ul>
 
 <strong>Intervalul la care sa se efectueze backup-urile:</strong>
-<pre>
+```bash
 #########################################
 #     BACKUP LEVELS / INTERVALS         #
 # Must be unique and in ascending order #
@@ -51,10 +51,10 @@ Pentru a primi pe mail statisticile de la rsnapshot, trebuie decomentate urmatoa
 interval        daily   7
 interval        weekly  4
 interval        monthly 12
-</pre>
+```
 
 <strong>Nivelul de detalii dorit:</strong>
-<pre>
+```bash
 # Verbose level, 1 through 5.
 # 1     Quiet           Print fatal errors only
 # 2     Default         Print errors and warnings only
@@ -68,18 +68,18 @@ verbose         4
 # logfile, if one is being used. The default is 3.
 #
 loglevel        4
-</pre>
+```
 
 <strong>Argumentele necesare pentru rsync:</strong>
-<pre>
+```bash
 # Default rsync args. All rsync commands have at least these options set.
 #
 #rsync_short_args       -a
 rsync_long_args --stats --delete --numeric-ids --relative --delete-excluded
-</pre>
+```
 
 <strong>Locatiile de backup dorite:</strong>
-<pre>
+```bash
 ###############################
 ### BACKUP POINTS / SCRIPTS ###
 ###############################
@@ -90,21 +90,21 @@ backup  /etc/           etc/
 backup_script   /usr/bin/mysqldump --single-transaction -A --routines --triggers -u root -p'parola'| gzip > database-`date +%y%m%d`.sql.gz     mysql/
 #exemplu backup db remote
 #backup_script   /usr/bin/ssh user@IP -p 22 "rm -f /backups/mysql-*.sql.gz;/usr/bin/mysqldump -A --routines --triggers --events -u root | gzip > /backups/mysql-`date +%y%m%d`.sql.
-</pre>
+```
 
 **3. Testare email + config rsnapshot**
 
-<pre>
+```bash
 echo "test" | mail -E -r "from@linuxtm.ro" -s "Daily Backup" to@linuxtm.ro
 rsnapshot -t daily
-</pre>
+```
 
 **4. Configurare cron**
 
 Cronurile de mai jos vor face backup zilnic (ora 00:40), saptamanal (ora 02:10), si lunar (ora 04:10 , in prima zi a lunii)
-<pre>
+```bash
 40 0 * * * root /usr/bin/rsnapshot daily 2>&1 | /usr/local/bin/rsnapreport.pl | mail -E -r from@linuxtm.ro -s "Daily Backup" to@linuxtm.ro
 10 2 * * 1 root /usr/bin/rsnapshot weekly 2>&1 | /usr/local/bin/rsnapreport.pl | mail -E -r from@linuxtm.ro -s "Weekly Backup" to@linuxtm.ro
 10 4 1 * * root /usr/bin/rsnapshot monthly 2>&1 | /usr/local/bin/rsnapreport.pl | mail -E -r from@linuxtm.ro -s "Monthly Backup" to@linuxtm.ro
-</pre>
+```
 

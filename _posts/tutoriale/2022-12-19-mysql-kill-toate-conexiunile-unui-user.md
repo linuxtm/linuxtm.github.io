@@ -21,9 +21,13 @@ Dupa acest pas, importam lista si se vor executa comenzile din lista (<em>KILL P
 
 **Atentie ! Comenzile de mai jos vor inchide conexiuni ! Asigurati-va ca ati definit utilizatorul corect !**
 
-<pre>SELECT CONCAT('KILL ',id,';') FROM information_schema.processlist WHERE user='my-user' INTO OUTFILE '/var/lib/mysql-files/process_list.txt';</pre>
-<pre>source /var/lib/mysql-files/process_list.txt</pre>
-<pre>exit</pre>
+```sql
+SELECT CONCAT('KILL ',id,';') FROM information_schema.processlist WHERE user='my-user' INTO OUTFILE '/var/lib/mysql-files/process_list.txt';
+source /var/lib/mysql-files/process_list.txt
+exit
+```
 
 Dupa ce am rulat comanda, trebuie sa stergem fisierul, in caz contrar, data viitoare cand vrem sa rulam aceiasi comanda vom primi o eroare cum ca fisierul deja exista.
-<pre>rm -rf /var/lib/mysql-files/process_list.txt</pre>
+```bash
+rm -rf /var/lib/mysql-files/process_list.txt
+```

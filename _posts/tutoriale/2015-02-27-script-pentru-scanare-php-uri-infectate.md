@@ -22,9 +22,12 @@ In ultima perioada platforma WordPress este atacata si exploatata din ce in ce m
 Pentru a curata fisierele .php infectate, puteti folosi scriptul de mai jos.
 Faceti un fisier numit *findbot.pl* in care introduceti (copy-paste) scriptul de mai jos. 
 
-Exemplu de scanare: **./findbot.pl -c /home/*/public_html > log.txt**
+Exemplu de scanare: 
+```bash
+./findbot.pl -c /home/*/public_html > log.txt
+```
 
-<pre>
+```perl
 #!/usr/bin/perl
 # The above line may need to be changed to point at your version of Perl
 #
@@ -249,4 +252,4 @@ sub badhashes {
 	));
 }
 
-</pre>
+```

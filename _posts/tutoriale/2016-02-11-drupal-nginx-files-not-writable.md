@@ -15,11 +15,13 @@ tags:
 Daca folositi ca si setup Nginx+PHP-FPM, atunci e foarte probabil sa intampinati eroarea intr-o instalare de Drupal.
 Rezolvarea este una simpla, trebuie sa modificam userul sub care ruleaza php-fpm astfel incat sa corespunda cu userul si grupul nginx.
 
-<pre>vim /etc/php-fpm.d/www.conf</pre>
+```bash
+vim /etc/php-fpm.d/www.conf
+```
 
 Astfel, in config vom avea:
 
-<pre>
+```conf
 user = nginx
 group = nginx
-</pre>
+```

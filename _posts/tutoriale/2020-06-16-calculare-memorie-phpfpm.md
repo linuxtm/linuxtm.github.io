@@ -19,14 +19,18 @@ Daca te grabesti si nu te intereseaza cum se calculeaza, poti sa folosesti calcu
 
 Formula dupa care calculam este urmatoarea:
 
-<pre>[Total RAM Disponibil] - [RAM Rezervat] - [10% buffer] = [RAM disponibil pentru PHP]</pre>
+```bash
+[Total RAM Disponibil] - [RAM Rezervat] - [10% buffer] = [RAM disponibil pentru PHP]
+```
 
 Rezultatul:
-<pre>[RAM disponibil pentru PHP] / [Dimensiunea Medie a unui Proces] = [max_children]</pre>
+```bash
+[RAM disponibil pentru PHP] / [Dimensiunea Medie a unui Proces] = [max_children]
+```
 
-<pre>
+```bash
 pm.max_children = [max_children]
 pm.start_servers = [25% din max_children]
 pm.min_spare_servers = [25% din max_children]
 pm.max_spare_servers = [75% din max_children]
-</pre>
+```

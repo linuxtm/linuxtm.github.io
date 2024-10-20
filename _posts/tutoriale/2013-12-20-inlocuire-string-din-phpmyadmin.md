@@ -12,6 +12,8 @@ tags:
 ---
 Presupunem ca avem un site facut in wordpress si vrem sa inlocuim in baza de date un sir de cuvinte (numele autorului de exemplu) cu un altul. Aceasta operatiune se poate realiza cu comanda urmatoare:
 
-<pre>UPDATE `wp_posts` SET post_content = replace(post_content, 'cuvant_nedorit', 'cuvant_dorit') </pre>
+```sql
+UPDATE `wp_posts` SET post_content = replace(post_content, 'cuvant_nedorit', 'cuvant_dorit')
+```
 
-Nota: &#8220;wp-posts&#8221; este tabela din baza de date.
+Nota: "wp-posts" este tabela din baza de date.

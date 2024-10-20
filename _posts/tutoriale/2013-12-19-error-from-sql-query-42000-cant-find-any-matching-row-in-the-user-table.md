@@ -12,8 +12,12 @@ tags:
 ---
 Eroarea poate sa apara fie in loguri, fie in cPanel/WHM cand incercati sa accesati phpMyAdmin, sau cand incercati sa creati un user sau o baza de date noua in cPanel. Eroarea se poate rezolva prin eliminarea liniei urmatoare din ***/etc/my.cnf*** :
 
-<pre>skip-name-resolve</pre>
+```sql
+skip-name-resolve
+```
 
 Daca nu se rezolva, adaugati urmatoarea linie:
 
-<pre>skip-networking</pre>
+```sql
+skip-networking
+```

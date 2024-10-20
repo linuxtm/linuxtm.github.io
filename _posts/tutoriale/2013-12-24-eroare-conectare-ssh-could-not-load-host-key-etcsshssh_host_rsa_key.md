@@ -13,7 +13,7 @@ tags:
 ---
 In */var/log/auth.log* , observam urmatoarea eroare: 
 
-<pre><em>error: Could not load host key: /etc/ssh/ssh_host_rsa_key
+*error: Could not load host key: /etc/ssh/ssh_host_rsa_key
 error: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 error: @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
 error: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -22,11 +22,14 @@ error: It is recommended that your private key files are NOT accessible by other
 error: This private key will be ignored.
 error: bad permissions: ignore key: /etc/ssh/ssh_host_dsa_key
 error: Could not load host key: /etc/ssh/ssh_host_dsa_key
-fatal: /var/run/sshd must be owned by root and not group or world-writable.</em>
-</pre>
+fatal: /var/run/sshd must be owned by root and not group or world-writable.*
 
 Eroarea este destul de explicativa, iar aceasta se poate rezolva prin schimbarea permisiunilor, ruland urmatoarele comenzi:
 
-<pre>chmod 600 /var/run/sshd</pre>
+```bash
+chmod 600 /var/run/sshd
+```
 
-<pre>chmod 600 /etc/ssh/ssh_host_*</pre>
+```bash
+chmod 600 /etc/ssh/ssh_host_*
+```

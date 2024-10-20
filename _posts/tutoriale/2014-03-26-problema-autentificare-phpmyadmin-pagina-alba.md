@@ -16,9 +16,11 @@ Daca incercati sa va autentificati in phpMyAdmin si dupa introducerea detaliilor
 
 1. Verificati logurile
 
-<pre>tail -f /usr/local/cpanel/logs/error_log</pre>
+```bash
+tail -f /usr/local/cpanel/logs/error_log
+```
 
-2. Daca nu aveti nimic util in log, incercati sa activati &#8220;**display_errors**&#8221; in php.ini.
+2. Daca nu aveti nimic util in log, incercati sa activati &#8220;**display_errors**&#8221; in *php.ini*.
 
 3. In cazul de fata, logul afisa urmatoarea eroare:
 
@@ -28,4 +30,6 @@ Daca incercati sa va autentificati in phpMyAdmin si dupa introducerea detaliilor
 
 Daca problema nu se rezolva dupa schimbarea parolei, se poate incerca un update la phpMyAdmin:
 
-<pre>/usr/local/cpanel/bin/updatephpmyadmin --force</pre>
+```bash
+/usr/local/cpanel/bin/updatephpmyadmin --force
+```

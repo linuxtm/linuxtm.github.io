@@ -26,8 +26,9 @@ In manualul chown, gasim urmatoarea optiune:
 
 Astfel, daca dorim ca ownershipul fisieirelor sa fie schimbat si in interiorul directoarelor de tip symlink folosim:
 
-<pre>chown -RL /my/dir/</pre>
-
+```bash
+chown -RL /my/dir/
+```
 
 Bonus, avem optiunea "-h"
 
@@ -35,4 +36,8 @@ Bonus, avem optiunea "-h"
 
 Aceasta optiune nu schimba drepturile sau ownership-ul fisierelor din interiorul directorului nostru symlink, insa are un rol pur estetic. Mai exact, daca dam un "ls -l" si observam directorul nostru symlink, probabil ownerul este root. Folosind aceasta optiune putem schimba ownerul aparent al symlinkului.
 
-<pre>chown -h mysymlink</pre>
+```bash
+chown -h mysymlink
+```
+
+
