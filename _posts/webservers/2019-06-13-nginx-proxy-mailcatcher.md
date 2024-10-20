@@ -20,7 +20,7 @@ tags:
 
 Mailcatcher functional in spatele unui proxy de Nginx utilizand codul de mai jos.
 
-<pre>
+```nginx
     location /mailcatcher {
         satisfy any;
         allow trustedip;
@@ -38,4 +38,4 @@ Mailcatcher functional in spatele unui proxy de Nginx utilizand codul de mai jos
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
     }
-</pre>
+```

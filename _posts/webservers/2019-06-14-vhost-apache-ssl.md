@@ -48,6 +48,6 @@ Exemplu elementar de virtualhost Apache cu SSL
     #Require valid-user
     #Satisfy any
     DirectoryIndex index.html index.php
-&lt;/Directory>
-&lt;/VirtualHost>
+/Directory>
+/VirtualHost>
 ```

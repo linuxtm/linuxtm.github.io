@@ -77,7 +77,7 @@ Exemplu virtualhost Apache cu elemente de redirect https, proxypass, https pentr
     AddOutputFilterByType DEFLATE application/x-javascript
     
    #Expire headers
-    &lt;IfModule mod_expires.c>
+    IfModule mod_expires.c>
     ExpiresActive On
     ExpiresDefault "access plus 10 days"
     ExpiresByType text/css "access plus 1 week"
@@ -88,7 +88,7 @@ Exemplu virtualhost Apache cu elemente de redirect https, proxypass, https pentr
     ExpiresByType application/x-javascript "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 week"
     ExpiresByType application/x-icon "access plus 1 year"
-    &lt;/IfModule>
-&lt;/Directory>
-&lt;/VirtualHost>
+    /IfModule>
+/Directory>
+/VirtualHost>
 ```
