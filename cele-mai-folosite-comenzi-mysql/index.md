@@ -13,122 +13,158 @@ tags:
 
 **Comenzi uzuale MySQL**
 
-<pre>CREATE DATABASE dbname;</pre>
-<pre>GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost';</pre>
-<pre>CREATE USER 'user'@'localhost' IDENTIFIED BY 'somepass'; </pre>
-<pre>GRANT ALL PRIVILEGES ON dbname.* TO 'user'@'localhost';</pre>
-<pre>GRANT ALL PRIVILEGES ON `dbname`.* TO 'user'@'127.2.1.%';</pre>
-<pre>UPDATE mysql.user SET PASSWORD=PASSWORD('somepass') WHERE USER='user';</pre>
-<pre>SELECT user, host FROM mysql.user;</pre>
-<pre>SELECT * FROM `table` ORDER BY id DESC LIMIT 10;</pre>
-<pre>DELETE FROM mysql.user WHERE USER='user' AND HOST='localhost';</pre>
+```sql
+CREATE DATABASE dbname;
+```
+```sql
+GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost';
+```
+```sql
+CREATE USER 'user'@'localhost' IDENTIFIED BY 'somepass';
+```
+```sql
+GRANT ALL PRIVILEGES ON dbname.* TO 'user'@'localhost';
+```
+```sql
+GRANT ALL PRIVILEGES ON `dbname`.* TO 'user'@'127.2.1.%';
+```
+```sql
+UPDATE mysql.user SET PASSWORD=PASSWORD('somepass') WHERE USER='user';
+```
+```sql
+SELECT user, host FROM mysql.user;
+```
+```sql
+SELECT * FROM `table` ORDER BY id DESC LIMIT 10;
+```
+```sql
+DELETE FROM mysql.user WHERE USER='user' AND HOST='localhost';
+```
 
 
 **MySQLdump**
-<pre>mysqldump -u root -p dbname > dbname.sql</pre>
+```bash
+mysqldump -u root -p dbname > dbname.sql
+```
 
-<pre>mysqldump --single-transaction -u root dbname > dbname.sql #recomandat pentru baze de date mari</pre>
+```bash
+mysqldump --single-transaction -u root dbname > dbname.sql #recomandat pentru baze de date mari
+```
 
-<pre>mysqldump --routines --triggers --events -u root dbname > dbname.sql #blocheaza temporar scrierile in db</pre>
+```bash
+mysqldump --routines --triggers --events -u root dbname > dbname.sql #blocheaza temporar scrierile in db
+```
 
 Dump + compresie:
-<pre>mysqldump -u root -p dbname > dbname.sql |gzip > dbname.sql.gz</pre>
+```bash
+mysqldump -u root -p dbname > dbname.sql |gzip > dbname.sql.gz
+```
 
 Dump doar la schema:
-<pre>mysqldump -u root -p --no-data dbname > dbname.sql</pre>
+```bash
+mysqldump -u root -p --no-data dbname > dbname.sql
+```
 
 Dump doar anumite tabele:
-<pre>mysqldump -u root -p dbname TABLE1 TABLE2 TABLE3 ... > dbname.sql</pre>
+```bash
+mysqldump -u root -p dbname TABLE1 TABLE2 TABLE3 ... > dbname.sql
+```
 
 Dump fara anumite tabele:
-<pre>mysqldump -u root -p dbname --ignore-table=DATABASE.TABLE --ignore-table=DATABASE.TABLE2 ... > dbname.sql</pre>
-<pre>mysqldump -uroot -p dbname --ignore-table=dbname.users > dbname.sql  #dump fara tabela cu useri</pre>
+```bash
+mysqldump -u root -p dbname --ignore-table=DATABASE.TABLE --ignore-table=DATABASE.TABLE2 ... > dbname.sql
+```
+```bash
+mysqldump -uroot -p dbname --ignore-table=dbname.users > dbname.sql  #dump fara tabela cu useri
+```
 
 
 **Restore o singura baza de date din dump facut cu --all-databases**
-<pre>
+```bash
 mysql -u root --force --one-database dbname < all_dbdump.sql
-</pre>
+```
 
 **Restore din backup**
-<pre>
+```bash
 mysqldump dbname > dbname-today.sql
-</pre>
-<pre>
+```
+```bash
 mysql
-</pre>
-<pre>
+```
+```bash
 drop database dbname;
-</pre>
-<pre>
+```
+```bash
 create database dbname;
-</pre>
-<pre>
+```
+```bash
 exit
-</pre>
-<pre>
+```
+```bash
 cd /backup/path
-</pre>
-<pre>
+```
+```bash
 mysql dbname &lt; dbname.create
-</pre>
-<pre>
+```
+```bash
 mysql dbname &lt; dbname.sql
-</pre>
+```
 
 **Recuperare parola root**
 
 #Pentru sisteme de operare mai vechi (CentOS 6, Ubuntu 14 sau mai vechi)
-<pre>
+```bash
 /etc/init.d/mysql stop 
-</pre>
+```
 #Pentru sisteme de operare mai noi (CentOS 7, Ubuntu 16 sau mai noi)
-<pre>
+```bash
 systemctl stop mysql / mariadb / mysqld
-</pre>
-<pre>
+```
+```bash
 sudo mysqld_safe --skip-grant-tables &
-</pre>
-<pre>
+```
+```bash
 mysql -u root
-</pre>
-<pre>
+```
+```bash
 use mysql;
-</pre>
+```
 
 MySQL 5.6 sau mai vechi:
-<pre>
+```sql
 update user set password=PASSWORD("parolanoua") where User='root';
-</pre>
+```
 
 MySQL 5.7 sau mai nou:
-<pre>
+```sql
 update mysql.user set authentication_string=PASSWORD('parolanoua') where user='root';
-</pre>
-
-<pre>
+```
+```sql
 flush privileges;
-</pre>
-<pre>
+```
+```bash
 quit
-</pre>
-<pre>
+```
+```bash
 mysqladmin -uroot -p shutdown
-</pre>
-<pre>
+```
+```bash
 sudo /etc/init.d/mysql start
-</pre>
+```
 
 **Kill toate procesele unui user**
-<pre>select concat('KILL ',id,';') from information_schema.processlist where user='username';</pre>
+```sql
+select concat('KILL ',id,';') from information_schema.processlist where user='username';
+```
 Sau:
-<pre>
+```sql
 select concat('KILL ',id,';') from information_schema.processlist where user='username' into outfile '/tmp/a.txt';
 source /tmp/a.txt;
-</pre>
+```
 
 Acelasi lucru se poate face pentru un DB specific:
-<pre>
+```sql
 select concat('KILL ',id,';') from information_schema.processlist where db='dbname' into outfile '/tmp/a.txt';
 source /tmp/a.txt;
-</pre>
+```
+
