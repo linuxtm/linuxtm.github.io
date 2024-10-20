@@ -21,11 +21,14 @@ Putem face drop unei baze de date psql din RDS dupa cum urmeaza:
 
 1. Conectare la RDS - important - ne conectam la alt db decat cel pe care vrem sa-l stergem.
 
-<pre>psql -h my-db.rds.amazonaws.com -U user posgres</pre>
+```bash
+psql -h my-db.rds.amazonaws.com -U user posgres
+```
 
 2. Inchide conexiunile active:
 
-<pre>SELECT pg_terminate_backend(pg_stat_activity.pid)
+```bash
+SELECT pg_terminate_backend(pg_stat_activity.pid)
 
 FROM pg_stat_activity
 
@@ -35,4 +38,5 @@ WHERE pg_stat_activity.datname = 'my_database'
 
 3. Drop db
 
-<pre>drop database my_database</pre> 
+<pre>drop database my_database
+```

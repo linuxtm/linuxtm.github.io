@@ -21,9 +21,9 @@ Scriptul de mai jos ia ca argument regiunea AWS in care se afla zona DNS in AWS 
 
 <em>Nota: Este necesar sa aveti utilitarul jq instalat, folosit pentru parsarea outpt-ului json.</em>
 
-<pre>
+```bash
 #!/bin/bash
 zonename=$1
 hostedzoneid=$(aws route53 list-hosted-zones --output json | jq -r ".HostedZones[] | select(.Name == \"$zonename.\") | .Id" | cut -d'/' -f3)
 aws route53 list-resource-record-sets --hosted-zone-id $hostedzoneid --output json | jq -jr '.ResourceRecordSets[] | "\(.Name) \t\(.TTL) \t\(.Type) \t\(.ResourceRecords[]?.Value)\n"'
-</pre>
+```

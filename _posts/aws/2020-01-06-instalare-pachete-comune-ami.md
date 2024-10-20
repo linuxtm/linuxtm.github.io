@@ -24,9 +24,13 @@ sudo amazon-linux-extras install -y epel
 ```
 
 Instalare client mysql
-<pre>sudo yum install -y https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm && sudo yum install -y mysql-community-client</pre>
+```bash
+sudo yum install -y https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm && sudo yum install -y mysql-community-client
+```
 
 Redis-CLI
-<pre>sudo yum install -y gcc
+```bash
+sudo yum install -y gcc
 wget http://download.redis.io/redis-stable.tar.gz && tar xvzf redis-stable.tar.gz && cd redis-stable && make
-sudo cp src/redis-cli /usr/bin/</pre>
+sudo cp src/redis-cli /usr/bin/
+```
