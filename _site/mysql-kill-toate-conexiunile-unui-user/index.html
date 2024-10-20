@@ -91,12 +91,16 @@ Dupa acest pas, importam lista si se vor executa comenzile din lista (<em>KILL P
 
 <p><strong>Atentie ! Comenzile de mai jos vor inchide conexiuni ! Asigurati-va ca ati definit utilizatorul corect !</strong></p>
 
-<pre>SELECT CONCAT('KILL ',id,';') FROM information_schema.processlist WHERE user='my-user' INTO OUTFILE '/var/lib/mysql-files/process_list.txt';</pre>
-<pre>source /var/lib/mysql-files/process_list.txt</pre>
-<pre>exit</pre>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">CONCAT</span><span class="p">(</span><span class="s1">'KILL '</span><span class="p">,</span><span class="n">id</span><span class="p">,</span><span class="s1">';'</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">processlist</span> <span class="k">WHERE</span> <span class="k">user</span><span class="o">=</span><span class="s1">'my-user'</span> <span class="k">INTO</span> <span class="n">OUTFILE</span> <span class="s1">'/var/lib/mysql-files/process_list.txt'</span><span class="p">;</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> /var/lib/mysql-files/process_list.txt
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">exit</span>
+</code></pre></div></div>
 
 <p>Dupa ce am rulat comanda, trebuie sa stergem fisierul, in caz contrar, data viitoare cand vrem sa rulam aceiasi comanda vom primi o eroare cum ca fisierul deja exista.</p>
-<pre>rm -rf /var/lib/mysql-files/process_list.txt</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rm</span> <span class="nt">-rf</span> /var/lib/mysql-files/process_list.txt
+</code></pre></div></div>
 
   </article>
 

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Bash user input</title>
-  <meta name="description" content="#!/bin/bash#More at https://linuxtm.ro#Require user input (select 1 or 2 on keyboard)">
+  <meta name="description" content="```bash#!/bin/bash#More at https://linuxtm.ro#Require user input (select 1 or 2 on keyboard)">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://192.168.100.11:4000/bash-user-input/">
@@ -85,25 +85,24 @@
   </header>
 
   <article class="post-content">
-    <pre>
-#!/bin/bash
-#More at https://linuxtm.ro
-#Require user input (select 1 or 2 on keyboard)
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#More at https://linuxtm.ro</span>
+<span class="c">#Require user input (select 1 or 2 on keyboard)</span>
 
-echo "Continue ?"
-select yn in "Yes" "No"; do
-    case $yn in
-        Yes )
+<span class="nb">echo</span> <span class="s2">"Continue ?"</span>
+<span class="k">select </span>yn <span class="k">in</span> <span class="s2">"Yes"</span> <span class="s2">"No"</span><span class="p">;</span> <span class="k">do
+    case</span> <span class="nv">$yn</span> <span class="k">in
+        </span>Yes <span class="p">)</span>
 
-echo "The script has continued"
-echo "some command 1"
-echo "some command 2"
-break;;
+<span class="nb">echo</span> <span class="s2">"The script has continued"</span>
+<span class="nb">echo</span> <span class="s2">"some command 1"</span>
+<span class="nb">echo</span> <span class="s2">"some command 2"</span>
+<span class="nb">break</span><span class="p">;;</span>
 
-        No ) exit;;
-    esac
-done
-</pre>
+        No <span class="p">)</span> <span class="nb">exit</span><span class="p">;;</span>
+    <span class="k">esac</span>
+<span class="k">done</span>
+</code></pre></div></div>
 
   </article>
 

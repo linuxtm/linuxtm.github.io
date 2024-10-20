@@ -100,7 +100,7 @@ a {
   text-decoration: none;
 }
 a:visited {
-  color: #7600db;
+  color: #003eea;
 }
 a:hover {
   color: #000;
@@ -152,17 +152,17 @@ pre > code {
  * Wrapper
  */
 .wrapper {
-  max-width: -webkit-calc(700px - (30px * 2));
-  max-width: calc(700px - 30px * 2);
+  max-width: -webkit-calc(785px - (30px * 2));
+  max-width: calc(785px - 30px * 2);
   margin-right: auto;
   margin-left: auto;
   padding-right: 30px;
   padding-left: 30px;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 785px) {
   .wrapper {
-    max-width: -webkit-calc(700px - (30px));
-    max-width: calc(700px - (30px));
+    max-width: -webkit-calc(785px - (30px));
+    max-width: calc(785px - (30px));
     padding-right: 15px;
     padding-left: 15px;
   }
@@ -213,12 +213,14 @@ pre > code {
 .site-nav {
   float: left;
   line-height: 25px;
+  font-weight: 500;
+  font-size: 18px;
 }
 .site-nav .menu-icon {
   display: none;
 }
 .site-nav .page-link {
-  color: #003eea;
+  color: #009f95;
   line-height: 1.5;
 }
 .site-nav .page-link:not(:first-child) {
@@ -310,7 +312,7 @@ pre > code {
   width: calc(30% - 30px / 2);
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 785px) {
   .footer-col-1,
   .footer-col-2 {
     width: -webkit-calc(50% - (30px / 2));
@@ -370,7 +372,7 @@ pre > code {
   letter-spacing: -1px;
   line-height: 1;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 785px) {
   .post-title {
     font-size: 36px;
   }
@@ -382,7 +384,7 @@ pre > code {
 .post-content h2 {
   font-size: 32px;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 785px) {
   .post-content h2 {
     font-size: 28px;
   }
@@ -390,7 +392,7 @@ pre > code {
 .post-content h3 {
   font-size: 26px;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 785px) {
   .post-content h3 {
     font-size: 22px;
   }
@@ -398,7 +400,7 @@ pre > code {
 .post-content h4 {
   font-size: 20px;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 785px) {
   .post-content h4 {
     font-size: 18px;
   }

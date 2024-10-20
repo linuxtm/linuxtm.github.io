@@ -93,15 +93,18 @@ Dec 17 08:12:01 backup CRON[17593]: pam_unix(cron:session): session opened for u
 
 <p>Mergem in directorul <strong>/etc/pam.d</strong> si deschidem fisierul <strong>common-session-noninteractive</strong> cu editorul preferat, dupa care cautam linia urmatoare:</p>
 
-<pre>session required pam_unix.so</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>session required pam_unix.so
+</code></pre></div></div>
 
 <p>Deasupra acestei linii, adaugam urmatoarele:</p>
 
-<pre>session [success=1 default=ignore] pam_succeed_if.so service in cron quiet use_uid</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>session <span class="o">[</span><span class="nv">success</span><span class="o">=</span>1 <span class="nv">default</span><span class="o">=</span>ignore] pam_succeed_if.so service <span class="k">in </span>cron quiet use_uid
+</code></pre></div></div>
 
 <p>Salvam fisierul si iesim, dupa care restartam crond:</p>
 
-<pre>service cron restart</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service cron restart
+</code></pre></div></div>
 
 <p>Explicatie:<br />
 Inainte de a va impacienta, trebuie sa stiti ca mesajele respective sunt normale. Acestea sunt generate de cron-ul care se autentifica in sistem si verifica fisierele de configurare sa vada daca s-a schimbat ceva. Devreme ce cron poate rula in fiecare minut, probabil veti vedea multe astfel de mesaje in log. Prima linie este generata de fiecare data cand cronul incepe (session open) iar a 2-a cand se inchide (session closed).</p>

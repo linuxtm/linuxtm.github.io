@@ -86,123 +86,119 @@
   <article class="post-content">
     <p><strong>Comenzi uzuale MySQL</strong></p>
 
-<pre>CREATE DATABASE dbname;</pre>
-<pre>GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost';</pre>
-<pre>CREATE USER 'user'@'localhost' IDENTIFIED BY 'somepass'; </pre>
-<pre>GRANT ALL PRIVILEGES ON dbname.* TO 'user'@'localhost';</pre>
-<pre>GRANT ALL PRIVILEGES ON `dbname`.* TO 'user'@'127.2.1.%';</pre>
-<pre>UPDATE mysql.user SET PASSWORD=PASSWORD('somepass') WHERE USER='user';</pre>
-<pre>SELECT user, host FROM mysql.user;</pre>
-<pre>SELECT * FROM `table` ORDER BY id DESC LIMIT 10;</pre>
-<pre>DELETE FROM mysql.user WHERE USER='user' AND HOST='localhost';</pre>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">dbname</span><span class="p">;</span>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'user'</span><span class="o">@</span><span class="s1">'localhost'</span><span class="p">;</span>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'user'</span><span class="o">@</span><span class="s1">'localhost'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'somepass'</span><span class="p">;</span>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="n">dbname</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'user'</span><span class="o">@</span><span class="s1">'localhost'</span><span class="p">;</span>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="nv">`dbname`</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'user'</span><span class="o">@</span><span class="s1">'127.2.1.%'</span><span class="p">;</span>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">UPDATE</span> <span class="n">mysql</span><span class="p">.</span><span class="k">user</span> <span class="k">SET</span> <span class="n">PASSWORD</span><span class="o">=</span><span class="n">PASSWORD</span><span class="p">(</span><span class="s1">'somepass'</span><span class="p">)</span> <span class="k">WHERE</span> <span class="k">USER</span><span class="o">=</span><span class="s1">'user'</span><span class="p">;</span>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">user</span><span class="p">,</span> <span class="k">host</span> <span class="k">FROM</span> <span class="n">mysql</span><span class="p">.</span><span class="k">user</span><span class="p">;</span>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="nv">`table`</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">id</span> <span class="k">DESC</span> <span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">mysql</span><span class="p">.</span><span class="k">user</span> <span class="k">WHERE</span> <span class="k">USER</span><span class="o">=</span><span class="s1">'user'</span> <span class="k">AND</span> <span class="k">HOST</span><span class="o">=</span><span class="s1">'localhost'</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p><strong>MySQLdump</strong></p>
-<pre>mysqldump -u root -p dbname &gt; dbname.sql</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqldump <span class="nt">-u</span> root <span class="nt">-p</span> dbname <span class="o">&gt;</span> dbname.sql
+</code></pre></div></div>
 
-<pre>mysqldump --single-transaction -u root dbname &gt; dbname.sql #recomandat pentru baze de date mari</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqldump <span class="nt">--single-transaction</span> <span class="nt">-u</span> root dbname <span class="o">&gt;</span> dbname.sql <span class="c">#recomandat pentru baze de date mari</span>
+</code></pre></div></div>
 
-<pre>mysqldump --routines --triggers --events -u root dbname &gt; dbname.sql #blocheaza temporar scrierile in db</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqldump <span class="nt">--routines</span> <span class="nt">--triggers</span> <span class="nt">--events</span> <span class="nt">-u</span> root dbname <span class="o">&gt;</span> dbname.sql <span class="c">#blocheaza temporar scrierile in db</span>
+</code></pre></div></div>
 
 <p>Dump + compresie:</p>
-<pre>mysqldump -u root -p dbname &gt; dbname.sql |gzip &gt; dbname.sql.gz</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqldump <span class="nt">-u</span> root <span class="nt">-p</span> dbname <span class="o">&gt;</span> dbname.sql |gzip <span class="o">&gt;</span> dbname.sql.gz
+</code></pre></div></div>
 
 <p>Dump doar la schema:</p>
-<pre>mysqldump -u root -p --no-data dbname &gt; dbname.sql</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqldump <span class="nt">-u</span> root <span class="nt">-p</span> <span class="nt">--no-data</span> dbname <span class="o">&gt;</span> dbname.sql
+</code></pre></div></div>
 
 <p>Dump doar anumite tabele:</p>
-<pre>mysqldump -u root -p dbname TABLE1 TABLE2 TABLE3 ... &gt; dbname.sql</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqldump <span class="nt">-u</span> root <span class="nt">-p</span> dbname TABLE1 TABLE2 TABLE3 ... <span class="o">&gt;</span> dbname.sql
+</code></pre></div></div>
 
 <p>Dump fara anumite tabele:</p>
-<pre>mysqldump -u root -p dbname --ignore-table=DATABASE.TABLE --ignore-table=DATABASE.TABLE2 ... &gt; dbname.sql</pre>
-<pre>mysqldump -uroot -p dbname --ignore-table=dbname.users &gt; dbname.sql  #dump fara tabela cu useri</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqldump <span class="nt">-u</span> root <span class="nt">-p</span> dbname <span class="nt">--ignore-table</span><span class="o">=</span>DATABASE.TABLE <span class="nt">--ignore-table</span><span class="o">=</span>DATABASE.TABLE2 ... <span class="o">&gt;</span> dbname.sql
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqldump <span class="nt">-uroot</span> <span class="nt">-p</span> dbname <span class="nt">--ignore-table</span><span class="o">=</span>dbname.users <span class="o">&gt;</span> dbname.sql  <span class="c">#dump fara tabela cu useri</span>
+</code></pre></div></div>
 
 <p><strong>Restore o singura baza de date din dump facut cu –all-databases</strong></p>
-<pre>
-mysql -u root --force --one-database dbname &lt; all_dbdump.sql
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql <span class="nt">-u</span> root <span class="nt">--force</span> <span class="nt">--one-database</span> dbname &lt; all_dbdump.sql
+</code></pre></div></div>
 
 <p><strong>Restore din backup</strong></p>
-<pre>
-mysqldump dbname &gt; dbname-today.sql
-</pre>
-<pre>
-mysql
-</pre>
-<pre>
-drop database dbname;
-</pre>
-<pre>
-create database dbname;
-</pre>
-<pre>
-exit
-</pre>
-<pre>
-cd /backup/path
-</pre>
-<pre>
-mysql dbname &lt; dbname.create
-</pre>
-<pre>
-mysql dbname &lt; dbname.sql
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqldump dbname <span class="o">&gt;</span> dbname-today.sql
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>drop database dbname<span class="p">;</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create database dbname<span class="p">;</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">exit</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /backup/path
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql dbname &amp;lt<span class="p">;</span> dbname.create
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql dbname &amp;lt<span class="p">;</span> dbname.sql
+</code></pre></div></div>
 
 <p><strong>Recuperare parola root</strong></p>
 
 <p>#Pentru sisteme de operare mai vechi (CentOS 6, Ubuntu 14 sau mai vechi)</p>
-<pre>
-/etc/init.d/mysql stop 
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/init.d/mysql stop 
+</code></pre></div></div>
 <p>#Pentru sisteme de operare mai noi (CentOS 7, Ubuntu 16 sau mai noi)</p>
-<pre>
-systemctl stop mysql / mariadb / mysqld
-</pre>
-<pre>
-sudo mysqld_safe --skip-grant-tables &amp;
-</pre>
-<pre>
-mysql -u root
-</pre>
-<pre>
-use mysql;
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl stop mysql / mariadb / mysqld
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mysqld_safe <span class="nt">--skip-grant-tables</span> &amp;
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql <span class="nt">-u</span> root
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>use mysql<span class="p">;</span>
+</code></pre></div></div>
 
 <p>MySQL 5.6 sau mai vechi:</p>
-<pre>
-update user set password=PASSWORD("parolanoua") where User='root';
-</pre>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">update</span> <span class="k">user</span> <span class="k">set</span> <span class="n">password</span><span class="o">=</span><span class="n">PASSWORD</span><span class="p">(</span><span class="nv">"parolanoua"</span><span class="p">)</span> <span class="k">where</span> <span class="k">User</span><span class="o">=</span><span class="s1">'root'</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p>MySQL 5.7 sau mai nou:</p>
-<pre>
-update mysql.user set authentication_string=PASSWORD('parolanoua') where user='root';
-</pre>
-
-<pre>
-flush privileges;
-</pre>
-<pre>
-quit
-</pre>
-<pre>
-mysqladmin -uroot -p shutdown
-</pre>
-<pre>
-sudo /etc/init.d/mysql start
-</pre>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">update</span> <span class="n">mysql</span><span class="p">.</span><span class="k">user</span> <span class="k">set</span> <span class="n">authentication_string</span><span class="o">=</span><span class="n">PASSWORD</span><span class="p">(</span><span class="s1">'parolanoua'</span><span class="p">)</span> <span class="k">where</span> <span class="k">user</span><span class="o">=</span><span class="s1">'root'</span><span class="p">;</span>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">flush</span> <span class="k">privileges</span><span class="p">;</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>quit
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqladmin <span class="nt">-uroot</span> <span class="nt">-p</span> shutdown
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> /etc/init.d/mysql start
+</code></pre></div></div>
 
 <p><strong>Kill toate procesele unui user</strong></p>
-<pre>select concat('KILL ',id,';') from information_schema.processlist where user='username';</pre>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="n">concat</span><span class="p">(</span><span class="s1">'KILL '</span><span class="p">,</span><span class="n">id</span><span class="p">,</span><span class="s1">';'</span><span class="p">)</span> <span class="k">from</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">processlist</span> <span class="k">where</span> <span class="k">user</span><span class="o">=</span><span class="s1">'username'</span><span class="p">;</span>
+</code></pre></div></div>
 <p>Sau:</p>
-<pre>
-select concat('KILL ',id,';') from information_schema.processlist where user='username' into outfile '/tmp/a.txt';
-source /tmp/a.txt;
-</pre>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="n">concat</span><span class="p">(</span><span class="s1">'KILL '</span><span class="p">,</span><span class="n">id</span><span class="p">,</span><span class="s1">';'</span><span class="p">)</span> <span class="k">from</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">processlist</span> <span class="k">where</span> <span class="k">user</span><span class="o">=</span><span class="s1">'username'</span> <span class="k">into</span> <span class="n">outfile</span> <span class="s1">'/tmp/a.txt'</span><span class="p">;</span>
+<span class="k">source</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">txt</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p>Acelasi lucru se poate face pentru un DB specific:</p>
-<pre>
-select concat('KILL ',id,';') from information_schema.processlist where db='dbname' into outfile '/tmp/a.txt';
-source /tmp/a.txt;
-</pre>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="n">concat</span><span class="p">(</span><span class="s1">'KILL '</span><span class="p">,</span><span class="n">id</span><span class="p">,</span><span class="s1">';'</span><span class="p">)</span> <span class="k">from</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">processlist</span> <span class="k">where</span> <span class="n">db</span><span class="o">=</span><span class="s1">'dbname'</span> <span class="k">into</span> <span class="n">outfile</span> <span class="s1">'/tmp/a.txt'</span><span class="p">;</span>
+<span class="k">source</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">txt</span><span class="p">;</span>
+</code></pre></div></div>
+
 
   </article>
 

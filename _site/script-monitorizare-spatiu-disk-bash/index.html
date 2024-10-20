@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Script bash pentru monitorizare spatiu disk</title>
-  <meta name="description" content="#!/bin/bash#More at https://linuxtm.roROOT=$(df / | grep / | awk '{ print $5}' | sed 's/%//g')DATADISK=$(df /var/www | grep / | awk '{ print $5}' | sed 's/%/...">
+  <meta name="description" content="```bash#!/bin/bash#More at https://linuxtm.roROOT=$(df / | grep / | awk ‘{ print $5}’ | sed ‘s/%//g’)DATADISK=$(df /var/www | grep / | awk ‘{ print $5}’ | se...">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://192.168.100.11:4000/script-monitorizare-spatiu-disk-bash/">
@@ -85,28 +85,27 @@
   </header>
 
   <article class="post-content">
-    <pre>
-#!/bin/bash
-#More at https://linuxtm.ro
-ROOT=$(df / | grep / | awk '{ print $5}' | sed 's/%//g')
-DATADISK=$(df /var/www | grep / | awk '{ print $5}' | sed 's/%//g')
-THRESHOLD=85
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#More at https://linuxtm.ro</span>
+<span class="nv">ROOT</span><span class="o">=</span><span class="si">$(</span><span class="nb">df</span> / | <span class="nb">grep</span> / | <span class="nb">awk</span> <span class="s1">'{ print $5}'</span> | <span class="nb">sed</span> <span class="s1">'s/%//g'</span><span class="si">)</span>
+<span class="nv">DATADISK</span><span class="o">=</span><span class="si">$(</span><span class="nb">df</span> /var/www | <span class="nb">grep</span> / | <span class="nb">awk</span> <span class="s1">'{ print $5}'</span> | <span class="nb">sed</span> <span class="s1">'s/%//g'</span><span class="si">)</span>
+<span class="nv">THRESHOLD</span><span class="o">=</span>85
 
-#Monitor root partition
-if [ "$ROOT" -gt "$THRESHOLD" ] ; then
-    mail -E -s 'Disk Space Alert' mail@example.com &lt;&lt; EOF
-Your root partition remaining free space is critically low. Used: $ROOT%
-EOF
-fi
+<span class="c">#Monitor root partition</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$ROOT</span><span class="s2">"</span> <span class="nt">-gt</span> <span class="s2">"</span><span class="nv">$THRESHOLD</span><span class="s2">"</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then
+    </span>mail <span class="nt">-E</span> <span class="nt">-s</span> <span class="s1">'Disk Space Alert'</span> mail@example.com <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh">
+Your root partition remaining free space is critically low. Used: </span><span class="nv">$ROOT</span><span class="sh">%
+</span><span class="no">EOF
+</span><span class="k">fi</span>
 
-#Monitor mounted disk
-if [ "$DATADISK" -gt "$THRESHOLD" ] ; then
-    mail -E -s 'Disk Space Alert' mail@example.com &lt;&lt; EOF
-Your datadisk partition remaining free space is critically low. Used: $DATADISK%
-EOF
-fi
+<span class="c">#Monitor mounted disk</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$DATADISK</span><span class="s2">"</span> <span class="nt">-gt</span> <span class="s2">"</span><span class="nv">$THRESHOLD</span><span class="s2">"</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then
+    </span>mail <span class="nt">-E</span> <span class="nt">-s</span> <span class="s1">'Disk Space Alert'</span> mail@example.com <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh">
+Your datadisk partition remaining free space is critically low. Used: </span><span class="nv">$DATADISK</span><span class="sh">%
+</span><span class="no">EOF
+</span><span class="k">fi</span>
 
-</pre>
+</code></pre></div></div>
 
   </article>
 

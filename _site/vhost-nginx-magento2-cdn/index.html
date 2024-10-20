@@ -89,440 +89,437 @@
 In acest exemplu folosim 2 subdomenii separate pentru media si resursele statice.</p>
 
 <p><strong>Vhost domeniu principal</strong></p>
-<pre>
-upstream fastcgi_backend {
-    server   127.0.0.1:9000;
-}
+<div class="language-nginx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">upstream</span> <span class="s">fastcgi_backend</span> <span class="p">{</span>
+    <span class="kn">server</span>   <span class="nf">127.0.0.1</span><span class="p">:</span><span class="mi">9000</span><span class="p">;</span>
+<span class="p">}</span>
 
-server {
-    listen         80;
-    server_name    domain.com;
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>         <span class="mi">80</span><span class="p">;</span>
+    <span class="kn">server_name</span>    <span class="s">domain.com</span><span class="p">;</span>
 
-    location / {
-      return 301 https://$http_host$request_uri;
-    }
-}
+    <span class="kn">location</span> <span class="n">/</span> <span class="p">{</span>
+      <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://</span><span class="nv">$http_host$request_uri</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-server {
-    listen         80;
-    server_name    www.domain.com;
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>         <span class="mi">80</span><span class="p">;</span>
+    <span class="kn">server_name</span>    <span class="s">www.domain.com</span><span class="p">;</span>
 
-    location / {
-      return 301 https://$http_host$request_uri;
-    }
-}
-
-
-server {
-    listen      443 ssl http2;
-    server_name www.domain.com;
-    ssl_certificate /etc/letsencrypt/live/www.domain.com/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/www.domain.com/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
-    location / {
-      return 301 https://domain.com$request_uri;
-    }
-
-}
+    <span class="kn">location</span> <span class="n">/</span> <span class="p">{</span>
+      <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://</span><span class="nv">$http_host$request_uri</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
 
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>      <span class="mi">443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">www.domain.com</span><span class="p">;</span>
+    <span class="kn">ssl_certificate</span> <span class="n">/etc/letsencrypt/live/www.domain.com/fullchain.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+    <span class="kn">ssl_certificate_key</span> <span class="n">/etc/letsencrypt/live/www.domain.com/privkey.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+    <span class="kn">include</span> <span class="n">/etc/letsencrypt/options-ssl-nginx.conf</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+    <span class="kn">ssl_dhparam</span> <span class="n">/etc/letsencrypt/ssl-dhparams.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
 
-server {
-    listen      443 ssl http2 default_server;
-    server_name domain.com;
+    <span class="kn">location</span> <span class="n">/</span> <span class="p">{</span>
+      <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://domain.com</span><span class="nv">$request_uri</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    ssl_certificate /etc/letsencrypt/live/domain.com/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/domain.com/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
-    ## Define project root
-    set $MAGE_ROOT /var/www/html;
-
-    ##  Magento mode production or developer
-    set $MAGE_MODE production;
-
-     access_log  /var/log/nginx/domain-access.log;
-     error_log   /var/log/nginx/domain-error.log;
-
-    client_max_body_size 10M;
-    merge_slashes off;
-
-    root $MAGE_ROOT/pub;
-
-    index index.php;
-    autoindex off;
-    charset off;
-
-    #Monitoring
-    location /nginx_status {
-        stub_status on;
-        allow 127.0.0.1;
-        deny all;
-        #access_log   off;
-    }
+<span class="p">}</span>
 
 
-    location /setup {
-        root $MAGE_ROOT;
-        location ~ ^/setup/index.php {
-            fastcgi_pass   fastcgi_backend;
-            fastcgi_index  index.php;
-            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-            include        fastcgi_params;
-        }
 
-        location ~ ^/setup/(?!pub/). {
-            deny all;
-        }
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>      <span class="mi">443</span> <span class="s">ssl</span> <span class="s">http2</span> <span class="s">default_server</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">domain.com</span><span class="p">;</span>
 
-        location ~ ^/setup/pub/ {
-            add_header X-Frame-Options "SAMEORIGIN";
-        }
-    }
+    <span class="kn">ssl_certificate</span> <span class="n">/etc/letsencrypt/live/domain.com/fullchain.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+    <span class="kn">ssl_certificate_key</span> <span class="n">/etc/letsencrypt/live/domain.com/privkey.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+    <span class="kn">include</span> <span class="n">/etc/letsencrypt/options-ssl-nginx.conf</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+    <span class="kn">ssl_dhparam</span> <span class="n">/etc/letsencrypt/ssl-dhparams.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
 
-    location /update {
-        root $MAGE_ROOT;
+    <span class="c1">## Define project root</span>
+    <span class="kn">set</span> <span class="nv">$MAGE_ROOT</span> <span class="n">/var/www/html</span><span class="p">;</span>
 
-        location ~ ^/update/index.php {
-            fastcgi_split_path_info ^(/update/index.php)(/.+)$;
-            fastcgi_pass   fastcgi_backend;
-            fastcgi_index  index.php;
-            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-            fastcgi_param  PATH_INFO        $fastcgi_path_info;
-            include        fastcgi_params;
-        }
+    <span class="c1">##  Magento mode production or developer</span>
+    <span class="kn">set</span> <span class="nv">$MAGE_MODE</span> <span class="s">production</span><span class="p">;</span>
 
-        # deny everything but index.php
-        location ~ ^/update/(?!pub/). {
-            deny all;
-        }
+     <span class="kn">access_log</span>  <span class="n">/var/log/nginx/domain-access.log</span><span class="p">;</span>
+     <span class="kn">error_log</span>   <span class="n">/var/log/nginx/domain-error.log</span><span class="p">;</span>
 
-        location ~ ^/update/pub/ {
-            add_header X-Frame-Options "SAMEORIGIN";
-        }
-    }
+    <span class="kn">client_max_body_size</span> <span class="mi">10M</span><span class="p">;</span>
+    <span class="kn">merge_slashes</span> <span class="no">off</span><span class="p">;</span>
 
-    location / {
-        index index.php;
-        try_files $uri $uri/ /index.php?$args;
-    }
+    <span class="kn">root</span> <span class="nv">$MAGE_ROOT</span><span class="n">/pub</span><span class="p">;</span>
 
-    location /pub {
-        location ~ ^/pub/media/(downloadable|customer|import|theme_customization/.*\.xml) {
-            deny all;
-        }
-        alias $MAGE_ROOT/pub;
-        add_header X-Frame-Options "SAMEORIGIN";
-    }
+    <span class="kn">index</span> <span class="s">index.php</span><span class="p">;</span>
+    <span class="kn">autoindex</span> <span class="no">off</span><span class="p">;</span>
+    <span class="kn">charset</span> <span class="no">off</span><span class="p">;</span>
 
-    location /static/ {
-        if ($MAGE_MODE = "production") {
-            expires max;
-        }
+    <span class="c1">#Monitoring</span>
+    <span class="kn">location</span> <span class="n">/nginx_status</span> <span class="p">{</span>
+        <span class="kn">stub_status</span> <span class="no">on</span><span class="p">;</span>
+        <span class="kn">allow</span> <span class="mf">127.0</span><span class="s">.0.1</span><span class="p">;</span>
+        <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+        <span class="c1">#access_log   off;</span>
+    <span class="p">}</span>
 
-        # remove signature of static files used to overcome browser cache
-        location ~ ^/static/version {
-          rewrite ^/static/(version\d*/)?(.*)$ /static/$2 last;
-        }
 
-        location ~* \.(ico|jpg|jpeg|png|gif|svg|js|css|swf|eot|ttf|otf|woff|woff2)$ {
-            add_header Cache-Control "public";
-            add_header X-Frame-Options "SAMEORIGIN";
-            expires +1y;
+    <span class="kn">location</span> <span class="n">/setup</span> <span class="p">{</span>
+        <span class="kn">root</span> <span class="nv">$MAGE_ROOT</span><span class="p">;</span>
+        <span class="kn">location</span> <span class="p">~</span> <span class="sr">^/setup/index.php</span> <span class="p">{</span>
+            <span class="kn">fastcgi_pass</span>   <span class="s">fastcgi_backend</span><span class="p">;</span>
+            <span class="kn">fastcgi_index</span>  <span class="s">index.php</span><span class="p">;</span>
+            <span class="kn">fastcgi_param</span>  <span class="s">SCRIPT_FILENAME</span>  <span class="nv">$document_root$fastcgi_script_name</span><span class="p">;</span>
+            <span class="kn">include</span>        <span class="s">fastcgi_params</span><span class="p">;</span>
+        <span class="p">}</span>
 
-            if (!-f $request_filename) {
-                rewrite ^/static/(version\d*/)?(.*)$ /static.php?resource=$2 last;
-            }
-        }
+        <span class="kn">location</span> <span class="p">~</span> <span class="sr">^/setup/(?!pub/).</span> <span class="p">{</span>
+            <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+        <span class="p">}</span>
 
-        location ~* \.(zip|gz|gzip|bz2|csv|xml)$ {
-            add_header Cache-Control "no-store";
-            add_header X-Frame-Options "SAMEORIGIN";
-            expires    off;
+        <span class="kn">location</span> <span class="p">~</span> <span class="sr">^/setup/pub/</span> <span class="p">{</span>
+            <span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">"SAMEORIGIN"</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-            if (!-f $request_filename) {
-               rewrite ^/static/(version\d*/)?(.*)$ /static.php?resource=$2 last;
-            }
-        }
-        if (!-f $request_filename) {
-            rewrite ^/static/(version\d*/)?(.*)$ /static.php?resource=$2 last;
-        }
-        add_header X-Frame-Options "SAMEORIGIN";
-    }
+    <span class="kn">location</span> <span class="n">/update</span> <span class="p">{</span>
+        <span class="kn">root</span> <span class="nv">$MAGE_ROOT</span><span class="p">;</span>
 
-    location /media/ {
-        try_files $uri $uri/ /get.php?$args;
+        <span class="kn">location</span> <span class="p">~</span> <span class="sr">^/update/index.php</span> <span class="p">{</span>
+            <span class="kn">fastcgi_split_path_info</span> <span class="s">^(/update/index.php)(/.+)</span>$<span class="p">;</span>
+            <span class="kn">fastcgi_pass</span>   <span class="s">fastcgi_backend</span><span class="p">;</span>
+            <span class="kn">fastcgi_index</span>  <span class="s">index.php</span><span class="p">;</span>
+            <span class="kn">fastcgi_param</span>  <span class="s">SCRIPT_FILENAME</span>  <span class="nv">$document_root$fastcgi_script_name</span><span class="p">;</span>
+            <span class="kn">fastcgi_param</span>  <span class="s">PATH_INFO</span>        <span class="nv">$fastcgi_path_info</span><span class="p">;</span>
+            <span class="kn">include</span>        <span class="s">fastcgi_params</span><span class="p">;</span>
+        <span class="p">}</span>
 
-        location ~ ^/media/theme_customization/.*\.xml {
-            deny all;
-        }
+        <span class="c1"># deny everything but index.php</span>
+        <span class="kn">location</span> <span class="p">~</span> <span class="sr">^/update/(?!pub/).</span> <span class="p">{</span>
+            <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+        <span class="p">}</span>
 
-        location ~* \.(ico|jpg|jpeg|png|gif|svg|js|css|swf|eot|ttf|otf|woff|woff2)$ {
-            add_header Cache-Control "public";
-            add_header X-Frame-Options "SAMEORIGIN";
-            expires +1y;
-            try_files $uri $uri/ /get.php?$args;
-        }
-        location ~* \.(zip|gz|gzip|bz2|csv|xml)$ {
-            add_header Cache-Control "no-store";
-            add_header X-Frame-Options "SAMEORIGIN";
-            expires    off;
-            try_files $uri $uri/ /get.php?$args;
-        }
-        add_header X-Frame-Options "SAMEORIGIN";
-    }
+        <span class="kn">location</span> <span class="p">~</span> <span class="sr">^/update/pub/</span> <span class="p">{</span>
+            <span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">"SAMEORIGIN"</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    location /media/customer/ {
-        deny all;
-    }
+    <span class="kn">location</span> <span class="n">/</span> <span class="p">{</span>
+        <span class="kn">index</span> <span class="s">index.php</span><span class="p">;</span>
+        <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri</span><span class="n">/</span> <span class="n">/index.php?</span><span class="nv">$args</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    location /media/downloadable/ {
-        deny all;
-    }
+    <span class="kn">location</span> <span class="n">/pub</span> <span class="p">{</span>
+        <span class="kn">location</span> <span class="p">~</span> <span class="sr">^/pub/media/(downloadable|customer|import|theme_customization/.*\.xml)</span> <span class="p">{</span>
+            <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="kn">alias</span> <span class="nv">$MAGE_ROOT</span><span class="n">/pub</span><span class="p">;</span>
+        <span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">"SAMEORIGIN"</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    location /media/import/ {
-        deny all;
-    }
+    <span class="kn">location</span> <span class="n">/static/</span> <span class="p">{</span>
+        <span class="kn">if</span> <span class="s">(</span><span class="nv">$MAGE_MODE</span> <span class="p">=</span> <span class="s">"production")</span> <span class="p">{</span>
+            <span class="kn">expires</span> <span class="s">max</span><span class="p">;</span>
+        <span class="p">}</span>
 
-    location ~ cron\.php {
-        deny all;
-    }
+        <span class="c1"># remove signature of static files used to overcome browser cache</span>
+        <span class="kn">location</span> <span class="p">~</span> <span class="sr">^/static/version</span> <span class="p">{</span>
+          <span class="kn">rewrite</span> <span class="s">^/static/(version</span><span class="err">\</span><span class="s">d*/)?(.*)</span>$ <span class="n">/static/</span><span class="nv">$2</span> <span class="s">last</span><span class="p">;</span>
+        <span class="p">}</span>
 
-    location ~ (index|get|static|report|404|503)\.php$ {
-        index index.php;
-        try_files $uri =404 /index.php;
-        fastcgi_pass   fastcgi_backend;
-        fastcgi_param  PHP_FLAG  "session.auto_start=off \n suhosin.session.cryptua=off";
-        fastcgi_param  PHP_VALUE "memory_limit=1024M \n max_execution_time=18000";
-        fastcgi_read_timeout 600s;
-        fastcgi_connect_timeout 600s;
-        fastcgi_param  MAGE_MODE $MAGE_MODE;
-        fastcgi_index  index.php;
-        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-        include        fastcgi_params;
-    }
+        <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="err">\</span><span class="s">.(ico|jpg|jpeg|png|gif|svg|js|css|swf|eot|ttf|otf|woff|woff2)</span>$ <span class="p">{</span>
+            <span class="kn">add_header</span> <span class="s">Cache-Control</span> <span class="s">"public"</span><span class="p">;</span>
+            <span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">"SAMEORIGIN"</span><span class="p">;</span>
+            <span class="kn">expires</span> <span class="s">+1y</span><span class="p">;</span>
 
-#Enable gzip compression
-    gzip on;
-    gzip_types
-        application/atom+xml
-        application/javascript
-        application/json
-        application/rss+xml
-        application/vnd.ms-fontobject
-        application/x-javascript
-        application/x-font-ttf
-        application/x-web-app-manifest+json
-        application/xhtml+xml
-        application/xml
-        font/opentype
-        image/svg+xml
-        image/x-icon
-        text/css
-        text/plain
-        text/javascript
-        text/x-component;
+            <span class="kn">if</span> <span class="s">(!-f</span> <span class="nv">$request_filename</span><span class="s">)</span> <span class="p">{</span>
+                <span class="kn">rewrite</span> <span class="s">^/static/(version</span><span class="err">\</span><span class="s">d*/)?(.*)</span>$ <span class="n">/static.php?resource=</span><span class="nv">$2</span> <span class="s">last</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
 
-}
-</pre>
+        <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="err">\</span><span class="s">.(zip|gz|gzip|bz2|csv|xml)</span>$ <span class="p">{</span>
+            <span class="kn">add_header</span> <span class="s">Cache-Control</span> <span class="s">"no-store"</span><span class="p">;</span>
+            <span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">"SAMEORIGIN"</span><span class="p">;</span>
+            <span class="kn">expires</span>    <span class="no">off</span><span class="p">;</span>
+
+            <span class="kn">if</span> <span class="s">(!-f</span> <span class="nv">$request_filename</span><span class="s">)</span> <span class="p">{</span>
+               <span class="kn">rewrite</span> <span class="s">^/static/(version</span><span class="err">\</span><span class="s">d*/)?(.*)</span>$ <span class="n">/static.php?resource=</span><span class="nv">$2</span> <span class="s">last</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="kn">if</span> <span class="s">(!-f</span> <span class="nv">$request_filename</span><span class="s">)</span> <span class="p">{</span>
+            <span class="kn">rewrite</span> <span class="s">^/static/(version</span><span class="err">\</span><span class="s">d*/)?(.*)</span>$ <span class="n">/static.php?resource=</span><span class="nv">$2</span> <span class="s">last</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">"SAMEORIGIN"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kn">location</span> <span class="n">/media/</span> <span class="p">{</span>
+        <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri</span><span class="n">/</span> <span class="n">/get.php?</span><span class="nv">$args</span><span class="p">;</span>
+
+        <span class="kn">location</span> <span class="p">~</span> <span class="sr">^/media/theme_customization/.*\.xml</span> <span class="p">{</span>
+            <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="err">\</span><span class="s">.(ico|jpg|jpeg|png|gif|svg|js|css|swf|eot|ttf|otf|woff|woff2)</span>$ <span class="p">{</span>
+            <span class="kn">add_header</span> <span class="s">Cache-Control</span> <span class="s">"public"</span><span class="p">;</span>
+            <span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">"SAMEORIGIN"</span><span class="p">;</span>
+            <span class="kn">expires</span> <span class="s">+1y</span><span class="p">;</span>
+            <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri</span><span class="n">/</span> <span class="n">/get.php?</span><span class="nv">$args</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="err">\</span><span class="s">.(zip|gz|gzip|bz2|csv|xml)</span>$ <span class="p">{</span>
+            <span class="kn">add_header</span> <span class="s">Cache-Control</span> <span class="s">"no-store"</span><span class="p">;</span>
+            <span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">"SAMEORIGIN"</span><span class="p">;</span>
+            <span class="kn">expires</span>    <span class="no">off</span><span class="p">;</span>
+            <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri</span><span class="n">/</span> <span class="n">/get.php?</span><span class="nv">$args</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">"SAMEORIGIN"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kn">location</span> <span class="n">/media/customer/</span> <span class="p">{</span>
+        <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kn">location</span> <span class="n">/media/downloadable/</span> <span class="p">{</span>
+        <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kn">location</span> <span class="n">/media/import/</span> <span class="p">{</span>
+        <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kn">location</span> <span class="p">~</span> <span class="sr">cron\.php</span> <span class="p">{</span>
+        <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kn">location</span> <span class="p">~</span> <span class="sr">(index|get|static|report|404|503)\.php$</span> <span class="p">{</span>
+        <span class="kn">index</span> <span class="s">index.php</span><span class="p">;</span>
+        <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="p">=</span><span class="mi">404</span> <span class="n">/index.php</span><span class="p">;</span>
+        <span class="kn">fastcgi_pass</span>   <span class="s">fastcgi_backend</span><span class="p">;</span>
+        <span class="kn">fastcgi_param</span>  <span class="s">PHP_FLAG</span>  <span class="s">"session.auto_start=off</span> <span class="err">\</span><span class="s">n</span> <span class="s">suhosin.session.cryptua=off"</span><span class="p">;</span>
+        <span class="kn">fastcgi_param</span>  <span class="s">PHP_VALUE</span> <span class="s">"memory_limit=1024M</span> <span class="err">\</span><span class="s">n</span> <span class="s">max_execution_time=18000"</span><span class="p">;</span>
+        <span class="kn">fastcgi_read_timeout</span> <span class="s">600s</span><span class="p">;</span>
+        <span class="kn">fastcgi_connect_timeout</span> <span class="s">600s</span><span class="p">;</span>
+        <span class="kn">fastcgi_param</span>  <span class="s">MAGE_MODE</span> <span class="nv">$MAGE_MODE</span><span class="p">;</span>
+        <span class="kn">fastcgi_index</span>  <span class="s">index.php</span><span class="p">;</span>
+        <span class="kn">fastcgi_param</span>  <span class="s">SCRIPT_FILENAME</span>  <span class="nv">$document_root$fastcgi_script_name</span><span class="p">;</span>
+        <span class="kn">include</span>        <span class="s">fastcgi_params</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="c1">#Enable gzip compression</span>
+    <span class="kn">gzip</span> <span class="no">on</span><span class="p">;</span>
+    <span class="kn">gzip_types</span>
+        <span class="nc">application/atom</span><span class="s">+xml</span>
+        <span class="nc">application/javascript</span>
+        <span class="nc">application/json</span>
+        <span class="nc">application/rss</span><span class="s">+xml</span>
+        <span class="nc">application/vnd</span><span class="s">.ms-fontobject</span>
+        <span class="nc">application/x-javascript</span>
+        <span class="nc">application/x-font-ttf</span>
+        <span class="nc">application/x-web-app-manifest</span><span class="s">+json</span>
+        <span class="nc">application/xhtml</span><span class="s">+xml</span>
+        <span class="nc">application/xml</span>
+        <span class="nc">font/opentype</span>
+        <span class="nc">image/svg</span><span class="s">+xml</span>
+        <span class="nc">image/x-icon</span>
+        <span class="nc">text/css</span>
+        <span class="nc">text/plain</span>
+        <span class="nc">text/javascript</span>
+        <span class="nc">text/x-component</span><span class="p">;</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p><strong>Vhost fisiere media</strong></p>
-<pre>
-#Serve media files
-server {
-    listen         80;
-    server_name media.domain.com;
-    return 301 https://media.domain.com$request_uri;
-}
+<div class="language-nginx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Serve media files</span>
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>         <span class="mi">80</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">media.domain.com</span><span class="p">;</span>
+    <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://media.domain.com</span><span class="nv">$request_uri</span><span class="p">;</span>
+<span class="p">}</span>
 
 
-server {
-    listen      443 ssl http2;
-    server_name media.domain.com;
-    ssl_certificate /etc/letsencrypt/live/media.domain.com/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/media.domain.com/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>      <span class="mi">443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">media.domain.com</span><span class="p">;</span>
+    <span class="kn">ssl_certificate</span> <span class="n">/etc/letsencrypt/live/media.domain.com/fullchain.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+    <span class="kn">ssl_certificate_key</span> <span class="n">/etc/letsencrypt/live/media.domain.com/privkey.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+    <span class="kn">include</span> <span class="n">/etc/letsencrypt/options-ssl-nginx.conf</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+    <span class="kn">ssl_dhparam</span> <span class="n">/etc/letsencrypt/ssl-dhparams.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
 
 
-    client_max_body_size 10M;
-    merge_slashes off;
+    <span class="kn">client_max_body_size</span> <span class="mi">10M</span><span class="p">;</span>
+    <span class="kn">merge_slashes</span> <span class="no">off</span><span class="p">;</span>
 
-    ##  Magento mode production or developer
-    set $MAGE_MODE production;
+    <span class="c1">##  Magento mode production or developer</span>
+    <span class="kn">set</span> <span class="nv">$MAGE_MODE</span> <span class="s">production</span><span class="p">;</span>
 
-    root /var/www/html/pub;
+    <span class="kn">root</span> <span class="n">/var/www/html/pub</span><span class="p">;</span>
 
-    index index.php;
-    autoindex off;
-    charset off;
+    <span class="kn">index</span> <span class="s">index.php</span><span class="p">;</span>
+    <span class="kn">autoindex</span> <span class="no">off</span><span class="p">;</span>
+    <span class="kn">charset</span> <span class="no">off</span><span class="p">;</span>
 
-    location / {
-        try_files $uri $uri/ /index.php?$args;
-    }
+    <span class="kn">location</span> <span class="n">/</span> <span class="p">{</span>
+        <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri</span><span class="n">/</span> <span class="n">/index.php?</span><span class="nv">$args</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    location /static/ {
-        if ($MAGE_MODE = "production") {
-            expires max;
-        }
-        # remove signature of static files used to overcome browser cache
-        location ~ ^/static/version {
-          rewrite ^/static/(version\d*/)?(.*)$ /static/$2 last;
-    }
+    <span class="kn">location</span> <span class="n">/static/</span> <span class="p">{</span>
+        <span class="kn">if</span> <span class="s">(</span><span class="nv">$MAGE_MODE</span> <span class="p">=</span> <span class="s">"production")</span> <span class="p">{</span>
+            <span class="kn">expires</span> <span class="s">max</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1"># remove signature of static files used to overcome browser cache</span>
+        <span class="kn">location</span> <span class="p">~</span> <span class="sr">^/static/version</span> <span class="p">{</span>
+          <span class="kn">rewrite</span> <span class="s">^/static/(version</span><span class="err">\</span><span class="s">d*/)?(.*)</span>$ <span class="n">/static/</span><span class="nv">$2</span> <span class="s">last</span><span class="p">;</span>
+    <span class="p">}</span>
 
-        location ~* \.(htm|html|css|js|txt|swf|asf|asx|wax|wmv|wmx|bmp|class|divx|doc|docx|eot|gz|gzip|ico|png|gif|jpg|jpeg|jpe|mdb|qt|mpeg|mpg|mpe|mpp|odb|odc|odf|odg|odp|ods|odt|ogg|ogv|webm|htc|woff|woff2|ttf|pdf|svg)$ {
-            add_header Cache-Control "public";
-            add_header 'X-Frame-Options' 'ALLOW-FROM *';
-            add_header 'Access-Control-Allow-Origin' '*';
-            expires +1y;
+        <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="err">\</span><span class="s">.(htm|html|css|js|txt|swf|asf|asx|wax|wmv|wmx|bmp|class|divx|doc|docx|eot|gz|gzip|ico|png|gif|jpg|jpeg|jpe|mdb|qt|mpeg|mpg|mpe|mpp|odb|odc|odf|odg|odp|ods|odt|ogg|ogv|webm|htc|woff|woff2|ttf|pdf|svg)</span>$ <span class="p">{</span>
+            <span class="kn">add_header</span> <span class="s">Cache-Control</span> <span class="s">"public"</span><span class="p">;</span>
+            <span class="kn">add_header</span> <span class="s">'X-Frame-Options'</span> <span class="s">'ALLOW-FROM</span> <span class="s">*'</span><span class="p">;</span>
+            <span class="kn">add_header</span> <span class="s">'Access-Control-Allow-Origin'</span> <span class="s">'*'</span><span class="p">;</span>
+            <span class="kn">expires</span> <span class="s">+1y</span><span class="p">;</span>
 
-            if (!-f $request_filename) {
-                rewrite ^/static/(version\d*/)?(.*)$ /static.php?resource=$2 last;
-            }
-        }
+            <span class="kn">if</span> <span class="s">(!-f</span> <span class="nv">$request_filename</span><span class="s">)</span> <span class="p">{</span>
+                <span class="kn">rewrite</span> <span class="s">^/static/(version</span><span class="err">\</span><span class="s">d*/)?(.*)</span>$ <span class="n">/static.php?resource=</span><span class="nv">$2</span> <span class="s">last</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
 
-        location ~* \.(zip|gz|gzip|bz2|csv|xml)$ {
-            add_header Cache-Control "no-store";
-            add_header X-Frame-Options "SAMEORIGIN";
-            expires    off;
+        <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="err">\</span><span class="s">.(zip|gz|gzip|bz2|csv|xml)</span>$ <span class="p">{</span>
+            <span class="kn">add_header</span> <span class="s">Cache-Control</span> <span class="s">"no-store"</span><span class="p">;</span>
+            <span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">"SAMEORIGIN"</span><span class="p">;</span>
+            <span class="kn">expires</span>    <span class="no">off</span><span class="p">;</span>
 
-            if (!-f $request_filename) {
-               rewrite ^/static/(version\d*/)?(.*)$ /static.php?resource=$2 last;
-            }
-        }
-        if (!-f $request_filename) {
-            rewrite ^/static/(version\d*/)?(.*)$ /static.php?resource=$2 last;
-        }
-        add_header X-Frame-Options "SAMEORIGIN";
-    }
+            <span class="kn">if</span> <span class="s">(!-f</span> <span class="nv">$request_filename</span><span class="s">)</span> <span class="p">{</span>
+               <span class="kn">rewrite</span> <span class="s">^/static/(version</span><span class="err">\</span><span class="s">d*/)?(.*)</span>$ <span class="n">/static.php?resource=</span><span class="nv">$2</span> <span class="s">last</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="kn">if</span> <span class="s">(!-f</span> <span class="nv">$request_filename</span><span class="s">)</span> <span class="p">{</span>
+            <span class="kn">rewrite</span> <span class="s">^/static/(version</span><span class="err">\</span><span class="s">d*/)?(.*)</span>$ <span class="n">/static.php?resource=</span><span class="nv">$2</span> <span class="s">last</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">"SAMEORIGIN"</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    location /media/ {
-        try_files $uri $uri/ /get.php?$args;
+    <span class="kn">location</span> <span class="n">/media/</span> <span class="p">{</span>
+        <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri</span><span class="n">/</span> <span class="n">/get.php?</span><span class="nv">$args</span><span class="p">;</span>
 
-        location ~ ^/media/theme_customization/.*\.xml {
-            deny all;
-        }
+        <span class="kn">location</span> <span class="p">~</span> <span class="sr">^/media/theme_customization/.*\.xml</span> <span class="p">{</span>
+            <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+        <span class="p">}</span>
 
-        location ~* \.(ico|jpg|jpeg|png|gif|svg|js|css|swf|eot|ttf|otf|woff|woff2)$ {
-            add_header Cache-Control "public";
-            add_header X-Frame-Options "SAMEORIGIN";
-            expires +1y;
-            try_files $uri $uri/ /get.php?$args;
-        }
-        location ~* \.(zip|gz|gzip|bz2|csv|xml)$ {
-            add_header Cache-Control "no-store";
-            add_header X-Frame-Options "SAMEORIGIN";
-            expires    off;
-            try_files $uri $uri/ /get.php?$args;
-        }
-        add_header X-Frame-Options "SAMEORIGIN";
-    }
+        <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="err">\</span><span class="s">.(ico|jpg|jpeg|png|gif|svg|js|css|swf|eot|ttf|otf|woff|woff2)</span>$ <span class="p">{</span>
+            <span class="kn">add_header</span> <span class="s">Cache-Control</span> <span class="s">"public"</span><span class="p">;</span>
+            <span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">"SAMEORIGIN"</span><span class="p">;</span>
+            <span class="kn">expires</span> <span class="s">+1y</span><span class="p">;</span>
+            <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri</span><span class="n">/</span> <span class="n">/get.php?</span><span class="nv">$args</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="err">\</span><span class="s">.(zip|gz|gzip|bz2|csv|xml)</span>$ <span class="p">{</span>
+            <span class="kn">add_header</span> <span class="s">Cache-Control</span> <span class="s">"no-store"</span><span class="p">;</span>
+            <span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">"SAMEORIGIN"</span><span class="p">;</span>
+            <span class="kn">expires</span>    <span class="no">off</span><span class="p">;</span>
+            <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri</span><span class="n">/</span> <span class="n">/get.php?</span><span class="nv">$args</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">"SAMEORIGIN"</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    location /media/customer/ {
-        deny all;
-    }
+    <span class="kn">location</span> <span class="n">/media/customer/</span> <span class="p">{</span>
+        <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    location /media/downloadable/ {
-        deny all;
-    }
+    <span class="kn">location</span> <span class="n">/media/downloadable/</span> <span class="p">{</span>
+        <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    location /media/import/ {
-        deny all;
-    }
+    <span class="kn">location</span> <span class="n">/media/import/</span> <span class="p">{</span>
+        <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    location ~ cron\.php {
-        deny all;
-    }
+    <span class="kn">location</span> <span class="p">~</span> <span class="sr">cron\.php</span> <span class="p">{</span>
+        <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    location ~ (index|get|static|report|404|503)\.php$ {
-        try_files $uri $uri/ =404 /index.php;
-        fastcgi_pass   fastcgi_backend;
-        fastcgi_param  PHP_FLAG  "session.auto_start=off \n suhosin.session.cryptua=off";
-        fastcgi_param  PHP_VALUE "memory_limit=1024M \n max_execution_time=18000";
-        fastcgi_read_timeout 600s;
-        fastcgi_connect_timeout 600s;
-        fastcgi_param  MAGE_MODE $MAGE_MODE;
-        fastcgi_index  index.php;
-        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-        include        fastcgi_params;
-    }
-}
-</pre>
+    <span class="kn">location</span> <span class="p">~</span> <span class="sr">(index|get|static|report|404|503)\.php$</span> <span class="p">{</span>
+        <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri</span><span class="n">/</span> <span class="p">=</span><span class="mi">404</span> <span class="n">/index.php</span><span class="p">;</span>
+        <span class="kn">fastcgi_pass</span>   <span class="s">fastcgi_backend</span><span class="p">;</span>
+        <span class="kn">fastcgi_param</span>  <span class="s">PHP_FLAG</span>  <span class="s">"session.auto_start=off</span> <span class="err">\</span><span class="s">n</span> <span class="s">suhosin.session.cryptua=off"</span><span class="p">;</span>
+        <span class="kn">fastcgi_param</span>  <span class="s">PHP_VALUE</span> <span class="s">"memory_limit=1024M</span> <span class="err">\</span><span class="s">n</span> <span class="s">max_execution_time=18000"</span><span class="p">;</span>
+        <span class="kn">fastcgi_read_timeout</span> <span class="s">600s</span><span class="p">;</span>
+        <span class="kn">fastcgi_connect_timeout</span> <span class="s">600s</span><span class="p">;</span>
+        <span class="kn">fastcgi_param</span>  <span class="s">MAGE_MODE</span> <span class="nv">$MAGE_MODE</span><span class="p">;</span>
+        <span class="kn">fastcgi_index</span>  <span class="s">index.php</span><span class="p">;</span>
+        <span class="kn">fastcgi_param</span>  <span class="s">SCRIPT_FILENAME</span>  <span class="nv">$document_root$fastcgi_script_name</span><span class="p">;</span>
+        <span class="kn">include</span>        <span class="s">fastcgi_params</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p><strong>Vhost fisiere statice (css, js)</strong></p>
-<pre>
-#Serve JS and CSS
-server {
-    listen         80;
-    server_name static.domain.com;
-    return 301 https://static.domain.com$request_uri;
-}
+<div class="language-nginx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Serve JS and CSS</span>
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>         <span class="mi">80</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">static.domain.com</span><span class="p">;</span>
+    <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://static.domain.com</span><span class="nv">$request_uri</span><span class="p">;</span>
+<span class="p">}</span>
 
 
-server {
-    listen      443 ssl http2;
-    server_name static.domain.com;
-    root /var/www/html/pub;
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>      <span class="mi">443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">static.domain.com</span><span class="p">;</span>
+    <span class="kn">root</span> <span class="n">/var/www/html/pub</span><span class="p">;</span>
     
-    access_log  /var/log/nginx/static-access.log;
-    error_log   /var/log/nginx/static-error.log;
+    <span class="kn">access_log</span>  <span class="n">/var/log/nginx/static-access.log</span><span class="p">;</span>
+    <span class="kn">error_log</span>   <span class="n">/var/log/nginx/static-error.log</span><span class="p">;</span>
     
-    ssl_certificate /etc/letsencrypt/live/static.domain.com/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/static.domain.com/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+    <span class="kn">ssl_certificate</span> <span class="n">/etc/letsencrypt/live/static.domain.com/fullchain.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+    <span class="kn">ssl_certificate_key</span> <span class="n">/etc/letsencrypt/live/static.domain.com/privkey.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+    <span class="kn">include</span> <span class="n">/etc/letsencrypt/options-ssl-nginx.conf</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+    <span class="kn">ssl_dhparam</span> <span class="n">/etc/letsencrypt/ssl-dhparams.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
 
-    client_max_body_size 10M;
-    merge_slashes off;
-    autoindex off;
-    charset off;
+    <span class="kn">client_max_body_size</span> <span class="mi">10M</span><span class="p">;</span>
+    <span class="kn">merge_slashes</span> <span class="no">off</span><span class="p">;</span>
+    <span class="kn">autoindex</span> <span class="no">off</span><span class="p">;</span>
+    <span class="kn">charset</span> <span class="no">off</span><span class="p">;</span>
     
-    location ~ ^/static/version {
-        # Preflighted requests - KEEP THIS ABOVE THE REWRITE RULE
-        if ($request_method = OPTIONS ) {
-          add_header "Access-Control-Allow-Origin"  "https://main-domain.com";
-          add_header "Access-Control-Allow-Methods" "GET, POST, OPTIONS, HEAD";
-          add_header "Access-Control-Allow-Headers" "Authorization, Origin, X-Requested-With, Content-Type, Accept";
-          return 200;
-        }
-        expires +1y;
-        #remove signature of static files used to overcome browser cache
-        rewrite ^/static/(version\d*/)?(.*)$ /static/$2 last;
-    }
+    <span class="kn">location</span> <span class="p">~</span> <span class="sr">^/static/version</span> <span class="p">{</span>
+        <span class="c1"># Preflighted requests - KEEP THIS ABOVE THE REWRITE RULE</span>
+        <span class="kn">if</span> <span class="s">(</span><span class="nv">$request_method</span> <span class="p">=</span> <span class="s">OPTIONS</span> <span class="s">)</span> <span class="p">{</span>
+          <span class="kn">add_header</span> <span class="s">"Access-Control-Allow-Origin"</span>  <span class="s">"https://main-domain.com"</span><span class="p">;</span>
+          <span class="kn">add_header</span> <span class="s">"Access-Control-Allow-Methods"</span> <span class="s">"GET,</span> <span class="s">POST,</span> <span class="s">OPTIONS,</span> <span class="s">HEAD"</span><span class="p">;</span>
+          <span class="kn">add_header</span> <span class="s">"Access-Control-Allow-Headers"</span> <span class="s">"Authorization,</span> <span class="s">Origin,</span> <span class="s">X-Requested-With,</span> <span class="s">Content-Type,</span> <span class="s">Accept"</span><span class="p">;</span>
+          <span class="kn">return</span> <span class="mi">200</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="kn">expires</span> <span class="s">+1y</span><span class="p">;</span>
+        <span class="c1">#remove signature of static files used to overcome browser cache</span>
+        <span class="kn">rewrite</span> <span class="s">^/static/(version</span><span class="err">\</span><span class="s">d*/)?(.*)</span>$ <span class="n">/static/</span><span class="nv">$2</span> <span class="s">last</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    # Match MIME types
-    location ~* \.(htm|html|css|js|txt|swf|asf|asx|wax|wmv|wmx|avi|bmp|class|divx|doc|docx|eot|gz|gzip|ico|png|gif|jpg|jpeg|jpe|mdb|mov|qt|mpg|mpe|mpp|odb|odc|odf|odg|odp|ods|odt|ogv|json|webm|htc|woff|woff2|ttf|pdf|svg)$ {
-        add_header Cache-Control 'public';
-        add_header Access-Control-Allow-Origin 'https://main-domain.com';
-        add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
-        expires +1y;
-        }
+    <span class="c1"># Match MIME types</span>
+    <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="err">\</span><span class="s">.(htm|html|css|js|txt|swf|asf|asx|wax|wmv|wmx|avi|bmp|class|divx|doc|docx|eot|gz|gzip|ico|png|gif|jpg|jpeg|jpe|mdb|mov|qt|mpg|mpe|mpp|odb|odc|odf|odg|odp|ods|odt|ogv|json|webm|htc|woff|woff2|ttf|pdf|svg)</span>$ <span class="p">{</span>
+        <span class="kn">add_header</span> <span class="s">Cache-Control</span> <span class="s">'public'</span><span class="p">;</span>
+        <span class="kn">add_header</span> <span class="s">Access-Control-Allow-Origin</span> <span class="s">'https://main-domain.com'</span><span class="p">;</span>
+        <span class="kn">add_header</span> <span class="s">'Access-Control-Allow-Headers'</span> <span class="s">'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type'</span><span class="p">;</span>
+        <span class="kn">expires</span> <span class="s">+1y</span><span class="p">;</span>
+        <span class="p">}</span>
 
-#Enable gzip compression
-    gzip on;
-    gzip_types
-        application/atom+xml
-        application/javascript
-        application/json
-        application/rss+xml
-        application/vnd.ms-fontobject
-        application/x-javascript
-        application/x-font-ttf
-        application/x-web-app-manifest+json
-        application/xhtml+xml
-        application/xml
-        font/opentype
-        image/svg+xml
-        image/x-icon
-        text/css
-        text/plain
-        text/javascript
-        text/x-component;
-}
-</pre>
+<span class="c1">#Enable gzip compression</span>
+    <span class="kn">gzip</span> <span class="no">on</span><span class="p">;</span>
+    <span class="kn">gzip_types</span>
+        <span class="nc">application/atom</span><span class="s">+xml</span>
+        <span class="nc">application/javascript</span>
+        <span class="nc">application/json</span>
+        <span class="nc">application/rss</span><span class="s">+xml</span>
+        <span class="nc">application/vnd</span><span class="s">.ms-fontobject</span>
+        <span class="nc">application/x-javascript</span>
+        <span class="nc">application/x-font-ttf</span>
+        <span class="nc">application/x-web-app-manifest</span><span class="s">+json</span>
+        <span class="nc">application/xhtml</span><span class="s">+xml</span>
+        <span class="nc">application/xml</span>
+        <span class="nc">font/opentype</span>
+        <span class="nc">image/svg</span><span class="s">+xml</span>
+        <span class="nc">image/x-icon</span>
+        <span class="nc">text/css</span>
+        <span class="nc">text/plain</span>
+        <span class="nc">text/javascript</span>
+        <span class="nc">text/x-component</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
   </article>
 

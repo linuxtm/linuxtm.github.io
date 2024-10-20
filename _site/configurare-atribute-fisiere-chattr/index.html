@@ -89,17 +89,20 @@
 
 <p>Pentru a face un fisier imuabil, rulam comanda:</p>
 
-<pre>chattr +i fisier </pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chattr +i fisier
+</code></pre></div></div>
 
 <p>Nota: acest atribut ( +i ), poate fi dat doar de catre root, deci fie aveti acces root fie trebuie exacutata comanda cu sudo.</p>
 
 <p>Daca vrem sa scoatem atributul fisierului, rulam:</p>
 
-<pre>chattr -i fisier </pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chattr <span class="nt">-i</span> fisier
+</code></pre></div></div>
 
 <p>In Linux, fiecare fisier are un numar de atribute asociate, atributul imuabil (immutable) fiind doar unul dintre ele. Pentru a vedea toate atributele unui fisier, rulam comanda:</p>
 
-<pre>lsattr fisier </pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsattr fisier
+</code></pre></div></div>
 
 <p>Pentru mai multe informatii referitor la folosirea atributelor verificati pagina de ajutor a comenzii (man chattr).</p>
 

@@ -89,17 +89,17 @@
 Pentru a realiza acest lucru, trebuie sa activam environmentul ssh.</p>
 
 <p>Folosind editorul preferat, modificam <em>/etc/profile</em> si adaugam:</p>
-<pre>
-if [ "$SSH_USER" != "" ]; then logger -ip authpriv.notice -t sshd "Accepted publickey for $SSH_USER";fi
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$SSH_USER</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">""</span> <span class="o">]</span><span class="p">;</span> <span class="k">then </span>logger <span class="nt">-ip</span> authpriv.notice <span class="nt">-t</span> sshd <span class="s2">"Accepted publickey for </span><span class="nv">$SSH_USER</span><span class="s2">"</span><span class="p">;</span><span class="k">fi</span>
+</code></pre></div></div>
 
 <p>Dupa care, modificam (sau adaugam) optiunea de mai jos in <em>/etc/ssh/sshd_config</em> apoi restart la serviciul ssh:</p>
-<pre>PermitUserEnvironment yes</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PermitUserEnvironment <span class="nb">yes</span>
+</code></pre></div></div>
 
 <p>Cu aceste setari active, putem adauga cheile ssh in <em>/home/user/.ssh/authorized_keys</em> sub forma:</p>
-<pre>
-environment="SSH_USER=popescu.ion" ssh-rsa AAAAfgds...
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">environment</span><span class="o">=</span><span class="s2">"SSH_USER=popescu.ion"</span> ssh-rsa AAAAfgds...
+</code></pre></div></div>
 
 <p>Astfel, in loguri vom vedea exact ce persoane au intrat pe server folosind userul comun.</p>
 

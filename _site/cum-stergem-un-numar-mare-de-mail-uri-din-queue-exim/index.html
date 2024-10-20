@@ -87,17 +87,21 @@
   <article class="post-content">
     <p>In cazul in care vorbim de zeci, sute de mii de mail-uri (sau mai multe), metodele traditionale pentru curatarea mesajelor din queue tind sa nu functioneze tocmai bine. Fie ca vorbim de I/O mare, o durata de timp exagerat de mare pentru stergerea mesajelor sau afisarea inutila a progresului (afisearea fiecarui MessageID sters), este cel putin nepractic. Comenzile de mai jos rezolva aceasta problema:</p>
 
-<pre>for dir in /var/spool/exim/input/*; do cd $dir; ls | xargs rm -f; done</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span><span class="nb">dir </span><span class="k">in</span> /var/spool/exim/input/<span class="k">*</span><span class="p">;</span> <span class="k">do </span><span class="nb">cd</span> <span class="nv">$dir</span><span class="p">;</span> <span class="nb">ls</span> | xargs <span class="nb">rm</span> <span class="nt">-f</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div></div>
 
 <p>sau</p>
 
-<pre>find /var/spool/exim/input -type f -exec rm -f {} +</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find /var/spool/exim/input <span class="nt">-type</span> f <span class="nt">-exec</span> <span class="nb">rm</span> <span class="nt">-f</span> <span class="o">{}</span> +
+</code></pre></div></div>
 
 <p>In cazul in care aveti mai putine mailuri, variantele traditionale sunt:</p>
 
-<pre>exim -bp | awk '/^ *[0-9]+[mhd]/{print "exim -Mrm " $3}' | bash</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exim <span class="nt">-bp</span> | <span class="nb">awk</span> <span class="s1">'/^ *[0-9]+[mhd]/{print "exim -Mrm " $3}'</span> | bash
+</code></pre></div></div>
 
-<pre>exim -bp | exiqgrep -i | xargs exim -Mrm</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exim <span class="nt">-bp</span> | exiqgrep <span class="nt">-i</span> | xargs exim <span class="nt">-Mrm</span>
+</code></pre></div></div>
 
   </article>
 

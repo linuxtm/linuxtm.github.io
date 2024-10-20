@@ -86,11 +86,10 @@
 
   <article class="post-content">
     <p><strong>1. Instalare dependinte</strong></p>
-<pre>
-yum install -y rsnapshot mailx postfix wget
-systemctl start postfix &amp;&amp; systemctl enable postfix
-wget -O /usr/local/bin/rsnapreport.pl https://raw.githubusercontent.com/rsnapshot/rsnapshot/master/utils/rsnapreport.pl &amp;&amp; chmod +x /usr/local/bin/rsnapreport.pl
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nb">install</span> <span class="nt">-y</span> rsnapshot mailx postfix wget
+systemctl start postfix <span class="o">&amp;&amp;</span> systemctl <span class="nb">enable </span>postfix
+wget <span class="nt">-O</span> /usr/local/bin/rsnapreport.pl https://raw.githubusercontent.com/rsnapshot/rsnapshot/master/utils/rsnapreport.pl <span class="o">&amp;&amp;</span> <span class="nb">chmod</span> +x /usr/local/bin/rsnapreport.pl
+</code></pre></div></div>
 
 <p><strong>2. Configurare rsnapshot.conf</strong></p>
 
@@ -107,72 +106,66 @@ wget -O /usr/local/bin/rsnapreport.pl https://raw.githubusercontent.com/rsnapsho
 </ul>
 
 <p><strong>Intervalul la care sa se efectueze backup-urile:</strong></p>
-<pre>
-#########################################
-#     BACKUP LEVELS / INTERVALS         #
-# Must be unique and in ascending order #
-# e.g. alpha, beta, gamma, etc.         #
-#########################################
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#########################################</span>
+<span class="c">#     BACKUP LEVELS / INTERVALS         #</span>
+<span class="c"># Must be unique and in ascending order #</span>
+<span class="c"># e.g. alpha, beta, gamma, etc.         #</span>
+<span class="c">#########################################</span>
 
 interval        daily   7
 interval        weekly  4
 interval        monthly 12
-</pre>
+</code></pre></div></div>
 
 <p><strong>Nivelul de detalii dorit:</strong></p>
-<pre>
-# Verbose level, 1 through 5.
-# 1     Quiet           Print fatal errors only
-# 2     Default         Print errors and warnings only
-# 3     Verbose         Show equivalent shell commands being executed
-# 4     Extra Verbose   Show extra verbose information
-# 5     Debug mode      Everything
-#
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Verbose level, 1 through 5.</span>
+<span class="c"># 1     Quiet           Print fatal errors only</span>
+<span class="c"># 2     Default         Print errors and warnings only</span>
+<span class="c"># 3     Verbose         Show equivalent shell commands being executed</span>
+<span class="c"># 4     Extra Verbose   Show extra verbose information</span>
+<span class="c"># 5     Debug mode      Everything</span>
+<span class="c">#</span>
 verbose         4
 
-# Same as "verbose" above, but controls the amount of data sent to the
-# logfile, if one is being used. The default is 3.
-#
+<span class="c"># Same as "verbose" above, but controls the amount of data sent to the</span>
+<span class="c"># logfile, if one is being used. The default is 3.</span>
+<span class="c">#</span>
 loglevel        4
-</pre>
+</code></pre></div></div>
 
 <p><strong>Argumentele necesare pentru rsync:</strong></p>
-<pre>
-# Default rsync args. All rsync commands have at least these options set.
-#
-#rsync_short_args       -a
-rsync_long_args --stats --delete --numeric-ids --relative --delete-excluded
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Default rsync args. All rsync commands have at least these options set.</span>
+<span class="c">#</span>
+<span class="c">#rsync_short_args       -a</span>
+rsync_long_args <span class="nt">--stats</span> <span class="nt">--delete</span> <span class="nt">--numeric-ids</span> <span class="nt">--relative</span> <span class="nt">--delete-excluded</span>
+</code></pre></div></div>
 
 <p><strong>Locatiile de backup dorite:</strong></p>
-<pre>
-###############################
-### BACKUP POINTS / SCRIPTS ###
-###############################
-#backup local
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">###############################</span>
+<span class="c">### BACKUP POINTS / SCRIPTS ###</span>
+<span class="c">###############################</span>
+<span class="c">#backup local</span>
 backup  /home/          home/
 backup  /etc/           etc/
-#backup local baza de date
-backup_script   /usr/bin/mysqldump --single-transaction -A --routines --triggers -u root -p'parola'| gzip &gt; database-`date +%y%m%d`.sql.gz     mysql/
-#exemplu backup db remote
-#backup_script   /usr/bin/ssh user@IP -p 22 "rm -f /backups/mysql-*.sql.gz;/usr/bin/mysqldump -A --routines --triggers --events -u root | gzip &gt; /backups/mysql-`date +%y%m%d`.sql.
-</pre>
+<span class="c">#backup local baza de date</span>
+backup_script   /usr/bin/mysqldump <span class="nt">--single-transaction</span> <span class="nt">-A</span> <span class="nt">--routines</span> <span class="nt">--triggers</span> <span class="nt">-u</span> root <span class="nt">-p</span><span class="s1">'parola'</span>| <span class="nb">gzip</span> <span class="o">&gt;</span> database-<span class="sb">`</span><span class="nb">date</span> +%y%m%d<span class="sb">`</span>.sql.gz     mysql/
+<span class="c">#exemplu backup db remote</span>
+<span class="c">#backup_script   /usr/bin/ssh user@IP -p 22 "rm -f /backups/mysql-*.sql.gz;/usr/bin/mysqldump -A --routines --triggers --events -u root | gzip &gt; /backups/mysql-`date +%y%m%d`.sql.</span>
+</code></pre></div></div>
 
 <p><strong>3. Testare email + config rsnapshot</strong></p>
 
-<pre>
-echo "test" | mail -E -r "from@linuxtm.ro" -s "Daily Backup" to@linuxtm.ro
-rsnapshot -t daily
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"test"</span> | mail <span class="nt">-E</span> <span class="nt">-r</span> <span class="s2">"from@linuxtm.ro"</span> <span class="nt">-s</span> <span class="s2">"Daily Backup"</span> to@linuxtm.ro
+rsnapshot <span class="nt">-t</span> daily
+</code></pre></div></div>
 
 <p><strong>4. Configurare cron</strong></p>
 
 <p>Cronurile de mai jos vor face backup zilnic (ora 00:40), saptamanal (ora 02:10), si lunar (ora 04:10 , in prima zi a lunii)</p>
-<pre>
-40 0 * * * root /usr/bin/rsnapshot daily 2&gt;&amp;1 | /usr/local/bin/rsnapreport.pl | mail -E -r from@linuxtm.ro -s "Daily Backup" to@linuxtm.ro
-10 2 * * 1 root /usr/bin/rsnapshot weekly 2&gt;&amp;1 | /usr/local/bin/rsnapreport.pl | mail -E -r from@linuxtm.ro -s "Weekly Backup" to@linuxtm.ro
-10 4 1 * * root /usr/bin/rsnapshot monthly 2&gt;&amp;1 | /usr/local/bin/rsnapreport.pl | mail -E -r from@linuxtm.ro -s "Monthly Backup" to@linuxtm.ro
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>40 0 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> root /usr/bin/rsnapshot daily 2&gt;&amp;1 | /usr/local/bin/rsnapreport.pl | mail <span class="nt">-E</span> <span class="nt">-r</span> from@linuxtm.ro <span class="nt">-s</span> <span class="s2">"Daily Backup"</span> to@linuxtm.ro
+10 2 <span class="k">*</span> <span class="k">*</span> 1 root /usr/bin/rsnapshot weekly 2&gt;&amp;1 | /usr/local/bin/rsnapreport.pl | mail <span class="nt">-E</span> <span class="nt">-r</span> from@linuxtm.ro <span class="nt">-s</span> <span class="s2">"Weekly Backup"</span> to@linuxtm.ro
+10 4 1 <span class="k">*</span> <span class="k">*</span> root /usr/bin/rsnapshot monthly 2&gt;&amp;1 | /usr/local/bin/rsnapreport.pl | mail <span class="nt">-E</span> <span class="nt">-r</span> from@linuxtm.ro <span class="nt">-s</span> <span class="s2">"Monthly Backup"</span> to@linuxtm.ro
+</code></pre></div></div>
 
 
   </article>

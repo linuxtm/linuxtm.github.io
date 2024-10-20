@@ -87,25 +87,24 @@
   <article class="post-content">
     <p>Mailcatcher functional in spatele unui proxy de Nginx utilizand codul de mai jos.</p>
 
-<pre>
-    location /mailcatcher {
-        satisfy any;
-        allow trustedip;
-        deny all;
-        proxy_pass  http://backendip:1080/;
-    }
+<div class="language-nginx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">location</span> <span class="n">/mailcatcher</span> <span class="p">{</span>
+        <span class="kn">satisfy</span> <span class="s">any</span><span class="p">;</span>
+        <span class="kn">allow</span> <span class="s">trustedip</span><span class="p">;</span>
+        <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+        <span class="kn">proxy_pass</span>  <span class="s">http://backendip:1080/</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    location /assets {
-        proxy_pass  http://backendip:1080/assets/;
-    }
+    <span class="k">location</span> <span class="n">/assets</span> <span class="p">{</span>
+        <span class="kn">proxy_pass</span>  <span class="s">http://backendip:1080/assets/</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    location /messages {
-        proxy_pass  http://backendip:1080;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-    }
-</pre>
+    <span class="k">location</span> <span class="n">/messages</span> <span class="p">{</span>
+        <span class="kn">proxy_pass</span>  <span class="s">http://backendip:1080</span><span class="p">;</span>
+        <span class="kn">proxy_http_version</span> <span class="mf">1.1</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Upgrade</span> <span class="nv">$http_upgrade</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Connection</span> <span class="s">"upgrade"</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
 
   </article>
 

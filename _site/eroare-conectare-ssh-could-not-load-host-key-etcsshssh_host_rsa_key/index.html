@@ -87,23 +87,24 @@
   <article class="post-content">
     <p>In <em>/var/log/auth.log</em> , observam urmatoarea eroare:</p>
 
-<pre><em>error: Could not load host key: /etc/ssh/ssh_host_rsa_key
+<p><em>error: Could not load host key: /etc/ssh/ssh_host_rsa_key
 error: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 error: @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
 error: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-error: Permissions 0777 for '/etc/ssh/ssh_host_dsa_key' are too open.
+error: Permissions 0777 for ‘/etc/ssh/ssh_host_dsa_key’ are too open.
 error: It is recommended that your private key files are NOT accessible by others.
 error: This private key will be ignored.
 error: bad permissions: ignore key: /etc/ssh/ssh_host_dsa_key
 error: Could not load host key: /etc/ssh/ssh_host_dsa_key
-fatal: /var/run/sshd must be owned by root and not group or world-writable.</em>
-</pre>
+fatal: /var/run/sshd must be owned by root and not group or world-writable.</em></p>
 
 <p>Eroarea este destul de explicativa, iar aceasta se poate rezolva prin schimbarea permisiunilor, ruland urmatoarele comenzi:</p>
 
-<pre>chmod 600 /var/run/sshd</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod </span>600 /var/run/sshd
+</code></pre></div></div>
 
-<pre>chmod 600 /etc/ssh/ssh_host_*</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod </span>600 /etc/ssh/ssh_host_<span class="k">*</span>
+</code></pre></div></div>
 
   </article>
 

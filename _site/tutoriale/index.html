@@ -96,6 +96,8 @@
         <h2>
           <a class="post-link" href="/rabbitmq-stergere-lista-cozi/">Stergere o lista de cozi din RabbitMQ (CLI)</a>
         </h2>
+	 <p class="post-excerpt"><p>Presupunem ca avem o lista de cozi in rabbit pe care vrem sa le stergem.</p>
+</p>
       </li>
     
       <li>
@@ -104,6 +106,10 @@
         <h2>
           <a class="post-link" href="/mysql-kill-toate-conexiunile-unui-user/">MySQL kill toate conexiunile unui user</a>
         </h2>
+	 <p class="post-excerpt"><p>MySQL nu are o comanda cu ajutorul careia putem sa terminam toate conexiunile unui utilizator.
+Din acest motiv, vom folosi functia de CONCAT pentru a combina comanda “KILL” cu ID-ul conexiuniulor utilizatorului problema, in exemplul de fata “my-user”, iar lista o vom insera intr-un fisier “process_list.txt”.
+Dupa acest pas, importam lista si se vor executa comenzile din lista (<em>KILL PID1; KILL PID2, KILL PID3; etc</em>).</p>
+</p>
       </li>
     
       <li>
@@ -112,6 +118,8 @@
         <h2>
           <a class="post-link" href="/vericare-cheie-certificat-ssl/">Verificare certificat SSL + cheie privata din CLI</a>
         </h2>
+	 <p class="post-excerpt"><p>Putem verifica daca avem cheia potrivita pentru certificatul nostru prin obtinerea SHA-ului si compararea acestuia (trebuie sa fie identic):</p>
+</p>
       </li>
     
       <li>
@@ -120,6 +128,8 @@
         <h2>
           <a class="post-link" href="/chown-symlinks/">Chown recursiv in symlinkuri</a>
         </h2>
+	 <p class="post-excerpt"><p>In mod normal daca vrem sa schimbam ownership-ul fisierelor recursiv folosim parametrul “-R” (recursiv), insa in mod implicit, chown nu traverseaza linkurile simbolice.</p>
+</p>
       </li>
     
       <li>
@@ -128,6 +138,8 @@
         <h2>
           <a class="post-link" href="/calculator-proces-phpfpm/">Calculare memorie procese php-fpm</a>
         </h2>
+	 <p class="post-excerpt"><p>Daca te grabesti si nu te intereseaza cum se calculeaza, poti sa folosesti calculatorul de aici: <a href="https://linuxtm.ro/pmc/">https://linuxtm.ro/pmc/</a></p>
+</p>
       </li>
     
       <li>
@@ -136,6 +148,8 @@
         <h2>
           <a class="post-link" href="/docker-systemd/">Docker ca si serviciu de sistem (systemd)</a>
         </h2>
+	 <p class="post-excerpt"><p>Exemplu de fisier systemd pentru un container docker, in care executam niste comenzi dupa ce a pornit containerul de docker.</p>
+</p>
       </li>
     
       <li>
@@ -144,6 +158,12 @@
         <h2>
           <a class="post-link" href="/configurare-backup-rsnapshot/">Configurare backup-uri cu rsnapshot</a>
         </h2>
+	 <p class="post-excerpt"><p><strong>1. Instalare dependinte</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nb">install</span> <span class="nt">-y</span> rsnapshot mailx postfix wget
+systemctl start postfix <span class="o">&amp;&amp;</span> systemctl <span class="nb">enable </span>postfix
+wget <span class="nt">-O</span> /usr/local/bin/rsnapreport.pl https://raw.githubusercontent.com/rsnapshot/rsnapshot/master/utils/rsnapreport.pl <span class="o">&amp;&amp;</span> <span class="nb">chmod</span> +x /usr/local/bin/rsnapreport.pl
+</code></pre></div></div>
+</p>
       </li>
     
       <li>
@@ -152,6 +172,10 @@
         <h2>
           <a class="post-link" href="/configurare-server-nfs-centos7/">Configurare server NFS pe Centos 7</a>
         </h2>
+	 <p class="post-excerpt"><p>In acest tutorial vom crea un share NFS (Centos 7) pe care il vom monta pe 2 servere diferite.
+Serverul de NFS va avea IP-ul: 192.168.1.0
+Clientii vor avea IP-urile: 192.168.1.1 si 192.168.1.2</p>
+</p>
       </li>
     
       <li>
@@ -160,6 +184,9 @@
         <h2>
           <a class="post-link" href="/verificare-memorie-proces-apache/">Verificare utilizare memorie proces Apache</a>
         </h2>
+	 <p class="post-excerpt"><p>Pentru a optimiza Apache-ul, trebuie sa tinem cont de memoria RAM totala disponibila pe server.
+Astfel putem decide cata memorie vom permite Apache-ului sa folosesca - mai exact <i>nr de procese</i> x <i>consumul de memorie per process</i></p>
+</p>
       </li>
     
       <li>
@@ -168,6 +195,8 @@
         <h2>
           <a class="post-link" href="/administrare-cluster-galera/">Administrare cluster Percona + Galera</a>
         </h2>
+	 <p class="post-excerpt"><p>Mai jos gasiti niste comenzi utile pentru administrarea unui cluster Galera.</p>
+</p>
       </li>
     
       <li>
@@ -176,6 +205,8 @@
         <h2>
           <a class="post-link" href="/googlecloud-configurare-lifecycle-bucket/">Configurare lifecycle pentru bucket-uri GoogleCloud</a>
         </h2>
+	 <p class="post-excerpt"><p>Pentru a seta un lifecycle la bucketurile din Google Cloud, avem nevoie de un fisier json.</p>
+</p>
       </li>
     
       <li>
@@ -184,6 +215,25 @@
         <h2>
           <a class="post-link" href="/instalare-java8-centos7/">Instalare Java 8 pe Centos 7 (64biti)</a>
         </h2>
+	 <p class="post-excerpt"><p>Se poate instala ruland comenzile de mai jos.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="nt">--no-cookies</span> <span class="se">\</span>
+<span class="nt">--no-check-certificate</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s2">"Cookie: oraclelicense=accept-securebackup-cookie"</span> <span class="se">\</span>
+<span class="s2">"http://download.oracle.com/otn-pub/java/jdk/8u73-b02/jdk-8u73-linux-x64.rpm"</span> <span class="se">\</span>
+<span class="nt">-O</span> jdk-8u73-linux-x64.rpm
+</code></pre></div></div>
+<p>Dupa ce downloadam rpm-ul, rulam:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rpm <span class="nt">-Uvh</span> jdk-8u73-linux-x64.rpm
+</code></pre></div></div>
+<p>Verificam versiunea de java:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java <span class="nt">-version</span>
+</code></pre></div></div>
+<p><em>
+<br />java version “1.8.0_73” 
+<br />Java(TM) SE Runtime Environment (build 1.8.0_73-b02) 
+<br />Java HotSpot(TM) 64-Bit Server VM (build 25.73-b02, mixed mode)
+</em></p>
+</p>
       </li>
     
       <li>
@@ -192,6 +242,9 @@
         <h2>
           <a class="post-link" href="/configurare-environment-ssh/">Configurare environment user ssh</a>
         </h2>
+	 <p class="post-excerpt"><p>In cazul in care exista mai multe persoane care folosesc acelasi user, avem nevoie sa facem o distinctie intre ei.
+Pentru a realiza acest lucru, trebuie sa activam environmentul ssh.</p>
+</p>
       </li>
     
       <li>
@@ -200,6 +253,9 @@
         <h2>
           <a class="post-link" href="/drupal-nginx-sites-not-writable/">Eroare Drupal + Nginx - sites/default/files not writable</a>
         </h2>
+	 <p class="post-excerpt"><p>Daca folositi ca si setup Nginx+PHP-FPM, atunci e foarte probabil sa intampinati eroarea intr-o instalare de Drupal.
+Rezolvarea este una simpla, trebuie sa modificam userul sub care ruleaza php-fpm astfel incat sa corespunda cu userul si grupul nginx.</p>
+</p>
       </li>
     
       <li>
@@ -208,6 +264,11 @@
         <h2>
           <a class="post-link" href="/replicare-mysql-master-slave/">Configurare replicare MySQL Master-Slave</a>
         </h2>
+	 <p class="post-excerpt"><p>Avem doua servere diferite si vrem sa configuram replicarea MySQL de tip Master-Slave.<br />
+Pentru acest exemplu vom folosi:<br />
+Server 1: 127.0.0.1 - il vom folosi ca si Master (serverul principal)<br />
+Server 2: 127.0.0.2 - Slave (serverul secundar)</p>
+</p>
       </li>
     
       <li>
@@ -216,6 +277,8 @@
         <h2>
           <a class="post-link" href="/problema-autentificare-webmail-cpanel/">Problema autentificare webmail cPanel</a>
         </h2>
+	 <p class="post-excerpt"><p>Problema se manifesta dupa cum urmeaza: dupa ce va autentificati in webmail, apare mesajul “Login successfull” si sunteti directionati spre pagina de selectare a interfetei dorite (Horde, Roundcube, etc), iar dupa ce dati click pe una din optiuni, sunteti redirectionati la o pagina conform careia userul sau parola sunt incorecte.</p>
+</p>
       </li>
     
       <li>
@@ -224,6 +287,8 @@
         <h2>
           <a class="post-link" href="/script-pentru-scanare-php-uri-infectate/">Script pentru scanare php-uri infectate</a>
         </h2>
+	 <p class="post-excerpt"><p>In ultima perioada platforma WordPress este atacata si exploatata din ce in ce mai mult prin intermediul vulnerabilitatilor diverselor theme/plugin-uri iar de cele mai multe ori exploatarea consta in compromiterea fisierelor .php care sunt folosite pentru a trimite mesaje de tip spam.</p>
+</p>
       </li>
     
       <li>
@@ -232,6 +297,8 @@
         <h2>
           <a class="post-link" href="/adauga-automat-vhost-uri-cu-ssl/">Adauga automat vhost-uri cu SSL</a>
         </h2>
+	 <p class="post-excerpt"><p>Daca data trecuta am prezentat un script care [adauga automat vhost-uri][1], de data asta va prezint scriptul care adauga automat vhosturi si genereaza certificat SSL self signed. Aceast script este util in cazul in care serverul tau nu are panou de control gen cPanel, DirectAdmin, Plesk, etc. Scriptul se executa in acelasi fel ca cel care adauga doar vhost-uri, adica prin executarea comenzii: . vhost-ssl.sh domeniu.tld sau . vhost-ssl.sh subdomeniu.domeniu.tld</p>
+</p>
       </li>
     
       <li>
@@ -240,6 +307,8 @@
         <h2>
           <a class="post-link" href="/configurare-atribute-fisiere-chattr/">Configurare atribute fisiere (chattr)</a>
         </h2>
+	 <p class="post-excerpt"><p>Comanda folosita este <em>chattr</em> , iar cu ajutorul acesteia putem sa adauga/scoate atributele fisierelor in Linux. Folosind chattr, putem face in fisier imuabil (neschimbator). Un fisier cu un astfel de atribut nu poate fi sters nici macar de root.</p>
+</p>
       </li>
     
       <li>
@@ -248,6 +317,8 @@
         <h2>
           <a class="post-link" href="/dezactivare-sunete-chromechromium-kde/">Dezactivare sunete Chrome/Chromium KDE</a>
         </h2>
+	 <p class="post-excerpt"><p>Atunci cand apasam butonul backspace de pe tastatura in omnibox-ul din Chrome sau Chromium un sunet puternic si enervant apare, care cateodata te sperie. Pentru dezactivarea lui este nevoie sa reducem volumul si durata acestui sunet la minim.</p>
+</p>
       </li>
     
       <li>
@@ -256,6 +327,8 @@
         <h2>
           <a class="post-link" href="/problema-autentificare-phpmyadmin-pagina-alba/">Problema autentificare phpMyAdmin &#8211; pagina alba</a>
         </h2>
+	 <p class="post-excerpt"><p>Daca incercati sa va autentificati in phpMyAdmin si dupa introducerea detaliilor de logare va afiseaza o pagina alba, indiferent de ce faceti, puteti incerca urmatoarele:</p>
+</p>
       </li>
     
       <li>
@@ -264,6 +337,10 @@
         <h2>
           <a class="post-link" href="/gaseste-name-serverele-pentru-unul-sau-mai-multe-domenii/">Gaseste name serverele pentru unul sau mai multe domenii</a>
         </h2>
+	 <p class="post-excerpt"><p>In acest articol veti gasi un script care automatizeaza gasirea serverelor NS pentru unul sau mai multe domenii. Output-ul este exportat intr-un fisier de forma output.PID ( ex: output.3242 ). Scriptul primeste 1 argument care poate fi un nume de domeniu sau un fisier care contine mai multe nume de domenii.<br />
+De retinut. In fisier trebuie trecut 1 domeniu per linie.<br />
+Utilizarea scriptului este urmatoarea . findNS.sh domeniu.tld sau . findNS lista.txt</p>
+</p>
       </li>
     
       <li>
@@ -272,6 +349,8 @@
         <h2>
           <a class="post-link" href="/eroare-conectare-ssh-could-not-load-host-key-etcsshssh_host_rsa_key/">Eroare conectare SSH: Could not load host key: /etc/ssh/ssh_host_rsa_key</a>
         </h2>
+	 <p class="post-excerpt"><p>In <em>/var/log/auth.log</em> , observam urmatoarea eroare:</p>
+</p>
       </li>
     
       <li>
@@ -280,6 +359,8 @@
         <h2>
           <a class="post-link" href="/inlocuire-string-din-phpmyadmin/">Inlocuire string din phpmyadmin</a>
         </h2>
+	 <p class="post-excerpt"><p>Presupunem ca avem un site facut in wordpress si vrem sa inlocuim in baza de date un sir de cuvinte (numele autorului de exemplu) cu un altul. Aceasta operatiune se poate realiza cu comanda urmatoare:</p>
+</p>
       </li>
     
       <li>
@@ -288,6 +369,8 @@
         <h2>
           <a class="post-link" href="/error-from-sql-query-42000-cant-find-any-matching-row-in-the-user-table/">Error from sql query: #42000: Can’t find any matching row in the user table</a>
         </h2>
+	 <p class="post-excerpt"><p>Eroarea poate sa apara fie in loguri, fie in cPanel/WHM cand incercati sa accesati phpMyAdmin, sau cand incercati sa creati un user sau o baza de date noua in cPanel. Eroarea se poate rezolva prin eliminarea liniei urmatoare din <strong><em>/etc/my.cnf</em></strong> :</p>
+</p>
       </li>
     
       <li>
@@ -296,6 +379,8 @@
         <h2>
           <a class="post-link" href="/stergere-din-loguri-a-cronpid-pam_unixcronsession/">Stergere din loguri a CRON[PID]: pam_unix(cron:session)</a>
         </h2>
+	 <p class="post-excerpt"><p>Daca si pe voi va “deranjeaza” astfel de mesaje in log, ati nimerit bine:</p>
+</p>
       </li>
     
       <li>
@@ -304,6 +389,8 @@
         <h2>
           <a class="post-link" href="/activare-tuntap-in-openvz/">Activare TUN/TAP in OpenVZ</a>
         </h2>
+	 <p class="post-excerpt"><p>OpenVZ suporta VPN-uri intr-un container (VPS) prin intermediul TUN/TAP. In exemplul de fata, activam TUN/TAP pentru VPS-ul cu id-ul 101.</p>
+</p>
       </li>
     
       <li>
@@ -312,6 +399,8 @@
         <h2>
           <a class="post-link" href="/cpanel-alocare-ip-dedicat-pe-subdomeniu-instalare-ssl/">cPanel: Alocare IP dedicat pe subdomeniu + Instalare SSL</a>
         </h2>
+	 <p class="post-excerpt"><p>Chiar daca interfata WHM nu permite alocarea unui IP dedicat subdomeniilor, se poate face. Motivul principal pentru care s-ar putea sa vreti sa alocati un IP dedicat unui subdomeniu este instalarea unui certificat SSL.</p>
+</p>
       </li>
     
       <li>
@@ -320,6 +409,8 @@
         <h2>
           <a class="post-link" href="/rezolvare-problema-chei-ssh_host_rsa-si-dsa/">Rezolvare problema chei ssh_host_rsa si dsa</a>
         </h2>
+	 <p class="post-excerpt"><p>Daca din ceva motiv va lipsesc cheile <strong>ssh_host_dsa_key</strong> si <strong>ssh_host_rsa_key</strong> , mai jos aveti comenzile pe care trebuie sa le rulati pentru a reface cheile. Eroarea primita:</p>
+</p>
       </li>
     
       <li>
@@ -328,6 +419,8 @@
         <h2>
           <a class="post-link" href="/porturi-importante-in-linux/">Porturi importante in Linux</a>
         </h2>
+	 <p class="post-excerpt"><p>Porturile enumerate mai jos sunt porturi bine cunoscute in serverele Linux folosite de diverse aplicatii si servicii.</p>
+</p>
       </li>
     
       <li>
@@ -336,6 +429,8 @@
         <h2>
           <a class="post-link" href="/rsyslog-foloseste-tot-procesorul/">Rsyslog foloseste tot procesorul</a>
         </h2>
+	 <p class="post-excerpt"><p>In cazul in care rsyslog foloseste mult procesor (100% sau mai mult) in OpenVZ, trebuie comentata linia de mai jos pentru ca, kernelul vps-urilor nu ruleaza in interiorul acestora iar rsyslog incearca fara nici un motiv, in mod constant sa citeasca <em>/proc/kmsg</em> producand astfel milioane de erori intr-un timp foarte scurt (de unde si consumul ridicat de CPU).</p>
+</p>
       </li>
     
       <li>
@@ -344,6 +439,8 @@
         <h2>
           <a class="post-link" href="/administrare-clienti-de-mail/">Administrare clienti de mail</a>
         </h2>
+	 <p class="post-excerpt"><p><strong><em>Exim</em></strong></p>
+</p>
       </li>
     
       <li>
@@ -352,6 +449,8 @@
         <h2>
           <a class="post-link" href="/cum-stergem-un-numar-mare-de-mail-uri-din-queue-exim/">Cum stergem un numar mare de mail-uri din queue (exim) ?</a>
         </h2>
+	 <p class="post-excerpt"><p>In cazul in care vorbim de zeci, sute de mii de mail-uri (sau mai multe), metodele traditionale pentru curatarea mesajelor din queue tind sa nu functioneze tocmai bine. Fie ca vorbim de I/O mare, o durata de timp exagerat de mare pentru stergerea mesajelor sau afisarea inutila a progresului (afisearea fiecarui MessageID sters), este cel putin nepractic. Comenzile de mai jos rezolva aceasta problema:</p>
+</p>
       </li>
     
       <li>
@@ -360,6 +459,8 @@
         <h2>
           <a class="post-link" href="/cum-aflam-ce-versiune-de-linux-avem/">Cum aflam ce versiune de Linux avem ?</a>
         </h2>
+	 <p class="post-excerpt"><p>Pentru a afla ce versiune (distributie) de Linux folosim, rulam urmatoarea comanda:</p>
+</p>
       </li>
     
       <li>
@@ -368,6 +469,9 @@
         <h2>
           <a class="post-link" href="/cum-arhivam-un-director-in-linux/">Cum arhivam un director in Linux ?</a>
         </h2>
+	 <p class="post-excerpt"><p>Este destul de usor si folositor pentru a face backup unor fisiere, pentru a le trimite pe mail si asa mai departe.<br />
+Pentru a arhiva un director, trebuie sa folosim comanda <em>tar</em> cu sintaxa de mai jos:</p>
+</p>
       </li>
     
       <li>
@@ -376,6 +480,10 @@
         <h2>
           <a class="post-link" href="/ssh-nu-porneste/">SSH nu porneste</a>
         </h2>
+	 <p class="post-excerpt"><p><em>/etc/init.d/ssh start<br />
+Error:<br />
+Starting OpenBSD Secure Shell server: sshd/var/run/sshd must be owned by root and not group or world-writable.</em></p>
+</p>
       </li>
     
       <li>
@@ -384,6 +492,10 @@
         <h2>
           <a class="post-link" href="/php-nu-se-conecteaza-la-mysql/">PHP nu se conecteaza la MySQL</a>
         </h2>
+	 <p class="post-excerpt"><p>Daca ati instalat web serverul Apache si aveti MySQL-ul configurat, totul functioneaza normal mai putin faptul ca nu va puteti conecta la la o baza de date MySQL (desi va puteti conecta la serverul MySQL), atunci va lipseste modulul MySQL pentru PHP(4 sau 5).<br />
+Fara <em>php-mysql</em>, scripturile PHP nu se vor putea conecta la bazele de date din serverul MySQL.<br />
+Solutia este instalarea acestui modul dupa cum urmeaza:</p>
+</p>
       </li>
     
       <li>
@@ -392,6 +504,8 @@
         <h2>
           <a class="post-link" href="/cum-setam-un-serviciu-sa-porneasca-la-boot-debian-centos-redhat/">Cum setam un serviciu sa porneasca la boot ? Debian, CentOS, RedHat</a>
         </h2>
+	 <p class="post-excerpt"><p>Pentru distributii bazate pe Debian, se ruleaza urmatoarea comanda ca si root:</p>
+</p>
       </li>
     
       <li>
@@ -400,6 +514,9 @@
         <h2>
           <a class="post-link" href="/dezactivare-temporara-bash_history/">Dezactivare temporara .bash_history</a>
         </h2>
+	 <p class="post-excerpt"><p>Sa zicem ca aveti de introdus niste parole in linia de comanda ca si argument la ceva. Nu e tocmai cea mai buna idee sa ramana salvate in ~/.bash_history dar nici nu dorim sa stergem fisierul.<br />
+In acest caz, dezactivam temporar (pentru sesiunea curenta) history-ul. Se poate face ruland comanda:</p>
+</p>
       </li>
     
       <li>
@@ -408,6 +525,8 @@
         <h2>
           <a class="post-link" href="/verificare-bash_history/">Verificare .bash_history</a>
         </h2>
+	 <p class="post-excerpt"><p>Pentru afisearea istoricului comenzilor se ruleaza:</p>
+</p>
       </li>
     
   </ul>

@@ -95,15 +95,12 @@
 <p>Inchide conexiunile active:</p>
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">pg_terminate_backend</span><span class="p">(</span><span class="n">pg_stat_activity</span><span class="p">.</span><span class="n">pid</span><span class="p">)</span>
-
 <span class="k">FROM</span> <span class="n">pg_stat_activity</span>
-
 <span class="k">WHERE</span> <span class="n">pg_stat_activity</span><span class="p">.</span><span class="n">datname</span> <span class="o">=</span> <span class="s1">'my_database'</span>
-
-  <span class="k">AND</span> <span class="n">pid</span> <span class="o">&lt;&gt;</span> <span class="n">pg_backend_pid</span><span class="p">();</span><span class="o">&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+  <span class="k">AND</span> <span class="n">pid</span> <span class="o">&lt;&gt;</span> <span class="n">pg_backend_pid</span><span class="p">();</span>
 </code></pre></div></div>
 
-<p>Drop db</p>
+<p>Drop db:</p>
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">drop</span> <span class="k">database</span> <span class="n">my_database</span>
 </code></pre></div></div>

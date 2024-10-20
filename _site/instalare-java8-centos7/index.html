@@ -86,19 +86,18 @@
 
   <article class="post-content">
     <p>Se poate instala ruland comenzile de mai jos.</p>
-<pre>
-wget --no-cookies \
---no-check-certificate \
---header "Cookie: oraclelicense=accept-securebackup-cookie" \
-"http://download.oracle.com/otn-pub/java/jdk/8u73-b02/jdk-8u73-linux-x64.rpm" \
--O jdk-8u73-linux-x64.rpm
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="nt">--no-cookies</span> <span class="se">\</span>
+<span class="nt">--no-check-certificate</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s2">"Cookie: oraclelicense=accept-securebackup-cookie"</span> <span class="se">\</span>
+<span class="s2">"http://download.oracle.com/otn-pub/java/jdk/8u73-b02/jdk-8u73-linux-x64.rpm"</span> <span class="se">\</span>
+<span class="nt">-O</span> jdk-8u73-linux-x64.rpm
+</code></pre></div></div>
 <p>Dupa ce downloadam rpm-ul, rulam:</p>
-<pre>
-rpm -Uvh jdk-8u73-linux-x64.rpm
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rpm <span class="nt">-Uvh</span> jdk-8u73-linux-x64.rpm
+</code></pre></div></div>
 <p>Verificam versiunea de java:</p>
-<pre>java -version</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java <span class="nt">-version</span>
+</code></pre></div></div>
 <p><em>
 <br />java version “1.8.0_73” 
 <br />Java(TM) SE Runtime Environment (build 1.8.0_73-b02) 

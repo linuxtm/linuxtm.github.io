@@ -88,14 +88,14 @@
     <p>Daca folositi ca si setup Nginx+PHP-FPM, atunci e foarte probabil sa intampinati eroarea intr-o instalare de Drupal.
 Rezolvarea este una simpla, trebuie sa modificam userul sub care ruleaza php-fpm astfel incat sa corespunda cu userul si grupul nginx.</p>
 
-<pre>vim /etc/php-fpm.d/www.conf</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/php-fpm.d/www.conf
+</code></pre></div></div>
 
 <p>Astfel, in config vom avea:</p>
 
-<pre>
-user = nginx
-group = nginx
-</pre>
+<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">user</span> = <span class="n">nginx</span>
+<span class="n">group</span> = <span class="n">nginx</span>
+</code></pre></div></div>
 
   </article>
 

@@ -93,6 +93,7 @@
         <h2>
           <a class="post-link" href="/apache-cors-domenii-multiple/">Apache CORS domenii multiple</a>
         </h2>
+	<p class="post-excerpt">Configurarea CORS de mai jos permite accesul de la 2 domenii + subdomeniile “www.” ale acestora (www.linuxtm.ro, linuxtm.ro, www.example.com si example.com) pe fisierul /dir/file.php &lt;Location "/dir/file.php"&gt; Allow from all AllowOverride...</p>
       </li>
     
       <li>
@@ -100,6 +101,7 @@
         <h2>
           <a class="post-link" href="/vhost-nginx-magento2-cdn/">Virtualhost Nginx Magento2 cu CDN</a>
         </h2>
+	<p class="post-excerpt">Mai jos avem cele trei config-uri de nginx necesare pentru configurarea Magento 2 cu CDN. In acest exemplu folosim 2 subdomenii separate pentru media si resursele statice. Vhost domeniu principal...</p>
       </li>
     
       <li>
@@ -107,6 +109,7 @@
         <h2>
           <a class="post-link" href="/vhost-nginx-phpfpm/">Virtualhost Nginx + php-fpm</a>
         </h2>
+	<p class="post-excerpt">Exemplu de virtual host Nginx cu php-fpm, ssl, compresie gzip si forward IP real in caz ca suntem in spatele unui proxy. De asemenea, configul contine si un exemplu de...</p>
       </li>
     
       <li>
@@ -114,6 +117,7 @@
         <h2>
           <a class="post-link" href="/vhost-nginx-magento/">Virtualhost Nginx Magento</a>
         </h2>
+	<p class="post-excerpt">Exemplu de virtualhost Nginx pentru Magento 2. Configul de mai jos este similar cu cel dat ca si exemplu pe pagina de documentatie a Magento, deci este o varianta simplificata....</p>
       </li>
     
       <li>
@@ -121,6 +125,7 @@
         <h2>
           <a class="post-link" href="/vhost-apache/">Virtualhost Apache</a>
         </h2>
+	<p class="post-excerpt">Exemplu virtualhost Apache cu elemente de redirect https, proxypass, https pentru wordpress cu loadbalancer si multe altele. &lt;VirtualHost *:80&gt; DocumentRoot "/var/www/html" ServerName domain.com ServerAlias www.domain.com LogLevel error ErrorLog logs/domain-error_log CustomLog...</p>
       </li>
     
       <li>
@@ -128,6 +133,7 @@
         <h2>
           <a class="post-link" href="/vhost-apache-ssl/">Virtualhost Apache SSL</a>
         </h2>
+	<p class="post-excerpt">Exemplu elementar de virtualhost Apache cu SSL &lt;VirtualHost *:443&gt; DocumentRoot "/var/www/html/domain/" ServerName domain.com ServerAlias domain.com LogLevel error ErrorLog logs/domain-ssl-error_log CustomLog logs/domain-ssl-access_log combined SSLEngine on SSLCertificateFile "/etc/httpd/conf/cert/domain.com.crt" SSLCertificateChainFile "/etc/httpd/conf/cert/domain-bundle.crt" SSLCertificateKeyFile "/etc/httpd/conf/sslkey/domain.key"...</p>
       </li>
     
       <li>
@@ -135,6 +141,7 @@
         <h2>
           <a class="post-link" href="/nginx-proxy-mailcatcher/">Nginx proxy Mailcatcher</a>
         </h2>
+	<p class="post-excerpt">Mailcatcher functional in spatele unui proxy de Nginx utilizand codul de mai jos. location /mailcatcher { satisfy any; allow trustedip; deny all; proxy_pass http://backendip:1080/; } location /assets { proxy_pass http://backendip:1080/assets/;...</p>
       </li>
     
   </ul>

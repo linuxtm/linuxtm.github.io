@@ -87,7 +87,8 @@
   <article class="post-content">
     <p>Presupunem ca avem un site facut in wordpress si vrem sa inlocuim in baza de date un sir de cuvinte (numele autorului de exemplu) cu un altul. Aceasta operatiune se poate realiza cu comanda urmatoare:</p>
 
-<pre>UPDATE `wp_posts` SET post_content = replace(post_content, 'cuvant_nedorit', 'cuvant_dorit') </pre>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">UPDATE</span> <span class="nv">`wp_posts`</span> <span class="k">SET</span> <span class="n">post_content</span> <span class="o">=</span> <span class="k">replace</span><span class="p">(</span><span class="n">post_content</span><span class="p">,</span> <span class="s1">'cuvant_nedorit'</span><span class="p">,</span> <span class="s1">'cuvant_dorit'</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>Nota: “wp-posts” este tabela din baza de date.</p>
 

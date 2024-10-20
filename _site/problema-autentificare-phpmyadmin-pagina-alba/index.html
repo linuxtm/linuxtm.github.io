@@ -91,11 +91,12 @@
   <li>Verificati logurile</li>
 </ol>
 
-<pre>tail -f /usr/local/cpanel/logs/error_log</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tail</span> <span class="nt">-f</span> /usr/local/cpanel/logs/error_log
+</code></pre></div></div>
 
 <ol>
   <li>
-    <p>Daca nu aveti nimic util in log, incercati sa activati “<strong>display_errors</strong>” in php.ini.</p>
+    <p>Daca nu aveti nimic util in log, incercati sa activati “<strong>display_errors</strong>” in <em>php.ini</em>.</p>
   </li>
   <li>
     <p>In cazul de fata, logul afisa urmatoarea eroare:</p>
@@ -110,7 +111,8 @@
 
 <p>Daca problema nu se rezolva dupa schimbarea parolei, se poate incerca un update la phpMyAdmin:</p>
 
-<pre>/usr/local/cpanel/bin/updatephpmyadmin --force</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/cpanel/bin/updatephpmyadmin <span class="nt">--force</span>
+</code></pre></div></div>
 
   </article>
 

@@ -95,7 +95,8 @@
 
 <p>Astfel, daca dorim ca ownershipul fisieirelor sa fie schimbat si in interiorul directoarelor de tip symlink folosim:</p>
 
-<pre>chown -RL /my/dir/</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chown</span> <span class="nt">-RL</span> /my/dir/
+</code></pre></div></div>
 
 <p>Bonus, avem optiunea “-h”</p>
 
@@ -103,7 +104,9 @@
 
 <p>Aceasta optiune nu schimba drepturile sau ownership-ul fisierelor din interiorul directorului nostru symlink, insa are un rol pur estetic. Mai exact, daca dam un “ls -l” si observam directorul nostru symlink, probabil ownerul este root. Folosind aceasta optiune putem schimba ownerul aparent al symlinkului.</p>
 
-<pre>chown -h mysymlink</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chown</span> <span class="nt">-h</span> mysymlink
+</code></pre></div></div>
+
 
   </article>
 

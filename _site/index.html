@@ -93,6 +93,7 @@
          <h2>
           <a class="post-link" href="/aws-rds-psql-drop-database/">AWS RDS drop PostgreSQL</a>
          </h2>
+	 <p class="post-excerpt">Putem face drop unei baze de date psql din RDS dupa cum urmeaza: Conectare la RDS (Important - ne conectam la alt db decat cel pe care vrem sa-l stergem)...</p>
       </li>
    
       <li>
@@ -100,6 +101,7 @@
          <h2>
           <a class="post-link" href="/rabbitmq-stergere-lista-cozi/">Stergere o lista de cozi din RabbitMQ (CLI)</a>
          </h2>
+	 <p class="post-excerpt">Presupunem ca avem o lista de cozi in rabbit pe care vrem sa le stergem. Daca avem multe, stergerea manuala nu este o optiune. In acest sens, lista de cozi...</p>
       </li>
    
       <li>
@@ -107,6 +109,7 @@
          <h2>
           <a class="post-link" href="/aws-export-route53/">Export zona DNS din Route53 intr-un fisier</a>
          </h2>
+	 <p class="post-excerpt">Scriptul de mai jos ia ca argument regiunea AWS in care se afla zona DNS in AWS si o exporta intr-un fisier. Nota: Este necesar sa aveti utilitarul jq instalat,...</p>
       </li>
    
       <li>
@@ -114,6 +117,7 @@
          <h2>
           <a class="post-link" href="/script-modificare-data-fisiere/">Script pentru modificarea datei fisierelor pe disk</a>
          </h2>
+	 <p class="post-excerpt">Scriptul se foloseste de exiftool ca sa extraga CreateDate din metadatele pozelor si seteaza acea data ca fiind ModifiedDate pe disk. #!/usr/bin/env python3 #Gets the CreateDate from EXIF data and...</p>
       </li>
    
       <li>
@@ -121,6 +125,7 @@
          <h2>
           <a class="post-link" href="/mysql-kill-toate-conexiunile-unui-user/">MySQL kill toate conexiunile unui user</a>
          </h2>
+	 <p class="post-excerpt">MySQL nu are o comanda cu ajutorul careia putem sa terminam toate conexiunile unui utilizator. Din acest motiv, vom folosi functia de CONCAT pentru a combina comanda “KILL” cu ID-ul...</p>
       </li>
    
       <li>
@@ -128,6 +133,7 @@
          <h2>
           <a class="post-link" href="/apache-cors-domenii-multiple/">Apache CORS domenii multiple</a>
          </h2>
+	 <p class="post-excerpt">Configurarea CORS de mai jos permite accesul de la 2 domenii + subdomeniile “www.” ale acestora (www.linuxtm.ro, linuxtm.ro, www.example.com si example.com) pe fisierul /dir/file.php &lt;Location "/dir/file.php"&gt; Allow from all AllowOverride...</p>
       </li>
    
       <li>
@@ -135,6 +141,7 @@
          <h2>
           <a class="post-link" href="/instalare-docker-ce-ubuntu20-desktop/">Instalare Docker-CE pe Ubuntu 20 (Desktop)</a>
          </h2>
+	 <p class="post-excerpt">One-Liner pentru usurinta: wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installDockerUbuntu20.sh &amp;&amp; chmod +x installDockerUbuntu20.sh &amp;&amp; ./installDockerUbuntu20.sh Sau copy-paste: #!/bin/bash #More at https://linuxtm.ro set -e no=$(tput sgr0) red=$(tput setaf 1) sudo apt-get install -y apt-transport-https ca-certificates...</p>
       </li>
    
       <li>
@@ -142,6 +149,7 @@
          <h2>
           <a class="post-link" href="/vericare-cheie-certificat-ssl/">Verificare certificat SSL + cheie privata din CLI</a>
          </h2>
+	 <p class="post-excerpt">Putem verifica daca avem cheia potrivita pentru certificatul nostru prin obtinerea SHA-ului si compararea acestuia (trebuie sa fie identic): openssl pkey -in cheie.txt -pubout -outform pem | sha256sum openssl x509...</p>
       </li>
    
       <li>
@@ -149,6 +157,7 @@
          <h2>
           <a class="post-link" href="/chown-symlinks/">Chown recursiv in symlinkuri</a>
          </h2>
+	 <p class="post-excerpt">In mod normal daca vrem sa schimbam ownership-ul fisierelor recursiv folosim parametrul “-R” (recursiv), insa in mod implicit, chown nu traverseaza linkurile simbolice. Astfel, ne gasim in situatia in care...</p>
       </li>
    
       <li>
@@ -156,6 +165,7 @@
          <h2>
           <a class="post-link" href="/calculator-proces-phpfpm/">Calculare memorie procese php-fpm</a>
          </h2>
+	 <p class="post-excerpt">Daca te grabesti si nu te intereseaza cum se calculeaza, poti sa folosesti calculatorul de aici: https://linuxtm.ro/pmc/ Formula dupa care calculam este urmatoarea: [Total RAM Disponibil] - [RAM Rezervat] -...</p>
       </li>
    
       <li>
@@ -163,6 +173,7 @@
          <h2>
           <a class="post-link" href="/servicii-aws/">Toate serviciile AWS</a>
          </h2>
+	 <p class="post-excerpt">Compute EC2 Virtual Private Servers Lightsail Amazon’s hosting provider (vps, dns, storage) Lambda Functions you can run, written in Python, NodeJS, Go etc. Can run many in parallel. Batch Run...</p>
       </li>
    
       <li>
@@ -170,6 +181,7 @@
          <h2>
           <a class="post-link" href="/aws-cli/">Comenzi utile AWS-CLI</a>
          </h2>
+	 <p class="post-excerpt">AWS CLI configurare profile multiple Exemplul de config de mai jos ( ~/.aws/config ) contine 3 profile diferite (qa, stage si prod), utilizand un cont (admin@linuxtm.ro) cu acces de a...</p>
       </li>
    
       <li>
@@ -177,6 +189,7 @@
          <h2>
           <a class="post-link" href="/instalare-docker-ce-ubuntu18-desktop/">Instalare Docker-CE pe Ubuntu 18 (Desktop)</a>
          </h2>
+	 <p class="post-excerpt">One-Liner pentru usurinta: wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installDockerUbuntu18.sh &amp;&amp; chmod +x installDockerUbuntu18.sh &amp;&amp; ./installDockerUbuntu18.sh Sau copy-paste: #!/bin/bash #More at https://linuxtm.ro set -e no=$(tput sgr0) red=$(tput setaf 1) sudo apt-get install -y apt-transport-https ca-certificates...</p>
       </li>
    
       <li>
@@ -184,6 +197,7 @@
          <h2>
           <a class="post-link" href="/instalare-docker-ce-centos7/">Instalare Docker-CE pe Centos 7</a>
          </h2>
+	 <p class="post-excerpt">One-Liner pentru usurinta: wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installDockerCentos7.sh &amp;&amp; chmod +x installDockerCentos7.sh &amp;&amp; ./installDockerCentos7.sh Sau copy-paste: #!/bin/bash #More at https://linuxtm.ro set -e yum install -y yum-utils device-mapper-persistent-data lvm2 yum-config-manager -y --add-repo https://download.docker.com/linux/centos/docker-ce.repo yum...</p>
       </li>
    
       <li>
@@ -191,6 +205,7 @@
          <h2>
           <a class="post-link" href="/instalare-pachete-ami-linux/">Instalare pachete comune AMI Linux</a>
          </h2>
+	 <p class="post-excerpt">Instalare epel sudo amazon-linux-extras install -y epel Instalare client mysql sudo yum install -y https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm &amp;&amp; sudo yum install -y mysql-community-client Redis-CLI sudo yum install -y gcc wget http://download.redis.io/redis-stable.tar.gz &amp;&amp;...</p>
       </li>
    
       <li>
@@ -198,6 +213,7 @@
          <h2>
           <a class="post-link" href="/script-monitorizare-spatiu-disk-bash/">Script bash pentru monitorizare spatiu disk</a>
          </h2>
+	 <p class="post-excerpt">#!/bin/bash #More at https://linuxtm.ro ROOT=$(df / | grep / | awk '{ print $5}' | sed 's/%//g') DATADISK=$(df /var/www | grep / | awk '{ print $5}' | sed 's/%//g')...</p>
       </li>
    
       <li>
@@ -205,6 +221,7 @@
          <h2>
           <a class="post-link" href="/generare-parola-puternica-bash/">Script generare parola puternica bash</a>
          </h2>
+	 <p class="post-excerpt">Scriptul de mai jos genereaza parole care contin garantat: un caracter special, o litera mica, o litera mare. #!/bin/bash #More at https://linuxtm.ro # Generate password that has guaranteed 1 lowecase,...</p>
       </li>
    
       <li>
@@ -212,6 +229,7 @@
          <h2>
           <a class="post-link" href="/instalare-php7-magento2-centos7/">Instalare PHP 7.1 , 7.2 sau 7.3 pentru Magento2</a>
          </h2>
+	 <p class="post-excerpt">Scriptul de mai jos instaleaza PHP 7.1, 7.2 sau 7.3 din IUS repository cu toate extensiile de php necesare pentru Magento2. Functioneaza doar pe CentOS 7. One-Liner pentru usurinta: wget...</p>
       </li>
    
       <li>
@@ -219,6 +237,7 @@
          <h2>
           <a class="post-link" href="/docker-systemd/">Docker ca si serviciu de sistem (systemd)</a>
          </h2>
+	 <p class="post-excerpt">Exemplu de fisier systemd pentru un container docker, in care executam niste comenzi dupa ce a pornit containerul de docker. Foarte important este sleep 1 , fara adaugarea unei intarzieri...</p>
       </li>
    
       <li>
@@ -226,6 +245,7 @@
          <h2>
           <a class="post-link" href="/vhost-nginx-magento2-cdn/">Virtualhost Nginx Magento2 cu CDN</a>
          </h2>
+	 <p class="post-excerpt">Mai jos avem cele trei config-uri de nginx necesare pentru configurarea Magento 2 cu CDN. In acest exemplu folosim 2 subdomenii separate pentru media si resursele statice. Vhost domeniu principal...</p>
       </li>
    
       <li>
@@ -233,6 +253,7 @@
          <h2>
           <a class="post-link" href="/vhost-nginx-phpfpm/">Virtualhost Nginx + php-fpm</a>
          </h2>
+	 <p class="post-excerpt">Exemplu de virtual host Nginx cu php-fpm, ssl, compresie gzip si forward IP real in caz ca suntem in spatele unui proxy. De asemenea, configul contine si un exemplu de...</p>
       </li>
    
       <li>
@@ -240,6 +261,7 @@
          <h2>
           <a class="post-link" href="/vhost-nginx-magento/">Virtualhost Nginx Magento</a>
          </h2>
+	 <p class="post-excerpt">Exemplu de virtualhost Nginx pentru Magento 2. Configul de mai jos este similar cu cel dat ca si exemplu pe pagina de documentatie a Magento, deci este o varianta simplificata....</p>
       </li>
    
       <li>
@@ -247,6 +269,7 @@
          <h2>
           <a class="post-link" href="/vhost-apache/">Virtualhost Apache</a>
          </h2>
+	 <p class="post-excerpt">Exemplu virtualhost Apache cu elemente de redirect https, proxypass, https pentru wordpress cu loadbalancer si multe altele. &lt;VirtualHost *:80&gt; DocumentRoot "/var/www/html" ServerName domain.com ServerAlias www.domain.com LogLevel error ErrorLog logs/domain-error_log CustomLog...</p>
       </li>
    
       <li>
@@ -254,6 +277,7 @@
          <h2>
           <a class="post-link" href="/vhost-apache-ssl/">Virtualhost Apache SSL</a>
          </h2>
+	 <p class="post-excerpt">Exemplu elementar de virtualhost Apache cu SSL &lt;VirtualHost *:443&gt; DocumentRoot "/var/www/html/domain/" ServerName domain.com ServerAlias domain.com LogLevel error ErrorLog logs/domain-ssl-error_log CustomLog logs/domain-ssl-access_log combined SSLEngine on SSLCertificateFile "/etc/httpd/conf/cert/domain.com.crt" SSLCertificateChainFile "/etc/httpd/conf/cert/domain-bundle.crt" SSLCertificateKeyFile "/etc/httpd/conf/sslkey/domain.key"...</p>
       </li>
    
       <li>
@@ -261,6 +285,7 @@
          <h2>
           <a class="post-link" href="/nginx-proxy-mailcatcher/">Nginx proxy Mailcatcher</a>
          </h2>
+	 <p class="post-excerpt">Mailcatcher functional in spatele unui proxy de Nginx utilizand codul de mai jos. location /mailcatcher { satisfy any; allow trustedip; deny all; proxy_pass http://backendip:1080/; } location /assets { proxy_pass http://backendip:1080/assets/;...</p>
       </li>
    
       <li>
@@ -268,6 +293,7 @@
          <h2>
           <a class="post-link" href="/bash-user-input/">Bash user input</a>
          </h2>
+	 <p class="post-excerpt">#!/bin/bash #More at https://linuxtm.ro #Require user input (select 1 or 2 on keyboard) echo "Continue ?" select yn in "Yes" "No"; do case $yn in Yes ) echo "The script...</p>
       </li>
    
       <li>
@@ -275,6 +301,7 @@
          <h2>
           <a class="post-link" href="/configurare-backup-rsnapshot/">Configurare backup-uri cu rsnapshot</a>
          </h2>
+	 <p class="post-excerpt">1. Instalare dependinte yum install -y rsnapshot mailx postfix wget systemctl start postfix &amp;&amp; systemctl enable postfix wget -O /usr/local/bin/rsnapreport.pl https://raw.githubusercontent.com/rsnapshot/rsnapshot/master/utils/rsnapreport.pl &amp;&amp; chmod +x /usr/local/bin/rsnapreport.pl 2. Configurare rsnapshot.conf Nota: folositi...</p>
       </li>
    
       <li>
@@ -282,6 +309,7 @@
          <h2>
           <a class="post-link" href="/configurare-server-nfs-centos7/">Configurare server NFS pe Centos 7</a>
          </h2>
+	 <p class="post-excerpt">In acest tutorial vom crea un share NFS (Centos 7) pe care il vom monta pe 2 servere diferite. Serverul de NFS va avea IP-ul: 192.168.1.0 Clientii vor avea IP-urile:...</p>
       </li>
    
       <li>
@@ -289,6 +317,7 @@
          <h2>
           <a class="post-link" href="/verificare-memorie-proces-apache/">Verificare utilizare memorie proces Apache</a>
          </h2>
+	 <p class="post-excerpt">Pentru a optimiza Apache-ul, trebuie sa tinem cont de memoria RAM totala disponibila pe server. Astfel putem decide cata memorie vom permite Apache-ului sa folosesca - mai exact nr de...</p>
       </li>
    
       <li>
@@ -296,6 +325,7 @@
          <h2>
           <a class="post-link" href="/administrare-cluster-galera/">Administrare cluster Percona + Galera</a>
          </h2>
+	 <p class="post-excerpt">Mai jos gasiti niste comenzi utile pentru administrarea unui cluster Galera. Verificare status cluster SHOW status LIKE 'wsrep%'; Verificare optiuni configurare galera SHOW VARIABLES LIKE 'wsrep_provider_options'\G Determinare dimensiune cache file...</p>
       </li>
    
       <li>
@@ -303,6 +333,7 @@
          <h2>
           <a class="post-link" href="/googlecloud-configurare-lifecycle-bucket/">Configurare lifecycle pentru bucket-uri GoogleCloud</a>
          </h2>
+	 <p class="post-excerpt">Pentru a seta un lifecycle la bucketurile din Google Cloud, avem nevoie de un fisier json. Mai jos avem un exemplu de fisier lifecycle-daily.json care sterge fisierele mai vechi de...</p>
       </li>
    
       <li>
@@ -310,6 +341,7 @@
          <h2>
           <a class="post-link" href="/instalare-java8-centos7/">Instalare Java 8 pe Centos 7 (64biti)</a>
          </h2>
+	 <p class="post-excerpt">Se poate instala ruland comenzile de mai jos. wget --no-cookies \ --no-check-certificate \ --header "Cookie: oraclelicense=accept-securebackup-cookie" \ "http://download.oracle.com/otn-pub/java/jdk/8u73-b02/jdk-8u73-linux-x64.rpm" \ -O jdk-8u73-linux-x64.rpm Dupa ce downloadam rpm-ul, rulam: rpm -Uvh jdk-8u73-linux-x64.rpm Verificam...</p>
       </li>
    
       <li>
@@ -317,6 +349,7 @@
          <h2>
           <a class="post-link" href="/configurare-environment-ssh/">Configurare environment user ssh</a>
          </h2>
+	 <p class="post-excerpt">In cazul in care exista mai multe persoane care folosesc acelasi user, avem nevoie sa facem o distinctie intre ei. Pentru a realiza acest lucru, trebuie sa activam environmentul ssh....</p>
       </li>
    
       <li>
@@ -324,6 +357,7 @@
          <h2>
           <a class="post-link" href="/drupal-nginx-sites-not-writable/">Eroare Drupal + Nginx - sites/default/files not writable</a>
          </h2>
+	 <p class="post-excerpt">Daca folositi ca si setup Nginx+PHP-FPM, atunci e foarte probabil sa intampinati eroarea intr-o instalare de Drupal. Rezolvarea este una simpla, trebuie sa modificam userul sub care ruleaza php-fpm astfel...</p>
       </li>
    
       <li>
@@ -331,6 +365,7 @@
          <h2>
           <a class="post-link" href="/replicare-mysql-master-slave/">Configurare replicare MySQL Master-Slave</a>
          </h2>
+	 <p class="post-excerpt">Avem doua servere diferite si vrem sa configuram replicarea MySQL de tip Master-Slave. Pentru acest exemplu vom folosi: Server 1: 127.0.0.1 - il vom folosi ca si Master (serverul principal)...</p>
       </li>
    
       <li>
@@ -338,6 +373,7 @@
          <h2>
           <a class="post-link" href="/problema-autentificare-webmail-cpanel/">Problema autentificare webmail cPanel</a>
          </h2>
+	 <p class="post-excerpt">Problema se manifesta dupa cum urmeaza: dupa ce va autentificati in webmail, apare mesajul “Login successfull” si sunteti directionati spre pagina de selectare a interfetei dorite (Horde, Roundcube, etc), iar...</p>
       </li>
    
       <li>
@@ -345,6 +381,7 @@
          <h2>
           <a class="post-link" href="/script-pentru-scanare-php-uri-infectate/">Script pentru scanare php-uri infectate</a>
          </h2>
+	 <p class="post-excerpt">In ultima perioada platforma WordPress este atacata si exploatata din ce in ce mai mult prin intermediul vulnerabilitatilor diverselor theme/plugin-uri iar de cele mai multe ori exploatarea consta in compromiterea...</p>
       </li>
    
       <li>
@@ -352,6 +389,7 @@
          <h2>
           <a class="post-link" href="/adauga-automat-vhost-uri-cu-ssl/">Adauga automat vhost-uri cu SSL</a>
          </h2>
+	 <p class="post-excerpt">Daca data trecuta am prezentat un script care [adauga automat vhost-uri][1], de data asta va prezint scriptul care adauga automat vhosturi si genereaza certificat SSL self signed. Aceast script este...</p>
       </li>
    
       <li>
@@ -359,6 +397,7 @@
          <h2>
           <a class="post-link" href="/configurare-atribute-fisiere-chattr/">Configurare atribute fisiere (chattr)</a>
          </h2>
+	 <p class="post-excerpt">Comanda folosita este chattr , iar cu ajutorul acesteia putem sa adauga/scoate atributele fisierelor in Linux. Folosind chattr, putem face in fisier imuabil (neschimbator). Un fisier cu un astfel de...</p>
       </li>
    
       <li>
@@ -366,6 +405,7 @@
          <h2>
           <a class="post-link" href="/dezactivare-sunete-chromechromium-kde/">Dezactivare sunete Chrome/Chromium KDE</a>
          </h2>
+	 <p class="post-excerpt">Atunci cand apasam butonul backspace de pe tastatura in omnibox-ul din Chrome sau Chromium un sunet puternic si enervant apare, care cateodata te sperie. Pentru dezactivarea lui este nevoie sa...</p>
       </li>
    
       <li>
@@ -373,6 +413,7 @@
          <h2>
           <a class="post-link" href="/problema-autentificare-phpmyadmin-pagina-alba/">Problema autentificare phpMyAdmin &#8211; pagina alba</a>
          </h2>
+	 <p class="post-excerpt">Daca incercati sa va autentificati in phpMyAdmin si dupa introducerea detaliilor de logare va afiseaza o pagina alba, indiferent de ce faceti, puteti incerca urmatoarele: Verificati logurile tail -f /usr/local/cpanel/logs/error_log...</p>
       </li>
    
       <li>
@@ -380,6 +421,7 @@
          <h2>
           <a class="post-link" href="/gaseste-name-serverele-pentru-unul-sau-mai-multe-domenii/">Gaseste name serverele pentru unul sau mai multe domenii</a>
          </h2>
+	 <p class="post-excerpt">In acest articol veti gasi un script care automatizeaza gasirea serverelor NS pentru unul sau mai multe domenii. Output-ul este exportat intr-un fisier de forma output.PID ( ex: output.3242 )....</p>
       </li>
    
       <li>
@@ -387,6 +429,7 @@
          <h2>
           <a class="post-link" href="/eroare-conectare-ssh-could-not-load-host-key-etcsshssh_host_rsa_key/">Eroare conectare SSH: Could not load host key: /etc/ssh/ssh_host_rsa_key</a>
          </h2>
+	 <p class="post-excerpt">In /var/log/auth.log , observam urmatoarea eroare: error: Could not load host key: /etc/ssh/ssh_host_rsa_key error: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ error: @ WARNING: UNPROTECTED PRIVATE KEY FILE! @ error: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ error: Permissions 0777 for ‘/etc/ssh/ssh_host_dsa_key’...</p>
       </li>
    
       <li>
@@ -394,6 +437,7 @@
          <h2>
           <a class="post-link" href="/inlocuire-string-din-phpmyadmin/">Inlocuire string din phpmyadmin</a>
          </h2>
+	 <p class="post-excerpt">Presupunem ca avem un site facut in wordpress si vrem sa inlocuim in baza de date un sir de cuvinte (numele autorului de exemplu) cu un altul. Aceasta operatiune se...</p>
       </li>
    
       <li>
@@ -401,6 +445,7 @@
          <h2>
           <a class="post-link" href="/error-from-sql-query-42000-cant-find-any-matching-row-in-the-user-table/">Error from sql query: #42000: Can’t find any matching row in the user table</a>
          </h2>
+	 <p class="post-excerpt">Eroarea poate sa apara fie in loguri, fie in cPanel/WHM cand incercati sa accesati phpMyAdmin, sau cand incercati sa creati un user sau o baza de date noua in cPanel....</p>
       </li>
    
       <li>
@@ -408,6 +453,7 @@
          <h2>
           <a class="post-link" href="/stergere-din-loguri-a-cronpid-pam_unixcronsession/">Stergere din loguri a CRON[PID]: pam_unix(cron:session)</a>
          </h2>
+	 <p class="post-excerpt">Daca si pe voi va “deranjeaza” astfel de mesaje in log, ati nimerit bine: Dec 17 08:11:01 backup CRON[17586]: pam_unix(cron:session): session opened for user root by (uid=0) Dec 17 08:11:01...</p>
       </li>
    
       <li>
@@ -415,6 +461,7 @@
          <h2>
           <a class="post-link" href="/activare-tuntap-in-openvz/">Activare TUN/TAP in OpenVZ</a>
          </h2>
+	 <p class="post-excerpt">OpenVZ suporta VPN-uri intr-un container (VPS) prin intermediul TUN/TAP. In exemplul de fata, activam TUN/TAP pentru VPS-ul cu id-ul 101. 101 - ID-ul VPS-ului. Inlocuiti 101 cu CTID-ul VPS-ului. Ne...</p>
       </li>
    
       <li>
@@ -422,6 +469,7 @@
          <h2>
           <a class="post-link" href="/cpanel-alocare-ip-dedicat-pe-subdomeniu-instalare-ssl/">cPanel: Alocare IP dedicat pe subdomeniu + Instalare SSL</a>
          </h2>
+	 <p class="post-excerpt">Chiar daca interfata WHM nu permite alocarea unui IP dedicat subdomeniilor, se poate face. Motivul principal pentru care s-ar putea sa vreti sa alocati un IP dedicat unui subdomeniu este...</p>
       </li>
    
       <li>
@@ -429,6 +477,7 @@
          <h2>
           <a class="post-link" href="/rezolvare-problema-chei-ssh_host_rsa-si-dsa/">Rezolvare problema chei ssh_host_rsa si dsa</a>
          </h2>
+	 <p class="post-excerpt">Daca din ceva motiv va lipsesc cheile ssh_host_dsa_key si ssh_host_rsa_key , mai jos aveti comenzile pe care trebuie sa le rulati pentru a reface cheile. Eroarea primita: root@root:/# /etc/init.d/ssh restart...</p>
       </li>
    
       <li>
@@ -436,6 +485,7 @@
          <h2>
           <a class="post-link" href="/porturi-importante-in-linux/">Porturi importante in Linux</a>
          </h2>
+	 <p class="post-excerpt">Porturile enumerate mai jos sunt porturi bine cunoscute in serverele Linux folosite de diverse aplicatii si servicii. Port 21 –&gt; TCP –&gt; FTP (File Transfer Protocol) Port 22 –&gt; TCP/UDP...</p>
       </li>
    
       <li>
@@ -443,6 +493,7 @@
          <h2>
           <a class="post-link" href="/rsyslog-foloseste-tot-procesorul/">Rsyslog foloseste tot procesorul</a>
          </h2>
+	 <p class="post-excerpt">In cazul in care rsyslog foloseste mult procesor (100% sau mai mult) in OpenVZ, trebuie comentata linia de mai jos pentru ca, kernelul vps-urilor nu ruleaza in interiorul acestora iar...</p>
       </li>
    
       <li>
@@ -450,6 +501,7 @@
          <h2>
           <a class="post-link" href="/administrare-clienti-de-mail/">Administrare clienti de mail</a>
          </h2>
+	 <p class="post-excerpt">Exim exim -bpc afiseaza numarul de mesaje din coada (queue) exim -bp afiseaza o lista cu mesajele din coada exim -Mvl id afiseaza log-ul pentru un anumit mail (mail id)...</p>
       </li>
    
       <li>
@@ -457,6 +509,7 @@
          <h2>
           <a class="post-link" href="/cum-stergem-un-numar-mare-de-mail-uri-din-queue-exim/">Cum stergem un numar mare de mail-uri din queue (exim) ?</a>
          </h2>
+	 <p class="post-excerpt">In cazul in care vorbim de zeci, sute de mii de mail-uri (sau mai multe), metodele traditionale pentru curatarea mesajelor din queue tind sa nu functioneze tocmai bine. Fie ca...</p>
       </li>
    
       <li>
@@ -464,6 +517,7 @@
          <h2>
           <a class="post-link" href="/cum-aflam-ce-versiune-de-linux-avem/">Cum aflam ce versiune de Linux avem ?</a>
          </h2>
+	 <p class="post-excerpt">Pentru a afla ce versiune (distributie) de Linux folosim, rulam urmatoarea comanda: cat /etc/*release Comanda lsb_release Aceasta comanda afiseaza anumite LSB-uri (Linux Standard Base) si informatii legate strict de distributia...</p>
       </li>
    
       <li>
@@ -471,6 +525,7 @@
          <h2>
           <a class="post-link" href="/cum-arhivam-un-director-in-linux/">Cum arhivam un director in Linux ?</a>
          </h2>
+	 <p class="post-excerpt">Este destul de usor si folositor pentru a face backup unor fisiere, pentru a le trimite pe mail si asa mai departe. Pentru a arhiva un director, trebuie sa folosim...</p>
       </li>
    
       <li>
@@ -478,6 +533,7 @@
          <h2>
           <a class="post-link" href="/ssh-nu-porneste/">SSH nu porneste</a>
          </h2>
+	 <p class="post-excerpt">/etc/init.d/ssh start Error: Starting OpenBSD Secure Shell server: sshd/var/run/sshd must be owned by root and not group or world-writable. Eroarea de mai sus inseamna ca au fost modificate permisiunile pentru...</p>
       </li>
    
       <li>
@@ -485,6 +541,7 @@
          <h2>
           <a class="post-link" href="/php-nu-se-conecteaza-la-mysql/">PHP nu se conecteaza la MySQL</a>
          </h2>
+	 <p class="post-excerpt">Daca ati instalat web serverul Apache si aveti MySQL-ul configurat, totul functioneaza normal mai putin faptul ca nu va puteti conecta la la o baza de date MySQL (desi va...</p>
       </li>
    
       <li>
@@ -492,6 +549,7 @@
          <h2>
           <a class="post-link" href="/cum-setam-un-serviciu-sa-porneasca-la-boot-debian-centos-redhat/">Cum setam un serviciu sa porneasca la boot ? Debian, CentOS, RedHat</a>
          </h2>
+	 <p class="post-excerpt">Pentru distributii bazate pe Debian, se ruleaza urmatoarea comanda ca si root: update-rc.d nume_serviciu defaults Pentru CentOS si RedHat se ruleaza ca si root: chkconfig nume_serviciu on Daca pe CentOS...</p>
       </li>
    
       <li>
@@ -499,6 +557,7 @@
          <h2>
           <a class="post-link" href="/dezactivare-temporara-bash_history/">Dezactivare temporara .bash_history</a>
          </h2>
+	 <p class="post-excerpt">Sa zicem ca aveti de introdus niste parole in linia de comanda ca si argument la ceva. Nu e tocmai cea mai buna idee sa ramana salvate in ~/.bash_history dar...</p>
       </li>
    
       <li>
@@ -506,6 +565,7 @@
          <h2>
           <a class="post-link" href="/verificare-bash_history/">Verificare .bash_history</a>
          </h2>
+	 <p class="post-excerpt">Pentru afisearea istoricului comenzilor se ruleaza: history Output-ul fiind afisat sub forma: 245 ls 246 cd public_html/ 247 ls 248 nano /etc/httpd/conf/httpd.conf 249 ls O alta varianta (se poate rula...</p>
       </li>
    
       <li>
@@ -513,6 +573,7 @@
          <h2>
           <a class="post-link" href="/termeni/">Termeni si conditii</a>
          </h2>
+	 <p class="post-excerpt">Acest site are ca scop informarea suplimentara fata de documentatia standard Linux si nu inlocuirea acesteia. Utilizarea informatiei prezenta pe linuxtm.ro - utilizarea informatiei este libera, gratuita si se afla...</p>
       </li>
    
   </ul>

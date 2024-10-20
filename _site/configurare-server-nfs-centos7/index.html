@@ -93,77 +93,66 @@ Clientii vor avea IP-urile: 192.168.1.1 si 192.168.1.2</p>
 
 <p>Incepem cu instalarea nfs-utils:</p>
 
-<pre>
-yum install nfs-utils
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nb">install </span>nfs-utils
+</code></pre></div></div>
 
 <p>Facem un director pe care il vom exporta pe clienti:</p>
-<pre>
-mkdir /nfsshare
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> /nfsshare
+</code></pre></div></div>
 
 <p>Pornim serviciile si le configuram sa porneasca la boot:</p>
-<pre>
-systemctl enable rpcbind \
-systemctl enable nfs-server \
-systemctl enable nfs-lock \
-systemctl enable nfs-idmap \
-systemctl start rpcbind \
-systemctl start nfs-server \
-systemctl start nfs-lock \
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl <span class="nb">enable </span>rpcbind <span class="se">\</span>
+systemctl <span class="nb">enable </span>nfs-server <span class="se">\</span>
+systemctl <span class="nb">enable </span>nfs-lock <span class="se">\</span>
+systemctl <span class="nb">enable </span>nfs-idmap <span class="se">\</span>
+systemctl start rpcbind <span class="se">\</span>
+systemctl start nfs-server <span class="se">\</span>
+systemctl start nfs-lock <span class="se">\</span>
 systemctl start nfs-idmap
-</pre>
+</code></pre></div></div>
 
 <p>In continuare expunem in retea folderul NFS. Cu editorul preferat, deschidem <em>/etc/exports</em> si adaugam dupa cum urmeaza:</p>
 
-<pre>
-/storage 192.168.1.1(rw,insecure,nohide,no_root_squash,sync) 192.168.1.2(rw,insecure,nohide,no_root_squash,sync)
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/storage 192.168.1.1<span class="o">(</span>rw,insecure,nohide,no_root_squash,sync<span class="o">)</span> 192.168.1.2<span class="o">(</span>rw,insecure,nohide,no_root_squash,sync<span class="o">)</span>
+</code></pre></div></div>
 
 <p>Mai sus am expus serverul NFS catre cei 2 clienti (192.168.1.1 si 192.168.1.2). 
 Pentru ca share-ul sa functioneze, asigurati-va ca serverele sunt accesibile intre ele (ping).
 Daca doriti sa expuneti serverul de NFS in retea spre orice IP, se poate folosi: “*”</p>
 
 <p>In continuare, pornim serviciul NFS:</p>
-<pre>
-systemctl restart nfs-server 
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart nfs-server 
+</code></pre></div></div>
 
 <p><strong>2. Instalarea pe client </strong></p>
 
 <p>Instalam nfs-utils:</p>
-<pre>
-yum install nfs-utils
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nb">install </span>nfs-utils
+</code></pre></div></div>
 
 <p>Creem directorul unde vom monta NFS-ul:</p>
-<pre>
-mkdir /nfsshare
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> /nfsshare
+</code></pre></div></div>
 
 <p>Pornim serviciile si le configuram sa porneasca la boot:</p>
-<pre>
-systemctl enable rpcbind \
-systemctl enable nfs-server \
-systemctl enable nfs-lock \
-systemctl enable nfs-idmap \
-systemctl start rpcbind \
-systemctl start nfs-server \
-systemctl start nfs-lock \
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl <span class="nb">enable </span>rpcbind <span class="se">\</span>
+systemctl <span class="nb">enable </span>nfs-server <span class="se">\</span>
+systemctl <span class="nb">enable </span>nfs-lock <span class="se">\</span>
+systemctl <span class="nb">enable </span>nfs-idmap <span class="se">\</span>
+systemctl start rpcbind <span class="se">\</span>
+systemctl start nfs-server <span class="se">\</span>
+systemctl start nfs-lock <span class="se">\</span>
 systemctl start nfs-idmap
-</pre>
+</code></pre></div></div>
 
 <p>In continuare montam NFS-ul pe clienti:</p>
-<pre>
-mount -t nfs 192.168.1.0:/nfsshare /nfsshare
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mount <span class="nt">-t</span> nfs 192.168.1.0:/nfsshare /nfsshare
+</code></pre></div></div>
 
 <p>Acum ar trebui sa avem un server de NFS functional, montat pe clienti.
 Verificare o putem face ruland comanda:</p>
-<pre>
-df -h
-</pre>
-
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">df</span> <span class="nt">-h</span>
+</code></pre></div></div>
 
   </article>
 

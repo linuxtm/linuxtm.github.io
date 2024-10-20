@@ -87,87 +87,86 @@
   <article class="post-content">
     <p>Exemplu de virtualhost Nginx pentru Magento 2. Configul de mai jos este similar cu cel dat ca si exemplu pe pagina de documentatie a Magento, deci este o varianta simplificata.</p>
 
-<pre>
-server {
-    listen 80;
-    server_name DOMAIN.com;
-    rewrite / $scheme://www.$host$request_uri permanent; ## Forcibly prepend a www
-}
+<div class="language-nginx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">DOMAIN.com</span><span class="p">;</span>
+    <span class="kn">rewrite</span> <span class="n">/</span> <span class="nv">$scheme</span><span class="p">:</span><span class="n">//www.</span><span class="nv">$host$request_uri</span> <span class="s">permanent</span><span class="p">;</span> <span class="c1">## Forcibly prepend a www</span>
+<span class="p">}</span>
   
-server {
-    listen 80 default;
-## SSL directives might go here
-    server_name www.DOMAIN.com *.DOMAIN.com; ## Domain is here twice so server_name_in_redirect will favour the www
-    root /var/www/vhosts/DOMAIN.com;
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="mi">80</span> <span class="s">default</span><span class="p">;</span>
+<span class="c1">## SSL directives might go here</span>
+    <span class="kn">server_name</span> <span class="s">www.DOMAIN.com</span> <span class="s">*.DOMAIN.com</span><span class="p">;</span> <span class="c1">## Domain is here twice so server_name_in_redirect will favour the www</span>
+    <span class="kn">root</span> <span class="n">/var/www/vhosts/DOMAIN.com</span><span class="p">;</span>
   
-    location / {
-        index index.html index.php; ## Allow a static html file to be shown first
-        try_files $uri $uri/ @handler; ## If missing pass the URI to Magento's front handler
-        expires 30d; ## Assume all files are cachable
-    }
+    <span class="kn">location</span> <span class="n">/</span> <span class="p">{</span>
+        <span class="kn">index</span> <span class="s">index.html</span> <span class="s">index.php</span><span class="p">;</span> <span class="c1">## Allow a static html file to be shown first</span>
+        <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri</span><span class="n">/</span> <span class="s">@handler</span><span class="p">;</span> <span class="c1">## If missing pass the URI to Magento's front handler</span>
+        <span class="kn">expires</span> <span class="s">30d</span><span class="p">;</span> <span class="c1">## Assume all files are cachable</span>
+    <span class="p">}</span>
   
-    ## These locations would be hidden by .htaccess normally
-    location ^~ /app/                { deny all; }
-    location ^~ /includes/           { deny all; }
-    location ^~ /lib/                { deny all; }
-    location ^~ /media/downloadable/ { deny all; }
-    location ^~ /pkginfo/            { deny all; }
-    location ^~ /report/config.xml   { deny all; }
-    location ^~ /var/                { deny all; }
+    <span class="c1">## These locations would be hidden by .htaccess normally</span>
+    <span class="kn">location</span> <span class="s">^~</span> <span class="n">/app/</span>                <span class="p">{</span> <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kn">location</span> <span class="s">^~</span> <span class="n">/includes/</span>           <span class="p">{</span> <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kn">location</span> <span class="s">^~</span> <span class="n">/lib/</span>                <span class="p">{</span> <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kn">location</span> <span class="s">^~</span> <span class="n">/media/downloadable/</span> <span class="p">{</span> <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kn">location</span> <span class="s">^~</span> <span class="n">/pkginfo/</span>            <span class="p">{</span> <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kn">location</span> <span class="s">^~</span> <span class="n">/report/config.xml</span>   <span class="p">{</span> <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kn">location</span> <span class="s">^~</span> <span class="n">/var/</span>                <span class="p">{</span> <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span> <span class="p">}</span>
   
-    location /var/export/ { ## Allow admins only to view export folder
-        auth_basic           "Restricted"; ## Message shown in login window
-        auth_basic_user_file htpasswd; ## See /etc/nginx/htpassword
-        autoindex            on;
-    }
+    <span class="kn">location</span> <span class="n">/var/export/</span> <span class="p">{</span> <span class="c1">## Allow admins only to view export folder</span>
+        <span class="kn">auth_basic</span>           <span class="s">"Restricted"</span><span class="p">;</span> <span class="c1">## Message shown in login window</span>
+        <span class="kn">auth_basic_user_file</span> <span class="s">htpasswd</span><span class="p">;</span> <span class="c1">## See /etc/nginx/htpassword</span>
+        <span class="kn">autoindex</span>            <span class="no">on</span><span class="p">;</span>
+    <span class="p">}</span>
   
-    location  /. { ## Disable .htaccess and other hidden files
-        return 404;
-    }
+    <span class="kn">location</span>  <span class="n">/.</span> <span class="p">{</span> <span class="c1">## Disable .htaccess and other hidden files</span>
+        <span class="kn">return</span> <span class="mi">404</span><span class="p">;</span>
+    <span class="p">}</span>
   
-    location @handler { ## Magento uses a common front handler
-        rewrite / /index.php;
-    }
+    <span class="kn">location</span> <span class="s">@handler</span> <span class="p">{</span> <span class="c1">## Magento uses a common front handler</span>
+        <span class="kn">rewrite</span> <span class="n">/</span> <span class="n">/index.php</span><span class="p">;</span>
+    <span class="p">}</span>
   
-    location ~ .php/ { ## Forward paths like /js/index.php/x.js to relevant handler
-        rewrite ^(.*.php)/ $1 last;
-    }
+    <span class="kn">location</span> <span class="p">~</span> <span class="sr">.php/</span> <span class="p">{</span> <span class="c1">## Forward paths like /js/index.php/x.js to relevant handler</span>
+        <span class="kn">rewrite</span> <span class="s">^(.*.php)/</span> <span class="nv">$1</span> <span class="s">last</span><span class="p">;</span>
+    <span class="p">}</span>
   
-    location ~ .php$ { ## Execute PHP scripts
-        if (!-e $request_filename) { rewrite / /index.php last; } ## Catch 404s that try_files miss
+    <span class="kn">location</span> <span class="p">~</span> <span class="sr">.php$</span> <span class="p">{</span> <span class="c1">## Execute PHP scripts</span>
+        <span class="kn">if</span> <span class="s">(!-e</span> <span class="nv">$request_filename</span><span class="s">)</span> <span class="p">{</span> <span class="kn">rewrite</span> <span class="n">/</span> <span class="n">/index.php</span> <span class="s">last</span><span class="p">;</span> <span class="p">}</span> <span class="c1">## Catch 404s that try_files miss</span>
   
-        expires        off; ## Do not cache dynamic content
-        fastcgi_pass   127.0.0.1:9000;
-        fastcgi_param  HTTPS $fastcgi_https;
-        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-        fastcgi_param  MAGE_RUN_CODE default; ## Store code is defined in administration &gt; Configuration &gt; Manage Stores
-        fastcgi_param  MAGE_RUN_TYPE store;
-        include        fastcgi_params; ## See /etc/nginx/fastcgi_params
-    }
-}
+        <span class="kn">expires</span>        <span class="no">off</span><span class="p">;</span> <span class="c1">## Do not cache dynamic content</span>
+        <span class="kn">fastcgi_pass</span>   <span class="nf">127.0.0.1</span><span class="p">:</span><span class="mi">9000</span><span class="p">;</span>
+        <span class="kn">fastcgi_param</span>  <span class="s">HTTPS</span> <span class="nv">$fastcgi_https</span><span class="p">;</span>
+        <span class="kn">fastcgi_param</span>  <span class="s">SCRIPT_FILENAME</span>  <span class="nv">$document_root$fastcgi_script_name</span><span class="p">;</span>
+        <span class="kn">fastcgi_param</span>  <span class="s">MAGE_RUN_CODE</span> <span class="s">default</span><span class="p">;</span> <span class="c1">## Store code is defined in administration &gt; Configuration &gt; Manage Stores</span>
+        <span class="kn">fastcgi_param</span>  <span class="s">MAGE_RUN_TYPE</span> <span class="s">store</span><span class="p">;</span>
+        <span class="kn">include</span>        <span class="s">fastcgi_params</span><span class="p">;</span> <span class="c1">## See /etc/nginx/fastcgi_params</span>
+    <span class="p">}</span>
+<span class="p">}</span>
  
 
-    location ~ .php/ { ## Forward paths like /js/index.php/x.js to relevant handler
+    <span class="k">location</span> <span class="p">~</span> <span class="sr">.php/</span> <span class="p">{</span> <span class="c1">## Forward paths like /js/index.php/x.js to relevant handler</span>
  
-        rewrite ^(.*.php)/ $1 last;
+        <span class="kn">rewrite</span> <span class="s">^(.*.php)/</span> <span class="nv">$1</span> <span class="s">last</span><span class="p">;</span>
  
-    }
+    <span class="p">}</span>
  
   
-    location ~ .php$ { ## Execute PHP scripts
-        if (!-e $request_filename) { rewrite / /index.php last; } ## Catch 404s that try_files miss
-        expires        off; ## Do not cache dynamic content
-        fastcgi_pass   127.0.0.1:9000;
-        fastcgi_param  HTTPS $fastcgi_https;
-        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-        fastcgi_param  MAGE_RUN_CODE default; ## Store code is defined in administration &gt; Configuration &gt; Manage Stores
-        fastcgi_param  MAGE_RUN_TYPE store;
-        include        fastcgi_params; ## See /etc/nginx/fastcgi_params
+    <span class="k">location</span> <span class="p">~</span> <span class="sr">.php$</span> <span class="p">{</span> <span class="c1">## Execute PHP scripts</span>
+        <span class="kn">if</span> <span class="s">(!-e</span> <span class="nv">$request_filename</span><span class="s">)</span> <span class="p">{</span> <span class="kn">rewrite</span> <span class="n">/</span> <span class="n">/index.php</span> <span class="s">last</span><span class="p">;</span> <span class="p">}</span> <span class="c1">## Catch 404s that try_files miss</span>
+        <span class="kn">expires</span>        <span class="no">off</span><span class="p">;</span> <span class="c1">## Do not cache dynamic content</span>
+        <span class="kn">fastcgi_pass</span>   <span class="nf">127.0.0.1</span><span class="p">:</span><span class="mi">9000</span><span class="p">;</span>
+        <span class="kn">fastcgi_param</span>  <span class="s">HTTPS</span> <span class="nv">$fastcgi_https</span><span class="p">;</span>
+        <span class="kn">fastcgi_param</span>  <span class="s">SCRIPT_FILENAME</span>  <span class="nv">$document_root$fastcgi_script_name</span><span class="p">;</span>
+        <span class="kn">fastcgi_param</span>  <span class="s">MAGE_RUN_CODE</span> <span class="s">default</span><span class="p">;</span> <span class="c1">## Store code is defined in administration &gt; Configuration &gt; Manage Stores</span>
+        <span class="kn">fastcgi_param</span>  <span class="s">MAGE_RUN_TYPE</span> <span class="s">store</span><span class="p">;</span>
+        <span class="kn">include</span>        <span class="s">fastcgi_params</span><span class="p">;</span> <span class="c1">## See /etc/nginx/fastcgi_params</span>
  
-    }
+    <span class="p">}</span>
  
-}
-</pre>
+<span class="err">}</span>
+</code></pre></div></div>
 
   </article>
 

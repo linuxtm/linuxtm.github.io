@@ -89,19 +89,19 @@
 
 <p><em>/var/log/syslog</em> va arata ceva de genul:</p>
 
-<pre>Sep 16 21:47:38 server kernel: Cannot read proc file system: 1 - Operation not permitted.
+<p><em>Sep 16 21:47:38 server kernel: Cannot read proc file system: 1 - Operation not permitted.
 Sep 16 21:48:08 server kernel: last message repeated 6125550 times
 Sep 16 21:49:08 server kernel: last message repeated 13230238 times
-Sep 16 21:50:08 server kernel: last message repeated 11995373 times
-</pre>
+Sep 16 21:50:08 server kernel: last message repeated 11995373 times</em></p>
 
 <p>Pentru a rezolva problema trebuie comentata urmatoarea linie in /etc/rsyslogd.conf</p>
 
-<pre>$ModLoad imklog   # provides kernel logging support (previously done by rklogd)</pre>
-
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ModLoad</span> imklog   <span class="c"># provides kernel logging support (previously done by rklogd)</span>
+</code></pre></div></div>
 <p>Comentata:</p>
 
-<pre>#$ModLoad imklog   # provides kernel logging support (previously done by rklogd)</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#$ModLoad imklog   # provides kernel logging support (previously done by rklogd)</span>
+</code></pre></div></div>
 
   </article>
 

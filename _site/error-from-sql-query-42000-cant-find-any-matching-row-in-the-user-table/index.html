@@ -87,11 +87,13 @@
   <article class="post-content">
     <p>Eroarea poate sa apara fie in loguri, fie in cPanel/WHM cand incercati sa accesati phpMyAdmin, sau cand incercati sa creati un user sau o baza de date noua in cPanel. Eroarea se poate rezolva prin eliminarea liniei urmatoare din <strong><em>/etc/my.cnf</em></strong> :</p>
 
-<pre>skip-name-resolve</pre>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">skip</span><span class="o">-</span><span class="n">name</span><span class="o">-</span><span class="n">resolve</span>
+</code></pre></div></div>
 
 <p>Daca nu se rezolva, adaugati urmatoarea linie:</p>
 
-<pre>skip-networking</pre>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">skip</span><span class="o">-</span><span class="n">networking</span>
+</code></pre></div></div>
 
   </article>
 

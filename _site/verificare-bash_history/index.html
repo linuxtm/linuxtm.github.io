@@ -87,7 +87,8 @@
   <article class="post-content">
     <p>Pentru afisearea istoricului comenzilor se ruleaza:</p>
 
-<pre>history</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">history</span>
+</code></pre></div></div>
 
 <p>Output-ul fiind afisat sub forma:</p>
 
@@ -99,15 +100,18 @@
 
 <p>O alta varianta (se poate rula din orice director) ar fi:</p>
 
-<pre>cat /root/.bash_history</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /root/.bash_history
+</code></pre></div></div>
 
 <p>Pentru afisarea mai multor comenzi se ruleaza:</p>
 
-<pre>more /root/.bash_history</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>more /root/.bash_history
+</code></pre></div></div>
 
 <p>Pentru a gasi o comanda anume printre comenzilie rulate anterior, trebuie facut un pipe la history prin grep:</p>
 
-<pre>history | grep -i primele litere din comanda</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">history</span> | <span class="nb">grep</span> <span class="nt">-i</span> primele litere din comanda
+</code></pre></div></div>
 
 <p>Pentru detalii suplimentare vezi comanda history <a href="http://linuxtm.ro/history/">aici.</a></p>
 

@@ -92,9 +92,11 @@ Starting OpenBSD Secure Shell server: sshd/var/run/sshd must be owned by root an
 <p>Eroarea de mai sus inseamna ca au fost modificate permisiunile pentru /var/run/sshd , deci SSH nu functioneaza.<br />
 Se poate rezolva ruland cele doua comenzi de mai jos:</p>
 
-<pre>rm -rf /var/run/sshd</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rm</span> <span class="nt">-rf</span> /var/run/sshd
+</code></pre></div></div>
 
-<pre>invoke-rc.d ssh restart</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>invoke-rc.d ssh restart
+</code></pre></div></div>
 
   </article>
 

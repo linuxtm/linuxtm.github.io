@@ -91,33 +91,32 @@
 
 <p>Inca un aspect important este modul in care executam <em>docker exec</em>. In mod normal adaugam “-it” la docker exec (interactiv + alocare de tty), insa aici nu este cazul. Alocarea de tty nu este posibila si nici interactivitatea, motiv pentru care executam simplu: <b>docker exec</b></p>
 
-<pre>
-[Unit]
-Description=Php-Fpm 7.2 Docker Container
-Requires=docker.service
-After=docker.service
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>Unit]
+<span class="nv">Description</span><span class="o">=</span>Php-Fpm 7.2 Docker Container
+<span class="nv">Requires</span><span class="o">=</span>docker.service
+<span class="nv">After</span><span class="o">=</span>docker.service
  
-[Service]
-Restart=always
-ExecStart=/usr/bin/bash -c \
-        '/usr/bin/docker run -h="domain.com" \
+<span class="o">[</span>Service]
+<span class="nv">Restart</span><span class="o">=</span>always
+<span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/bash <span class="nt">-c</span> <span class="se">\</span>
+        <span class="s1">'/usr/bin/docker run -h="domain.com" \
         -u="www-data" -p 9000:9000 \
         -w "/var/www/domain.com/html" \
         -v /var/www:/var/www \
         -v /etc/phpconfig/php72/php.ini:/usr/local/etc/php/php.ini \
         --name domain.com \
         --log-driver=none --memory="2g" \
-        php:7.2.13 &gt;&gt; /var/log/domain.com-phpfpm.log 2&gt;&amp;1'
+        php:7.2.13 &gt;&gt; /var/log/domain.com-phpfpm.log 2&gt;&amp;1'</span>
  
-ExecStartPost=/bin/bash -c '/usr/bin/sleep 1 &amp;&amp; /usr/bin/docker exec -u root domain.com usermod -u 1000 www-data &amp;&amp; \
+<span class="nv">ExecStartPost</span><span class="o">=</span>/bin/bash <span class="nt">-c</span> <span class="s1">'/usr/bin/sleep 1 &amp;&amp; /usr/bin/docker exec -u root domain.com usermod -u 1000 www-data &amp;&amp; \
         /usr/bin/docker exec -u root domain.com usermod -G 100 www-data &amp;&amp; \
-        /usr/bin/docker exec domain.com rm -rf /var/www/domain.com/html/var/composer_home &amp;&amp; ln -snf /var/www/.composer /var/www/domain.com/html/var/composer_home'
+        /usr/bin/docker exec domain.com rm -rf /var/www/domain.com/html/var/composer_home &amp;&amp; ln -snf /var/www/.composer /var/www/domain.com/html/var/composer_home'</span>
  
-ExecStopPost=/usr/bin/docker rm -f domain.com
+<span class="nv">ExecStopPost</span><span class="o">=</span>/usr/bin/docker <span class="nb">rm</span> <span class="nt">-f</span> domain.com
  
-[Install]
-WantedBy=default.target
-</pre>
+<span class="o">[</span>Install]
+<span class="nv">WantedBy</span><span class="o">=</span>default.target
+</code></pre></div></div>
 
 <p><strong>Pont pentru fisier systemd:</strong></p>
 
@@ -126,9 +125,8 @@ WantedBy=default.target
 <p>Acest lucru este util pentru debug, in scenariul de fata containerul va ramane pornit chiar daca la ExecStartPost avem definita a comanda care a intors un raspuns diferit de zero.</p>
 
 <p>De exemplu:</p>
-<pre>
-ExecStartPost=-/usr/bin/sleep 1
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">ExecStartPost</span><span class="o">=</span>-/usr/bin/sleep 1
+</code></pre></div></div>
 
   </article>
 

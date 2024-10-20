@@ -88,21 +88,21 @@
     <p>Pentru a seta un lifecycle la bucketurile din Google Cloud, avem nevoie de un fisier json.</p>
 
 <p>Mai jos avem un exemplu de fisier lifecycle-daily.json care sterge fisierele mai vechi de 7 zile</p>
-<pre>
-{
-"lifecycle": {
-"rule":
-[
-{
-"action": {"type": "Delete"},
-"condition": {"age": 7}
-}
-]
-}
-</pre>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"lifecycle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"rule"</span><span class="p">:</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delete"</span><span class="p">},</span><span class="w">
+      </span><span class="nl">"condition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nl">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Dupa ce am creat fisierul, rulam comanda:</p>
-<pre>gsutil lifecycle set lifecycle-daily.json gs://bdaily</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gsutil lifecycle <span class="nb">set </span>lifecycle-daily.json gs://bdaily
+</code></pre></div></div>
 
   </article>
 

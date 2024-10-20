@@ -97,57 +97,69 @@ Debian/Ubuntu: <em>sudo apt-get install -y mysql mysql-client</em></p>
 <p><strong>CONFIGURARE MASTER</strong><br />
 Incepem cu adaugarea urmatoarelor linii in <em>/etc/my.cnf</em> <br />
 <strong>Important: Aveti grija ca liniile introduse in config sa fie sub [mysql] sau [mysqld], si nu sub [mysql_safe]</strong></p>
-<pre>
-#Replication
-log-bin = /var/lib/mysql/mysql-bin
-server-id = 1
-sync-binlog = 1
-binlog-format = mixed
-relay-log = mysqld-relay-bin
-</pre>
+
+<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Replication
+</span><span class="n">log</span>-<span class="n">bin</span> = /<span class="n">var</span>/<span class="n">lib</span>/<span class="n">mysql</span>/<span class="n">mysql</span>-<span class="n">bin</span>
+<span class="n">server</span>-<span class="n">id</span> = <span class="m">1</span>
+<span class="n">sync</span>-<span class="n">binlog</span> = <span class="m">1</span>
+<span class="n">binlog</span>-<span class="n">format</span> = <span class="n">mixed</span>
+<span class="n">relay</span>-<span class="n">log</span> = <span class="n">mysqld</span>-<span class="n">relay</span>-<span class="n">bin</span>
+</code></pre></div></div>
 
 <p>In prima faza creem baza de date si importam din backup daca e cazul:</p>
-<pre>CREATE DATABASE linuxtmdb; </pre>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">linuxtmdb</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p>Daca e cazul, importam baza de date ruland:</p>
-<pre>mysql -u root linuxtmdb &lt; linuxtmdb.sql</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql <span class="nt">-u</span> root linuxtmdb &lt; linuxtmdb.sql
+</code></pre></div></div>
 
 <p>Facem utilizatorul pe care il vom utiliza la replicare si actualizam:</p>
-<pre>GRANT REPLICATION SLAVE ON *.* TO 'replication'@'127.0.0.2' IDENTIFIED BY 'parola';</pre>
-<pre>FLUSH PRIVILEGES;</pre>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">GRANT</span> <span class="n">REPLICATION</span> <span class="n">SLAVE</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'replication'</span><span class="o">@</span><span class="s1">'127.0.0.2'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'parola'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p>Selectam baza de date si o blocam:</p>
-<pre>USE linuxtmdb;</pre>
-<pre>FLUSH TABLES WITH READ LOCK;</pre>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">USE</span> <span class="n">linuxtmdb</span><span class="p">;</span>
+<span class="n">FLUSH</span> <span class="n">TABLES</span> <span class="k">WITH</span> <span class="k">READ</span> <span class="k">LOCK</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p>Verificam statusul master-ului (ne va folosi mai incolo):</p>
-<pre>SHOW MASTER STATUS;</pre>
-
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SHOW</span> <span class="n">MASTER</span> <span class="n">STATUS</span><span class="p">;</span>
+</code></pre></div></div>
 <p>Facem dump la baza de date (aveti grija sa iesiti din mysql (exit sau Ctrl+C) si apoi rulati comanda de mai jos):</p>
-<pre>mysqldump -u root --opt linuxtmdb &gt; iulianwp.sql</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqldump <span class="nt">-u</span> root <span class="nt">--opt</span> linuxtmdb <span class="o">&gt;</span> iulianwp.sql
+</code></pre></div></div>
 
 <p>Intram inapoi in MySQL si deblocam baza de date:</p>
-<pre>USE linuxtmdb;</pre>
-<pre>UNLOCK TABLES;</pre>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">USE</span> <span class="n">linuxtmdb</span><span class="p">;</span>
+<span class="n">UNLOCK</span> <span class="n">TABLES</span><span class="p">;</span>
+</code></pre></div></div>
 <p>Acum configurarea master-ului este completa. In continuare ne mutam pe celalalt server si configuram slave-ul.</p>
 
 <p><strong>CONFIGURARE SLAVE</strong></p>
 
 <p>Verificam in <em>/etc/my.cnf</em> sa avem optiunea <strong>server-id = 2</strong> (diferita de 0 care e default sau 1 care e masterul).<br />
 In prima faza facem baza de date:</p>
-<pre>CREATE DATABASE linuxtmdb;</pre>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">linuxtmdb</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p>Iesim din MySQL si importam baza de date (la care am facut dump pe serverul principal):</p>
-<pre>mysql -u root linuxtmdb &lt; linuxtmdb.sql</pre>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql <span class="nt">-u</span> root linuxtmdb &lt; linuxtmdb.sql
+</code></pre></div></div>
 
 <p>Acum trebuie sa definim master-ul, astfel incat MySQL sa stie unde sa se conecteze pentru a face replicarea. Aici ne este de folos informatia afisata de <em>SHOW MASTER STATUS;</em> de mai devreme - inlocuim valorile de la <em>MASTER_LOG_FILE</em> si <em>MASTER_LOG_POS</em> cu cele afisate.</p>
 
-<pre>CHANGE MASTER TO MASTER_HOST='IP',MASTER_USER='replication', MASTER_PASSWORD='pass', MASTER_LOG_FILE='mysql-bin.000003', MASTER_LOG_POS= 289399;</pre>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CHANGE</span> <span class="n">MASTER</span> <span class="k">TO</span> <span class="n">MASTER_HOST</span><span class="o">=</span><span class="s1">'IP'</span><span class="p">,</span><span class="n">MASTER_USER</span><span class="o">=</span><span class="s1">'replication'</span><span class="p">,</span> <span class="n">MASTER_PASSWORD</span><span class="o">=</span><span class="s1">'pass'</span><span class="p">,</span> <span class="n">MASTER_LOG_FILE</span><span class="o">=</span><span class="s1">'mysql-bin.000003'</span><span class="p">,</span> <span class="n">MASTER_LOG_POS</span><span class="o">=</span> <span class="mi">289399</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p>Pornim slave-ul si verificam daca totul este in regula:</p>
-<pre>start slave;</pre>
-<pre>show slave status \G;</pre>
-
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">start</span> <span class="n">slave</span><span class="p">;</span>
+<span class="k">show</span> <span class="n">slave</span> <span class="n">status</span> <span class="err">\</span><span class="k">G</span><span class="p">;</span>
+</code></pre></div></div>
 <p>Daca totul a decurs normal, nu veti vedea nici o eroare si acum orice modificari in baza de date pe serverul principal (Master) vor fi imediat vizibile si pe Slave.</p>
 
 

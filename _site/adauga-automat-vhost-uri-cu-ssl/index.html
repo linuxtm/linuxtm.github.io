@@ -87,109 +87,104 @@
   <article class="post-content">
     <p>Daca data trecuta am prezentat un script care [adauga automat vhost-uri][1], de data asta va prezint scriptul care adauga automat vhosturi si genereaza certificat SSL self signed. Aceast script este util in cazul in care serverul tau nu are panou de control gen cPanel, DirectAdmin, Plesk, etc. Scriptul se executa in acelasi fel ca cel care adauga doar vhost-uri, adica prin executarea comenzii: . vhost-ssl.sh domeniu.tld sau . vhost-ssl.sh subdomeniu.domeniu.tld</p>
 
-<pre>
-#!/bin/bash  
-#  
-\# This script is released under CC BY-SA copyright terms.  
-#
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash   </span>
 
-vhost=$1  
-if [[ -z &#8220;$vhost&#8221; ]]; then  
-echo &#8220;Usage bash vhost.sh domain.tld or sub.domain.tld&#8221;  
-exit 1;  
-else  
-echo &#8220;Your domain is $vhost&#8221;  
-fi
+<span class="nv">vhost</span><span class="o">=</span><span class="nv">$1</span>  
+<span class="k">if</span> <span class="o">[[</span> <span class="nt">-z</span> &amp;#8220<span class="p">;</span><span class="nv">$vhost</span>&amp;#8221<span class="p">;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then  
+</span><span class="nb">echo</span> &amp;#8220<span class="p">;</span>Usage bash vhost.sh domain.tld or sub.domain.tld&amp;#8221<span class="p">;</span>  
+<span class="nb">exit </span>1<span class="p">;</span>  
+<span class="k">else  
+</span><span class="nb">echo</span> &amp;#8220<span class="p">;</span>Your domain is <span class="nv">$vhost</span>&amp;#8221<span class="p">;</span>  
+<span class="k">fi
 
-echo &#8220;Please enter the IP address on which the SSL cert will be installed&#8221;  
-echo &#8220;if none entered, the script will configure the vhost with the default&#8221;  
-echo &#8220;IP address on which the apache webserver is running!&#8221;  
-read -p &#8220;Enter IP address or hit Enter to contiune &gt; &#8221; IP
+</span><span class="nb">echo</span> &amp;#8220<span class="p">;</span>Please enter the IP address on which the SSL cert will be installed&amp;#8221<span class="p">;</span>  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span><span class="k">if </span>none entered, the script will configure the vhost with the default&amp;#8221<span class="p">;</span>  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>IP address on which the apache webserver is running!&amp;#8221<span class="p">;</span>  
+<span class="nb">read</span> <span class="nt">-p</span> &amp;#8220<span class="p">;</span>Enter IP address or hit Enter to contiune <span class="o">&gt;</span> &amp;#8221<span class="p">;</span> IP
 
-if [[ $IP &lt; 1 ]] ; then  
-host=&#8221;*&#8221;  
-else  
-host=$IP  
-fi
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$IP</span> &lt; 1 <span class="o">]]</span> <span class="p">;</span> <span class="k">then  
+</span><span class="nv">host</span><span class="o">=</span>&amp;#8221<span class="p">;</span><span class="k">*</span>&amp;#8221<span class="p">;</span>  
+<span class="k">else  
+</span><span class="nv">host</span><span class="o">=</span><span class="nv">$IP</span>  
+<span class="k">fi
 
-mkdir /var/www/$vhost  
-mkdir /var/www/$vhost/htdocs  
-mkdir /var/www/$vhost/cgi-bin  
-mkdir /var/www/$vhost/logs  
-mkdir /var/www/$vhost/ssl-cert  
+</span><span class="nb">mkdir</span> /var/www/<span class="nv">$vhost</span>  
+<span class="nb">mkdir</span> /var/www/<span class="nv">$vhost</span>/htdocs  
+<span class="nb">mkdir</span> /var/www/<span class="nv">$vhost</span>/cgi-bin  
+<span class="nb">mkdir</span> /var/www/<span class="nv">$vhost</span>/logs  
+<span class="nb">mkdir</span> /var/www/<span class="nv">$vhost</span>/ssl-cert  
 a2enmod ssl  
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /var/www/$vhost/ssl-cert/$vhost.key -out /var/www/$vhost/ssl-cert/$vhost.crt
+openssl req <span class="nt">-x509</span> <span class="nt">-nodes</span> <span class="nt">-days</span> 365 <span class="nt">-newkey</span> rsa:2048 <span class="nt">-keyout</span> /var/www/<span class="nv">$vhost</span>/ssl-cert/<span class="nv">$vhost</span>.key <span class="nt">-out</span> /var/www/<span class="nv">$vhost</span>/ssl-cert/<span class="nv">$vhost</span>.crt
 
-if [ ! -f /etc/apache2/conf.d/virtual.conf ]; then  
-mkdir /var/www/default  
-touch /etc/apache2/conf.d/virtual.conf  
-echo &#8220;#&#8221; &gt; /etc/apache2/conf.d/virtual.conf  
-echo &#8220;# We&#8217;re running multiple virtual hosts.&#8221; &gt;&gt; /etc/apache2/conf.d/virtual.conf  
-echo &#8220;#&#8221; &gt;&gt; /etc/apache2/conf.d/virtual.conf  
-echo &#8220;&lt;VirtualHost *:80&gt;&#8221; &gt;&gt; /etc/apache2/conf.d/virtual.conf  
-echo -e &#8220;\tServerAdmin root@localhost&#8221; &gt;&gt; /etc/apache2/conf.d/virtual.conf  
-echo -e &#8220;\tDocumentRoot /var/www/default&#8221; &gt;&gt; /etc/apache2/conf.d/virtual.conf  
-echo &#8220;&lt;/VirtualHost&gt;&#8221; &gt;&gt; /etc/apache2/conf.d/virtual.conf  
-fi
+<span class="k">if</span> <span class="o">[</span> <span class="o">!</span> <span class="nt">-f</span> /etc/apache2/conf.d/virtual.conf <span class="o">]</span><span class="p">;</span> <span class="k">then  
+</span><span class="nb">mkdir</span> /var/www/default  
+<span class="nb">touch</span> /etc/apache2/conf.d/virtual.conf  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span><span class="c">#&amp;#8221; &gt; /etc/apache2/conf.d/virtual.conf  </span>
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span><span class="c"># We&amp;#8217;re running multiple virtual hosts.&amp;#8221; &gt;&gt; /etc/apache2/conf.d/virtual.conf  </span>
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span><span class="c">#&amp;#8221; &gt;&gt; /etc/apache2/conf.d/virtual.conf  </span>
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;VirtualHost <span class="k">*</span>:80&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/conf.d/virtual.conf  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>ServerAdmin root@localhost&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/conf.d/virtual.conf  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>DocumentRoot /var/www/default&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/conf.d/virtual.conf  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;/VirtualHost&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/conf.d/virtual.conf  
+<span class="k">fi
 
-echo &#8220;#&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo &#8220;# $vhost (/etc/apache2/sites-available/$vhost)&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo &#8220;#&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo &#8220;<IfModule mod_ssl.c="">&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo &#8220;&lt;VirtualHost $host:443&gt;&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\tServerAdmin admin@$vhost&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\tServerName $vhost:443&#8243; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\tServerAlias www.$vhost:443&#8243; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo &#8220;&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\t# Indexes + Directory Root.&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\tDirectoryIndex index.php index.html&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\tDocumentRoot /var/www/$vhost/htdocs/&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo &#8220;&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\t# CGI Directory&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\tScriptAlias /cgi-bin/ /var/www/$vhost/cgi-bin/&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\t&lt;Location /cgi-bin&gt;&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\t\tOptions +ExecCGI&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\t&lt;/Location&gt;&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo &#8220;&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\t# Logfiles&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\tErrorLog /var/www/$vhost/logs/error.log&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\tCustomLog /var/www/$vhost/logs/access.log combined&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo &#8220;&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\t&lt;FilesMatch \&#8221;\.(cgi|shtml|phtml|php)$\&#8221;&gt;&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\t\tSSLOptions +StdEnvVars&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\t&lt;/FilesMatch&gt;&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\t&lt;Directory /usr/lib/cgi-bin&gt;&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\t\tSSLOptions +StdEnvVars&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\t&lt;/Directory&gt;&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\tBrowserMatch \&#8221;MSIE [2-6]\&#8221; \\&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\t\tnokeepalive ssl-unclean-shutdown \\&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\t\tdowngrade-1.0 force-response-1.0&#8243; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\tBrowserMatch \&#8221;MSIE [17-9]\&#8221; ssl-unclean-shutdown&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\tSSLEngine on&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\tSSLCertificateFile /var/www/$vhost/ssl-cert/$vhost.crt&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo -e &#8220;\tSSLCertificateKeyFile /var/www/$vhost/ssl-cert/$vhost.key&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo &#8220;&lt;/VirtualHost&gt;&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  
-echo &#8220;</IfModule>&#8221; &gt;&gt; /etc/apache2/sites-available/$vhost
+</span><span class="nb">echo</span> &amp;#8220<span class="p">;</span><span class="c">#&amp;#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  </span>
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span><span class="c"># $vhost (/etc/apache2/sites-available/$vhost)&amp;#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  </span>
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span><span class="c">#&amp;#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  </span>
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;IfModule mod_ssl.c&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;VirtualHost <span class="nv">$host</span>:443&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>ServerAdmin admin@<span class="nv">$vhost</span>&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>ServerName <span class="nv">$vhost</span>:443&amp;#8243<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>ServerAlias www.<span class="nv">$vhost</span>:443&amp;#8243<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span><span class="c"># Indexes + Directory Root.&amp;#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  </span>
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>DirectoryIndex index.php index.html&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>DocumentRoot /var/www/<span class="nv">$vhost</span>/htdocs/&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span><span class="c"># CGI Directory&amp;#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  </span>
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>ScriptAlias /cgi-bin/ /var/www/<span class="nv">$vhost</span>/cgi-bin/&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>&lt;Location /cgi-bin&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t\t</span>Options +ExecCGI&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>&lt;/Location&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span><span class="c"># Logfiles&amp;#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  </span>
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>ErrorLog /var/www/<span class="nv">$vhost</span>/logs/error.log&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>CustomLog /var/www/<span class="nv">$vhost</span>/logs/access.log combined&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>&lt;FilesMatch <span class="se">\&amp;</span><span class="c">#8221;\.(cgi|shtml|phtml|php)$\&amp;#8221;&gt;&amp;#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  </span>
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t\t</span>SSLOptions +StdEnvVars&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>&lt;/FilesMatch&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>&lt;Directory /usr/lib/cgi-bin&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t\t</span>SSLOptions +StdEnvVars&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>&lt;/Directory&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>BrowserMatch <span class="se">\&amp;</span><span class="c">#8221;MSIE [2-6]\&amp;#8221; \\&amp;#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  </span>
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t\t</span>nokeepalive ssl-unclean-shutdown <span class="se">\\</span>&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t\t</span>downgrade-1.0 force-response-1.0&amp;#8243<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>BrowserMatch <span class="se">\&amp;</span><span class="c">#8221;MSIE [17-9]\&amp;#8221; ssl-unclean-shutdown&amp;#8221; &gt;&gt; /etc/apache2/sites-available/$vhost  </span>
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>SSLEngine on&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>SSLCertificateFile /var/www/<span class="nv">$vhost</span>/ssl-cert/<span class="nv">$vhost</span>.crt&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> <span class="nt">-e</span> &amp;#8220<span class="p">;</span><span class="se">\t</span>SSLCertificateKeyFile /var/www/<span class="nv">$vhost</span>/ssl-cert/<span class="nv">$vhost</span>.key&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;/VirtualHost&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;/IfModule&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /etc/apache2/sites-available/<span class="nv">$vhost</span>
 
-#generating a new index file  
-echo &#8220;&lt;html xmlns=\&#8221;http://www.w3.org/1999/xhtml\&#8221; xml:lang=\&#8221;en\&#8221; lang=\&#8221;en\&#8221;&gt;<head>&#8221; &gt; /var/www/$vhost/htdocs/index.html  
-echo &#8220;<title>$vhost &mdash; Coming Soon</title>&#8221; &gt;&gt; /var/www/$vhost/htdocs/index.html  
-echo &#8220;&lt;meta http-equiv=\&#8221;Content-Type\&#8221; content=\&#8221;text/html; charset=UTF-8\&#8221;/&gt;&#8221; &gt;&gt; /var/www/$vhost/htdocs/index.html  
-echo &#8220;&lt;meta name=\&#8221;description\&#8221; content=\&#8221;This is a default index page for a new domain.\&#8221;/&gt;&#8221; &gt;&gt; /var/www/$vhost/htdocs/index.html  
-echo &#8220;&lt;style type=\&#8221;text/css\&#8221;&gt;&#8221; &gt;&gt; /var/www/$vhost/htdocs/index.html  
-echo &#8220;<center>h1 {font-size:64px; color:#555555; margin: 70px 0 50px 0;}<center>&#8221; &gt;&gt; /var/www/$vhost/htdocs/index.html  
-echo &#8220;&lt;/style&gt;&#8221; &gt;&gt; /var/www/$vhost/htdocs/index.html  
-echo &#8220;&lt;/head&gt;&#8221; &gt;&gt; /var/www/$vhost/htdocs/index.html  
-echo &#8220;<body>&#8221; &gt;&gt; /var/www/$vhost/htdocs/index.html  
-echo &#8220;<h1>$vhost</h1>&#8221; &gt;&gt; /var/www/$vhost/htdocs/index.html  
-echo &#8220;</body>&#8221; &gt;&gt; /var/www/$vhost/htdocs/index.html  
-echo &#8220;&lt;/html&gt;&#8221; &gt;&gt; /var/www/$vhost/htdocs/index.html
+<span class="c">#generating a new index file  </span>
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;html <span class="nv">xmlns</span><span class="o">=</span><span class="se">\&amp;</span><span class="c">#8221;http://www.w3.org/1999/xhtml\&amp;#8221; xml:lang=\&amp;#8221;en\&amp;#8221; lang=\&amp;#8221;en\&amp;#8221;&gt;&lt;head&gt;&amp;#8221; &gt; /var/www/$vhost/htdocs/index.html  </span>
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;title&gt;<span class="nv">$vhost</span> &amp;mdash<span class="p">;</span> Coming Soon&lt;/title&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /var/www/<span class="nv">$vhost</span>/htdocs/index.html  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;meta http-equiv<span class="o">=</span><span class="se">\&amp;</span><span class="c">#8221;Content-Type\&amp;#8221; content=\&amp;#8221;text/html; charset=UTF-8\&amp;#8221;/&gt;&amp;#8221; &gt;&gt; /var/www/$vhost/htdocs/index.html  </span>
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;meta <span class="nv">name</span><span class="o">=</span><span class="se">\&amp;</span><span class="c">#8221;description\&amp;#8221; content=\&amp;#8221;This is a default index page for a new domain.\&amp;#8221;/&gt;&amp;#8221; &gt;&gt; /var/www/$vhost/htdocs/index.html  </span>
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;style <span class="nb">type</span><span class="o">=</span><span class="se">\&amp;</span><span class="c">#8221;text/css\&amp;#8221;&gt;&amp;#8221; &gt;&gt; /var/www/$vhost/htdocs/index.html  </span>
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;center&gt;h1 <span class="o">{</span>font-size:64px<span class="p">;</span> color:#555555<span class="p">;</span> margin: 70px 0 50px 0<span class="p">;</span><span class="o">}</span>&lt;center&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /var/www/<span class="nv">$vhost</span>/htdocs/index.html  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;/style&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /var/www/<span class="nv">$vhost</span>/htdocs/index.html  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;/head&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /var/www/<span class="nv">$vhost</span>/htdocs/index.html  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;body&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /var/www/<span class="nv">$vhost</span>/htdocs/index.html  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;h1&gt;<span class="nv">$vhost</span>&lt;/h1&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /var/www/<span class="nv">$vhost</span>/htdocs/index.html  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;/body&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /var/www/<span class="nv">$vhost</span>/htdocs/index.html  
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>&lt;/html&gt;&amp;#8221<span class="p">;</span> <span class="o">&gt;&gt;</span> /var/www/<span class="nv">$vhost</span>/htdocs/index.html
 
-a2ensite $vhost  
+a2ensite <span class="nv">$vhost</span>  
 /etc/init.d/apache2 reload  
-echo &#8220;Your website $vhost is up and running&#8221;
-&lt;/pre&gt;
-</center></center></head></pre>
+<span class="nb">echo</span> &amp;#8220<span class="p">;</span>Your website <span class="nv">$vhost</span> is up and running&amp;#8221<span class="p">;</span>
+</code></pre></div></div>
 
   </article>
 

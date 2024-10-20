@@ -89,17 +89,18 @@
 
 <p>Formula dupa care calculam este urmatoarea:</p>
 
-<pre>[Total RAM Disponibil] - [RAM Rezervat] - [10% buffer] = [RAM disponibil pentru PHP]</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>Total RAM Disponibil] - <span class="o">[</span>RAM Rezervat] - <span class="o">[</span>10% buffer] <span class="o">=</span> <span class="o">[</span>RAM disponibil pentru PHP]
+</code></pre></div></div>
 
 <p>Rezultatul:</p>
-<pre>[RAM disponibil pentru PHP] / [Dimensiunea Medie a unui Proces] = [max_children]</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>RAM disponibil pentru PHP] / <span class="o">[</span>Dimensiunea Medie a unui Proces] <span class="o">=</span> <span class="o">[</span>max_children]
+</code></pre></div></div>
 
-<pre>
-pm.max_children = [max_children]
-pm.start_servers = [25% din max_children]
-pm.min_spare_servers = [25% din max_children]
-pm.max_spare_servers = [75% din max_children]
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pm.max_children <span class="o">=</span> <span class="o">[</span>max_children]
+pm.start_servers <span class="o">=</span> <span class="o">[</span>25% din max_children]
+pm.min_spare_servers <span class="o">=</span> <span class="o">[</span>25% din max_children]
+pm.max_spare_servers <span class="o">=</span> <span class="o">[</span>75% din max_children]
+</code></pre></div></div>
 
   </article>
 

@@ -87,37 +87,36 @@
   <article class="post-content">
     <p>Exemplu elementar de virtualhost Apache cu SSL</p>
 
-<pre>
-&lt;VirtualHost *:443&gt;
-    DocumentRoot "/var/www/html/domain/"
-    ServerName domain.com
-    ServerAlias domain.com
-    LogLevel error
-    ErrorLog logs/domain-ssl-error_log
-    CustomLog logs/domain-ssl-access_log combined
-    SSLEngine on
-    SSLCertificateFile "/etc/httpd/conf/cert/domain.com.crt"
-    SSLCertificateChainFile "/etc/httpd/conf/cert/domain-bundle.crt"
-    SSLCertificateKeyFile "/etc/httpd/conf/sslkey/domain.key"
-    SSLCipherSuite ALL:-ADH:+HIGH:!MEDIUM:!LOW:!SSLv2:!EXP
+<div class="language-apache highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="nl">VirtualHost</span><span class="sr"> *:443</span><span class="p">&gt;
+</span>    <span class="nc">DocumentRoot</span> "/var/www/html/domain/"
+    <span class="nc">ServerName</span> domain.com
+    <span class="nc">ServerAlias</span> domain.com
+    <span class="nc">LogLevel</span> <span class="ss">error</span>
+    <span class="nc">ErrorLog</span> logs/domain-ssl-error_log
+    <span class="nc">CustomLog</span> logs/domain-ssl-access_log combined
+    <span class="nc">SSLEngine</span> <span class="ss">on</span>
+    <span class="nc">SSLCertificateFile</span> "/etc/httpd/conf/cert/domain.com.crt"
+    <span class="nc">SSLCertificateChainFile</span> "/etc/httpd/conf/cert/domain-bundle.crt"
+    <span class="nc">SSLCertificateKeyFile</span> "/etc/httpd/conf/sslkey/domain.key"
+    <span class="nc">SSLCipherSuite</span> ALL:-ADH:+HIGH:!MEDIUM:!LOW:!SSLv2:!EXP
 	
-&lt;Directory "/var/www/html"&gt;
-    Options All -Indexes
-    AllowOverride All
-    Order allow,deny
-    Allow from all
-    #Order deny,allow
-    #Deny from all
-    #Allow from 127.22.0.0/16
-    #AuthType Basic
-    #AuthName "Access required"
-    #AuthUserFile /etc/httpd/user
-    #Require valid-user
-    #Satisfy any
-    DirectoryIndex index.html index.php
-&lt;/Directory&gt;
-&lt;/VirtualHost&gt;
-</pre>
+<span class="p">&lt;</span><span class="nl">Directory</span><span class="sr"> "/var/www/html"</span><span class="p">&gt;
+</span>    <span class="nc">Options</span> <span class="ss">All</span> -Indexes
+    <span class="nc">AllowOverride</span> <span class="ss">All</span>
+    <span class="nc">Order</span> allow,deny
+    <span class="nc">Allow</span> <span class="ss">from</span> <span class="ss">all</span>
+    <span class="c">#Order deny,allow</span>
+    <span class="c">#Deny from all</span>
+    <span class="c">#Allow from 127.22.0.0/16</span>
+    <span class="c">#AuthType Basic</span>
+    <span class="c">#AuthName "Access required"</span>
+    <span class="c">#AuthUserFile /etc/httpd/user</span>
+    <span class="c">#Require valid-user</span>
+    <span class="c">#Satisfy any</span>
+    <span class="nc">DirectoryIndex</span> index.html index.php
+<span class="err">/</span><span class="nc">Directory</span>&gt;
+<span class="err">/</span><span class="nc">VirtualHost</span>&gt;
+</code></pre></div></div>
 
   </article>
 

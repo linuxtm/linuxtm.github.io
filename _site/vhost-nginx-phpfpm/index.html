@@ -88,101 +88,100 @@
     <p>Exemplu de virtual host Nginx cu php-fpm, ssl, compresie gzip si forward IP real in caz ca suntem in spatele unui proxy.
 De asemenea, configul contine si un exemplu de basic auth.</p>
 
-<pre>
-#
-# A virtual host using mix of IP-, name-, and port-based configuration
-#
+<div class="language-nginx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#</span>
+<span class="c1"># A virtual host using mix of IP-, name-, and port-based configuration</span>
+<span class="c1">#</span>
 
-server {
-    listen       80;
-    server_name  test.com www.test.com;
-    #Redirect to https
-    return 301 https://test.com$request_uri;
-}
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>       <span class="mi">80</span><span class="p">;</span>
+    <span class="kn">server_name</span>  <span class="s">test.com</span> <span class="s">www.test.com</span><span class="p">;</span>
+    <span class="c1">#Redirect to https</span>
+    <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://test.com</span><span class="nv">$request_uri</span><span class="p">;</span>
+<span class="p">}</span>
 
-#HTTPS Vhost
-server {
-    listen       443 ssl;
-    server_name  test.com;
-    root         /var/www/html;
-    index  index.php;
-    access_log  /var/log/nginx/test-access.log  main;
-    error_log   /var/log/nginx/test-error.log;
-    ssl_certificate      /etc/certs/test.com.crt;
-    ssl_certificate_key  /etc/certs/test.com.key;
-    ssl_session_cache shared:SSL:1m;
-    ssl_session_timeout  10m;
-    ssl_ciphers HIGH:!aNULL:!MD5;
-    ssl_prefer_server_ciphers on;
+<span class="c1">#HTTPS Vhost</span>
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>       <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span>
+    <span class="kn">server_name</span>  <span class="s">test.com</span><span class="p">;</span>
+    <span class="kn">root</span>         <span class="n">/var/www/html</span><span class="p">;</span>
+    <span class="kn">index</span>  <span class="s">index.php</span><span class="p">;</span>
+    <span class="kn">access_log</span>  <span class="n">/var/log/nginx/test-access.log</span>  <span class="s">main</span><span class="p">;</span>
+    <span class="kn">error_log</span>   <span class="n">/var/log/nginx/test-error.log</span><span class="p">;</span>
+    <span class="kn">ssl_certificate</span>      <span class="n">/etc/certs/test.com.crt</span><span class="p">;</span>
+    <span class="kn">ssl_certificate_key</span>  <span class="n">/etc/certs/test.com.key</span><span class="p">;</span>
+    <span class="kn">ssl_session_cache</span> <span class="s">shared:SSL:1m</span><span class="p">;</span>
+    <span class="kn">ssl_session_timeout</span>  <span class="mi">10m</span><span class="p">;</span>
+    <span class="kn">ssl_ciphers</span> <span class="s">HIGH:!aNULL:!MD5</span><span class="p">;</span>
+    <span class="kn">ssl_prefer_server_ciphers</span> <span class="no">on</span><span class="p">;</span>
     
-    #PHP-FPM    
-    location ~ \.php$ {
-    fastcgi_pass 127.0.0.1:9000;
-    try_files $uri =404;
-    fastcgi_index index.php;
-    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    include fastcgi_params;
-    #Set custom php values
-    fastcgi_param PHP_VALUE max_execution_time=180;
-    fastcgi_param PHP_VALUE max_input_vars=1600;
+    <span class="c1">#PHP-FPM    </span>
+    <span class="kn">location</span> <span class="p">~</span> <span class="sr">\.php$</span> <span class="p">{</span>
+    <span class="kn">fastcgi_pass</span> <span class="nf">127.0.0.1</span><span class="p">:</span><span class="mi">9000</span><span class="p">;</span>
+    <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="p">=</span><span class="mi">404</span><span class="p">;</span>
+    <span class="kn">fastcgi_index</span> <span class="s">index.php</span><span class="p">;</span>
+    <span class="kn">fastcgi_param</span> <span class="s">SCRIPT_FILENAME</span> <span class="nv">$document_root$fastcgi_script_name</span><span class="p">;</span>
+    <span class="kn">include</span> <span class="s">fastcgi_params</span><span class="p">;</span>
+    <span class="c1">#Set custom php values</span>
+    <span class="kn">fastcgi_param</span> <span class="s">PHP_VALUE</span> <span class="s">max_execution_time=180</span><span class="p">;</span>
+    <span class="kn">fastcgi_param</span> <span class="s">PHP_VALUE</span> <span class="s">max_input_vars=1600</span><span class="p">;</span>
     
-#Set expires
-location ~* \.(htm|css|js|txt|swf|asf|asx|wax|wmv|wmx|avi|bmp|class|divx|doc|docx|eot|exe|gz|gzip|ico|png|gif|jpg|jpeg|jpe|mdb|mid|midi|mov|qt|mp3|m4a|mp4|m4v|mpeg|mpg|mpe|mpp|odb|odc|odf|odg|odp|ods|odt|ogg|ogv|webm|htc|ttf|woff2|woff)$ {
-    access_log off;
-    log_not_found off;
-    expires         1y;
-    add_header      Cache-Control "max-age=31536000, public";
-    add_header 'X-Frame-Options' 'ALLOW-FROM *';
-    add_header 'Access-Control-Allow-Origin' '*';
-    add_header 'Access-Control-Allow-Credentials' 'true';
-    add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-    add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
-    }
+<span class="c1">#Set expires</span>
+<span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="err">\</span><span class="s">.(htm|css|js|txt|swf|asf|asx|wax|wmv|wmx|avi|bmp|class|divx|doc|docx|eot|exe|gz|gzip|ico|png|gif|jpg|jpeg|jpe|mdb|mid|midi|mov|qt|mp3|m4a|mp4|m4v|mpeg|mpg|mpe|mpp|odb|odc|odf|odg|odp|ods|odt|ogg|ogv|webm|htc|ttf|woff2|woff)</span>$ <span class="p">{</span>
+    <span class="kn">access_log</span> <span class="no">off</span><span class="p">;</span>
+    <span class="kn">log_not_found</span> <span class="no">off</span><span class="p">;</span>
+    <span class="kn">expires</span>         <span class="s">1y</span><span class="p">;</span>
+    <span class="kn">add_header</span>      <span class="s">Cache-Control</span> <span class="s">"max-age=31536000,</span> <span class="s">public"</span><span class="p">;</span>
+    <span class="kn">add_header</span> <span class="s">'X-Frame-Options'</span> <span class="s">'ALLOW-FROM</span> <span class="s">*'</span><span class="p">;</span>
+    <span class="kn">add_header</span> <span class="s">'Access-Control-Allow-Origin'</span> <span class="s">'*'</span><span class="p">;</span>
+    <span class="kn">add_header</span> <span class="s">'Access-Control-Allow-Credentials'</span> <span class="s">'true'</span><span class="p">;</span>
+    <span class="kn">add_header</span> <span class="s">'Access-Control-Allow-Methods'</span> <span class="s">'GET,</span> <span class="s">POST,</span> <span class="s">OPTIONS'</span><span class="p">;</span>
+    <span class="kn">add_header</span> <span class="s">'Access-Control-Allow-Headers'</span> <span class="s">'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type'</span><span class="p">;</span>
+    <span class="p">}</span>
 
-#Enable gzip compression
-    gzip on;
-    gzip_types
-        application/atom+xml
-        application/javascript
-        application/json
-        application/rss+xml
-        application/vnd.ms-fontobject
-        application/x-javascript
-        application/x-font-ttf
-        application/x-web-app-manifest+json
-        application/xhtml+xml
-        application/xml
-        font/opentype
-        image/svg+xml
-        image/x-icon
-        text/css
-        text/plain
-        text/javascript
-        text/x-component;
+<span class="c1">#Enable gzip compression</span>
+    <span class="kn">gzip</span> <span class="no">on</span><span class="p">;</span>
+    <span class="kn">gzip_types</span>
+        <span class="nc">application/atom</span><span class="s">+xml</span>
+        <span class="nc">application/javascript</span>
+        <span class="nc">application/json</span>
+        <span class="nc">application/rss</span><span class="s">+xml</span>
+        <span class="nc">application/vnd</span><span class="s">.ms-fontobject</span>
+        <span class="nc">application/x-javascript</span>
+        <span class="nc">application/x-font-ttf</span>
+        <span class="nc">application/x-web-app-manifest</span><span class="s">+json</span>
+        <span class="nc">application/xhtml</span><span class="s">+xml</span>
+        <span class="nc">application/xml</span>
+        <span class="nc">font/opentype</span>
+        <span class="nc">image/svg</span><span class="s">+xml</span>
+        <span class="nc">image/x-icon</span>
+        <span class="nc">text/css</span>
+        <span class="nc">text/plain</span>
+        <span class="nc">text/javascript</span>
+        <span class="nc">text/x-component</span><span class="p">;</span>
 
-     }
+     <span class="p">}</span>
      
-# Forward real IP
-http {
-        charset             UTF-8;
-        set_real_ip_from   192.168.255.0/24;
-        real_ip_header     X-Forwarded-For;
-        real_ip_recursive  on;
+<span class="c1"># Forward real IP</span>
+<span class="kn">http</span> <span class="p">{</span>
+        <span class="kn">charset</span>             <span class="s">UTF-8</span><span class="p">;</span>
+        <span class="kn">set_real_ip_from</span>   <span class="mf">192.168</span><span class="s">.255.0/24</span><span class="p">;</span>
+        <span class="kn">real_ip_header</span>     <span class="s">X-Forwarded-For</span><span class="p">;</span>
+        <span class="kn">real_ip_recursive</span>  <span class="no">on</span><span class="p">;</span>
 
-}
+<span class="p">}</span>
 
-#Restrict access to IP / use auth
-#location / {
-#    satisfy any;
-#    allow 192.168.1.0/24;
-#    deny  all;
+<span class="c1">#Restrict access to IP / use auth</span>
+<span class="c1">#location / {</span>
+<span class="c1">#    satisfy any;</span>
+<span class="c1">#    allow 192.168.1.0/24;</span>
+<span class="c1">#    deny  all;</span>
 
-#    auth_basic           "closed site";
-#    auth_basic_user_file conf/htpasswd;
-#   }
+<span class="c1">#    auth_basic           "closed site";</span>
+<span class="c1">#    auth_basic_user_file conf/htpasswd;</span>
+<span class="c1">#   }</span>
 
-}
-</pre>
+<span class="p">}</span>
+</code></pre></div></div>
 
   </article>
 

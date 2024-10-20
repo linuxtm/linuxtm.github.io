@@ -91,7 +91,8 @@
 
 <p>In acest sens, lista de cozi o punem intr-un fisier text, si iteram prin fiecare linie cu ajutorul unui for.</p>
 
-<pre>for i in `cat cozi.txt`; do curl -k -i -XDELETE https://admin:pass@rabbitmq.mysite.com/api/queues/$i; done</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>i <span class="k">in</span> <span class="sb">`</span><span class="nb">cat </span>cozi.txt<span class="sb">`</span><span class="p">;</span> <span class="k">do </span>curl <span class="nt">-k</span> <span class="nt">-i</span> <span class="nt">-XDELETE</span> https://admin:pass@rabbitmq.mysite.com/api/queues/<span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div></div>
 
 <p>Exemplu fisier cozi.txt:</p>
 
@@ -103,12 +104,14 @@
 
 <p>Alternativ putem folosi comenzile de mai jos pentru a sterge cate o coada sau pentru a exporta lista de cozi intr-un fisier txt.</p>
 
-<pre>rabbitmqctl delete_queue queue1</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rabbitmqctl delete_queue queue1
+</code></pre></div></div>
 
-<pre>rabbitmqadmin delete queue name=queue1</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rabbitmqadmin delete queue <span class="nv">name</span><span class="o">=</span>queue1
+</code></pre></div></div>
 
-<pre>rabbitmqctl list_queues name &gt; list1.txt</pre>
-
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rabbitmqctl list_queues name <span class="o">&gt;</span> list1.txt
+</code></pre></div></div>
 
   </article>
 

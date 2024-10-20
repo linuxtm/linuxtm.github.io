@@ -87,30 +87,34 @@
   <article class="post-content">
     <p>Pentru distributii bazate pe Debian, se ruleaza urmatoarea comanda ca si root:</p>
 
-<pre>update-rc.d nume_serviciu defaults</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>update-rc.d nume_serviciu defaults
+</code></pre></div></div>
 
 <p>Pentru CentOS si RedHat se ruleaza ca si root:</p>
 
-<pre>chkconfig nume_serviciu on</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chkconfig nume_serviciu on
+</code></pre></div></div>
 
 <p>Daca pe CentOS / RedHat primiti urmatoarea eroare de la Apache:</p>
 
-<pre>Apache: service httpd does not support chkconfig</pre>
+<p><em>Apache: service httpd does not support chkconfig</em></p>
 
 <p>Trebuie adaugat in /etc/init.d/httpd urmatoarele:</p>
 
-<pre># Startup script for the Apache Web Server
-#
-# chkconfig: - 85 15
-# description: Apache is a World Wide Web server. It is used to serve
-# HTML files and CGI.
-# processname: httpd
-# pidfile: /usr/local/apache/logs/httpd.pid
-# config: /usr/local/apache/conf/httpd.conf</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Startup script for the Apache Web Server</span>
+<span class="c">#</span>
+<span class="c"># chkconfig: - 85 15</span>
+<span class="c"># description: Apache is a World Wide Web server. It is used to serve</span>
+<span class="c"># HTML files and CGI.</span>
+<span class="c"># processname: httpd</span>
+<span class="c"># pidfile: /usr/local/apache/logs/httpd.pid</span>
+<span class="c"># config: /usr/local/apache/conf/httpd.conf </span>
+</code></pre></div></div>
 
 <p>Pentru a preveni un serviciu sa porneasca la boot, pe distributii bazate pe Debian se ruleaza:</p>
 
-<pre>update-rc.d nume_serviciu disable</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>update-rc.d nume_serviciu disable
+</code></pre></div></div>
 
 <p>Pentru celelalte distributii este evident (in loc de “on” punem “off”).</p>
 

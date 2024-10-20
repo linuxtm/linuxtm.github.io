@@ -87,25 +87,30 @@
   <article class="post-content">
     <p>Pentru a afla ce versiune (distributie) de Linux folosim, rulam urmatoarea comanda:</p>
 
-<pre>cat /etc/*release</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /etc/<span class="k">*</span>release
+</code></pre></div></div>
 
 <p>Comanda <em>lsb_release</em><br />
 Aceasta comanda afiseaza anumite LSB-uri (Linux Standard Base) si informatii legate strict de distributia pe care o folosim. Se ruleaza urmatoarea comanda:</p>
 
-<pre>lsb_release -a</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsb_release <span class="nt">-a</span>
+</code></pre></div></div>
 
 <p>Cum aflam ce versiune de kernel folosim ?<br />
 Rulam urmatoarea comanda:</p>
 
-<pre>uname -a</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">uname</span> <span class="nt">-a</span>
+</code></pre></div></div>
 
 <p>sau</p>
 
-<pre>uname -mrs</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">uname</span> <span class="nt">-mrs</span>
+</code></pre></div></div>
 
 <p>Pentru informatii legate de kernel si GCC (GNU Compiler Collection), rulam:</p>
 
-<pre>cat /proc/version</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /proc/version
+</code></pre></div></div>
 
   </article>
 

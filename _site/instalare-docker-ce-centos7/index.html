@@ -86,27 +86,25 @@
 
   <article class="post-content">
     <p>One-Liner pentru usurinta:</p>
-<pre>
-wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installDockerCentos7.sh &amp;&amp; chmod +x installDockerCentos7.sh &amp;&amp; ./installDockerCentos7.sh
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installDockerCentos7.sh <span class="o">&amp;&amp;</span> <span class="nb">chmod</span> +x installDockerCentos7.sh <span class="o">&amp;&amp;</span> ./installDockerCentos7.sh
+</code></pre></div></div>
 
 <p>Sau copy-paste:</p>
-<pre>
-#!/bin/bash
-#More at https://linuxtm.ro
-set -e
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#More at https://linuxtm.ro</span>
+<span class="nb">set</span> <span class="nt">-e</span>
 
-yum install -y yum-utils device-mapper-persistent-data lvm2
-yum-config-manager -y --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum <span class="nb">install</span> <span class="nt">-y</span> yum-utils device-mapper-persistent-data lvm2
+yum-config-manager <span class="nt">-y</span> <span class="nt">--add-repo</span> https://download.docker.com/linux/centos/docker-ce.repo
 
-yum install -y docker-ce docker-ce-cli containerd.io
+yum <span class="nb">install</span> <span class="nt">-y</span> docker-ce docker-ce-cli containerd.io
 systemctl start docker
-systemctl enable docker
+systemctl <span class="nb">enable </span>docker
 
-#Install docker-compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-</pre>
+<span class="c">#Install docker-compose</span>
+<span class="nb">sudo </span>curl <span class="nt">-L</span> <span class="s2">"https://github.com/docker/compose/releases/download/1.27.4/docker-compose-</span><span class="si">$(</span><span class="nb">uname</span> <span class="nt">-s</span><span class="si">)</span><span class="s2">-</span><span class="si">$(</span><span class="nb">uname</span> <span class="nt">-m</span><span class="si">)</span><span class="s2">"</span> <span class="nt">-o</span> /usr/local/bin/docker-compose
+<span class="nb">chmod</span> +x /usr/local/bin/docker-compose
+</code></pre></div></div>
 
 <p>Instructiunile oficiale: <a href="https://docs.docker.com/engine/install/centos/">https://docs.docker.com/engine/install/centos/</a></p>
 

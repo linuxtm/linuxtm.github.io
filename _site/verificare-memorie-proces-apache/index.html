@@ -91,32 +91,28 @@ Astfel putem decide cata memorie vom permite Apache-ului sa folosesca - mai exac
 <p>Putem sa aflam cata memorie consuma un proces apache folosind comenzile de mai jos.</p>
 
 <p>Verificare utilizare memorie proces apache</p>
-<pre>
-ps aux | grep 'httpd' | awk '{print $6/1024 " MB";}'
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps aux | <span class="nb">grep</span> <span class="s1">'httpd'</span> | <span class="nb">awk</span> <span class="s1">'{print $6/1024 " MB";}'</span>
+</code></pre></div></div>
 
 <p>Aceeasi comanda, insa acum calculeaza utilizarea memoriei in medie per proces.</p>
-<pre>
-ps aux | grep 'httpd' | awk '{print $6/1024;}' | awk '{avg += ($1 - avg) / NR;} END {print avg " MB";}'
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps aux | <span class="nb">grep</span> <span class="s1">'httpd'</span> | <span class="nb">awk</span> <span class="s1">'{print $6/1024;}'</span> | <span class="nb">awk</span> <span class="s1">'{avg += ($1 - avg) / NR;} END {print avg " MB";}'</span>
+</code></pre></div></div>
 
 <p>Pentru optimizarea apache, se poate folosi scriptul <a href="https://github.com/richardforth/apache2buddy/blob/master/README.md">Apache2Buddy</a>, care ofera detalii amanuntite despre situatia apache-ului pe server in momentul testarii.</p>
-<pre>
-curl -sL https://raw.githubusercontent.com/richardforth/apache2buddy/master/apache2buddy.pl | perl
-</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-sL</span> https://raw.githubusercontent.com/richardforth/apache2buddy/master/apache2buddy.pl | perl
+</code></pre></div></div>
 
 <p><strong>Optimizare apache</strong></p>
 
 <p>Ca si formula de calcul impartim totalul de RAM (minus 10% - lasam 10% ram liber pentru sistem si alte procese) la consumul mediu de memorie a proceselor apache. Astfel obtinem valorile <strong>MaxClients/ServerLimit</strong>.</p>
 
 <p>Mai departe, calculam restul valorilor dupa cum urmeaza:</p>
-<pre>
-<strong>StartServers</strong> 30% din MaxClients
-<strong>MinSpareServers</strong> 5% din MaxClients
-<strong>MaxSpareServers</strong> 10% din MaxClients
-<strong>ServerLimit</strong> == MaxClients
-<strong>MaxConnectionsPerChild</strong> 2000
-</pre>
+<div class="language-apache highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span>strong<span class="p">&gt;</span><span class="nc">StartServers</span>&lt;/strong&gt; 30% din MaxClients
+<span class="p">&lt;</span>strong<span class="p">&gt;</span><span class="nc">MinSpareServers</span>&lt;/strong&gt; 5% din MaxClients
+<span class="p">&lt;</span>strong<span class="p">&gt;</span><span class="nc">MaxSpareServers</span>&lt;/strong&gt; 10% din MaxClients
+<span class="p">&lt;</span>strong<span class="p">&gt;</span><span class="nc">ServerLimit</span>&lt;/strong&gt; == MaxClients
+<span class="p">&lt;</span>strong<span class="p">&gt;</span><span class="nc">MaxConnectionsPerChild</span>&lt;/strong&gt; 2000
+</code></pre></div></div>
 
   </article>
 

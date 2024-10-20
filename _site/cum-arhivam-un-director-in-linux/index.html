@@ -88,7 +88,8 @@
     <p>Este destul de usor si folositor pentru a face backup unor fisiere, pentru a le trimite pe mail si asa mai departe.<br />
 Pentru a arhiva un director, trebuie sa folosim comanda <em>tar</em> cu sintaxa de mai jos:</p>
 
-<pre>tar -zcvf nume-arhiva.tar.gz nume-director</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-zcvf</span> nume-arhiva.tar.gz nume-director
+</code></pre></div></div>
 
 <p>Unde:<br />
 -z: Compreseaza arhiva folosind gzip<br />
@@ -98,24 +99,28 @@ Pentru a arhiva un director, trebuie sa folosim comanda <em>tar</em> cu sintaxa 
 
 <p>De exemplu, avem un director numit /home/linuxtm/documente si vrem sa il arhivam. Rulam comanda de mai jos:</p>
 
-<pre>tar -zcvf documente.tar.gz /home/linuxtm/documente</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-zcvf</span> documente.tar.gz /home/linuxtm/documente
+</code></pre></div></div>
 
 <p>Comanda de mai sus va crea o arhiva numita <em>documente.tar.gz</em> in directorul curent.</p>
 
 <p>De asemenea, putem crea o arhiva care sa includa in nume data de astazi:</p>
-<pre> tar cfz backup-$(date +%Y-%m-%d).tar.gz test/ </pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>cfz backup-<span class="si">$(</span><span class="nb">date</span> +%Y-%m-%d<span class="si">)</span>.tar.gz <span class="nb">test</span>/
+</code></pre></div></div>
 <p>Comanda de mai sus va arhiva directorul <em>test</em> intr-o arhiva numita numita <em>backup-</em> +data de azi (in cazul de fata: backup-2013-04-22.tar.gz)</p>
 
 <p>Daca vrem sa facem restore din arhiva (va dezarhiva in directorul curent), folosim urmatoarea comanda:</p>
 
-<pre>tar -zxvf documente.tar.gz</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-zxvf</span> documente.tar.gz
+</code></pre></div></div>
 
 <p>Unde:<br />
 -x: Extrage fisierele</p>
 
 <p>Daca dorim sa dezarhivam intr-un alt director, de exemplu in /root rulam comanda:</p>
 
-<pre>tar -zxvf documente.tar.gz -C /root</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-zxvf</span> documente.tar.gz <span class="nt">-C</span> /root
+</code></pre></div></div>
 
   </article>
 

@@ -87,29 +87,28 @@
   <article class="post-content">
     <p>Scriptul de mai jos genereaza parole care contin garantat: un caracter special, o litera mica, o litera mare.</p>
 
-<pre>
-#!/bin/bash
-#More at https://linuxtm.ro
-# Generate password that has guaranteed 1 lowecase, 1 uppercase, 1 special character, minimum 13 characters
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#More at https://linuxtm.ro</span>
+<span class="c"># Generate password that has guaranteed 1 lowecase, 1 uppercase, 1 special character, minimum 13 characters</span>
 
-function generatePass {
-choose() { echo ${1:RANDOM%${#1}:1} $RANDOM; }
-{
-    choose '!@#$&amp;'
-    choose '0123456789'
-    choose 'abcdefghijklmnopqrstuvwxyz'
-    choose 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    for i in $( seq 1 $(( 8 + RANDOM % 8 )) )
-    do
-        choose '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    done
+<span class="k">function </span>generatePass <span class="o">{</span>
+choose<span class="o">()</span> <span class="o">{</span> <span class="nb">echo</span> <span class="k">${</span><span class="nv">1</span>:RANDOM%<span class="k">${#</span><span class="nv">1</span><span class="k">}</span>:1<span class="k">}</span> <span class="nv">$RANDOM</span><span class="p">;</span> <span class="o">}</span>
+<span class="o">{</span>
+    choose <span class="s1">'!@#$&amp;'</span>
+    choose <span class="s1">'0123456789'</span>
+    choose <span class="s1">'abcdefghijklmnopqrstuvwxyz'</span>
+    choose <span class="s1">'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</span>
+    <span class="k">for </span>i <span class="k">in</span> <span class="si">$(</span> <span class="nb">seq </span>1 <span class="k">$((</span> <span class="m">8</span> <span class="o">+</span> RANDOM <span class="o">%</span> <span class="m">8</span> <span class="k">))</span> <span class="si">)</span>
+    <span class="k">do
+        </span>choose <span class="s1">'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'</span>
+    <span class="k">done</span>
 
-} | sort -R | awk '{printf "%s",$1}'
-echo ""
-}
+<span class="o">}</span> | <span class="nb">sort</span> <span class="nt">-R</span> | <span class="nb">awk</span> <span class="s1">'{printf "%s",$1}'</span>
+<span class="nb">echo</span> <span class="s2">""</span>
+<span class="o">}</span>
 
 generatePass
-</pre>
+</code></pre></div></div>
 
   </article>
 

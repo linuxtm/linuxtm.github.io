@@ -88,33 +88,39 @@
     <p>Sa zicem ca aveti de introdus niste parole in linia de comanda ca si argument la ceva. Nu e tocmai cea mai buna idee sa ramana salvate in ~/.bash_history dar nici nu dorim sa stergem fisierul.<br />
 In acest caz, dezactivam temporar (pentru sesiunea curenta) history-ul. Se poate face ruland comanda:</p>
 
-<pre>unset HISTFILE</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">unset </span>HISTFILE
+</code></pre></div></div>
 
 <p>In sesiunea curenta se poate accesa history-ul fara probleme dar nu va salva pe disk (nu va scrie in fisier). Alte sesiuni nu vor fi afectate, se vor comporta normal.</p>
 
 <p>Daca se doreste stergerea .bash_history, se poate face ruland:</p>
 
-<pre>rm ~/.bash_history</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rm</span> ~/.bash_history
+</code></pre></div></div>
 
 <p>Nota: La urmatoarea sesiune fisierul va fi creat din nou (automat).</p>
 
 <p>Variante alternative:</p>
 
-<p>– se deconecteaza de la sesiune fara a salva:</p>
+<p>se deconecteaza de la sesiune fara a salva:</p>
 
-<pre>unset HISTFILE &amp;&amp; exit</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">unset </span>HISTFILE <span class="o">&amp;&amp;</span> <span class="nb">exit</span>
+</code></pre></div></div>
 
-<p>– acelasi lucru, metoda diferita:</p>
+<p>acelasi lucru, metoda diferita:</p>
 
-<pre>kill -9 $$</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">kill</span> <span class="nt">-9</span> <span class="nv">$$</span>
+</code></pre></div></div>
 
-<p>– la fel ca si mai sus, metoda diferita:</p>
+<p>la fel ca si mai sus, metoda diferita:</p>
 
-<pre>HISTSIZE=0 &amp;&amp; exit</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">HISTSIZE</span><span class="o">=</span>0 <span class="o">&amp;&amp;</span> <span class="nb">exit</span>
+</code></pre></div></div>
 
-<p>– se deconecteaza si sterge tot history-ul:</p>
+<p>se deconecteaza si sterge tot history-ul:</p>
 
-<pre>history -c &amp;&amp; exit</pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">history</span> <span class="nt">-c</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span>
+</code></pre></div></div>
 
 <p>Daca vreti ca aceste comenzi sa fie permanente, pot fi adaugate in fisierul <em>~/.bash_logout</em> sau pot fi folosite cu aliasuri.<br />
 Pentru detalii suplimentare vezi comanda history <a href="http://linuxtm.ro/history/">aici.</a></p>
