@@ -1,5 +1,5 @@
 ---
-title: Script instalare Magento2 in AWS
+title: Script instalare Magento2 + dependinte
 author: linuxtm
 layout: post
 permalink: /script-instalare-automata-magento2-si-dependinte/
