@@ -27,6 +27,7 @@ Face urmatoarele:
 
 ```bash
 #!/bin/bash
+#More at https://linuxtm.ro
 set -e
 
 no=$(tput sgr0)

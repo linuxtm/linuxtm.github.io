@@ -17,6 +17,7 @@ tags:
 
 ```bash
 #!/bin/bash
+#More at https://linuxtm.ro
 #This script will install Magento 2 in AWS.
 #When the script finishes, you will get a summary of the installation (usernames, passwords, etc).
 #
