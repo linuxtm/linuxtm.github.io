@@ -739,6 +739,8 @@ afiseaza spatiul total utilizat de directorul curent
 afiseaza spatiul utilizat de fiecare fisier din directorul curent
 </td>
 </tr>
+<tr>
+<td>
 <strong>du -hs * | sort -h</strong>
 </td>
 <td>
