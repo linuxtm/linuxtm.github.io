@@ -15,6 +15,8 @@ tags:
   - script instalare docker ubuntu 18
 ---
 
+Scriptul de mai jos va adauga repo-ul Docker, cheia repo-ului si va instala Docker pe Ubuntu 18.04.
+
 One-Liner pentru usurinta:
 ```bash
 wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installDockerUbuntu18.sh && chmod +x installDockerUbuntu18.sh && ./installDockerUbuntu18.sh
