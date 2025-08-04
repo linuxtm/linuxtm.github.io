@@ -15,6 +15,8 @@ tags:
   - script instalare docker ubuntu 20
 ---
 
+Scriptul de mai jos va adauga repo-ul Docker, cheia repo-ului si va instala Docker pe Ubuntu 20.04.
+
 One-Liner pentru usurinta:
 ```bash
 wget https://raw.githubusercontent.com/linuxtm/linuxtm.github.io/master/scripturi/installDockerUbuntu20.sh && chmod +x installDockerUbuntu20.sh && ./installDockerUbuntu20.sh
